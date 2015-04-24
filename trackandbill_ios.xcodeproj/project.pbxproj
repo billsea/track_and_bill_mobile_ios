@@ -8,13 +8,91 @@
 
 /* Begin PBXBuildFile section */
 		A9167E2E1AEAC10D0071B992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E2D1AEAC10D0071B992 /* main.m */; };
-		A9167E311AEAC10D0071B992 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E301AEAC10D0071B992 /* AppDelegate.m */; };
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
 		A9167E371AEAC10E0071B992 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E361AEAC10E0071B992 /* ViewController.m */; };
 		A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9167E381AEAC10E0071B992 /* Main.storyboard */; };
 		A9167E3C1AEAC10E0071B992 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3B1AEAC10E0071B992 /* Images.xcassets */; };
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
+		A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */; };
+		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
+		A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */; };
+		A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */; };
+		A9DC4C841AEAFB8E00A00892 /* AppIcon-057.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */; };
+		A9DC4C851AEAFB8E00A00892 /* AppIcon-072.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */; };
+		A9DC4C861AEAFB8E00A00892 /* AppIcon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */; };
+		A9DC4C871AEAFB8E00A00892 /* AppIcon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0E1AEAFB8E00A00892 /* AppIcon-144.png */; };
+		A9DC4C881AEAFB8E00A00892 /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C101AEAFB8E00A00892 /* CGPDFDocument.m */; };
+		A9DC4C891AEAFB8E00A00892 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C121AEAFB8E00A00892 /* Client.m */; };
+		A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */; };
+		A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */; };
+		A9DC4C8C1AEAFB8E00A00892 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */; };
+		A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */; };
+		A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */; };
+		A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */; };
+		A9DC4C901AEAFB8E00A00892 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C1D1AEAFB8E00A00892 /* Invoice.m */; };
+		A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */; };
+		A9DC4C921AEAFB8E00A00892 /* InvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */; };
+		A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */; };
+		A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C231AEAFB8E00A00892 /* InvoiceTableViewController.xib */; };
+		A9DC4C951AEAFB8E00A00892 /* MaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C251AEAFB8E00A00892 /* MaterialsViewController.m */; };
+		A9DC4C961AEAFB8E00A00892 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C261AEAFB8E00A00892 /* MaterialsViewController.xib */; };
+		A9DC4C971AEAFB8E00A00892 /* MilageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C281AEAFB8E00A00892 /* MilageViewController.m */; };
+		A9DC4C981AEAFB8E00A00892 /* MilageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C291AEAFB8E00A00892 /* MilageViewController.xib */; };
+		A9DC4C991AEAFB8E00A00892 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C2B1AEAFB8E00A00892 /* Profile.m */; };
+		A9DC4C9A1AEAFB8E00A00892 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C2D1AEAFB8E00A00892 /* ProfileTableViewController.m */; };
+		A9DC4C9B1AEAFB8E00A00892 /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C2E1AEAFB8E00A00892 /* ProfileTableViewController.xib */; };
+		A9DC4C9E1AEAFB8E00A00892 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C331AEAFB8E00A00892 /* Project.m */; };
+		A9DC4C9F1AEAFB8E00A00892 /* ProjectsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C351AEAFB8E00A00892 /* ProjectsTableViewCell.m */; };
+		A9DC4CA01AEAFB8E00A00892 /* ProjectsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C361AEAFB8E00A00892 /* ProjectsTableViewCell.xib */; };
+		A9DC4CA11AEAFB8E00A00892 /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */; };
+		A9DC4CA21AEAFB8E00A00892 /* ProjectsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */; };
+		A9DC4CA31AEAFB8E00A00892 /* Reader-Button-H.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C3A1AEAFB8E00A00892 /* Reader-Button-H.png */; };
+		A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C3B1AEAFB8E00A00892 /* Reader-Button-H@2x.png */; };
+		A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C3C1AEAFB8E00A00892 /* Reader-Button-N.png */; };
+		A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C3D1AEAFB8E00A00892 /* Reader-Button-N@2x.png */; };
+		A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C3E1AEAFB8E00A00892 /* Reader-Email.png */; };
+		A9DC4CA81AEAFB8E00A00892 /* Reader-Email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C3F1AEAFB8E00A00892 /* Reader-Email@2x.png */; };
+		A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C401AEAFB8E00A00892 /* Reader-Mark-N.png */; };
+		A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C411AEAFB8E00A00892 /* Reader-Mark-N@2x.png */; };
+		A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C421AEAFB8E00A00892 /* Reader-Mark-Y.png */; };
+		A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C431AEAFB8E00A00892 /* Reader-Mark-Y@2x.png */; };
+		A9DC4CAD1AEAFB8E00A00892 /* Reader-Print.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C441AEAFB8E00A00892 /* Reader-Print.png */; };
+		A9DC4CAE1AEAFB8E00A00892 /* Reader-Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C451AEAFB8E00A00892 /* Reader-Print@2x.png */; };
+		A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C461AEAFB8E00A00892 /* Reader-Thumbs.png */; };
+		A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C471AEAFB8E00A00892 /* Reader-Thumbs@2x.png */; };
+		A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C491AEAFB8E00A00892 /* ReaderConstants.m */; };
+		A9DC4CB21AEAFB8E00A00892 /* ReaderContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C4B1AEAFB8E00A00892 /* ReaderContentPage.m */; };
+		A9DC4CB31AEAFB8E00A00892 /* ReaderContentTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C4D1AEAFB8E00A00892 /* ReaderContentTile.m */; };
+		A9DC4CB41AEAFB8E00A00892 /* ReaderContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C4F1AEAFB8E00A00892 /* ReaderContentView.m */; };
+		A9DC4CB51AEAFB8E00A00892 /* ReaderDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C511AEAFB8E00A00892 /* ReaderDocument.m */; };
+		A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C531AEAFB8E00A00892 /* ReaderMainPagebar.m */; };
+		A9DC4CB71AEAFB8E00A00892 /* ReaderMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C551AEAFB8E00A00892 /* ReaderMainToolbar.m */; };
+		A9DC4CB81AEAFB8E00A00892 /* ReaderThumbCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C571AEAFB8E00A00892 /* ReaderThumbCache.m */; };
+		A9DC4CB91AEAFB8E00A00892 /* ReaderThumbFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C591AEAFB8E00A00892 /* ReaderThumbFetch.m */; };
+		A9DC4CBA1AEAFB8E00A00892 /* ReaderThumbQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C5B1AEAFB8E00A00892 /* ReaderThumbQueue.m */; };
+		A9DC4CBB1AEAFB8E00A00892 /* ReaderThumbRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C5D1AEAFB8E00A00892 /* ReaderThumbRender.m */; };
+		A9DC4CBC1AEAFB8E00A00892 /* ReaderThumbRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C5F1AEAFB8E00A00892 /* ReaderThumbRequest.m */; };
+		A9DC4CBD1AEAFB8E00A00892 /* ReaderThumbsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C611AEAFB8E00A00892 /* ReaderThumbsView.m */; };
+		A9DC4CBE1AEAFB8E00A00892 /* ReaderThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C631AEAFB8E00A00892 /* ReaderThumbView.m */; };
+		A9DC4CBF1AEAFB8E00A00892 /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C651AEAFB8E00A00892 /* ReaderViewController.m */; };
+		A9DC4CC01AEAFB8E00A00892 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C671AEAFB8E00A00892 /* Session.m */; };
+		A9DC4CC11AEAFB8E00A00892 /* SessionDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C691AEAFB8E00A00892 /* SessionDetailTableViewController.m */; };
+		A9DC4CC21AEAFB8E00A00892 /* SessionDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C6A1AEAFB8E00A00892 /* SessionDetailTableViewController.xib */; };
+		A9DC4CC31AEAFB8E00A00892 /* SessionNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */; };
+		A9DC4CC41AEAFB8E00A00892 /* SessionNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */; };
+		A9DC4CC51AEAFB8E00A00892 /* SessionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C6F1AEAFB8E00A00892 /* SessionsTableViewCell.m */; };
+		A9DC4CC61AEAFB8E00A00892 /* SessionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C701AEAFB8E00A00892 /* SessionsTableViewCell.xib */; };
+		A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C721AEAFB8E00A00892 /* SessionsTableViewController.m */; };
+		A9DC4CC81AEAFB8E00A00892 /* SessionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C731AEAFB8E00A00892 /* SessionsTableViewController.xib */; };
+		A9DC4CC91AEAFB8E00A00892 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C751AEAFB8E00A00892 /* SessionViewController.m */; };
+		A9DC4CCA1AEAFB8E00A00892 /* SessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C761AEAFB8E00A00892 /* SessionViewController.xib */; };
+		A9DC4CCB1AEAFB8E00A00892 /* TextInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */; };
+		A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */; };
+		A9DC4CCD1AEAFB8E00A00892 /* ThumbsMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C7B1AEAFB8E00A00892 /* ThumbsMainToolbar.m */; };
+		A9DC4CCE1AEAFB8E00A00892 /* ThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C7D1AEAFB8E00A00892 /* ThumbsViewController.m */; };
+		A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C7F1AEAFB8E00A00892 /* UIXToolbarView.m */; };
+		A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +105,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A9DC4C001AEAC7B900A00892 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A9167E281AEAC10D0071B992 /* trackandbill_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackandbill_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E2C1AEAC10D0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E2D1AEAC10D0071B992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A9167E2F1AEAC10D0071B992 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A9167E301AEAC10D0071B992 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A9167E331AEAC10E0071B992 /* trackandbill_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = trackandbill_ios.xcdatamodel; sourceTree = "<group>"; };
 		A9167E351AEAC10E0071B992 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A9167E361AEAC10E0071B992 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -42,6 +130,128 @@
 		A9167E441AEAC10E0071B992 /* trackandbill_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackandbill_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E491AEAC10E0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosTests.m; sourceTree = "<group>"; };
+		A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClientTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C081AEAFB8E00A00892 /* AddProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddProjectTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-057.png"; path = "../AppIcon-057.png"; sourceTree = "<group>"; };
+		A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-072.png"; path = "../AppIcon-072.png"; sourceTree = "<group>"; };
+		A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-114.png"; path = "../AppIcon-114.png"; sourceTree = "<group>"; };
+		A9DC4C0E1AEAFB8E00A00892 /* AppIcon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-144.png"; path = "../AppIcon-144.png"; sourceTree = "<group>"; };
+		A9DC4C0F1AEAFB8E00A00892 /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
+		A9DC4C101AEAFB8E00A00892 /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
+		A9DC4C111AEAFB8E00A00892 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		A9DC4C121AEAFB8E00A00892 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
+		A9DC4C131AEAFB8E00A00892 /* ClientsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsTableViewCell.h; sourceTree = "<group>"; };
+		A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsTableViewCell.m; sourceTree = "<group>"; };
+		A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientsTableViewCell.xib; sourceTree = "<group>"; };
+		A9DC4C161AEAFB8E00A00892 /* ClientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientsTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C191AEAFB8E00A00892 /* FormButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormButtonTableViewCell.h; sourceTree = "<group>"; };
+		A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormButtonTableViewCell.m; sourceTree = "<group>"; };
+		A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormButtonTableViewCell.xib; sourceTree = "<group>"; };
+		A9DC4C1C1AEAFB8E00A00892 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		A9DC4C1D1AEAFB8E00A00892 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
+		A9DC4C1E1AEAFB8E00A00892 /* InvoicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C211AEAFB8E00A00892 /* InvoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C231AEAFB8E00A00892 /* InvoiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C241AEAFB8E00A00892 /* MaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsViewController.h; sourceTree = "<group>"; };
+		A9DC4C251AEAFB8E00A00892 /* MaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsViewController.m; sourceTree = "<group>"; };
+		A9DC4C261AEAFB8E00A00892 /* MaterialsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaterialsViewController.xib; sourceTree = "<group>"; };
+		A9DC4C271AEAFB8E00A00892 /* MilageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilageViewController.h; sourceTree = "<group>"; };
+		A9DC4C281AEAFB8E00A00892 /* MilageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilageViewController.m; sourceTree = "<group>"; };
+		A9DC4C291AEAFB8E00A00892 /* MilageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MilageViewController.xib; sourceTree = "<group>"; };
+		A9DC4C2A1AEAFB8E00A00892 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		A9DC4C2B1AEAFB8E00A00892 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		A9DC4C2C1AEAFB8E00A00892 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C2D1AEAFB8E00A00892 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C2E1AEAFB8E00A00892 /* ProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C321AEAFB8E00A00892 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		A9DC4C331AEAFB8E00A00892 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		A9DC4C341AEAFB8E00A00892 /* ProjectsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewCell.h; sourceTree = "<group>"; };
+		A9DC4C351AEAFB8E00A00892 /* ProjectsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewCell.m; sourceTree = "<group>"; };
+		A9DC4C361AEAFB8E00A00892 /* ProjectsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectsTableViewCell.xib; sourceTree = "<group>"; };
+		A9DC4C371AEAFB8E00A00892 /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectsTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C3A1AEAFB8E00A00892 /* Reader-Button-H.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-H.png"; path = "../Reader-Button-H.png"; sourceTree = "<group>"; };
+		A9DC4C3B1AEAFB8E00A00892 /* Reader-Button-H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-H@2x.png"; path = "../Reader-Button-H@2x.png"; sourceTree = "<group>"; };
+		A9DC4C3C1AEAFB8E00A00892 /* Reader-Button-N.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-N.png"; path = "../Reader-Button-N.png"; sourceTree = "<group>"; };
+		A9DC4C3D1AEAFB8E00A00892 /* Reader-Button-N@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-N@2x.png"; path = "../Reader-Button-N@2x.png"; sourceTree = "<group>"; };
+		A9DC4C3E1AEAFB8E00A00892 /* Reader-Email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Email.png"; path = "../Reader-Email.png"; sourceTree = "<group>"; };
+		A9DC4C3F1AEAFB8E00A00892 /* Reader-Email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Email@2x.png"; path = "../Reader-Email@2x.png"; sourceTree = "<group>"; };
+		A9DC4C401AEAFB8E00A00892 /* Reader-Mark-N.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-N.png"; path = "../Reader-Mark-N.png"; sourceTree = "<group>"; };
+		A9DC4C411AEAFB8E00A00892 /* Reader-Mark-N@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-N@2x.png"; path = "../Reader-Mark-N@2x.png"; sourceTree = "<group>"; };
+		A9DC4C421AEAFB8E00A00892 /* Reader-Mark-Y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-Y.png"; path = "../Reader-Mark-Y.png"; sourceTree = "<group>"; };
+		A9DC4C431AEAFB8E00A00892 /* Reader-Mark-Y@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-Y@2x.png"; path = "../Reader-Mark-Y@2x.png"; sourceTree = "<group>"; };
+		A9DC4C441AEAFB8E00A00892 /* Reader-Print.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Print.png"; path = "../Reader-Print.png"; sourceTree = "<group>"; };
+		A9DC4C451AEAFB8E00A00892 /* Reader-Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Print@2x.png"; path = "../Reader-Print@2x.png"; sourceTree = "<group>"; };
+		A9DC4C461AEAFB8E00A00892 /* Reader-Thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Thumbs.png"; path = "../Reader-Thumbs.png"; sourceTree = "<group>"; };
+		A9DC4C471AEAFB8E00A00892 /* Reader-Thumbs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Thumbs@2x.png"; path = "../Reader-Thumbs@2x.png"; sourceTree = "<group>"; };
+		A9DC4C481AEAFB8E00A00892 /* ReaderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderConstants.h; sourceTree = "<group>"; };
+		A9DC4C491AEAFB8E00A00892 /* ReaderConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderConstants.m; sourceTree = "<group>"; };
+		A9DC4C4A1AEAFB8E00A00892 /* ReaderContentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderContentPage.h; sourceTree = "<group>"; };
+		A9DC4C4B1AEAFB8E00A00892 /* ReaderContentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderContentPage.m; sourceTree = "<group>"; };
+		A9DC4C4C1AEAFB8E00A00892 /* ReaderContentTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderContentTile.h; sourceTree = "<group>"; };
+		A9DC4C4D1AEAFB8E00A00892 /* ReaderContentTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderContentTile.m; sourceTree = "<group>"; };
+		A9DC4C4E1AEAFB8E00A00892 /* ReaderContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderContentView.h; sourceTree = "<group>"; };
+		A9DC4C4F1AEAFB8E00A00892 /* ReaderContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderContentView.m; sourceTree = "<group>"; };
+		A9DC4C501AEAFB8E00A00892 /* ReaderDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderDocument.h; sourceTree = "<group>"; };
+		A9DC4C511AEAFB8E00A00892 /* ReaderDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderDocument.m; sourceTree = "<group>"; };
+		A9DC4C521AEAFB8E00A00892 /* ReaderMainPagebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderMainPagebar.h; sourceTree = "<group>"; };
+		A9DC4C531AEAFB8E00A00892 /* ReaderMainPagebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderMainPagebar.m; sourceTree = "<group>"; };
+		A9DC4C541AEAFB8E00A00892 /* ReaderMainToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderMainToolbar.h; sourceTree = "<group>"; };
+		A9DC4C551AEAFB8E00A00892 /* ReaderMainToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderMainToolbar.m; sourceTree = "<group>"; };
+		A9DC4C561AEAFB8E00A00892 /* ReaderThumbCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbCache.h; sourceTree = "<group>"; };
+		A9DC4C571AEAFB8E00A00892 /* ReaderThumbCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbCache.m; sourceTree = "<group>"; };
+		A9DC4C581AEAFB8E00A00892 /* ReaderThumbFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbFetch.h; sourceTree = "<group>"; };
+		A9DC4C591AEAFB8E00A00892 /* ReaderThumbFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbFetch.m; sourceTree = "<group>"; };
+		A9DC4C5A1AEAFB8E00A00892 /* ReaderThumbQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbQueue.h; sourceTree = "<group>"; };
+		A9DC4C5B1AEAFB8E00A00892 /* ReaderThumbQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbQueue.m; sourceTree = "<group>"; };
+		A9DC4C5C1AEAFB8E00A00892 /* ReaderThumbRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbRender.h; sourceTree = "<group>"; };
+		A9DC4C5D1AEAFB8E00A00892 /* ReaderThumbRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbRender.m; sourceTree = "<group>"; };
+		A9DC4C5E1AEAFB8E00A00892 /* ReaderThumbRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbRequest.h; sourceTree = "<group>"; };
+		A9DC4C5F1AEAFB8E00A00892 /* ReaderThumbRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbRequest.m; sourceTree = "<group>"; };
+		A9DC4C601AEAFB8E00A00892 /* ReaderThumbsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbsView.h; sourceTree = "<group>"; };
+		A9DC4C611AEAFB8E00A00892 /* ReaderThumbsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbsView.m; sourceTree = "<group>"; };
+		A9DC4C621AEAFB8E00A00892 /* ReaderThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderThumbView.h; sourceTree = "<group>"; };
+		A9DC4C631AEAFB8E00A00892 /* ReaderThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderThumbView.m; sourceTree = "<group>"; };
+		A9DC4C641AEAFB8E00A00892 /* ReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderViewController.h; sourceTree = "<group>"; };
+		A9DC4C651AEAFB8E00A00892 /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderViewController.m; sourceTree = "<group>"; };
+		A9DC4C661AEAFB8E00A00892 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		A9DC4C671AEAFB8E00A00892 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		A9DC4C681AEAFB8E00A00892 /* SessionDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C691AEAFB8E00A00892 /* SessionDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C6A1AEAFB8E00A00892 /* SessionDetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionDetailTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionNotesViewController.h; sourceTree = "<group>"; };
+		A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionNotesViewController.m; sourceTree = "<group>"; };
+		A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionNotesViewController.xib; sourceTree = "<group>"; };
+		A9DC4C6E1AEAFB8E00A00892 /* SessionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsTableViewCell.h; sourceTree = "<group>"; };
+		A9DC4C6F1AEAFB8E00A00892 /* SessionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsTableViewCell.m; sourceTree = "<group>"; };
+		A9DC4C701AEAFB8E00A00892 /* SessionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionsTableViewCell.xib; sourceTree = "<group>"; };
+		A9DC4C711AEAFB8E00A00892 /* SessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsTableViewController.h; sourceTree = "<group>"; };
+		A9DC4C721AEAFB8E00A00892 /* SessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsTableViewController.m; sourceTree = "<group>"; };
+		A9DC4C731AEAFB8E00A00892 /* SessionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionsTableViewController.xib; sourceTree = "<group>"; };
+		A9DC4C741AEAFB8E00A00892 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
+		A9DC4C751AEAFB8E00A00892 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
+		A9DC4C761AEAFB8E00A00892 /* SessionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionViewController.xib; sourceTree = "<group>"; };
+		A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputTableViewCell.h; sourceTree = "<group>"; };
+		A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputTableViewCell.m; sourceTree = "<group>"; };
+		A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputTableViewCell.xib; sourceTree = "<group>"; };
+		A9DC4C7A1AEAFB8E00A00892 /* ThumbsMainToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbsMainToolbar.h; sourceTree = "<group>"; };
+		A9DC4C7B1AEAFB8E00A00892 /* ThumbsMainToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbsMainToolbar.m; sourceTree = "<group>"; };
+		A9DC4C7C1AEAFB8E00A00892 /* ThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbsViewController.h; sourceTree = "<group>"; };
+		A9DC4C7D1AEAFB8E00A00892 /* ThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbsViewController.m; sourceTree = "<group>"; };
+		A9DC4C7E1AEAFB8E00A00892 /* UIXToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXToolbarView.h; sourceTree = "<group>"; };
+		A9DC4C7F1AEAFB8E00A00892 /* UIXToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXToolbarView.m; sourceTree = "<group>"; };
+		A9DC4CD51AEAFDA100A00892 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +275,9 @@
 		A9167E1F1AEAC10D0071B992 = {
 			isa = PBXGroup;
 			children = (
+				A9DC4CD31AEAFCCF00A00892 /* PDFReader */,
+				A9DC4CD41AEAFD3900A00892 /* UIElements */,
+				A9DC4CD01AEAFC2600A00892 /* Classes */,
 				A9167E2A1AEAC10D0071B992 /* trackandbill_ios */,
 				A9167E471AEAC10E0071B992 /* trackandbill_iosTests */,
 				A9167E291AEAC10D0071B992 /* Products */,
@@ -83,8 +296,8 @@
 		A9167E2A1AEAC10D0071B992 /* trackandbill_ios */ = {
 			isa = PBXGroup;
 			children = (
-				A9167E2F1AEAC10D0071B992 /* AppDelegate.h */,
-				A9167E301AEAC10D0071B992 /* AppDelegate.m */,
+				A9DC4CD51AEAFDA100A00892 /* AppDelegate.h */,
+				A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */,
 				A9167E351AEAC10E0071B992 /* ViewController.h */,
 				A9167E361AEAC10E0071B992 /* ViewController.m */,
 				A9167E381AEAC10E0071B992 /* Main.storyboard */,
@@ -99,6 +312,24 @@
 		A9167E2B1AEAC10D0071B992 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */,
+				A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */,
+				A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */,
+				A9DC4C0E1AEAFB8E00A00892 /* AppIcon-144.png */,
+				A9DC4C3A1AEAFB8E00A00892 /* Reader-Button-H.png */,
+				A9DC4C3B1AEAFB8E00A00892 /* Reader-Button-H@2x.png */,
+				A9DC4C3C1AEAFB8E00A00892 /* Reader-Button-N.png */,
+				A9DC4C3D1AEAFB8E00A00892 /* Reader-Button-N@2x.png */,
+				A9DC4C3E1AEAFB8E00A00892 /* Reader-Email.png */,
+				A9DC4C3F1AEAFB8E00A00892 /* Reader-Email@2x.png */,
+				A9DC4C401AEAFB8E00A00892 /* Reader-Mark-N.png */,
+				A9DC4C411AEAFB8E00A00892 /* Reader-Mark-N@2x.png */,
+				A9DC4C421AEAFB8E00A00892 /* Reader-Mark-Y.png */,
+				A9DC4C431AEAFB8E00A00892 /* Reader-Mark-Y@2x.png */,
+				A9DC4C441AEAFB8E00A00892 /* Reader-Print.png */,
+				A9DC4C451AEAFB8E00A00892 /* Reader-Print@2x.png */,
+				A9DC4C461AEAFB8E00A00892 /* Reader-Thumbs.png */,
+				A9DC4C471AEAFB8E00A00892 /* Reader-Thumbs@2x.png */,
 				A9167E2C1AEAC10D0071B992 /* Info.plist */,
 				A9167E2D1AEAC10D0071B992 /* main.m */,
 			);
@@ -122,6 +353,129 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9DC4CD01AEAFC2600A00892 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C111AEAFB8E00A00892 /* Client.h */,
+				A9DC4C121AEAFB8E00A00892 /* Client.m */,
+				A9DC4C1C1AEAFB8E00A00892 /* Invoice.h */,
+				A9DC4C1D1AEAFB8E00A00892 /* Invoice.m */,
+				A9DC4C2A1AEAFB8E00A00892 /* Profile.h */,
+				A9DC4C2B1AEAFB8E00A00892 /* Profile.m */,
+				A9DC4C321AEAFB8E00A00892 /* Project.h */,
+				A9DC4C331AEAFB8E00A00892 /* Project.m */,
+				A9DC4C661AEAFB8E00A00892 /* Session.h */,
+				A9DC4C671AEAFB8E00A00892 /* Session.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		A9DC4CD31AEAFCCF00A00892 /* PDFReader */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C7A1AEAFB8E00A00892 /* ThumbsMainToolbar.h */,
+				A9DC4C7B1AEAFB8E00A00892 /* ThumbsMainToolbar.m */,
+				A9DC4C7C1AEAFB8E00A00892 /* ThumbsViewController.h */,
+				A9DC4C7D1AEAFB8E00A00892 /* ThumbsViewController.m */,
+				A9DC4C7E1AEAFB8E00A00892 /* UIXToolbarView.h */,
+				A9DC4C7F1AEAFB8E00A00892 /* UIXToolbarView.m */,
+				A9DC4C481AEAFB8E00A00892 /* ReaderConstants.h */,
+				A9DC4C491AEAFB8E00A00892 /* ReaderConstants.m */,
+				A9DC4C4A1AEAFB8E00A00892 /* ReaderContentPage.h */,
+				A9DC4C4B1AEAFB8E00A00892 /* ReaderContentPage.m */,
+				A9DC4C4C1AEAFB8E00A00892 /* ReaderContentTile.h */,
+				A9DC4C4D1AEAFB8E00A00892 /* ReaderContentTile.m */,
+				A9DC4C4E1AEAFB8E00A00892 /* ReaderContentView.h */,
+				A9DC4C4F1AEAFB8E00A00892 /* ReaderContentView.m */,
+				A9DC4C501AEAFB8E00A00892 /* ReaderDocument.h */,
+				A9DC4C511AEAFB8E00A00892 /* ReaderDocument.m */,
+				A9DC4C521AEAFB8E00A00892 /* ReaderMainPagebar.h */,
+				A9DC4C531AEAFB8E00A00892 /* ReaderMainPagebar.m */,
+				A9DC4C541AEAFB8E00A00892 /* ReaderMainToolbar.h */,
+				A9DC4C551AEAFB8E00A00892 /* ReaderMainToolbar.m */,
+				A9DC4C561AEAFB8E00A00892 /* ReaderThumbCache.h */,
+				A9DC4C571AEAFB8E00A00892 /* ReaderThumbCache.m */,
+				A9DC4C581AEAFB8E00A00892 /* ReaderThumbFetch.h */,
+				A9DC4C591AEAFB8E00A00892 /* ReaderThumbFetch.m */,
+				A9DC4C5A1AEAFB8E00A00892 /* ReaderThumbQueue.h */,
+				A9DC4C5B1AEAFB8E00A00892 /* ReaderThumbQueue.m */,
+				A9DC4C5C1AEAFB8E00A00892 /* ReaderThumbRender.h */,
+				A9DC4C5D1AEAFB8E00A00892 /* ReaderThumbRender.m */,
+				A9DC4C5E1AEAFB8E00A00892 /* ReaderThumbRequest.h */,
+				A9DC4C5F1AEAFB8E00A00892 /* ReaderThumbRequest.m */,
+				A9DC4C601AEAFB8E00A00892 /* ReaderThumbsView.h */,
+				A9DC4C611AEAFB8E00A00892 /* ReaderThumbsView.m */,
+				A9DC4C621AEAFB8E00A00892 /* ReaderThumbView.h */,
+				A9DC4C631AEAFB8E00A00892 /* ReaderThumbView.m */,
+				A9DC4C641AEAFB8E00A00892 /* ReaderViewController.h */,
+				A9DC4C651AEAFB8E00A00892 /* ReaderViewController.m */,
+				A9DC4C0F1AEAFB8E00A00892 /* CGPDFDocument.h */,
+				A9DC4C101AEAFB8E00A00892 /* CGPDFDocument.m */,
+			);
+			name = PDFReader;
+			sourceTree = "<group>";
+		};
+		A9DC4CD41AEAFD3900A00892 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */,
+				A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */,
+				A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */,
+				A9DC4C081AEAFB8E00A00892 /* AddProjectTableViewController.h */,
+				A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */,
+				A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */,
+				A9DC4C131AEAFB8E00A00892 /* ClientsTableViewCell.h */,
+				A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */,
+				A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */,
+				A9DC4C161AEAFB8E00A00892 /* ClientsTableViewController.h */,
+				A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */,
+				A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */,
+				A9DC4C191AEAFB8E00A00892 /* FormButtonTableViewCell.h */,
+				A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */,
+				A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */,
+				A9DC4C1E1AEAFB8E00A00892 /* InvoicesTableViewController.h */,
+				A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */,
+				A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */,
+				A9DC4C211AEAFB8E00A00892 /* InvoiceTableViewController.h */,
+				A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */,
+				A9DC4C231AEAFB8E00A00892 /* InvoiceTableViewController.xib */,
+				A9DC4C241AEAFB8E00A00892 /* MaterialsViewController.h */,
+				A9DC4C251AEAFB8E00A00892 /* MaterialsViewController.m */,
+				A9DC4C261AEAFB8E00A00892 /* MaterialsViewController.xib */,
+				A9DC4C271AEAFB8E00A00892 /* MilageViewController.h */,
+				A9DC4C281AEAFB8E00A00892 /* MilageViewController.m */,
+				A9DC4C291AEAFB8E00A00892 /* MilageViewController.xib */,
+				A9DC4C2C1AEAFB8E00A00892 /* ProfileTableViewController.h */,
+				A9DC4C2D1AEAFB8E00A00892 /* ProfileTableViewController.m */,
+				A9DC4C2E1AEAFB8E00A00892 /* ProfileTableViewController.xib */,
+				A9DC4C341AEAFB8E00A00892 /* ProjectsTableViewCell.h */,
+				A9DC4C351AEAFB8E00A00892 /* ProjectsTableViewCell.m */,
+				A9DC4C361AEAFB8E00A00892 /* ProjectsTableViewCell.xib */,
+				A9DC4C371AEAFB8E00A00892 /* ProjectsTableViewController.h */,
+				A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */,
+				A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */,
+				A9DC4C681AEAFB8E00A00892 /* SessionDetailTableViewController.h */,
+				A9DC4C691AEAFB8E00A00892 /* SessionDetailTableViewController.m */,
+				A9DC4C6A1AEAFB8E00A00892 /* SessionDetailTableViewController.xib */,
+				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
+				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
+				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
+				A9DC4C6E1AEAFB8E00A00892 /* SessionsTableViewCell.h */,
+				A9DC4C6F1AEAFB8E00A00892 /* SessionsTableViewCell.m */,
+				A9DC4C701AEAFB8E00A00892 /* SessionsTableViewCell.xib */,
+				A9DC4C711AEAFB8E00A00892 /* SessionsTableViewController.h */,
+				A9DC4C721AEAFB8E00A00892 /* SessionsTableViewController.m */,
+				A9DC4C731AEAFB8E00A00892 /* SessionsTableViewController.xib */,
+				A9DC4C741AEAFB8E00A00892 /* SessionViewController.h */,
+				A9DC4C751AEAFB8E00A00892 /* SessionViewController.m */,
+				A9DC4C761AEAFB8E00A00892 /* SessionViewController.xib */,
+				A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */,
+				A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */,
+				A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +486,7 @@
 				A9167E241AEAC10D0071B992 /* Sources */,
 				A9167E251AEAC10D0071B992 /* Frameworks */,
 				A9167E261AEAC10D0071B992 /* Resources */,
+				A9DC4C001AEAC7B900A00892 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -171,9 +526,11 @@
 				TargetAttributes = {
 					A9167E271AEAC10D0071B992 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = ZZGJ2UYWJY;
 					};
 					A9167E431AEAC10E0071B992 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = ZZGJ2UYWJY;
 						TestTargetID = A9167E271AEAC10D0071B992;
 					};
 				};
@@ -202,9 +559,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
+				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
+				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
+				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
+				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
+				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
+				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
+				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
+				A9DC4CC81AEAFB8E00A00892 /* SessionsTableViewController.xib in Resources */,
+				A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */,
+				A9DC4CC21AEAFB8E00A00892 /* SessionDetailTableViewController.xib in Resources */,
+				A9DC4CA01AEAFB8E00A00892 /* ProjectsTableViewCell.xib in Resources */,
+				A9DC4CA31AEAFB8E00A00892 /* Reader-Button-H.png in Resources */,
+				A9DC4C851AEAFB8E00A00892 /* AppIcon-072.png in Resources */,
 				A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */,
+				A9DC4C841AEAFB8E00A00892 /* AppIcon-057.png in Resources */,
+				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,
+				A9DC4C981AEAFB8E00A00892 /* MilageViewController.xib in Resources */,
 				A9167E3C1AEAC10E0071B992 /* Images.xcassets in Resources */,
+				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
+				A9DC4CCA1AEAFB8E00A00892 /* SessionViewController.xib in Resources */,
+				A9DC4CA81AEAFB8E00A00892 /* Reader-Email@2x.png in Resources */,
+				A9DC4CAD1AEAFB8E00A00892 /* Reader-Print.png in Resources */,
+				A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */,
+				A9DC4CA21AEAFB8E00A00892 /* ProjectsTableViewController.xib in Resources */,
+				A9DC4C921AEAFB8E00A00892 /* InvoicesTableViewController.xib in Resources */,
+				A9DC4C961AEAFB8E00A00892 /* MaterialsViewController.xib in Resources */,
+				A9DC4C9B1AEAFB8E00A00892 /* ProfileTableViewController.xib in Resources */,
+				A9DC4CC41AEAFB8E00A00892 /* SessionNotesViewController.xib in Resources */,
+				A9DC4CC61AEAFB8E00A00892 /* SessionsTableViewCell.xib in Resources */,
+				A9DC4C861AEAFB8E00A00892 /* AppIcon-114.png in Resources */,
+				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
+				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
+				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
+				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,
+				A9DC4CAE1AEAFB8E00A00892 /* Reader-Print@2x.png in Resources */,
+				A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */,
+				A9DC4C871AEAFB8E00A00892 /* AppIcon-144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,10 +615,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DC4CB81AEAFB8E00A00892 /* ReaderThumbCache.m in Sources */,
+				A9DC4CCD1AEAFB8E00A00892 /* ThumbsMainToolbar.m in Sources */,
+				A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */,
+				A9DC4CBE1AEAFB8E00A00892 /* ReaderThumbView.m in Sources */,
+				A9DC4CCB1AEAFB8E00A00892 /* TextInputTableViewCell.m in Sources */,
+				A9DC4CC31AEAFB8E00A00892 /* SessionNotesViewController.m in Sources */,
+				A9DC4CC11AEAFB8E00A00892 /* SessionDetailTableViewController.m in Sources */,
+				A9DC4CB21AEAFB8E00A00892 /* ReaderContentPage.m in Sources */,
 				A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */,
-				A9167E311AEAC10D0071B992 /* AppDelegate.m in Sources */,
+				A9DC4C991AEAFB8E00A00892 /* Profile.m in Sources */,
+				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,
+				A9DC4CBA1AEAFB8E00A00892 /* ReaderThumbQueue.m in Sources */,
+				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
+				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,
+				A9DC4CBD1AEAFB8E00A00892 /* ReaderThumbsView.m in Sources */,
+				A9DC4C9E1AEAFB8E00A00892 /* Project.m in Sources */,
+				A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */,
+				A9DC4CC91AEAFB8E00A00892 /* SessionViewController.m in Sources */,
+				A9DC4CB41AEAFB8E00A00892 /* ReaderContentView.m in Sources */,
+				A9DC4CCE1AEAFB8E00A00892 /* ThumbsViewController.m in Sources */,
+				A9DC4CC51AEAFB8E00A00892 /* SessionsTableViewCell.m in Sources */,
+				A9DC4C9A1AEAFB8E00A00892 /* ProfileTableViewController.m in Sources */,
+				A9DC4CC01AEAFB8E00A00892 /* Session.m in Sources */,
+				A9DC4CB71AEAFB8E00A00892 /* ReaderMainToolbar.m in Sources */,
+				A9DC4CBF1AEAFB8E00A00892 /* ReaderViewController.m in Sources */,
+				A9DC4C951AEAFB8E00A00892 /* MaterialsViewController.m in Sources */,
+				A9DC4CB51AEAFB8E00A00892 /* ReaderDocument.m in Sources */,
+				A9DC4C891AEAFB8E00A00892 /* Client.m in Sources */,
+				A9DC4CA11AEAFB8E00A00892 /* ProjectsTableViewController.m in Sources */,
+				A9DC4CB91AEAFB8E00A00892 /* ReaderThumbFetch.m in Sources */,
+				A9DC4CBB1AEAFB8E00A00892 /* ReaderThumbRender.m in Sources */,
+				A9DC4C8C1AEAFB8E00A00892 /* ClientsTableViewController.m in Sources */,
+				A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */,
+				A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */,
+				A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */,
+				A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */,
+				A9DC4C881AEAFB8E00A00892 /* CGPDFDocument.m in Sources */,
+				A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */,
+				A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */,
+				A9DC4C901AEAFB8E00A00892 /* Invoice.m in Sources */,
 				A9167E371AEAC10E0071B992 /* ViewController.m in Sources */,
 				A9167E2E1AEAC10D0071B992 /* main.m in Sources */,
+				A9DC4C9F1AEAFB8E00A00892 /* ProjectsTableViewCell.m in Sources */,
+				A9DC4CB31AEAFB8E00A00892 /* ReaderContentTile.m in Sources */,
+				A9DC4C971AEAFB8E00A00892 /* MilageViewController.m in Sources */,
+				A9DC4CBC1AEAFB8E00A00892 /* ReaderThumbRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +719,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -303,9 +739,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -327,6 +764,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Seaman (ZZGJ2UYWJY)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -340,8 +778,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "261bf0e2-a61b-4ab6-b363-d5abf869fb27";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -351,6 +791,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Bill/Documents/iOS_Projects/ZipDinProjects/SensorFrameworkV3,
+				);
 				INFOPLIST_FILE = trackandbill_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -361,6 +806,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Bill/Documents/iOS_Projects/ZipDinProjects/SensorFrameworkV3,
+				);
 				INFOPLIST_FILE = trackandbill_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,6 +821,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -382,6 +834,7 @@
 				INFOPLIST_FILE = trackandbill_iosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/trackandbill_ios.app/trackandbill_ios";
 			};
 			name = Debug;
@@ -390,6 +843,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -397,6 +852,7 @@
 				INFOPLIST_FILE = trackandbill_iosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/trackandbill_ios.app/trackandbill_ios";
 			};
 			name = Release;
@@ -420,6 +876,7 @@
 				A9167E501AEAC10E0071B992 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9167E511AEAC10E0071B992 /* Build configuration list for PBXNativeTarget "trackandbill_iosTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +885,7 @@
 				A9167E531AEAC10E0071B992 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
