@@ -25,6 +25,8 @@
 @implementation InvoiceTableViewController
 
 @synthesize selectedProject = _selectedProject;
+@synthesize selectedInvoice = _selectedInvoice;
+
 @synthesize nInvoice = _nInvoice;
 
 NSArray * invoiceFormFields;
@@ -48,8 +50,41 @@ NSArray * invoiceFormFields;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    
     //input form text fields
     invoiceFormFields = [[NSMutableArray alloc] init];
+    
+    //Set form values
+    
+    //Could be new invoice or edit
+    if(self.selectedInvoice)
+    {
+        //TODO: finish edit invoice, fill form values below
+        
+        invoiceFormFields = @[
+                             // @{@"FieldName": @"Save and Preview",@"FieldValue":@"" },
+                             @{@"FieldName": @"Invoice Number", @"FieldValue": _selectedInvoice.invoiceNumber},
+                             @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedInvoice.invoiceDate]},
+                             @{@"FieldName": @"Client Name",@"FieldValue": [_selectedInvoice clientName]},
+                             @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName] },
+                             @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice startDate]]},
+                             @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice endDate]] },
+//                             @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",hours]},
+//                             @{@"FieldName": @"Minutes",@"FieldValue":[NSString stringWithFormat:@"%@",minutes] },
+//                             @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",seconds]},
+//                             @{@"FieldName": @"Approval Name",@"FieldValue":@""},
+//                             @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+//                             @{@"FieldName": @"Notes",@"FieldValue": @""},
+//                             @{@"FieldName": @"Materials",@"FieldValue":@""},
+//                             @{@"FieldName": @"Terms",@"FieldValue":@""},
+//                             @{@"FieldName": @"Deposit",@"FieldValue":@"" },
+//                             @{@"FieldName": @"Rate",@"FieldValue": @""}
+                             
+                             ];
+    }
+    else if(self.selectedProject)
+    {
+  
     
         NSNumber * hours = [[NSNumber alloc] init];
         NSNumber * minutes = [[NSNumber alloc] init];
@@ -101,6 +136,8 @@ NSArray * invoiceFormFields;
 //    [invoiceFormFields addObject:@"Deposit"];
 //    [invoiceFormFields addObject:@"Rate"];
 //    [invoiceFormFields addObject:@"Save and Preview"];
+        
+    }
     
     //view has been touched, for dismiss keyboard
     UITapGestureRecognizer *singleFingerTap =
@@ -237,7 +274,8 @@ NSArray * invoiceFormFields;
      iPath = [NSIndexPath indexPathForRow:13 inSection:0];
      [_nInvoice setInvoiceTerms:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
-    
+    iPath = [NSIndexPath indexPathForRow:9 inSection:0] ;
+    [_nInvoice setApprovalName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
     [_nInvoice setTotalDue:0.00];
     [_nInvoice setInvoiceRate:0.00];
@@ -482,7 +520,7 @@ NSArray * invoiceFormFields;
         
         NSString * startDate = [NSString stringWithFormat:@"Start Date: %@",[df stringFromDate:[_nInvoice startDate]]];
         CGRect startRect = [self addText:startDate
-                                withFrame:CGRectMake(kPadding, clientRect.origin.y + clientRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+                                withFrame:CGRectMake(kPadding, clientAddressRect.origin.y + clientAddressRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
         
         NSString * endDate = [NSString stringWithFormat:@"End Date: %@",[df stringFromDate:[_nInvoice endDate]]];
         CGRect endRect = [self addText:endDate
@@ -490,7 +528,9 @@ NSArray * invoiceFormFields;
         
         
         //get total hours, notes, materials, etc from sessions
-        
+        NSString * totalHours = [NSString stringWithFormat:@"Total Hours: %@",_nInvoice.totalTime];
+        CGRect hoursRect = [self addText:totalHours
+                             withFrame:CGRectMake(kPadding, endRect.origin.y + endRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
         
         
         [self finishPDF];

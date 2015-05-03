@@ -66,6 +66,7 @@
     //push inovices view controller
     InvoiceTableViewController * invoiceViewController = [[InvoiceTableViewController alloc] init];
     
+     //TODO: need to determine selected project some other way
     [invoiceViewController setSelectedProject:[[appDelegate clientProjects] objectAtIndex:index]];
     
     [self.navigationController pushViewController:invoiceViewController animated:YES];
@@ -166,7 +167,8 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
-    [self invoiceProjectWithIndex:[indexPath row]];
+   
+    [self invoiceProjectWithIndex:[indexPath row] + 1];
     
 }
 

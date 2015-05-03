@@ -201,6 +201,8 @@ NSMutableArray * formFields;
     
     [[self view] endEditing:YES];
     
+    
+    
 }
 
 
@@ -252,10 +254,27 @@ NSMutableArray * formFields;
 
     BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject toFile:[self pathForDataFile]];
 
+    if(success)
+    {
+        //message
+        [self showMessage:@"Your personal profile has been stored" withTitle:@"Profile completed!"];
+    }
+    else{
+        //message
+          [self showMessage:@"Could not save profile" withTitle:@"Profile error"];
+    }
 
 }
 
-
+// Show an alert message
+- (void)showMessage:(NSString *)text withTitle:(NSString *)title
+{
+    [[[UIAlertView alloc] initWithTitle:title
+                                message:text
+                               delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
 
 
 /*

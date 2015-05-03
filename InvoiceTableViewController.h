@@ -14,6 +14,7 @@
 @interface InvoiceTableViewController : UITableViewController<UITextFieldDelegate, ReaderViewControllerDelegate>
 
 @property (nonatomic, retain) Project * selectedProject;
+@property (nonatomic, retain) Invoice * selectedInvoice;
 @property Invoice * nInvoice;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
