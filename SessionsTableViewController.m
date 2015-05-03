@@ -271,8 +271,8 @@
                                          
                                      }];
             
-            [alert addAction:delete];
             [alert addAction:remove];
+            [alert addAction:delete];
             [alert addAction:cancel];
             
             [self presentViewController:alert animated:YES completion:nil];

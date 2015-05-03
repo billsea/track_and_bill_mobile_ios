@@ -51,11 +51,11 @@
 	return invoiceRate;
 }
 
-- (NSString *)projectID
+- (NSNumber *)projectID
 {
 	return projectID;
 }
-- (NSString *)clientID
+- (NSNumber *)clientID
 {
 	return clientID;
 }
@@ -137,14 +137,14 @@
 }
 
 /////////// Set variables //////////////////////
-- (void)setProjectID:(NSString *)pID
+- (void)setProjectID:(NSNumber *)pID
 {
 	pID= [pID copy]; //if passed string is mutable, "copy" converts it to immutable string
 
 	projectID = pID;
 }
 
-- (void)setClientID:(NSString *)cID
+- (void)setClientID:(NSNumber *)cID
 {
 	cID= [cID copy];
 	

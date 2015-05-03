@@ -41,7 +41,7 @@ NSArray * invoiceFormFields;
                        initWithTitle:@"Export"
                        style:UIBarButtonItemStyleBordered
                        target:self
-                       action:@selector(newInvoiceSubmit:)];
+                       action:@selector(exportInvoice:)];
     //self.addClientButton.tintColor = [UIColor blackColor];
     [[self navigationItem] setRightBarButtonItem:self.previewButton];
     
@@ -180,7 +180,7 @@ NSArray * invoiceFormFields;
     }
 }
 
-- (IBAction)newInvoiceSubmit:(id)sender
+- (IBAction)exportInvoice:(id)sender
 {
     
     //create the new invoice from form fields
@@ -190,7 +190,7 @@ NSArray * invoiceFormFields;
     NSString * invoiceNumber = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
     [_nInvoice setInvoiceNumber:invoiceNumber];
     
-    [_nInvoice setProjectID:[NSString stringWithFormat:@"%@",_selectedProject.projectID]];
+    [_nInvoice setProjectID:_selectedProject.projectID];
     
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM/dd/yyyy"];
@@ -199,7 +199,7 @@ NSArray * invoiceFormFields;
    // NSString * invoiceDate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
     [_nInvoice setInvoiceDate:[NSDate date]];//date formatter was failing, but direct cast to nsdate works(see warning)
     
-    [_nInvoice setClientID:[NSString stringWithFormat:@"%@",_selectedProject.clientID]];
+    [_nInvoice setClientID:_selectedProject.clientID];
     
      iPath = [NSIndexPath indexPathForRow:2 inSection:0] ;
     [_nInvoice setClientName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
@@ -245,8 +245,25 @@ NSArray * invoiceFormFields;
     
     
 //Todo: finish initializing the new invoice object, and call the pdf builder(below) using the new invoice object for values;
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    
+    //Remove existing invoice for this project to allow updating the invoice
+    
+    for(Invoice * remInvoice in [appDelegate arrInvoices])
+    {
+        if(remInvoice.projectID == _nInvoice.projectID)
+        {
+            [[appDelegate arrInvoices] removeObjectIdenticalTo:remInvoice];
+            break;
+        }
+    }
+    //add new invoice object to clients list
+    [[appDelegate arrInvoices] addObject:_nInvoice];
+    
+    
     //show exported pdf view
-    [self MakePDF];
+    [self MakePDF:_nInvoice];
 
 }
 
@@ -396,14 +413,14 @@ NSArray * invoiceFormFields;
     }
 }
 
-- (void)MakePDF {
-    [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@_%@",[[self selectedProject] projectName],[[self selectedProject] projectID]] Width:850 Height:1100];
+- (void)MakePDF:(Invoice *)newInvoice {
+    [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@_%@",[_nInvoice projectName],[_nInvoice projectID]] Width:850 Height:1100];
     
      AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     
     
-    if([self MyProfile])
+    if([[self MyProfile] count]>0)
     {
         
         [self beginPDFPage];

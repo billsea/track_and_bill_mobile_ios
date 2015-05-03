@@ -26,7 +26,7 @@
 - (NSDate *) endDate;
 - (NSString *) totalTime;
 - (NSNumber *) projectID;
-- (NSString *) clientID;
+- (NSNumber *) clientID;
 
 
 - (void)setProjectName:(NSString *)pName;

@@ -257,8 +257,7 @@
         {
             //determine project id in allProjects array, and remove
             Project * projRemove = [[appDelegate clientProjects] objectAtIndex:[indexPath row]];
-            [[appDelegate clientProjects] removeObjectIdenticalTo:projRemove];
-            
+           
             for(Project * proj in [appDelegate allProjects])
             {
                 if(proj.projectID == projRemove.projectID && proj.clientID == projRemove.clientID)
@@ -271,7 +270,8 @@
                 }
             }
             
-          
+            [[appDelegate clientProjects] removeObjectIdenticalTo:projRemove];
+            
             
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             

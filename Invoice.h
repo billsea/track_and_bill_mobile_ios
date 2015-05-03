@@ -18,8 +18,8 @@
 	NSDate *endDate;
 	NSDate *invoiceDate;
 	NSString *totalTime;
-	NSString *projectID;
-	NSString *clientID;
+	NSNumber *projectID;
+	NSNumber *clientID;
 	NSString *checkNumber;
 	NSString *approvalName;
 	NSString *invoiceTerms;
@@ -46,8 +46,8 @@
 - (NSDate *) endDate;
 - (NSDate *) invoiceDate;
 - (NSString *) totalTime;
-- (NSString *) projectID;
-- (NSString *) clientID;
+- (NSNumber *) projectID;
+- (NSNumber *) clientID;
 - (NSString *) checkNumber;
 - (NSString *) approvalName;
 - (NSString *) invoiceTerms;
@@ -71,8 +71,8 @@
 - (void)setEndDate:(NSDate *)eDate;
 - (void)setInvoiceDate:(NSDate *)iDate;
 - (void)setTotalTime:(NSString *)tTime;
-- (void)setProjectID:(NSString *)pID;
-- (void)setClientID:(NSString *)cID;
+- (void)setProjectID:(NSNumber *)pID;
+- (void)setClientID:(NSNumber *)cID;
 
 - (void)setInvoiceNumber:(NSString *)iNumber;
 - (void)setTotalDue:(float)totDue;
