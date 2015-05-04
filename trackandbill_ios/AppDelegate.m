@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "ClientsTableViewController.h"
 #import "InvoicesTableViewController.h"
-#import "ProfileTableViewController.h"
+#import "SettingsTableViewController.h"
 #import "Project.h"
 #import "Session.h"
 #import "Invoice.h"
@@ -135,30 +135,30 @@
     mainNavController.tabBarItem.image = [UIImage imageNamed:@"group-32.png"];//set tab image
 
     
-    //invoices tab
-    InvoicesTableViewController * invoicesTableView = [[InvoicesTableViewController alloc] init];
-    UINavigationController *invoicesNavController = [[UINavigationController alloc]
-                                                 initWithRootViewController:invoicesTableView];
-    [invoicesNavController.navigationBar  setBarTintColor:navBarBgColor];
-    invoicesNavController.tabBarItem.title = @"Invoices";
-    invoicesNavController.tabBarItem.image = [UIImage imageNamed:@"bill-32.png"];
+//    //invoices tab
+//    InvoicesTableViewController * invoicesTableView = [[InvoicesTableViewController alloc] init];
+//    UINavigationController *invoicesNavController = [[UINavigationController alloc]
+//                                                 initWithRootViewController:invoicesTableView];
+//    [invoicesNavController.navigationBar  setBarTintColor:navBarBgColor];
+//    invoicesNavController.tabBarItem.title = @"Invoices";
+//    invoicesNavController.tabBarItem.image = [UIImage imageNamed:@"bill-32.png"];
+//    
     
     
-    
-    //profile tab
-    ProfileTableViewController * profileView = [[ProfileTableViewController alloc] init];
-    UINavigationController * profileNavController=[[UINavigationController alloc] initWithRootViewController:profileView];
-    [profileNavController.navigationBar  setBarTintColor:navBarBgColor];
-    profileNavController.tabBarItem.title = @"My Profile";
-    profileNavController.tabBarItem.image = [UIImage imageNamed:@"administrator-32.png"];
+    //Settings tab
+    SettingsTableViewController * settingsView = [[SettingsTableViewController alloc] init];
+    UINavigationController * settingsNavController=[[UINavigationController alloc] initWithRootViewController:settingsView];
+    [settingsNavController.navigationBar  setBarTintColor:navBarBgColor];
+    settingsNavController.tabBarItem.title = @"Settings";
+    settingsNavController.tabBarItem.image = [UIImage imageNamed:@"settings_wrench-32.png"];
     
     
     //add all nav controllers to stack
     NSArray *viewControllers;
     if(clientsTableView != nil)
-        viewControllers = [NSArray arrayWithObjects:mainNavController,invoicesNavController, profileNavController,nil];
+        viewControllers = [NSArray arrayWithObjects:mainNavController, settingsNavController,nil];
     else
-        viewControllers = [NSArray arrayWithObjects:mainNavController,invoicesNavController, profileNavController, nil];
+        viewControllers = [NSArray arrayWithObjects:mainNavController, settingsNavController, nil];
     
     
     

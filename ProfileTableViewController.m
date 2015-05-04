@@ -274,6 +274,8 @@ NSMutableArray * formFields;
                                delegate:self
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
+    //back to projects
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 

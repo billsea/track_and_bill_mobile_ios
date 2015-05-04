@@ -34,7 +34,7 @@ NSArray * invoiceFormFields;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[self navigationItem] setTitle:@"New Invoice"];
+    [[self navigationItem] setTitle:@"Invoice"];
     
     
     //add help navigation bar button
@@ -51,10 +51,22 @@ NSArray * invoiceFormFields;
     // self.clearsSelectionOnViewWillAppear = NO;
     
     
+    //new invoice object
+    _nInvoice = [[Invoice alloc] init];
+    
     //input form text fields
     invoiceFormFields = [[NSMutableArray alloc] init];
     
     //Set form values
+    
+    //calculate hours,minutes, seconds from seconds
+    NSNumber * hours = [[NSNumber alloc] init];
+    NSNumber * minutes = [[NSNumber alloc] init];
+    NSNumber * seconds = [[NSNumber alloc] init];
+    NSNumber * miles = [[NSNumber alloc] init];
+    [self projectTotals:&hours :&minutes :&seconds :&miles];
+
+    
     
     //Could be new invoice or edit
     if(self.selectedInvoice)
@@ -72,25 +84,21 @@ NSArray * invoiceFormFields;
 //                             @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",hours]},
 //                             @{@"FieldName": @"Minutes",@"FieldValue":[NSString stringWithFormat:@"%@",minutes] },
 //                             @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",seconds]},
-//                             @{@"FieldName": @"Approval Name",@"FieldValue":@""},
-//                             @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
-//                             @{@"FieldName": @"Notes",@"FieldValue": @""},
-//                             @{@"FieldName": @"Materials",@"FieldValue":@""},
-//                             @{@"FieldName": @"Terms",@"FieldValue":@""},
-//                             @{@"FieldName": @"Deposit",@"FieldValue":@"" },
-//                             @{@"FieldName": @"Rate",@"FieldValue": @""}
+                             @{@"FieldName": @"Approval Name",@"FieldValue":@""},
+                             @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+                             @{@"FieldName": @"Notes",@"FieldValue": @""},
+                             @{@"FieldName": @"Materials",@"FieldValue":@""},
+                             @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
+                             @{@"FieldName": @"Terms",@"FieldValue":@""},
+                             @{@"FieldName": @"Deposit",@"FieldValue":@"" },
+                             @{@"FieldName": @"Rate",@"FieldValue": @""}
                              
                              ];
     }
     else if(self.selectedProject)
     {
   
-    
-        NSNumber * hours = [[NSNumber alloc] init];
-        NSNumber * minutes = [[NSNumber alloc] init];
-        NSNumber * seconds = [[NSNumber alloc] init];
-        NSNumber * miles = [[NSNumber alloc] init];
-        [self projectTotals:&hours :&minutes :&seconds :&miles];
+   
     
      invoiceFormFields = @[
                           // @{@"FieldName": @"Save and Preview",@"FieldValue":@"" },
@@ -100,13 +108,14 @@ NSArray * invoiceFormFields;
                      @{@"FieldName": @"Project Name",@"FieldValue":[_selectedProject projectName] },
                      @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedProject startDate]]},
                      @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedProject endDate]] },
-                     @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",hours]},
-                     @{@"FieldName": @"Minutes",@"FieldValue":[NSString stringWithFormat:@"%@",minutes] },
-                     @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",seconds]},
+//                     @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",hours]},
+//                     @{@"FieldName": @"Minutes",@"FieldValue":[NSString stringWithFormat:@"%@",minutes] },
+//                     @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",seconds]},
                      @{@"FieldName": @"Approval Name",@"FieldValue":@""},
                      @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
                      @{@"FieldName": @"Notes",@"FieldValue": @""},
                      @{@"FieldName": @"Materials",@"FieldValue":@""},
+                     @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
                      @{@"FieldName": @"Terms",@"FieldValue":@""},
                      @{@"FieldName": @"Deposit",@"FieldValue":@"" },
                      @{@"FieldName": @"Rate",@"FieldValue": @""}
@@ -152,31 +161,55 @@ NSArray * invoiceFormFields;
 
 -(void)projectTotals:(NSNumber **)hours : (NSNumber **)minutes : (NSNumber **)seconds : (NSNumber **)miles{
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    int h = 0,m = 0,sec = 0,ml=0;
-    
+    int ml=0;
+    int ticks = 0;
     for(Session * s in [appDelegate storedSessions])
     {
         if([s projectIDref] == [_selectedProject projectID])
         {
             
-            h = h + s.sessionHours.intValue;
-            m = m + s.sessionMinutes.intValue;
-            sec = sec + s.sessionSeconds.intValue;
+            ticks = ticks + s.sessionHours.intValue * 3600;
+            ticks = ticks + s.sessionMinutes.intValue * 60;
+            ticks = ticks + s.sessionSeconds.intValue;
             ml = ml + s.milage.intValue;
         }
     }
+
+    double sec = fmod(ticks, 60.0);
+    double m = fmod(trunc(ticks / 60.0), 60.0);
+    double h = trunc(ticks / 3600.0);
     
-    *hours = [NSNumber numberWithInt:h];
-    *minutes = [NSNumber numberWithInt:m];
-    *seconds = [NSNumber numberWithInt:sec];
+    *hours = [NSNumber numberWithDouble:h];
+    *minutes = [NSNumber numberWithDouble:m];
+    *seconds = [NSNumber numberWithDouble:sec];
     *miles = [NSNumber numberWithInt:ml];
 }
+
 
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
     
     [[self view] endEditing:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    //add new or update existing invoice
+    
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    //Remove existing invoice for this project
+    for(Invoice * remInvoice in [appDelegate arrInvoices])
+    {
+        if(remInvoice.projectID == _nInvoice.projectID)
+        {
+            [[appDelegate arrInvoices] removeObjectIdenticalTo:remInvoice];
+            break;
+        }
+    }
+    //add new invoice object to clients list
+    [[appDelegate arrInvoices] addObject:_nInvoice];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -221,7 +254,6 @@ NSArray * invoiceFormFields;
 {
     
     //create the new invoice from form fields
-    _nInvoice = [[Invoice alloc] init];
     
     NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
     NSString * invoiceNumber = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
@@ -252,16 +284,18 @@ NSArray * invoiceFormFields;
     [_nInvoice setEndDate:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
     //hours
-    iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-    NSString * hours =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+//    iPath = [NSIndexPath indexPathForRow:5 inSection:0];
+//    NSString * hours =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+//    
+//    iPath = [NSIndexPath indexPathForRow:6 inSection:0];
+//    NSString * minutes =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+//    
+//    iPath = [NSIndexPath indexPathForRow:7 inSection:0];
+//    NSString * seconds =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
     
-    iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-    NSString * minutes =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    
-    iPath = [NSIndexPath indexPathForRow:7 inSection:0];
-    NSString * seconds =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    
-    [_nInvoice setTotalTime:[NSString stringWithFormat:@"%@:%@:%@",hours,minutes,seconds]];
+    iPath = [NSIndexPath indexPathForRow:10 inSection:0];
+     NSString * totalTime =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [_nInvoice setTotalTime:[NSString stringWithFormat:@"%@",totalTime]];
     
     //materials
     [_nInvoice setMaterialsTotal:0.00];
@@ -283,21 +317,7 @@ NSArray * invoiceFormFields;
     
     
 //Todo: finish initializing the new invoice object, and call the pdf builder(below) using the new invoice object for values;
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    
-    //Remove existing invoice for this project to allow updating the invoice
-    
-    for(Invoice * remInvoice in [appDelegate arrInvoices])
-    {
-        if(remInvoice.projectID == _nInvoice.projectID)
-        {
-            [[appDelegate arrInvoices] removeObjectIdenticalTo:remInvoice];
-            break;
-        }
-    }
-    //add new invoice object to clients list
-    [[appDelegate arrInvoices] addObject:_nInvoice];
+
     
     
     //show exported pdf view
@@ -471,7 +491,7 @@ NSArray * invoiceFormFields;
         
         CGRect nameRect = [self addText:[[[self MyProfile] objectAtIndex:0] profileName]
                              withFrame:CGRectMake(kHeaderPadding, kPadding, 400,4) fontSize:48.0f];
-        CGRect inoviceRect = [self addText:_nInvoice.invoiceNumber
+        CGRect inoviceRect = [self addText: [NSString stringWithFormat:@"Invoice #%@",_nInvoice.invoiceNumber]
                                  withFrame:CGRectMake(_pageSize.width/2, kPadding, _pageSize.width/2,4) fontSize:40.0f];
         
         CGRect addressRect = [self addText:[[[self MyProfile] objectAtIndex:0] profileAddress]

@@ -14,6 +14,7 @@
 #import "InvoiceTableViewController.h"
 #import "Session.h"
 #import "AppDelegate.h"
+#import "ProjectSelectTableViewController.h"
 
 @interface ProjectsTableViewController ()
 
@@ -136,32 +137,7 @@
     
 }
 
-- (void)invoiceProjectWithIndex:(NSInteger)index
-{
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    //push inovices view controller
-    InvoiceTableViewController * invoiceViewController = [[InvoiceTableViewController alloc] init];
-    
-    [invoiceViewController setSelectedProject:[[appDelegate clientProjects] objectAtIndex:index]];
-    
-    [self.navigationController pushViewController:invoiceViewController animated:YES];
-}
 
--(IBAction)CreateSessionForProject:(id)sender
-{
-    UIButton * selProjectButton = sender;
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    //push the sessions table view
-    SessionsTableViewController *sessionsViewController = [[SessionsTableViewController alloc] initWithNibName:@"SessionsTableViewController" bundle:nil];
-    
-    // Pass the selected project object to the new view controller.
-    [sessionsViewController setSelectedProject:[[appDelegate clientProjects] objectAtIndex:[selProjectButton tag]]];
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:sessionsViewController animated:YES];
-}
 
 #pragma mark - Table view data source
 
@@ -204,7 +180,7 @@
     
     //UILabel * timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 95, 8, 100, 30)];
     
-    UIButton * btnTimer;
+    UILabel * btnTimer;
     
     if(indexPath.row == 0)
     {
@@ -212,12 +188,8 @@
     }
     else
     {
-        //[timerLabel setText:[self totalTimeForProjectId:[rProject projectID]]];
-        btnTimer=[[UIButton alloc] initWithFrame:CGRectMake(screenWidth - 105, 8, 100, 30)];
-        [btnTimer setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-        [btnTimer addTarget:self action:@selector(CreateSessionForProject:) forControlEvents:UIControlEventTouchUpInside];
-        [btnTimer setTitle:[self totalTimeForProjectId:[rProject projectID]] forState:UIControlStateNormal];
-        [btnTimer setTag:[indexPath row]];
+        btnTimer=[[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 105, 8, 100, 30)];
+        [btnTimer setText:[self totalTimeForProjectId:[rProject projectID]]];
     }
     
     //clear cell subviews-clears old cells
@@ -323,17 +295,16 @@
     }
     else
     {
-        [self invoiceProjectWithIndex:[indexPath row]];
+
+        //push the project select/options table view
+        ProjectSelectTableViewController *projectSelectViewController = [[ProjectSelectTableViewController alloc] initWithNibName:@"ProjectSelectTableViewController" bundle:nil];
         
-//        //push the sessions table view
-//        SessionsTableViewController *sessionsViewController = [[SessionsTableViewController alloc] initWithNibName:@"SessionsTableViewController" bundle:nil];
-//        
-//        // Pass the selected object to the new view controller.
-//       
-//        [sessionsViewController setSelectedProject: selProject];
-//        
-//        // Push the view controller.
-//        [self.navigationController pushViewController:sessionsViewController animated:YES];
+        // Pass the selected object to the new view controller.
+       
+        [projectSelectViewController setSelectedProject: selProject];
+        
+        // Push the view controller.
+        [self.navigationController pushViewController:projectSelectViewController animated:YES];
     }
 }
 

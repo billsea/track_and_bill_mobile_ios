@@ -14,6 +14,14 @@
 		A9167E3C1AEAC10E0071B992 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3B1AEAC10E0071B992 /* Images.xcassets */; };
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
+		A9976D861AF7EA3600A4CC9D /* ProjectSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */; };
+		A9976D871AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */; };
+		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
+		A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */; };
+		A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */; };
+		A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8F1AF7F56A00A4CC9D /* group-32.png */; };
+		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
+		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
 		A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */; };
 		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
 		A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */; };
@@ -132,6 +140,17 @@
 		A9167E441AEAC10E0071B992 /* trackandbill_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackandbill_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E491AEAC10E0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosTests.m; sourceTree = "<group>"; };
+		A9976D831AF7EA3600A4CC9D /* ProjectSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSelectTableViewController.h; sourceTree = "<group>"; };
+		A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSelectTableViewController.m; sourceTree = "<group>"; };
+		A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectSelectTableViewController.xib; sourceTree = "<group>"; };
+		A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllSessionsTableViewController.h; sourceTree = "<group>"; };
+		A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllSessionsTableViewController.m; sourceTree = "<group>"; };
+		A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllSessionsTableViewController.xib; sourceTree = "<group>"; };
+		A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_wrench-32.png"; sourceTree = "<group>"; };
+		A9976D8F1AF7F56A00A4CC9D /* group-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group-32.png"; sourceTree = "<group>"; };
+		A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 		A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientTableViewController.h; sourceTree = "<group>"; };
 		A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientTableViewController.m; sourceTree = "<group>"; };
 		A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClientTableViewController.xib; sourceTree = "<group>"; };
@@ -317,6 +336,8 @@
 		A9167E2B1AEAC10D0071B992 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9976D8F1AF7F56A00A4CC9D /* group-32.png */,
+				A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */,
 				A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */,
 				A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */,
 				A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */,
@@ -462,9 +483,15 @@
 				A9DC4C371AEAFB8E00A00892 /* ProjectsTableViewController.h */,
 				A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */,
 				A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */,
+				A9976D831AF7EA3600A4CC9D /* ProjectSelectTableViewController.h */,
+				A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */,
+				A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */,
 				A9DC4C681AEAFB8E00A00892 /* SessionDetailTableViewController.h */,
 				A9DC4C691AEAFB8E00A00892 /* SessionDetailTableViewController.m */,
 				A9DC4C6A1AEAFB8E00A00892 /* SessionDetailTableViewController.xib */,
+				A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */,
+				A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */,
+				A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */,
 				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
 				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
 				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
@@ -480,6 +507,9 @@
 				A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */,
 				A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */,
 				A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */,
+				A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */,
+				A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */,
+				A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -573,8 +603,10 @@
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
+				A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
+				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
 				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
 				A9DC4CC81AEAFB8E00A00892 /* SessionsTableViewController.xib in Resources */,
 				A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */,
@@ -605,8 +637,11 @@
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
 				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,
 				A9DC4CAE1AEAFB8E00A00892 /* Reader-Print@2x.png in Resources */,
+				A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */,
 				A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */,
+				A9976D871AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib in Resources */,
 				A9DC4C871AEAFB8E00A00892 /* AppIcon-144.png in Resources */,
+				A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,11 +661,13 @@
 			files = (
 				A9DC4CB81AEAFB8E00A00892 /* ReaderThumbCache.m in Sources */,
 				A9DC4CCD1AEAFB8E00A00892 /* ThumbsMainToolbar.m in Sources */,
+				A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */,
 				A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */,
 				A9DC4CBE1AEAFB8E00A00892 /* ReaderThumbView.m in Sources */,
 				A9DC4CCB1AEAFB8E00A00892 /* TextInputTableViewCell.m in Sources */,
 				A9DC4CC31AEAFB8E00A00892 /* SessionNotesViewController.m in Sources */,
 				A9DC4CC11AEAFB8E00A00892 /* SessionDetailTableViewController.m in Sources */,
+				A9976D861AF7EA3600A4CC9D /* ProjectSelectTableViewController.m in Sources */,
 				A9DC4CB21AEAFB8E00A00892 /* ReaderContentPage.m in Sources */,
 				A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */,
 				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
@@ -661,6 +698,7 @@
 				A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */,
 				A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */,
 				A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */,
+				A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */,
 				A9DC4C881AEAFB8E00A00892 /* CGPDFDocument.m in Sources */,
 				A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */,
 				A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */,
