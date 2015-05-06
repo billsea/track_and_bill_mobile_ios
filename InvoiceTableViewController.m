@@ -312,7 +312,7 @@ NSArray * invoiceFormFields;
     [_nInvoice setApprovalName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
     [_nInvoice setTotalDue:0.00];
-    [_nInvoice setInvoiceRate:0.00];
+   // [_nInvoice setInvoiceRate:0.00]; //error here
    
     
     
@@ -342,9 +342,7 @@ NSArray * invoiceFormFields;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    
+
     static NSString *CellIdentifier = @"InvoiceCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {

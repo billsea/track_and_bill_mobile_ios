@@ -103,6 +103,8 @@
 		A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */; };
 		A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */; };
 		A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */; };
+		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
+		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +278,9 @@
 		A9E04B1C1AF6A01400342210 /* ClientInvoicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientInvoicesTableViewController.h; sourceTree = "<group>"; };
 		A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientInvoicesTableViewController.m; sourceTree = "<group>"; };
 		A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientInvoicesTableViewController.xib; sourceTree = "<group>"; };
+		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
+		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
+		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +497,9 @@
 				A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */,
 				A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */,
 				A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */,
+				A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */,
+				A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */,
+				A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */,
 				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
 				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
 				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
@@ -607,6 +615,7 @@
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
+				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
 				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
 				A9DC4CC81AEAFB8E00A00892 /* SessionsTableViewController.xib in Resources */,
 				A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */,
@@ -670,6 +679,7 @@
 				A9976D861AF7EA3600A4CC9D /* ProjectSelectTableViewController.m in Sources */,
 				A9DC4CB21AEAFB8E00A00892 /* ReaderContentPage.m in Sources */,
 				A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */,
+				A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */,
 				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
 				A9DC4C991AEAFB8E00A00892 /* Profile.m in Sources */,
 				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,

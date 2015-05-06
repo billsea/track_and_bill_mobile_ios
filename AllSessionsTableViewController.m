@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Project.h"
 #import "AppDelegate.h"
+#import "SessionEditTableViewController.h"
 
 @interface AllSessionsTableViewController ()
 
@@ -30,7 +31,7 @@
     [[self navigationItem] setTitle:[_selectedProject projectName]];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self loadAllSessionsForProject];
 }
@@ -87,7 +88,7 @@
     Session *rSession = [_allProjectSessions objectAtIndex:[indexPath row]];
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
-    [cellLabel setText:[rSession projectName]];
+    [cellLabel setText:[NSString stringWithFormat:@"%@",rSession.sessionDate]];
     [cellLabel setFont:[UIFont systemFontOfSize:20.0]];
     
     //clear cell subviews-clears old cells
@@ -106,25 +107,36 @@
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        
+        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        Session *removeSession = [_allProjectSessions objectAtIndex:[indexPath row]];
+        
+        //remove session from stored sessions array
+        [[appDelegate storedSessions] removeObjectIdenticalTo:removeSession];
+        
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+       // [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self loadAllSessionsForProject];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -140,21 +152,21 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    SessionEditTableViewController *editViewController = [[SessionEditTableViewController alloc] initWithNibName:@"SessionEditTableViewController" bundle:nil];
     
     // Pass the selected object to the new view controller.
-    
+    [editViewController setSelectedSession:(Session*)[_allProjectSessions objectAtIndex:indexPath.row]];
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:editViewController animated:YES];
 }
-*/
+
 
 /*
 #pragma mark - Navigation
