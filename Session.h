@@ -40,7 +40,7 @@
 
 - (NSString *) projectName;
 - (NSString *) clientName;
-- (NSString *) sessionDate;
+- (NSDate *) sessionDate;
 - (NSString *) startTime;
 - (NSString *) endTime;
 - (NSString *) txtNotes;

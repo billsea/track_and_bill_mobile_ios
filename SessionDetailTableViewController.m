@@ -117,7 +117,7 @@ float _ticks;
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(11,11, cell.frame.size.width - 100, 21)];
 
-    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [cellLabel setTextColor:[UIColor blackColor]];
     
     UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(screenWidth - 65, 6, 30, 30)];

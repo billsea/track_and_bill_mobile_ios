@@ -11,6 +11,6 @@
 
 @interface SessionEditTableViewController : UITableViewController
 
-@property (nonatomic, retain) Session * selectedSession;
+@property (nonatomic,retain) Session * selectedSession;
 
 @end

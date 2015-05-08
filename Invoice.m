@@ -21,12 +21,16 @@
 	[self setInvoiceMaterials:@"None"];
 	[self setCheckNumber:@"-"];
 	[self setInvoiceTerms:@"Net 15"];
-	
+    [self setStartDate:stDate];
+    [self setEndDate:stDate];
+    [self setInvoiceNotes:@""];
+	[self setInvoiceMaterials:@""];
+    [self setInvoiceTerms:@""];
 	
 	
 	return self;
 }
-- (NSString *)invoiceNumber
+- (NSNumber *)invoiceNumber
 {
 	return invoiceNumber;
 }
@@ -254,7 +258,7 @@
 }
 
 
-- (void)setInvoiceNumber:(NSString *)iNumber;
+- (void)setInvoiceNumber:(NSNumber *)iNumber;
 {
 	iNumber = [iNumber copy];
 

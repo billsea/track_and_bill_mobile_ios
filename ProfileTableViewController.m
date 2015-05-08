@@ -120,7 +120,7 @@ NSMutableArray * formFields;
         [cell setTag:[indexPath row]];
         [cell setFieldName:[formFields objectAtIndex:[indexPath row]]];
         [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
         [[cell textInput] setTextColor:[UIColor blackColor]];
         cell.textInput.delegate = self;
         

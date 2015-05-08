@@ -11,7 +11,7 @@
 
 
 @interface Invoice : NSObject <NSCoding>{
-	NSString *invoiceNumber;
+	NSNumber *invoiceNumber;
 	NSString *projectName;
 	NSString *clientName;
 	NSDate *startDate;
@@ -39,7 +39,7 @@
 	
 }
 
-- (NSString *) invoiceNumber;
+- (NSNumber *) invoiceNumber;
 - (NSString *) projectName;
 - (NSString *) clientName;
 - (NSDate *) startDate;
@@ -74,7 +74,7 @@
 - (void)setProjectID:(NSNumber *)pID;
 - (void)setClientID:(NSNumber *)cID;
 
-- (void)setInvoiceNumber:(NSString *)iNumber;
+- (void)setInvoiceNumber:(NSNumber *)iNumber;
 - (void)setTotalDue:(float)totDue;
 - (void)setStotalDue:(NSString *)Sdue;
 - (void)setInvoiceRate:(double)sRate;

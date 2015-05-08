@@ -36,6 +36,13 @@
     NSString * version = [[UIDevice currentDevice] systemVersion];
     NSLog(@"ios version: %@", version);
     
+    
+    //navigation bar style
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                           nil, NSShadowAttributeName,[UIFont fontWithName:@"Avenir Next Medium" size: 24.0], NSFontAttributeName, nil]];
+    
     [self RegisterForNotifications];
     
     _currentSessions = [[NSMutableArray alloc] init];
@@ -58,14 +65,7 @@
    // [UINavigationBar appearance].shadowImage = [UIImage new];
    // [UINavigationBar appearance].translucent = YES;
     
-    //    //navigation bar style
-    //back button
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor blackColor], NSForegroundColorAttributeName,
-                                                           nil, NSShadowAttributeName,
-                                                           [UIFont fontWithName:@"Avenir Next Medium" size:24.0], NSFontAttributeName, nil]];
-    
+   
     return YES;
 }
 
@@ -116,7 +116,8 @@
 -(BOOL)createNavigationRootView
 {
     //style settings - temp
-     UIColor * navBarBgColor = [UIColor colorWithRed:0.71 green:0.84 blue:0.66 alpha:1.0];//[UIColor colorWithRed:99.0f/255.0f green:143.0f/255.0f blue:214.0f/255.0f alpha:1.0];//light blue
+    UIColor * navBarBgColor =[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
+    // [UIColor colorWithRed:0.71 green:0.84 blue:0.66 alpha:1.0];//light green
     
     
     //navigation top bar bg image

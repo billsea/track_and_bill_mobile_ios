@@ -131,6 +131,7 @@ NSMutableArray * projectFormFields;
         [submit setTag:[indexPath row]];
         [submit addTarget:self action:@selector(newProjectSubmit:) forControlEvents:UIControlEventTouchUpInside];
         [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [[submit titleLabel] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
         //[submit setTitleColor:[UIColor whiteColor] forState:UIControlEventValueChanged];
         [cell addSubview:submit];
     }
@@ -141,7 +142,7 @@ NSMutableArray * projectFormFields;
         [cell setTag:[indexPath row]];
         [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
         [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
         [[cell textInput] setTextColor:[UIColor blackColor]];
         cell.textInput.delegate = self;
         

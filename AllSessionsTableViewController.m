@@ -14,12 +14,14 @@
 
 @interface AllSessionsTableViewController ()
 
+
 @end
 
 @implementation AllSessionsTableViewController
 
 @synthesize selectedProject = _selectedProject;
 @synthesize allProjectSessions = _allProjectSessions;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,21 +35,26 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
      self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.allProjectSessions = [[NSMutableArray alloc] init];
+    
     [self loadAllSessionsForProject];
+   
 }
+
 
 
 -(void)loadAllSessionsForProject
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    _allProjectSessions = [[NSMutableArray alloc] init];
+
+    //remove existing
+    [self.allProjectSessions removeAllObjects];
     
     for(Session * s in [appDelegate storedSessions])
     {
         if(s.projectIDref == [_selectedProject projectID])
         {
-            [_allProjectSessions addObject:s];
+            [self.allProjectSessions addObject:s];
         }
     }
     
@@ -70,11 +77,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return [_allProjectSessions count];
+    return [self.allProjectSessions count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    NSDateFormatter * df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd/yyyy h:m:s"];
     
     static NSString *CellIdentifier = @"SessionCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -85,13 +96,6 @@
     // [cell setBackgroundColor:[UIColor clearColor]];
     cell.accessoryView =nil;
     
-    Session *rSession = [_allProjectSessions objectAtIndex:[indexPath row]];
-    
-    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
-    [cellLabel setText:[NSString stringWithFormat:@"%@",rSession.sessionDate]];
-    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
-    [cellLabel setTextColor:[UIColor blackColor]];
-    
     //clear cell subviews-clears old cells
     if (cell != nil)
     {
@@ -101,6 +105,17 @@
             [view removeFromSuperview];
         }
     }
+    
+    
+    Session *rSession = [self.allProjectSessions objectAtIndex:[indexPath row]];
+    
+    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
+    //[cellLabel setText:rSession.projectName];
+    [cellLabel setText:[df stringFromDate:rSession.sessionDate]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setTextColor:[UIColor blackColor]];
+    
+    
 
     [[cell contentView] addSubview:cellLabel];
 
@@ -123,7 +138,7 @@
         
         
         AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        Session *removeSession = [_allProjectSessions objectAtIndex:[indexPath row]];
+        Session *removeSession = [self.allProjectSessions objectAtIndex:[indexPath row]];
         
         //remove session from stored sessions array
         [[appDelegate storedSessions] removeObjectIdenticalTo:removeSession];
@@ -162,8 +177,10 @@
     // Create the next view controller.
     SessionEditTableViewController *editViewController = [[SessionEditTableViewController alloc] initWithNibName:@"SessionEditTableViewController" bundle:nil];
     
+    Session * selSession = (Session *)[self.allProjectSessions objectAtIndex:[indexPath row]];
+    
     // Pass the selected object to the new view controller.
-    [editViewController setSelectedSession:(Session*)[_allProjectSessions objectAtIndex:indexPath.row]];
+    [editViewController setSelectedSession:selSession];
     // Push the view controller.
     [self.navigationController pushViewController:editViewController animated:YES];
 }

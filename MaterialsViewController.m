@@ -29,7 +29,8 @@ UITextView * textView;
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
-    //[notesTextView setBackgroundColor:[UIColor lightGrayColor]];
+    [textView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [textView setTextColor:[UIColor blackColor]];
     
     [[self view] addSubview:textView];
     

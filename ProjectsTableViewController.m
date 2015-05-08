@@ -176,7 +176,7 @@
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
     [cellLabel setText:[rProject projectName]];
-    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [cellLabel setTextColor:[UIColor blackColor]];
     
     //UILabel * timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 95, 8, 100, 30)];

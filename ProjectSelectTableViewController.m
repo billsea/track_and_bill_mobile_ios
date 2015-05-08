@@ -47,7 +47,7 @@ InvoiceTableViewController * invoiceViewController;
     //see if there is an exisiting invoice for this project
     for(Invoice * invoice in [appDelegate arrInvoices])
     {
-        if(invoice.projectID == _selectedProject.projectID)
+        if((invoice.projectID == _selectedProject.projectID) && invoice.invoiceNumber)
         {
             [invoiceViewController setSelectedInvoice:invoice];
             break;
@@ -114,6 +114,14 @@ InvoiceTableViewController * invoiceViewController;
             [dialog show];
         }
     }
+    else
+    {
+        //no invoice exists for project, so create a new one
+        [invoiceViewController setSelectedInvoice:nil];
+        [invoiceViewController setSelectedProject:_selectedProject];
+        [self.navigationController pushViewController:invoiceViewController animated:YES];
+        
+    }
     
    
 }
@@ -171,7 +179,7 @@ InvoiceTableViewController * invoiceViewController;
 
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
   
-    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [cellLabel setTextColor:[UIColor blackColor]];
 
     
@@ -264,6 +272,8 @@ InvoiceTableViewController * invoiceViewController;
     
 
 }
+
+
 
 -(void)CreateSessionForProject
 {

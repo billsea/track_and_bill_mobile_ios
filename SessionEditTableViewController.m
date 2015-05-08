@@ -25,13 +25,16 @@ NSArray * sessionFormFields;
     
     [[self navigationItem] setTitle:@"Session Edit"];
     
+    NSDateFormatter * df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd/yyyy h:m:s"];
+    
     //input form text fields
     sessionFormFields = [[NSMutableArray alloc] init];
     sessionFormFields = @[
 
                   @{@"FieldName": @"Client",@"FieldValue": _selectedSession.clientName},
                   @{@"FieldName": @"Project Name", @"FieldValue": _selectedSession.projectName},
-                  @{@"FieldName": @"Date",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionDate]},
+                  @{@"FieldName": @"Date",@"FieldValue": [df stringFromDate:_selectedSession.sessionDate]},
                   @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionHours]},
                   @{@"FieldName": @"Minutes",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionMinutes]},
                   @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionSeconds]},
@@ -41,9 +44,7 @@ NSArray * sessionFormFields;
                   
                   ];
 
-    
-   
-    
+
     //view has been touched, for dismiss keyboard
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -60,9 +61,15 @@ NSArray * sessionFormFields;
     //save all but client and project info
      NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
     
-    //date
-    iPath = [NSIndexPath indexPathForRow:2 inSection:0];
-    [_selectedSession setSessionDate:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+   // NSDateFormatter * df = [[NSDateFormatter alloc] init];
+   // [df setDateFormat:@"MM/dd/yyyy"];
+    
+   
+   
+    //date - THERE IS AN ISSUE WITH SETTING THE DATE,
+    //WHEN SETTING THE DATE THE UPDATED SESSION BECOMES CORRUPTED, SO WE WILL NOT ALLOW THE DATE TO BE CHANGED FOR NOW
+  //  iPath = [NSIndexPath indexPathForRow:2 inSection:0];
+  //  [_selectedSession setSessionDate: [df dateFromString:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]]];
     
     //hours
     iPath = [NSIndexPath indexPathForRow:3 inSection:0];
@@ -121,6 +128,7 @@ NSArray * sessionFormFields;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+  
     
     static NSString *CellIdentifier = @"SessionCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -161,7 +169,7 @@ NSArray * sessionFormFields;
         UITextField * cellText = [[UITextField alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 20, 21)];
         [cellText setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
         [cellText setBorderStyle:UITextBorderStyleNone];
-        [cellText setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [cellText setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
         [cellText setTextColor:[UIColor blackColor]];
         
         //set placeholder text

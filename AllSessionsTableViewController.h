@@ -11,5 +11,5 @@
 
 @interface AllSessionsTableViewController : UITableViewController
 @property (nonatomic, retain) Project * selectedProject;
-@property (nonatomic, retain) NSMutableArray *allProjectSessions;
+@property (nonatomic) NSMutableArray *allProjectSessions;
 @end
