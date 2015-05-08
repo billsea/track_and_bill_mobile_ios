@@ -160,7 +160,9 @@ NSArray * sessionFormFields;
     {
         UITextField * cellText = [[UITextField alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 20, 21)];
         [cellText setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-        [cellText setBorderStyle:UITextBorderStyleRoundedRect];
+        [cellText setBorderStyle:UITextBorderStyleNone];
+        [cellText setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [cellText setTextColor:[UIColor blackColor]];
         
         //set placeholder text
         [cellText setPlaceholder:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];

@@ -139,6 +139,8 @@
     [cell setTag: [[rClient clientID] integerValue]];
      
     [[cell clientNameLabel] setText:[rClient company]];
+    [[cell clientNameLabel] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [[cell clientNameLabel] setTextColor:[UIColor blackColor]];
     
     
     return cell;

@@ -53,6 +53,19 @@
     //add tabbed main view
     [self createNavigationRootView];
     
+    
+   // [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+   // [UINavigationBar appearance].shadowImage = [UIImage new];
+   // [UINavigationBar appearance].translucent = YES;
+    
+    //    //navigation bar style
+    //back button
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor blackColor], NSForegroundColorAttributeName,
+                                                           nil, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"Avenir Next Medium" size:24.0], NSFontAttributeName, nil]];
+    
     return YES;
 }
 

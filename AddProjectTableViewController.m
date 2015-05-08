@@ -140,6 +140,9 @@ NSMutableArray * projectFormFields;
         [[cell textInput] setText:[projectFormFields objectAtIndex:[indexPath row]]];
         [cell setTag:[indexPath row]];
         [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
+        [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [[cell textInput] setTextColor:[UIColor blackColor]];
         cell.textInput.delegate = self;
         
 //        //populate text fields

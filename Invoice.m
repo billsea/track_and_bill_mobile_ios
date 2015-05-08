@@ -131,9 +131,9 @@
 	return endDate;
 }
 
--(NSNumber *)mileage
+-(NSNumber *)milage
 {
-    return mileage;
+    return milage;
 }
 
 /////////// Set variables //////////////////////
@@ -317,8 +317,6 @@
 }
 - (void)setSinvoiceRate:(NSString *)Srate
 {
-	
-	
 	SinvoiceRate = Srate;
 }
 - (void)setCheckNumber:(NSString *)checkNum;
@@ -362,10 +360,10 @@
 	SmaterialsTotal = SmatTotal;
 }
 
-- (void)setMileage:(NSNumber *)miles
+- (void)setMilage:(NSNumber *)miles
 {
     miles = [miles copy];
-    mileage = miles;
+    milage = miles;
 }
 
 - (void)setInvoiceDeposit:(double)iDeposit
@@ -385,7 +383,6 @@
 }
 - (void)setSgrandTotal:(NSString *)grdTotal
 {
-
 	SgrandTotal = grdTotal;
 }
 

@@ -71,44 +71,44 @@ NSArray * invoiceFormFields;
     if(self.selectedInvoice)
     {
             invoiceFormFields = @[
-                     @{@"FieldName": @"Invoice Number", @"FieldValue": _selectedInvoice.invoiceNumber},
-                     @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedInvoice.invoiceDate]},
-                     @{@"FieldName": @"Client Name",@"FieldValue": [_selectedInvoice clientName]},
-                     @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName] },
-                     @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice startDate]]},
-                     @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice endDate]] },
-                     @{@"FieldName": @"Approval Name",@"FieldValue":[_selectedInvoice approvalName] },
-                     @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
-                     @{@"FieldName": @"Notes",@"FieldValue": [_selectedInvoice invoiceNotes] },
-                     @{@"FieldName": @"Materials",@"FieldValue":[_selectedInvoice invoiceMaterials] },
-                     @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice materialsTotal]]},
-                     @{@"FieldName": @"Total Hours",@"FieldValue": [_selectedInvoice totalTime]},
-                     @{@"FieldName": @"Terms",@"FieldValue":[_selectedInvoice invoiceTerms]},
-                     @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceDeposit]]},
-                     @{@"FieldName": @"Rate",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceRate]]}
-                     
-                     ];
+                 @{@"FieldName": @"Invoice Number", @"FieldValue": _selectedInvoice.invoiceNumber},
+                 @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedInvoice.invoiceDate]},
+                 @{@"FieldName": @"Client Name",@"FieldValue": [_selectedInvoice clientName]},
+                 @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName] },
+                 @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice startDate]]},
+                 @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice endDate]] },
+                 @{@"FieldName": @"Approval Name",@"FieldValue":[_selectedInvoice approvalName] },
+                 @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+                 @{@"FieldName": @"Notes",@"FieldValue": [_selectedInvoice invoiceNotes] },
+                 @{@"FieldName": @"Materials",@"FieldValue":[_selectedInvoice invoiceMaterials] },
+                 @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice materialsTotal]]},
+                 @{@"FieldName": @"Total Hours",@"FieldValue": [_selectedInvoice totalTime]},
+                 @{@"FieldName": @"Terms",@"FieldValue":[_selectedInvoice invoiceTerms]},
+                 @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceDeposit]]},
+                 @{@"FieldName": @"Rate",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceRate]]}
+                 
+                 ];
     }
     else if(self.selectedProject)
     {
          invoiceFormFields = @[
-                         @{@"FieldName": @"Invoice Number", @"FieldValue": [self createInvoiceNumber]},
-                         @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",[NSDate date]]},
-                         @{@"FieldName": @"Client Name",@"FieldValue": [_selectedProject clientName]},
-                         @{@"FieldName": @"Project Name",@"FieldValue":[_selectedProject projectName] },
-                         @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedProject startDate]]},
-                         @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedProject endDate]] },
-                         @{@"FieldName": @"Approval Name",@"FieldValue":@""},
-                         @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
-                         @{@"FieldName": @"Notes",@"FieldValue": @""},
-                         @{@"FieldName": @"Materials",@"FieldValue":@""},
-                         @{@"FieldName": @"Materials Total",@"FieldValue":@""},
-                         @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
-                         @{@"FieldName": @"Terms",@"FieldValue":@""},
-                         @{@"FieldName": @"Deposit",@"FieldValue":@"" },
-                         @{@"FieldName": @"Rate",@"FieldValue": @""}
-                         
-                         ];
+                 @{@"FieldName": @"Invoice Number", @"FieldValue": [self createInvoiceNumber]},
+                 @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",[NSDate date]]},
+                 @{@"FieldName": @"Client Name",@"FieldValue": [_selectedProject clientName]},
+                 @{@"FieldName": @"Project Name",@"FieldValue":[_selectedProject projectName] },
+                 @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedProject startDate]]},
+                 @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedProject endDate]] },
+                 @{@"FieldName": @"Approval Name",@"FieldValue":@""},
+                 @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+                 @{@"FieldName": @"Notes",@"FieldValue": @""},
+                 @{@"FieldName": @"Materials",@"FieldValue":@""},
+                 @{@"FieldName": @"Materials Total",@"FieldValue":@""},
+                 @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
+                 @{@"FieldName": @"Terms",@"FieldValue":@""},
+                 @{@"FieldName": @"Deposit",@"FieldValue":@"" },
+                 @{@"FieldName": @"Rate",@"FieldValue": @""}
+                 
+                 ];
   
     }
     
@@ -162,7 +162,7 @@ NSArray * invoiceFormFields;
     //add new or update existing invoice
     
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
+
     //Remove existing invoice for this project
     for(Invoice * remInvoice in [appDelegate arrInvoices])
     {
@@ -256,7 +256,7 @@ NSArray * invoiceFormFields;
     //milage
     iPath = [NSIndexPath indexPathForRow:7 inSection:0];
     NSInteger miles = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] integerValue];
-    [_nInvoice setMileage:[NSNumber numberWithInteger:miles]];
+    [_nInvoice setMilage:[NSNumber numberWithInteger:miles]];
     
     //notes
     iPath = [NSIndexPath indexPathForRow:8 inSection:0];
@@ -290,11 +290,8 @@ NSArray * invoiceFormFields;
     iPath = [NSIndexPath indexPathForRow:14 inSection:0];
     [_nInvoice setInvoiceRate:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] doubleValue]];
     
-    
-    //calculate total due
-    [_nInvoice setTotalDue:0.00];
+    //calculate total due - invoice class will calculate
 
-   
     //show exported pdf view
     [self MakePDF:_nInvoice];
 
@@ -356,8 +353,9 @@ NSArray * invoiceFormFields;
     {
         UITextField * cellText = [[UITextField alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 20, 21)];
         [cellText setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-        [cellText setBorderStyle:UITextBorderStyleRoundedRect];
-        
+        [cellText setBorderStyle:UITextBorderStyleNone];
+        [cellText setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [cellText setTextColor:[UIColor blackColor]];
         //set placeholder text
         [cellText setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
         

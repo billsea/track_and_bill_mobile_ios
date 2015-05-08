@@ -62,8 +62,8 @@
     
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
-    //[cellLabel setText:[rProject projectName]];
-    [cellLabel setFont:[UIFont systemFontOfSize:20.0]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setTextColor:[UIColor blackColor]];
     
     
     //clear cell subviews-clears old cells

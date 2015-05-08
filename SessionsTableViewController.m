@@ -180,12 +180,14 @@
 
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
     [cellLabel setText:[rSession projectName]];
-    [cellLabel setFont:[UIFont systemFontOfSize:20.0]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setTextColor:[UIColor blackColor]];
 
     UILabel * timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 105, 8, 100, 30)];
     [timerLabel setText:[rSession timerValue]];
     timerLabel.tag = [indexPath row] + 1;//need to start tag at one, NOT ZERO
-    
+    [timerLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [timerLabel setTextColor:[UIColor blackColor]];
     
     //clear cell subviews-clears old cells
     if (cell != nil)

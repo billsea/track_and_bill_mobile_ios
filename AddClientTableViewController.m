@@ -175,6 +175,9 @@ NSMutableArray * clientFormFields;
         [[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath row]]];
         [cell setTag:[indexPath row]];
         [cell setFieldName:[clientFormFields objectAtIndex:[indexPath row]]];
+        [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [[cell textInput] setTextColor:[UIColor blackColor]];
         cell.textInput.delegate = self;
 
         

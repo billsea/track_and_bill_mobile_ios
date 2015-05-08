@@ -109,6 +109,7 @@ NSMutableArray * formFields;
         [submit setTag:[indexPath row]];
         [submit addTarget:self action:@selector(handleProfileSubmit:) forControlEvents:UIControlEventTouchUpInside];
         [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
         //[submit setTitleColor:[UIColor whiteColor] forState:UIControlEventValueChanged];
         [cell addSubview:submit];
     }
@@ -118,6 +119,9 @@ NSMutableArray * formFields;
         [[cell textInput] setPlaceholder:[formFields objectAtIndex:[indexPath row]]];
         [cell setTag:[indexPath row]];
         [cell setFieldName:[formFields objectAtIndex:[indexPath row]]];
+        [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [[cell textInput] setTextColor:[UIColor blackColor]];
         cell.textInput.delegate = self;
         
         //populate text fields

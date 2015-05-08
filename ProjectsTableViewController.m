@@ -176,7 +176,8 @@
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
     [cellLabel setText:[rProject projectName]];
-    [cellLabel setFont:[UIFont systemFontOfSize:20.0]];
+    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+    [cellLabel setTextColor:[UIColor blackColor]];
     
     //UILabel * timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 95, 8, 100, 30)];
     
@@ -190,6 +191,8 @@
     {
         btnTimer=[[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 105, 8, 100, 30)];
         [btnTimer setText:[self totalTimeForProjectId:[rProject projectID]]];
+        [btnTimer setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+        [btnTimer setTextColor:[UIColor blackColor]];
     }
     
     //clear cell subviews-clears old cells
