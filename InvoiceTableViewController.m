@@ -66,86 +66,50 @@ NSArray * invoiceFormFields;
     NSNumber * miles = [[NSNumber alloc] init];
     [self projectTotals:&hours :&minutes :&seconds :&miles];
 
-    
-    
+
     //Could be new invoice or edit
     if(self.selectedInvoice)
     {
-        //TODO: finish edit invoice, fill form values below
-        
-        invoiceFormFields = @[
-                             // @{@"FieldName": @"Save and Preview",@"FieldValue":@"" },
-                             @{@"FieldName": @"Invoice Number", @"FieldValue": _selectedInvoice.invoiceNumber},
-                             @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedInvoice.invoiceDate]},
-                             @{@"FieldName": @"Client Name",@"FieldValue": [_selectedInvoice clientName]},
-                             @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName] },
-                             @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice startDate]]},
-                             @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice endDate]] },
-//                             @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",hours]},
-//                             @{@"FieldName": @"Minutes",@"FieldValue":[NSString stringWithFormat:@"%@",minutes] },
-//                             @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",seconds]},
-                             @{@"FieldName": @"Approval Name",@"FieldValue":@""},
-                             @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
-                             @{@"FieldName": @"Notes",@"FieldValue": @""},
-                             @{@"FieldName": @"Materials",@"FieldValue":@""},
-                             @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
-                             @{@"FieldName": @"Terms",@"FieldValue":@""},
-                             @{@"FieldName": @"Deposit",@"FieldValue":@"" },
-                             @{@"FieldName": @"Rate",@"FieldValue": @""}
-                             
-                             ];
+            invoiceFormFields = @[
+                     @{@"FieldName": @"Invoice Number", @"FieldValue": _selectedInvoice.invoiceNumber},
+                     @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedInvoice.invoiceDate]},
+                     @{@"FieldName": @"Client Name",@"FieldValue": [_selectedInvoice clientName]},
+                     @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName] },
+                     @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice startDate]]},
+                     @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice endDate]] },
+                     @{@"FieldName": @"Approval Name",@"FieldValue":[_selectedInvoice approvalName] },
+                     @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+                     @{@"FieldName": @"Notes",@"FieldValue": [_selectedInvoice invoiceNotes] },
+                     @{@"FieldName": @"Materials",@"FieldValue":[_selectedInvoice invoiceMaterials] },
+                     @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice materialsTotal]]},
+                     @{@"FieldName": @"Total Hours",@"FieldValue": [_selectedInvoice totalTime]},
+                     @{@"FieldName": @"Terms",@"FieldValue":[_selectedInvoice invoiceTerms]},
+                     @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceDeposit]]},
+                     @{@"FieldName": @"Rate",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceRate]]}
+                     
+                     ];
     }
     else if(self.selectedProject)
     {
+         invoiceFormFields = @[
+                         @{@"FieldName": @"Invoice Number", @"FieldValue": [self createInvoiceNumber]},
+                         @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",[NSDate date]]},
+                         @{@"FieldName": @"Client Name",@"FieldValue": [_selectedProject clientName]},
+                         @{@"FieldName": @"Project Name",@"FieldValue":[_selectedProject projectName] },
+                         @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedProject startDate]]},
+                         @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedProject endDate]] },
+                         @{@"FieldName": @"Approval Name",@"FieldValue":@""},
+                         @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+                         @{@"FieldName": @"Notes",@"FieldValue": @""},
+                         @{@"FieldName": @"Materials",@"FieldValue":@""},
+                         @{@"FieldName": @"Materials Total",@"FieldValue":@""},
+                         @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
+                         @{@"FieldName": @"Terms",@"FieldValue":@""},
+                         @{@"FieldName": @"Deposit",@"FieldValue":@"" },
+                         @{@"FieldName": @"Rate",@"FieldValue": @""}
+                         
+                         ];
   
-   
-    
-     invoiceFormFields = @[
-                          // @{@"FieldName": @"Save and Preview",@"FieldValue":@"" },
-                     @{@"FieldName": @"Invoice Number", @"FieldValue": [self createInvoiceNumber]},
-                     @{@"FieldName": @"Invoice Date",@"FieldValue": [NSString stringWithFormat:@"%@",[NSDate date]]},
-                     @{@"FieldName": @"Client Name",@"FieldValue": [_selectedProject clientName]},
-                     @{@"FieldName": @"Project Name",@"FieldValue":[_selectedProject projectName] },
-                     @{@"FieldName": @"Start Date",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedProject startDate]]},
-                     @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[_selectedProject endDate]] },
-//                     @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",hours]},
-//                     @{@"FieldName": @"Minutes",@"FieldValue":[NSString stringWithFormat:@"%@",minutes] },
-//                     @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",seconds]},
-                     @{@"FieldName": @"Approval Name",@"FieldValue":@""},
-                     @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
-                     @{@"FieldName": @"Notes",@"FieldValue": @""},
-                     @{@"FieldName": @"Materials",@"FieldValue":@""},
-                     @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
-                     @{@"FieldName": @"Terms",@"FieldValue":@""},
-                     @{@"FieldName": @"Deposit",@"FieldValue":@"" },
-                     @{@"FieldName": @"Rate",@"FieldValue": @""}
-                     
-                     ];
-    
-//    [invoiceFormFields addObject:[self createInvoiceNumber]];
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",[NSDate date]]];//invoice date
-//    [invoiceFormFields addObject:[_selectedProject clientName]];
-//    [invoiceFormFields addObject:[_selectedProject projectName]];
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",[_selectedProject startDate]]];
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",[_selectedProject endDate]]];
-//
-//    NSNumber * hours = [[NSNumber alloc] init];
-//    NSNumber * minutes = [[NSNumber alloc] init];
-//    NSNumber * seconds = [[NSNumber alloc] init];
-//    NSNumber * miles = [[NSNumber alloc] init];
-//    [self projectTotals:&hours :&minutes :&seconds :&miles];
-//    
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",hours]];//total hours
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",minutes]];//minutes
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",seconds]];//seconds
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"Approval Name"]];
-//    [invoiceFormFields addObject:[NSString stringWithFormat:@"%@",miles]];//seconds
-//    [invoiceFormFields addObject:@"Notes"];//from sessions
-//    [invoiceFormFields addObject:@"Materials"];//from sessions
-//    [invoiceFormFields addObject:@"Deposit"];
-//    [invoiceFormFields addObject:@"Rate"];
-//    [invoiceFormFields addObject:@"Save and Preview"];
-        
     }
     
     //view has been touched, for dismiss keyboard
@@ -280,46 +244,57 @@ NSArray * invoiceFormFields;
     iPath = [NSIndexPath indexPathForRow:4 inSection:0];
     [_nInvoice setStartDate:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
-    iPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    //end date
+    iPath = [NSIndexPath indexPathForRow:5 inSection:0];
     [_nInvoice setEndDate:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
-    //hours
-//    iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-//    NSString * hours =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-//    
-//    iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-//    NSString * minutes =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-//    
-//    iPath = [NSIndexPath indexPathForRow:7 inSection:0];
-//    NSString * seconds =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
     
-    iPath = [NSIndexPath indexPathForRow:10 inSection:0];
-     NSString * totalTime =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    [_nInvoice setTotalTime:[NSString stringWithFormat:@"%@",totalTime]];
+    //approvale
+    iPath = [NSIndexPath indexPathForRow:6 inSection:0] ;
+    [_nInvoice setApprovalName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
     
-    //materials
-    [_nInvoice setMaterialsTotal:0.00];
-    
-    iPath = [NSIndexPath indexPathForRow:10 inSection:0];
+    //milage
+    iPath = [NSIndexPath indexPathForRow:7 inSection:0];
     NSInteger miles = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] integerValue];
     [_nInvoice setMileage:[NSNumber numberWithInteger:miles]];
     
+    //notes
+    iPath = [NSIndexPath indexPathForRow:8 inSection:0];
+    [_nInvoice setInvoiceNotes:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    
+    //materials - get from sessions
+    iPath = [NSIndexPath indexPathForRow:9 inSection:0];
+    [_nInvoice setInvoiceMaterials:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    
+    //materials totals
+    iPath = [NSIndexPath indexPathForRow:10 inSection:0];
+    NSString * materialsTotal = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [_nInvoice setMaterialsTotal: [materialsTotal floatValue]];
+    
+    //total time
+    iPath = [NSIndexPath indexPathForRow:11 inSection:0];
+     NSString * totalTime =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [_nInvoice setTotalTime:[NSString stringWithFormat:@"%@",totalTime]];
+    
+ 
     //terms
-     iPath = [NSIndexPath indexPathForRow:13 inSection:0];
-     [_nInvoice setInvoiceTerms:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
-    
-    iPath = [NSIndexPath indexPathForRow:9 inSection:0] ;
-    [_nInvoice setApprovalName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
-    
-    [_nInvoice setTotalDue:0.00];
-   // [_nInvoice setInvoiceRate:0.00]; //error here
+    iPath = [NSIndexPath indexPathForRow:12 inSection:0];
+    [_nInvoice setInvoiceTerms:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
    
     
+    //deposit
+     iPath = [NSIndexPath indexPathForRow:13 inSection:0];
+     [_nInvoice setInvoiceDeposit:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] doubleValue]];
     
-//Todo: finish initializing the new invoice object, and call the pdf builder(below) using the new invoice object for values;
+    //rate
+    iPath = [NSIndexPath indexPathForRow:14 inSection:0];
+    [_nInvoice setInvoiceRate:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] doubleValue]];
+    
+    
+    //calculate total due
+    [_nInvoice setTotalDue:0.00];
 
-    
-    
+   
     //show exported pdf view
     [self MakePDF:_nInvoice];
 
@@ -446,8 +421,21 @@ NSArray * invoiceFormFields;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString * projectfile = [NSString stringWithFormat:@"%@_%@.pdf",[[self selectedProject] projectName],[[self selectedProject] projectID]];
-    NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:projectfile];
+    
+    NSString * invoicefile;
+    
+    if(_selectedInvoice)
+    {
+        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",[[self selectedInvoice] projectName],[[self selectedInvoice] projectID]];
+    }
+    else
+    {
+        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",[[self selectedProject] projectName],[[self selectedProject] projectID]];
+    }
+    
+    
+    
+    NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:invoicefile];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:pdfPath]) {
         

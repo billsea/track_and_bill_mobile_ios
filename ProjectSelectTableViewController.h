@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Project.h"
 
-@interface ProjectSelectTableViewController : UITableViewController
+@interface ProjectSelectTableViewController : UITableViewController<UIActionSheetDelegate>
 @property (nonatomic, retain) Project * selectedProject;
 
 @end

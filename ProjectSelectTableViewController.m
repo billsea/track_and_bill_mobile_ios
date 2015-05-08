@@ -10,12 +10,17 @@
 #import "InvoiceTableViewController.h"
 #import "SessionsTableViewController.h" 
 #import "AllSessionsTableViewController.h"
+#import "Invoice.h"
+#import "AppDelegate.h"
 
 @interface ProjectSelectTableViewController ()
 
 @end
 
 @implementation ProjectSelectTableViewController
+
+
+InvoiceTableViewController * invoiceViewController;
 
 @synthesize selectedProject = _selectedProject;
 
@@ -34,18 +39,107 @@
 
 - (void)invoiceProject
 {
-  
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     //push inovices view controller
-    InvoiceTableViewController * invoiceViewController = [[InvoiceTableViewController alloc] init];
+    invoiceViewController = [[InvoiceTableViewController alloc] init];
     
-    [invoiceViewController setSelectedProject:_selectedProject];
+    //see if there is an exisiting invoice for this project
+    for(Invoice * invoice in [appDelegate arrInvoices])
+    {
+        if(invoice.projectID == _selectedProject.projectID)
+        {
+            [invoiceViewController setSelectedInvoice:invoice];
+            break;
+        }
+    }
     
-    [self.navigationController pushViewController:invoiceViewController animated:YES];
+    if([invoiceViewController selectedInvoice])
+    {
+        //alert - An invoice exists for this project. Edit existing or create new invoice?
+        if ([UIAlertController class])
+        {
+            
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"Invoice Exists"
+                                          message:@"Edit the existing invoice or create a new one?"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* editInvoice = [UIAlertAction
+                                     actionWithTitle:@"Edit Invoice"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                          [self.navigationController pushViewController:invoiceViewController animated:YES];
+                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                         
+                                     }];
+            UIAlertAction* newInvoice = [UIAlertAction
+                                     actionWithTitle:@"New Invoice"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [invoiceViewController setSelectedInvoice:nil];
+                                         [invoiceViewController setSelectedProject:_selectedProject];
+                                         
+                                          [self.navigationController pushViewController:invoiceViewController animated:YES];
+                                         
+                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                     }];
+            UIAlertAction* cancel = [UIAlertAction
+                                     actionWithTitle:@"Cancel"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                         
+                                     }];
+            
+            [alert addAction:editInvoice];
+            [alert addAction:newInvoice];
+            [alert addAction:cancel];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else
+        {
+            // use UIAlertView
+            UIAlertView* dialog = [[UIAlertView alloc] initWithTitle:@"Invoice Exists"
+                                                             message:@"Edit the existing invoice or create a new one?"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                                   otherButtonTitles:@"Yes",@"No",nil];
+            
+            dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
+            [dialog show];
+        }
+    }
+    
+   
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 1:
+            //invoice already set
+            break;
+        case 2:
+            [invoiceViewController setSelectedInvoice:nil];
+            [invoiceViewController setSelectedProject:_selectedProject];
+            break;
+        default:
+            break;
+    }
+    
+     [self.navigationController pushViewController:invoiceViewController animated:YES];
 }
 
 #pragma mark - Table view data source
