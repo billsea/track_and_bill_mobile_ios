@@ -18,6 +18,7 @@
 	[self setInvoiceDate:stDate];
 	[self setInvoiceDeposit:0.00];
 	[self setMaterialsTotal:0.00];
+    [self setProjectName:@""];
 	[self setInvoiceMaterials:@"None"];
 	[self setCheckNumber:@"-"];
 	[self setInvoiceTerms:@"Net 15"];
@@ -158,11 +159,12 @@
 	
 	totalTime = tTime;
 }
-- (void)setProjectName:(NSString *)pName
+
+- (void)setProjectName:(NSString *)projName
 {
-	pName = [pName copy]; 
+	projName = [projName copy];
 	
-	projectName = pName;
+	projectName = projName;
 	
 }
 - (void)setClientName:(NSString *)cName

@@ -347,7 +347,23 @@
     }
 }
 
-
+-(void)removeInvoicesForProjectId:(NSNumber *)ProjectId
+{
+    NSMutableArray * invoicesToRemove = [[NSMutableArray alloc] init];
+    
+    for(Invoice * inv in [self arrInvoices])
+    {
+        if(inv.projectID == ProjectId)
+        {
+            [invoicesToRemove addObject:inv];
+        }
+    }
+    
+    for(Invoice *invRem in invoicesToRemove)
+    {
+        [[self arrInvoices] removeObjectIdenticalTo:invRem];
+    }
+}
 
 @end
 

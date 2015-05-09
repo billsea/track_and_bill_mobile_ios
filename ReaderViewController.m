@@ -321,7 +321,7 @@
 
 	assert(self.splitViewController == nil); // Not supported (sorry)
 
-    UIColor * navBarBgColor = [UIColor colorWithRed:0.71 green:0.84 blue:0.66 alpha:1.0];
+    UIColor * navBarBgColor = [UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
     self.view.backgroundColor = navBarBgColor;
     
 	//self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];

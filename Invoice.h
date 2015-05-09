@@ -65,7 +65,7 @@
 - (NSString *) SgrandTotal;
 - (NSNumber *)milage;
 
-- (void)setProjectName:(NSString *)pName;
+- (void)setProjectName:(NSString *)projName;
 - (void)setClientName:(NSString *)cName;
 - (void)setStartDate:(NSDate *)sDate;
 - (void)setEndDate:(NSDate *)eDate;

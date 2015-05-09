@@ -31,8 +31,13 @@
 
 
 - (void) saveProjectsToDisk;
+- (void) saveInvoicesToDisk;
+- (void) saveClientsToDisk;
+- (void) saveSessionsToDisk;
+
 - (void)RegisterForNotifications;
 - (NSString *)pathToDataFile:(NSString *)fileName;
 -(void)removeSessionsForProjectId:(NSNumber *)ProjectId;
+-(void)removeInvoicesForProjectId:(NSNumber *)ProjectId;
 @end
 

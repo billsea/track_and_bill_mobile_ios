@@ -37,6 +37,17 @@ InvoiceTableViewController * invoiceViewController;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    //looks like a good place to save all data
+    [appDelegate saveProjectsToDisk];
+    [appDelegate saveClientsToDisk];
+    [appDelegate saveSessionsToDisk];
+    [appDelegate saveInvoicesToDisk];
+}
+
 - (void)invoiceProject
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

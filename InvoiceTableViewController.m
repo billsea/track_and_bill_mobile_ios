@@ -11,7 +11,7 @@
 #import "Session.h"
 #import "Profile.h"
 #import "TextInputTableViewCell.h"
-
+#import "Client.h"
 #define kPadding 5
 #define kHeaderPadding 5
 
@@ -27,8 +27,10 @@
 
 @synthesize selectedProject = _selectedProject;
 @synthesize selectedInvoice = _selectedInvoice;
+@synthesize userData = _userData;
 
 NSArray * invoiceFormFields;
+NSNumber * invoiceNumberSelected;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,8 +52,7 @@ NSArray * invoiceFormFields;
     // self.clearsSelectionOnViewWillAppear = NO;
     
     
-    //new invoice object
-    _nInvoice = [[Invoice alloc] init];
+    //saves form fields input
     
     //input form text fields
     invoiceFormFields = [[NSMutableArray alloc] init];
@@ -69,18 +70,26 @@ NSArray * invoiceFormFields;
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM/dd/yyyy"];
     
+    
+    
+    
     //Could be new invoice or edit
     if(self.selectedInvoice && self.selectedInvoice.invoiceNumber)
     {
+        //remove exisitng invoice - a new one will be created
+        [self removeExistingInvoice: _selectedInvoice.projectID];
+        
+        invoiceNumberSelected = [_selectedInvoice invoiceNumber];
+        
             invoiceFormFields = @[
-                 @{@"FieldName": @"Invoice Number", @"FieldValue": _selectedInvoice.invoiceNumber},
+                 @{@"FieldName": @"Invoice Number", @"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice invoiceNumber]]},
                  @{@"FieldName": @"Invoice Date",@"FieldValue": [df stringFromDate: _selectedInvoice.invoiceDate]},
                  @{@"FieldName": @"Client Name",@"FieldValue": [_selectedInvoice clientName]},
-                 @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName] },
+                 @{@"FieldName": @"Project Name",@"FieldValue":[_selectedInvoice projectName]},
                  @{@"FieldName": @"Start Date",@"FieldValue": [df stringFromDate:[_selectedInvoice startDate]]},
                  @{@"FieldName": @"End Date",@"FieldValue":[df stringFromDate:[_selectedInvoice endDate]] },
                  @{@"FieldName": @"Approval Name",@"FieldValue":[_selectedInvoice approvalName] },
-                 @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
+                 @{@"FieldName": @"Mileage",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice milage]]},
                  @{@"FieldName": @"Notes",@"FieldValue": [_selectedInvoice invoiceNotes] },
                  @{@"FieldName": @"Materials",@"FieldValue":[_selectedInvoice invoiceMaterials] },
                  @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice materialsTotal]]},
@@ -94,8 +103,8 @@ NSArray * invoiceFormFields;
     }
     else if(self.selectedProject)
     {
-        //remove exisitng
-        [self removeExistingInvoice];
+        //remove exisitng invoice - a new one will be created
+        [self removeExistingInvoice: _selectedProject.projectID];
         
         //create long string with all notes, materials
         NSString * allNotes = [[NSString alloc] init];
@@ -113,9 +122,11 @@ NSArray * invoiceFormFields;
             }
         }
         
+        //create new invoice number
+        invoiceNumberSelected = [self createInvoiceNumber];
         
          invoiceFormFields = @[
-                 @{@"FieldName": @"Invoice Number", @"FieldValue": [self createInvoiceNumber]},
+                 @{@"FieldName": @"Invoice Number", @"FieldValue": [NSString stringWithFormat:@"%@",invoiceNumberSelected]},
                  @{@"FieldName": @"Invoice Date",@"FieldValue": [df stringFromDate:[NSDate date]]},
                  @{@"FieldName": @"Client Name",@"FieldValue": [_selectedProject clientName]},
                  @{@"FieldName": @"Project Name",@"FieldValue":[_selectedProject projectName] },
@@ -146,6 +157,16 @@ NSArray * invoiceFormFields;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(NSMutableArray *)userData
+{
+    if(!_userData){
+        _userData = [[NSMutableArray alloc] initWithCapacity:[invoiceFormFields count]];
+        for (int i = 0; i < [invoiceFormFields count]; i++)
+            [_userData addObject:@""];
+    }
+    return _userData;
 }
 
 -(void)projectTotals:(NSNumber **)hours : (NSNumber **)minutes : (NSNumber **)seconds : (NSNumber **)miles{
@@ -192,33 +213,38 @@ NSArray * invoiceFormFields;
     // Dispose of any resources that can be recreated.
 }
 
--(void)removeExistingInvoice
+-(void)removeExistingInvoice:(NSNumber *)projectId
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    NSMutableArray * invoicesToRemove = [[NSMutableArray alloc] init];
     
     //Remove existing invoice for this project
     for(Invoice * remInvoice in [appDelegate arrInvoices])
     {
-        if(remInvoice.projectID == _nInvoice.projectID)
+        if(remInvoice.projectID == projectId)
         {
-            [[appDelegate arrInvoices] removeObjectIdenticalTo:remInvoice];
-            break;
+            [invoicesToRemove addObject:remInvoice];
         }
+    }
+    
+    for(Invoice * t in invoicesToRemove)
+    {
+        [[appDelegate arrInvoices] removeObjectIdenticalTo:t];
     }
 }
 
 //create invoice number based on last invoice number
-- (NSString *)createInvoiceNumber
+- (NSNumber *)createInvoiceNumber
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     int invNumber;
     int tempNumber;
     int i;
-    NSString *lastNumber;
-    NSString *newNumber;
+    NSNumber *lastNumber;
     
     if ([[appDelegate arrInvoices] count] == 0) {
-        return @"1";
+        return [NSNumber numberWithInt:1];
     }else{
         
         Invoice *tInvoice = [[Invoice alloc] init];
@@ -234,9 +260,8 @@ NSArray * invoiceFormFields;
         }
         //set new invoice number to the highest invoice number found, plus one.
         invNumber = tempNumber;
-        invNumber++; 
-        newNumber = [NSString stringWithFormat:@"%d", invNumber];
-        return newNumber;	
+        invNumber++;
+        return [NSNumber numberWithInt:invNumber];
     }
 }
 
@@ -245,79 +270,171 @@ NSArray * invoiceFormFields;
     //create the new invoice from form fields
     Invoice * cInvoice = [[Invoice alloc] init];
     
-    NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
-    NSString * invoiceNumber = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    [cInvoice setInvoiceNumber:[NSNumber numberWithInt:[invoiceNumber intValue]]];
     
-    [cInvoice setProjectID:_selectedProject.projectID];
+    //new invoice or update existing?
+    if(_selectedProject)
+    {
+        [cInvoice setProjectID:_selectedProject.projectID];
+        [cInvoice setClientID:_selectedProject.clientID];
+    }
+    else
+    {
+
+        [cInvoice setProjectID:_selectedInvoice.projectID];
+        [cInvoice setClientID:_selectedInvoice.clientID];
+    }
     
-    NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy"];
     
-    iPath = [NSIndexPath indexPathForRow:1 inSection:0] ;
+//    //allow to update the invoice number
+//    NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
+//    NSString * invoiceNumber = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+//    if(!invoiceNumber)
+//    {
+//        invoiceNumber = [[invoiceFormFields objectAtIndex:0] objectForKey:@"FieldValue"];
+//    }
+//    [cInvoice setInvoiceNumber:[NSNumber numberWithInt:[invoiceNumber intValue]]];
+
+    //invoice number is read only
+    [cInvoice setInvoiceNumber:invoiceNumberSelected];
+
+    //invoice date - today
+    NSIndexPath *iPath = [NSIndexPath indexPathForRow:1 inSection:0] ;
     // NSString * invoiceDate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
     [cInvoice setInvoiceDate:[NSDate date]];//date formatter was failing, but direct cast to nsdate works(see warning)
     
-    [cInvoice setClientID:_selectedProject.clientID];
-    
     iPath = [NSIndexPath indexPathForRow:2 inSection:0] ;
-    [cInvoice setClientName:_selectedProject.clientName];
-    //[_nInvoice setClientName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    //[cInvoice setClientName:_selectedProject.clientName];
+    NSString * clientName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!clientName)
+    {
+        clientName = [[invoiceFormFields objectAtIndex:2] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setClientName:clientName];
     
+    
+    //project name
     iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    [cInvoice setProjectName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    NSString * projectName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!projectName)
+    {
+        projectName = [[invoiceFormFields objectAtIndex:3] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setProjectName:projectName];
     
     //dates
+    NSDateFormatter * df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd/yyyy"];
+    
     iPath = [NSIndexPath indexPathForRow:4 inSection:0];
-    [cInvoice setStartDate:[df dateFromString:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]]];
+    NSString * stDate =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!stDate)
+    {
+        stDate = [[invoiceFormFields objectAtIndex:4] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setStartDate:[df dateFromString:stDate]];
     
     //end date
     iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-    [cInvoice setEndDate:[df dateFromString:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]]];
+    NSString * endDate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!endDate)
+    {
+        endDate = [[invoiceFormFields objectAtIndex:5] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setEndDate:[df dateFromString:endDate]];
     
     
     //approvale
-    iPath = [NSIndexPath indexPathForRow:6 inSection:0] ;
-    [cInvoice setApprovalName:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    iPath = [NSIndexPath indexPathForRow:6 inSection:0];
+    NSString * approvalName =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!approvalName)
+    {
+        approvalName = [[invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setApprovalName:approvalName];
     
     //milage
     iPath = [NSIndexPath indexPathForRow:7 inSection:0];
     NSInteger miles = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] integerValue];
+    if(!miles)
+    {
+        miles = [[[invoiceFormFields objectAtIndex:7] objectForKey:@"FieldValue"] integerValue];
+    }
     [cInvoice setMilage:[NSNumber numberWithInteger:miles]];
+    
     
     //notes
     iPath = [NSIndexPath indexPathForRow:8 inSection:0];
-    [cInvoice setInvoiceNotes:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    NSString * invNotes = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!invNotes)
+    {
+        invNotes = [[invoiceFormFields objectAtIndex:8] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setInvoiceNotes:invNotes];
     
     //materials - get from sessions
     iPath = [NSIndexPath indexPathForRow:9 inSection:0];
-    [cInvoice setInvoiceMaterials:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    NSString * invMaterials = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!invMaterials)
+    {
+        invMaterials = [[invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setInvoiceMaterials:invMaterials];
     
     //materials totals
     iPath = [NSIndexPath indexPathForRow:10 inSection:0];
     NSString * materialsTotal = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!materialsTotal)
+    {
+        materialsTotal = [[invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
+    }
     [cInvoice setMaterialsTotal: [materialsTotal floatValue]];
+    
     
     //total time
     iPath = [NSIndexPath indexPathForRow:11 inSection:0];
     NSString * totalTime =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    [cInvoice setTotalTime:[NSString stringWithFormat:@"%@",totalTime]];
+    if(!totalTime)
+    {
+        totalTime = [[invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setTotalTime:totalTime];
     
     
     //terms
     iPath = [NSIndexPath indexPathForRow:12 inSection:0];
-    [cInvoice setInvoiceTerms:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    NSString * invTerms = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!invTerms)
+    {
+        invTerms = [[invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setInvoiceTerms:invTerms];
     
     
     //deposit
     iPath = [NSIndexPath indexPathForRow:13 inSection:0];
-    [cInvoice setInvoiceDeposit:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] doubleValue]];
+    NSString * invDeposit = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!invDeposit)
+    {
+        invDeposit = [[invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setInvoiceDeposit:[invDeposit doubleValue]];
     
     //rate
     iPath = [NSIndexPath indexPathForRow:14 inSection:0];
-    [cInvoice setInvoiceRate:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] doubleValue]];
+    NSString * invRate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!invRate)
+    {
+        invRate = [[invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setInvoiceRate:[invRate doubleValue]];
     
-    //calculate total due - invoice class will calculate
+    iPath = [NSIndexPath indexPathForRow:15 inSection:0];
+    NSString * invCheck = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    if(!invCheck)
+    {
+        invCheck = [[invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
+    }
+    [cInvoice setCheckNumber:invCheck];
     
     return  cInvoice;
 }
@@ -380,6 +497,7 @@ NSArray * invoiceFormFields;
     
     [[cell textInput] setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
     [[cell textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+    [[cell textInput] setTag:[indexPath row]];
     [cell setTag:[indexPath row]];
     [cell setFieldName:[invoiceFormFields objectAtIndex:[indexPath row]]];
     [[cell textInput] setBorderStyle:UITextBorderStyleNone];
@@ -387,18 +505,41 @@ NSArray * invoiceFormFields;
     [[cell textInput] setTextColor:[UIColor blackColor]];
     cell.textInput.delegate = self;
  
-    //save value back in form field to fix disappearing fields when scrolling
-    
-    //[[invoiceFormFields objectAtIndex:0] setValue:@"test" forKey:@"FieldValue"];//not key value compliant - error
-   
+    //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
+    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+        NSLog(@"%@ at indexPath.row %ld",[invoiceFormFields objectAtIndex:indexPath.row], (long)indexPath.row);
+        cell.textInput.placeholder = nil;
+        cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
+    }
 
-   // [[cell contentView] addSubview:cellText];
     
     
-  
+    // [[cell contentView] addSubview:cellText];
+    
 
     return cell;
 
+}
+
+#pragma mark text field delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    //save text input in user data. workaround for disappearing text entry issue on scroll
+    [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
+ 
 }
 
 
@@ -456,13 +597,16 @@ NSArray * invoiceFormFields;
     
     NSString * invoicefile;
     
+    //remove spaces
+    NSString * fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    
     if(_selectedInvoice)
     {
-        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",[[self selectedInvoice] projectName],[[self selectedInvoice] projectID]];
+        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",fileString,[[self selectedInvoice] projectID]];
     }
     else
     {
-        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",[[self selectedProject] projectName],[[self selectedProject] projectID]];
+        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",fileString,[[self selectedProject] projectID]];
     }
     
     
@@ -490,10 +634,25 @@ NSArray * invoiceFormFields;
 }
 
 - (void)MakePDF:(Invoice *)newInvoice {
-    [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@_%@",[newInvoice projectName],[newInvoice projectID]] Width:850 Height:1100];
     
      AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
+    //remove spaces
+    NSString * fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    
+    [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@_%@",fileString,[newInvoice projectID]] Width:850 Height:1100];
+    
+    //get client info
+    Client * selClient;
+    
+    for(Client * c in [appDelegate arrClients])
+    {
+        if(c.clientID == newInvoice.clientID)
+        {
+            selClient = c;
+            break;
+        }
+    }
     
     
     if([[self MyProfile] count]>0)
@@ -528,12 +687,12 @@ NSArray * invoiceFormFields;
         CGRect blueLineRect = [self addLineWithFrame:CGRectMake(kPadding, zipRect.origin.y + zipRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) withColor:[UIColor blackColor]];
         
         
-
-        CGRect clientHeader = [self addText:@"Client Info" withFrame:CGRectMake(kPadding, blueLineRect.origin.y + blueLineRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+//
+//        CGRect clientHeader = [self addText:@"Client Info" withFrame:CGRectMake(kPadding, blueLineRect.origin.y + blueLineRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
         
         
         
-        CGRect lineRect =[self addLineWithFrame:CGRectMake(kPadding, clientHeader.origin.y + clientHeader.size.height + kPadding, _pageSize.width - kPadding*2, 4)
+        CGRect lineRect =[self addLineWithFrame:CGRectMake(kPadding, blueLineRect.origin.y + blueLineRect.size.height + kPadding, _pageSize.width - kPadding*2, 4)
                      withColor:[UIColor blackColor]];
         
         //project/client info
@@ -541,34 +700,39 @@ NSArray * invoiceFormFields;
         CGRect clientRect = [self addText:clientName
                                 withFrame:CGRectMake(kPadding, lineRect.origin.y + lineRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
         
-        
-        NSString * projectName = [NSString stringWithFormat:@"Project: %@",[newInvoice projectName]];
-        CGRect projectRect = [self addText:projectName
-                                withFrame:CGRectMake(kPadding, clientRect.origin.y + clientRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
-        
-        NSString * clientAddress = [NSString stringWithFormat:@"Address: %@",[newInvoice clientName]];
+        NSString * clientAddress = [NSString stringWithFormat:@"Address: %@",[selClient streetAddress]];
         CGRect clientAddressRect = [self addText:clientAddress
-                              withFrame:CGRectMake(kPadding, projectRect.origin.y + projectRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+                                       withFrame:CGRectMake(kPadding, clientRect.origin.y + clientRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+        
+        NSString * clientCity = [NSString stringWithFormat:@"City: %@,%@ %@",[selClient city],[selClient state], [selClient postalCode]];
+        CGRect clientCityRect = [self addText:clientCity
+                                       withFrame:CGRectMake(kPadding, clientAddressRect.origin.y + clientAddressRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+        
+//        NSString * projectName = [NSString stringWithFormat:@"Project: %@",[newInvoice projectName]];
+//        CGRect projectRect = [self addText:projectName
+//                                withFrame:CGRectMake(kPadding, clientRect.origin.y + clientRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+        
+       
     
         
         
-        //Dates
-        NSDateFormatter * df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"MM/dd/yyyy"];
-        
-        NSString * startDate = [NSString stringWithFormat:@"Start Date: %@",[df stringFromDate:[newInvoice startDate]]];
-        CGRect startRect = [self addText:startDate
-                                withFrame:CGRectMake(kPadding, clientAddressRect.origin.y + clientAddressRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
-        
-        NSString * endDate = [NSString stringWithFormat:@"End Date: %@",[df stringFromDate:[newInvoice endDate]]];
-        CGRect endRect = [self addText:endDate
-                               withFrame:CGRectMake(kPadding, startRect.origin.y + startRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
-        
-        
-        //get total hours, notes, materials, etc from sessions
-        NSString * totalHours = [NSString stringWithFormat:@"Total Hours: %@",newInvoice.totalTime];
-        CGRect hoursRect = [self addText:totalHours
-                             withFrame:CGRectMake(kPadding, endRect.origin.y + endRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+//        //Dates
+//        NSDateFormatter * df = [[NSDateFormatter alloc] init];
+//        [df setDateFormat:@"MM/dd/yyyy"];
+//        
+//        NSString * startDate = [NSString stringWithFormat:@"Start Date: %@",[df stringFromDate:[newInvoice startDate]]];
+//        CGRect startRect = [self addText:startDate
+//                                withFrame:CGRectMake(kPadding, clientAddressRect.origin.y + clientAddressRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+//        
+//        NSString * endDate = [NSString stringWithFormat:@"End Date: %@",[df stringFromDate:[newInvoice endDate]]];
+//        CGRect endRect = [self addText:endDate
+//                               withFrame:CGRectMake(kPadding, startRect.origin.y + startRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
+//        
+//        
+//        //get total hours, notes, materials, etc from sessions
+//        NSString * totalHours = [NSString stringWithFormat:@"Total Hours: %@",newInvoice.totalTime];
+//        CGRect hoursRect = [self addText:totalHours
+//                             withFrame:CGRectMake(kPadding, endRect.origin.y + endRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:48.0f];
         
         
         [self finishPDF];

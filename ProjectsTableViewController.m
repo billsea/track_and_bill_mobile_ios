@@ -239,6 +239,8 @@
                 {
                     //remove associated sessions
                     [appDelegate removeSessionsForProjectId:proj.projectID];
+                    //remove associated invoices
+                    [appDelegate removeInvoicesForProjectId:proj.projectID];
                     [[appDelegate allProjects] removeObjectIdenticalTo:proj];
                     
                      break;
@@ -246,6 +248,9 @@
             }
             
             [[appDelegate clientProjects] removeObjectIdenticalTo:projRemove];
+            
+            
+           
             
             
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
