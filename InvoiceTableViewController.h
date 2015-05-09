@@ -18,7 +18,6 @@
 @property Invoice * nInvoice;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-- (IBAction)newInvoiceSubmit:(id)sender;
 - (void)dismissReaderViewController:(ReaderViewController *)viewController;
 - (void)MakePDF:(Invoice *)newInvoice;
 @end

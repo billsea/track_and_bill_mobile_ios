@@ -25,7 +25,7 @@
     [self setEndDate:stDate];
     [self setInvoiceNotes:@""];
 	[self setInvoiceMaterials:@""];
-    [self setInvoiceTerms:@""];
+    [self setMilage:[NSNumber numberWithInt:0]];
 	
 	
 	return self;
@@ -66,12 +66,10 @@
 - (NSString *)projectName
 {
 	return projectName;
-	
 }
 - (NSString *)clientName
 {
 	return clientName;
-	
 }
 
 - (NSString *)approvalName
@@ -128,7 +126,6 @@
 - (NSDate *)invoiceDate
 {
 	return invoiceDate;
-	
 }
 - (NSDate *)endDate
 {
@@ -417,6 +414,7 @@
 	[coder encodeObject: checkNumber forKey:@"checkNumber"];
 	[coder encodeObject: approvalName forKey:@"approvalName"];
 	[coder encodeObject: invoiceTerms forKey:@"invoiceTerms"];
+    [coder encodeObject: milage forKey:@"milage"];
 	[coder encodeObject: invoiceNotes forKey:@"invoiceNotes"];
 	[coder encodeObject: invoiceMaterials forKey:@"invoiceMaterials"];
 	[coder encodeObject: [NSString stringWithFormat:@"%1.2f",materialsTotal] forKey:@"materialsTotal"];
@@ -445,6 +443,7 @@
 		[self setCheckNumber: [coder decodeObjectForKey:@"checkNumber"]];
 		[self setApprovalName: [coder decodeObjectForKey:@"approvalName"]];
 		[self setInvoiceTerms: [coder decodeObjectForKey:@"invoiceTerms"]];
+        [self setMilage: [coder decodeObjectForKey:@"milage"]];
 		[self setInvoiceNotes: [coder decodeObjectForKey:@"invoiceNotes"]];
 		[self setInvoiceMaterials: [coder decodeObjectForKey:@"invoiceMaterials"]];
 		
