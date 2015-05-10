@@ -138,6 +138,11 @@
     return milage;
 }
 
+-(NSNumber *)milageRate
+{
+    return milageRate;
+}
+
 /////////// Set variables //////////////////////
 - (void)setProjectID:(NSNumber *)pID
 {
@@ -368,6 +373,11 @@
     miles = [miles copy];
     milage = miles;
 }
+- (void)setMilageRate:(NSNumber *)miRate
+{
+    miRate =[miRate copy];
+    milageRate = miRate;
+}
 
 - (void)setInvoiceDeposit:(double)iDeposit
 {
@@ -417,6 +427,7 @@
 	[coder encodeObject: approvalName forKey:@"approvalName"];
 	[coder encodeObject: invoiceTerms forKey:@"invoiceTerms"];
     [coder encodeObject: milage forKey:@"milage"];
+    [coder encodeObject: milageRate forKey:@"milageRate"];
 	[coder encodeObject: invoiceNotes forKey:@"invoiceNotes"];
 	[coder encodeObject: invoiceMaterials forKey:@"invoiceMaterials"];
 	[coder encodeObject: [NSString stringWithFormat:@"%1.2f",materialsTotal] forKey:@"materialsTotal"];
@@ -446,6 +457,7 @@
 		[self setApprovalName: [coder decodeObjectForKey:@"approvalName"]];
 		[self setInvoiceTerms: [coder decodeObjectForKey:@"invoiceTerms"]];
         [self setMilage: [coder decodeObjectForKey:@"milage"]];
+        [self setMilageRate: [coder decodeObjectForKey:@"milageRate"]];
 		[self setInvoiceNotes: [coder decodeObjectForKey:@"invoiceNotes"]];
 		[self setInvoiceMaterials: [coder decodeObjectForKey:@"invoiceMaterials"]];
 		

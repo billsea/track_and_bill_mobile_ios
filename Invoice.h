@@ -36,7 +36,7 @@
 	double grandTotal;
 	NSString *SgrandTotal;
     NSNumber * milage;
-	
+    NSNumber * milageRate;
 }
 
 - (NSNumber *) invoiceNumber;
@@ -64,6 +64,7 @@
 - (double) grandTotal;
 - (NSString *) SgrandTotal;
 - (NSNumber *)milage;
+- (NSNumber *)milageRate;
 
 - (void)setProjectName:(NSString *)projName;
 - (void)setClientName:(NSString *)cName;
@@ -88,6 +89,8 @@
 - (void)setMaterialsTotal:(double)mTotal;
 - (void)setSmaterialsTotal:(NSString *)SmatTotal;
 - (void)setMilage:(NSNumber *)miles;
+- (void)setMilageRate:(NSNumber *)miRate;
+
 //- (void)setInvoiceScale:(NSString *)iScale;
 - (void)setInvoiceDeposit:(double)iDeposit;
 - (void)setSinvoiceDeposit:(NSString *)Sdep;
