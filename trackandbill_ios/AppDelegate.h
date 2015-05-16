@@ -28,7 +28,7 @@
 @property (nonatomic, retain) NSMutableArray *clientProjects;
 @property (nonatomic,retain) NSMutableArray *allProjects;
 @property Session * removedSession;
-
+@property Session * activeSession;
 @property NSDate * timeSave;
 
 

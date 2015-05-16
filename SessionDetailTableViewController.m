@@ -72,6 +72,8 @@ float _ticks;
 
 - (IBAction)timerToggle:(id)sender {
     
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     UISwitch * timerSwitch = sender;
     
     
@@ -79,11 +81,13 @@ float _ticks;
     {
         //start session instance timer
         [_selectedSession startTimer];
+        [appDelegate setActiveSession:_selectedSession];
     }
     else
     {
         //stop instance timer
         [_selectedSession stopTimer];
+        [appDelegate setActiveSession:nil];
     }
 }
 

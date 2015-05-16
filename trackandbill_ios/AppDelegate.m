@@ -29,6 +29,7 @@
 @synthesize clientProjects = _clientProjects;//only currently displayed projects for selected client
 @synthesize allProjects = _allProjects;
 @synthesize removedSession = _removedSession;
+@synthesize activeSession = _activeSession;
 @synthesize timeSave = _timeSave;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -75,7 +76,7 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     
     //save current date/time, as timer will stop
-    _timeSave = [NSDate date];
+    [self stopTimersAndStamp];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -86,8 +87,7 @@
     [self saveSessionsToDisk];
     [self saveInvoicesToDisk];
     
-    //save current date/time, as timer will stop when app(device) enters background
-    _timeSave = [NSDate date];
+  
     
 }
 
@@ -106,16 +106,19 @@
     
     for(Session * curSession in [self currentSessions])
     {
-        [curSession setTicks:curSession.ticks + secondsInBackground];
+        //only start active session
+        if(curSession.sessionID == _activeSession.sessionID)
+        {
+            [curSession setTicks:curSession.ticks + secondsInBackground];
+            [curSession startTimer];
+        }
+        
     }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-  
-    //save current date/time, as timer will stop
-    _timeSave = [NSDate date];
     
     [self saveProjectsToDisk];
     [self saveClientsToDisk];
@@ -130,6 +133,23 @@
     //                                             selector:@selector(authenticationSuccessHandler:)
     //                                                 name:kAuthenticationSuccessNotification
     //                                               object:nil];
+}
+
+#pragma mark timers
+-(void)stopTimersAndStamp
+{
+    //save current date/time, as timer will stop when app(device) enters background
+    _timeSave = [NSDate date];
+    
+    //stop all timers
+    for(Session * curSession in [self currentSessions])
+    {
+        if(curSession.sessionID == _activeSession.sessionID)
+        {
+            [curSession stopTimer];
+        }
+        
+    }
 }
 
 #pragma mark Build Navigation

@@ -97,25 +97,12 @@ NSMutableArray * clientFormFields;
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSNumber * newId = [[NSNumber alloc] initWithLong:0];
-    NSString  *path= [appDelegate pathToDataFile:@"clients.tbd"];
-    NSDictionary *rootObject;
-    rootObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    
-    //add clients to array
-    NSMutableArray * allClients = [[NSMutableArray alloc] initWithArray:[rootObject valueForKey:@"client"]];
-    
-    if([allClients count] > 0)
+   
+    if([[appDelegate arrClients] count] > 0)
     {
-        for(Client * client in allClients)
-        {
-            NSLog(@"clientID: %@",client.clientID);
-            if(client.clientID >= newId)
-            {
-                newId = [NSNumber numberWithLong:client.clientID.intValue + 1];
-            }
-        }
+        Client * lastClient = (Client *)[[appDelegate arrClients] objectAtIndex:[[appDelegate arrClients] count] - 1];
+        newId = [NSNumber numberWithLong:lastClient.clientID.longValue + 1];
     }
-    
     
     return newId;
 }
