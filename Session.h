@@ -51,6 +51,8 @@
 - (NSNumber *) sessionMinutes;
 - (NSNumber *) sessionSeconds;
 - (NSString *) materials;
+-(float)ticks;
+
 
 - (void)setProjectName:(NSString *)pName;
 - (void)setClientName:(NSString *)cName;
@@ -68,4 +70,5 @@
 - (void)setMaterials:(NSString *)pMaterials;
 - (void)startTimer;
 -(void)stopTimer;
+-(void)setTicks:(float)nTicks;
 @end

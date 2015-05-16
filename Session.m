@@ -33,7 +33,7 @@
     [self setSessionSeconds:[NSNumber numberWithInt:0]];
     [self setMaterials:@""];
     
-     self.timerValue = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f",0.0, 0.0, 0.0];
+     self.timerValue = [NSString stringWithFormat:@"%02.0f:%02.0f:%02.0f",0.0, 0.0, 0.0];
     _TimerRunning = FALSE;
 	
 	return self;
@@ -145,26 +145,28 @@
 - (void)setSessionDate:(NSDate *)sDate
 {	
 	sDate = [sDate copy];
-
+    sessionDate = sDate;
 	
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	@try
-	{
-		if ([self getDateFormatSetting]==1){
-            [dateFormatter setDateFormat:@"%m/%d/%y"];
-			//[dateFormatter initWithDateFormat:@"%d/%m/%y" allowNaturalLanguage:NO];
-		}else{
-            [dateFormatter setDateFormat:@"%m/%d/%y"];
-			//[dateFormatter initWithDateFormat:@"%m/%d/%y" allowNaturalLanguage:NO];
-		}
-		
-		NSString *modString = [[NSString alloc] initWithString: [dateFormatter stringFromDate:sDate]];
-		sessionDate =[[dateFormatter dateFromString:modString] copy];
-		
-	}@catch (NSException *exception) {
-		NSLog(@"main: Caught %@: %@", [exception name], [exception  reason]);
-		sessionDate = sDate;
-	}
+    
+    //add if we want to support european style date
+//	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//	@try
+//	{
+//		if ([self getDateFormatSetting]==1){
+//            [dateFormatter setDateFormat:@"%m/%d/%y"];
+//			//[dateFormatter initWithDateFormat:@"%d/%m/%y" allowNaturalLanguage:NO];
+//		}else{
+//            [dateFormatter setDateFormat:@"%m/%d/%y"];
+//			//[dateFormatter initWithDateFormat:@"%m/%d/%y" allowNaturalLanguage:NO];
+//		}
+//		
+//		NSString *modString = [[NSString alloc] initWithString: [dateFormatter stringFromDate:sDate]];
+//		sessionDate =[[dateFormatter dateFromString:modString] copy];
+//		
+//	}@catch (NSException *exception) {
+//		NSLog(@"main: Caught %@: %@", [exception name], [exception  reason]);
+//		sessionDate = sDate;
+//	}
 	
 }
 
@@ -243,7 +245,7 @@
     double seconds = fmod(_ticks, 60.0);
     double minutes = fmod(trunc(_ticks / 60.0), 60.0);
     double hours = trunc(_ticks / 3600.0);
-    self.timerValue = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    self.timerValue = [NSString stringWithFormat:@"%02.0f:%02.0f:%02.0f", hours, minutes, seconds];
     
     //update class objects
     [self setSessionSeconds:[NSNumber numberWithDouble:seconds]];
@@ -263,6 +265,15 @@
     
     _TimerRunning = FALSE;
 
+}
+
+-(float)ticks
+{
+    return _ticks;
+}
+-(void)setTicks:(float)nTicks
+{
+    _ticks = nTicks;
 }
 
 // Saving and loading data

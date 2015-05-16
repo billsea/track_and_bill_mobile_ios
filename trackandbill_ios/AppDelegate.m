@@ -29,6 +29,7 @@
 @synthesize clientProjects = _clientProjects;//only currently displayed projects for selected client
 @synthesize allProjects = _allProjects;
 @synthesize removedSession = _removedSession;
+@synthesize timeSave = _timeSave;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -72,6 +73,9 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    //save current date/time, as timer will stop
+    _timeSave = [NSDate date];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -82,6 +86,9 @@
     [self saveSessionsToDisk];
     [self saveInvoicesToDisk];
     
+    //save current date/time, as timer will stop when app(device) enters background
+    _timeSave = [NSDate date];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -90,12 +97,25 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    //timer stops when entering background on the iOS device only. simulator still runs.
+    //we'll track the amount of seconds the app is in the background.
+    //using _timeSave date, calculate the amount of time the app was inactive, and add to current sessions
+    NSDate * restoreDate = [NSDate date];
+    NSTimeInterval secondsInBackground = [restoreDate timeIntervalSinceDate:_timeSave];
+    
+    for(Session * curSession in [self currentSessions])
+    {
+        [curSession setTicks:curSession.ticks + secondsInBackground];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
   
+    //save current date/time, as timer will stop
+    _timeSave = [NSDate date];
     
     [self saveProjectsToDisk];
     [self saveClientsToDisk];

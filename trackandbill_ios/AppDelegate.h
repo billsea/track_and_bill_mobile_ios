@@ -29,6 +29,8 @@
 @property (nonatomic,retain) NSMutableArray *allProjects;
 @property Session * removedSession;
 
+@property NSDate * timeSave;
+
 
 - (void) saveProjectsToDisk;
 - (void) saveInvoicesToDisk;

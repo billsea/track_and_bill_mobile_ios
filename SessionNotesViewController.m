@@ -41,7 +41,10 @@ UITextView * notesTextView;
                                             action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [notesTextView setText:_selectedSession.txtNotes];
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     //save notes

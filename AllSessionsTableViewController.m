@@ -85,7 +85,7 @@
     
     
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy h:m:s"];
+    [df setDateFormat:@"MM/dd/yyyy"];
     
     static NSString *CellIdentifier = @"SessionCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];

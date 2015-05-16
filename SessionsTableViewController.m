@@ -183,7 +183,7 @@
     [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [cellLabel setTextColor:[UIColor blackColor]];
 
-    UILabel * timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 105, 8, 100, 30)];
+    UILabel * timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
     [timerLabel setText:[rSession timerValue]];
     timerLabel.tag = [indexPath row] + 1;//need to start tag at one, NOT ZERO
     [timerLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];

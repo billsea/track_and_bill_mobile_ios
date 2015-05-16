@@ -93,11 +93,13 @@ NSNumber * invoiceNumberSelected;
                  @{@"FieldName": @"Milage",@"FieldValue": [NSString stringWithFormat:@"%@",[_selectedInvoice milageRate]]},
                  @{@"FieldName": @"Notes",@"FieldValue": [_selectedInvoice invoiceNotes] },
                  @{@"FieldName": @"Materials",@"FieldValue":[_selectedInvoice invoiceMaterials] },
-                 @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice materialsTotal]]},
+                 
+                 
+                 @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice materialsTotal]]},
                  @{@"FieldName": @"Total Hours",@"FieldValue": [_selectedInvoice totalTime]},
                  @{@"FieldName": @"Terms",@"FieldValue":[_selectedInvoice invoiceTerms]},
-                 @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceDeposit]]},
-                 @{@"FieldName": @"Rate",@"FieldValue":[NSString stringWithFormat:@"%f",[_selectedInvoice invoiceRate]]},
+                 @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceDeposit]]},
+                 @{@"FieldName": @"Rate",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceRate]]},
                  @{@"FieldName": @"Paid Check #",@"FieldValue": [_selectedInvoice checkNumber]},
                  
                  ];
@@ -398,8 +400,9 @@ NSNumber * invoiceNumberSelected;
     }
     else
     {
-        [self showMessage:@"Approval Name field is empty or not formatted correctly" withTitle:@"Approval Name"];
-        return nil;
+        [cInvoice setApprovalName:@"-"];
+//        [self showMessage:@"Approval Name field is empty or not formatted correctly" withTitle:@"Approval Name"];
+//        return nil;
     }
     
     
@@ -418,8 +421,9 @@ NSNumber * invoiceNumberSelected;
     }
     else
     {
-        [self showMessage:@"Milage field is empty or not formatted correctly" withTitle:@"Milage"];
-        return nil;
+         [cInvoice setMilage:[NSNumber numberWithInteger:0]];
+//        [self showMessage:@"Milage field is empty or not formatted correctly" withTitle:@"Milage"];
+//        return nil;
     }
     
     
@@ -434,10 +438,14 @@ NSNumber * invoiceNumberSelected;
     {
         [cInvoice setMilageRate:[NSNumber numberWithFloat:milageRate]];
     }
-    else
+    else if(miles > 0)
     {
         [self showMessage:@"Milage rate field is empty or not formatted correctly" withTitle:@"Milage rate"];
         return nil;
+    }
+    else
+    {
+        [cInvoice setMilageRate:[NSNumber numberWithFloat:0.0]];
     }
     
     
@@ -453,11 +461,11 @@ NSNumber * invoiceNumberSelected;
     {
         [cInvoice setInvoiceNotes:invNotes];
     }
-    else
-    {
-        [self showMessage:@"Invoice notes field is empty or not formatted correctly" withTitle:@"Invoice Notes"];
-        return nil;
-    }
+//    else
+//    {
+//        [self showMessage:@"Invoice notes field is empty or not formatted correctly" withTitle:@"Invoice Notes"];
+//        return nil;
+//    }
     
     
     //materials - get from sessions
@@ -532,6 +540,7 @@ NSNumber * invoiceNumberSelected;
     }
     else
     {
+        
         [self showMessage:@"Invoice rate field is empty or not formatted correctly" withTitle:@"Invoice rate"];
         return nil;
     }
@@ -629,7 +638,7 @@ NSNumber * invoiceNumberSelected;
     //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
     if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
         NSLog(@"%@ at indexPath.row %ld",[invoiceFormFields objectAtIndex:indexPath.row], (long)indexPath.row);
-        cell.textInput.placeholder = nil;
+        //cell.textInput.placeholder = nil;
         cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
     }
 
@@ -793,20 +802,20 @@ NSNumber * invoiceNumberSelected;
 ///////////////////////////my info///////////////////
         
         CGRect nameRect = [self addText:[[[self MyProfile] objectAtIndex:0] profileName]
-                             withFrame:CGRectMake(kMarginPadding, kPadding + 10,_pageSize.width/2,4) fontSize:36.0f];
+                             withFrame:CGRectMake(kMarginPadding, kPadding + 10,_pageSize.width/2,4) fontSize:32.0f];
         CGRect inoviceRect = [self addText: [NSString stringWithFormat:@"Invoice #%@",newInvoice.invoiceNumber]
-                                 withFrame:CGRectMake(_pageSize.width/2 + 120, kPadding + 10, _pageSize.width/3,4) fontSize:36.0f];
+                                 withFrame:CGRectMake(_pageSize.width/2 + 140, kPadding + 10, _pageSize.width/3,4) fontSize:28.0f];
         
         CGRect addressRect = [self addText:[[[self MyProfile] objectAtIndex:0] profileAddress]
-                                 withFrame:CGRectMake(kMarginPadding, nameRect.origin.y + nameRect.size.height + kPadding, _pageSize.width - kHeaderPadding*2, 4) fontSize:32.0f];
+                                 withFrame:CGRectMake(kMarginPadding, nameRect.origin.y + nameRect.size.height + kPadding, _pageSize.width - kHeaderPadding*2, 4) fontSize:24.0f];
         
 
         CGRect cityRect = [self addText:[NSString stringWithFormat:@"%@, %@ %@",[[[self MyProfile] objectAtIndex:0] profileCity],[[[self MyProfile] objectAtIndex:0] profileState],[[[self MyProfile] objectAtIndex:0] profileZip]]
-                               withFrame:CGRectMake(kMarginPadding, addressRect.origin.y + addressRect.size.height + kPadding,_pageSize.width-kPadding, 4) fontSize:32.0f];
+                               withFrame:CGRectMake(kMarginPadding, addressRect.origin.y + addressRect.size.height + kPadding,_pageSize.width-kPadding, 4) fontSize:24.0f];
       
         
         CGRect phoneRect = [self addText:[[[self MyProfile] objectAtIndex:0] profilePhone]
-                             withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width/3, 4) fontSize:32.0f];
+                             withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width/3, 4) fontSize:24.0f];
         
        
         
@@ -819,44 +828,44 @@ NSNumber * invoiceNumberSelected;
         //project/client info
         NSString * clientName = [NSString stringWithFormat:@"Client: %@",[newInvoice clientName]];
         CGRect clientRect = [self addText:clientName
-                                withFrame:CGRectMake(kMarginPadding, lineRect.origin.y + lineRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                withFrame:CGRectMake(kMarginPadding, lineRect.origin.y + lineRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:26.0f];
         
         NSString * clientAddress = [NSString stringWithFormat:@"Address: %@",[selClient streetAddress]];
         CGRect clientAddressRect = [self addText:clientAddress
-                                       withFrame:CGRectMake(kMarginPadding, clientRect.origin.y + clientRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                       withFrame:CGRectMake(kMarginPadding, clientRect.origin.y + clientRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
-        NSString * clientCity = [NSString stringWithFormat:@"City: %@,%@ %@",[selClient city],[selClient state], [selClient postalCode]];
+        NSString * clientCity = [NSString stringWithFormat:@"City: %@",[selClient city]];
         CGRect clientCityRect = [self addText:clientCity
-                                       withFrame:CGRectMake(kMarginPadding, clientAddressRect.origin.y + clientAddressRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                       withFrame:CGRectMake(kMarginPadding, clientAddressRect.origin.y + clientAddressRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
         NSString * clientState = [NSString stringWithFormat:@"State: %@",[selClient state]];
         CGRect clientStateRect = [self addText:clientState
-                                    withFrame:CGRectMake(kMarginPadding, clientCityRect.origin.y + clientCityRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                    withFrame:CGRectMake(kMarginPadding, clientCityRect.origin.y + clientCityRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
         NSString * clientZip = [NSString stringWithFormat:@"Postal Code: %@",[selClient postalCode]];
         CGRect clientZipRect = [self addText:clientZip
-                                     withFrame:CGRectMake(kMarginPadding, clientStateRect.origin.y + clientStateRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                     withFrame:CGRectMake(kMarginPadding, clientStateRect.origin.y + clientStateRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
         //client column 2
         NSString * projectName = [NSString stringWithFormat:@"Project: %@",[newInvoice projectName]];
         CGRect projectRect = [self addText:projectName
-                                 withFrame:CGRectMake(_pageSize.width/2 + kPadding, clientRect.origin.y, _pageSize.width - kPadding*2, 4) fontSize:32.0f];
+                                 withFrame:CGRectMake(_pageSize.width/2 + kPadding, clientRect.origin.y, _pageSize.width - kPadding*2, 4) fontSize:24.0f];
         
         NSString * startDate = [NSString stringWithFormat:@"Start Date: %@",[df stringFromDate:[newInvoice startDate]]];
         CGRect startRect = [self addText:startDate
-                                withFrame:CGRectMake(_pageSize.width/2 + kPadding, projectRect.origin.y + projectRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:32.0f];
+                                withFrame:CGRectMake(_pageSize.width/2 + kPadding, projectRect.origin.y + projectRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:24.0f];
 
         NSString * endDate = [NSString stringWithFormat:@"End Date: %@",[df stringFromDate:[newInvoice endDate]]];
         CGRect endRect = [self addText:endDate
-                               withFrame:CGRectMake(_pageSize.width/2 + kPadding, startRect.origin.y + startRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:32.0f];
+                               withFrame:CGRectMake(_pageSize.width/2 + kPadding, startRect.origin.y + startRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:24.0f];
         
         NSString * terms = [NSString stringWithFormat:@"Terms: %@",[newInvoice invoiceTerms]];
         CGRect termsRect = [self addText:terms
-                                 withFrame:CGRectMake(_pageSize.width/2 + kPadding, endRect.origin.y + endRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:32.0f];
+                                 withFrame:CGRectMake(_pageSize.width/2 + kPadding, endRect.origin.y + endRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:24.0f];
         
         NSString * approval = [NSString stringWithFormat:@"Approved By: %@",[newInvoice approvalName]];
         CGRect approvalRect = [self addText:approval
-                               withFrame:CGRectMake(_pageSize.width/2 + kPadding, termsRect.origin.y + termsRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:32.0f];
+                               withFrame:CGRectMake(_pageSize.width/2 + kPadding, termsRect.origin.y + termsRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:24.0f];
         
 ///////////////////////////services///////////////////
         
@@ -865,12 +874,12 @@ NSNumber * invoiceNumberSelected;
       
         NSString * serviceLabel = [NSString stringWithFormat:@"%@",@"Services:"];
         CGRect serviceRect = [self addText:serviceLabel
-                                  withFrame:CGRectMake(kMarginPadding, servicesLineRect.origin.y + servicesLineRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:36.0f];
+                                  withFrame:CGRectMake(kMarginPadding, servicesLineRect.origin.y + servicesLineRect.size.height + kPadding, _pageSize.width - kPadding*2, 4) fontSize:28.0f];
        
     
         NSString * services = [NSString stringWithFormat:@"%@",[newInvoice invoiceNotes]];
         CGRect servicesRect = [self addText:services
-                                  withFrame:CGRectMake(kMarginPadding, serviceRect.origin.y + serviceRect.size.height + kPadding, _pageSize.width - kPadding, 130) fontSize:24.0f];
+                                  withFrame:CGRectMake(kMarginPadding, serviceRect.origin.y + serviceRect.size.height + kPadding, _pageSize.width - kPadding, 130) fontSize:18.0f];
 
         
 ////////////Totals///////////////
@@ -883,23 +892,23 @@ NSNumber * invoiceNumberSelected;
         
         NSString * materialsLabel = [NSString stringWithFormat:@"%@",@"Materials:"];
         CGRect materialsLabelRect = [self addText:materialsLabel
-                                 withFrame:CGRectMake(kMarginPadding, doubleLineRect.origin.y + doubleLineRect.size.height + kPadding + 10, _pageSize.width - kPadding*2, 4) fontSize:36.0f];
+                                 withFrame:CGRectMake(kMarginPadding, doubleLineRect.origin.y + doubleLineRect.size.height + kPadding + 10, _pageSize.width - kPadding*2, 4) fontSize:26.0f];
        
         NSString * materialsList = [NSString stringWithFormat:@"%@",[newInvoice invoiceMaterials]];
         CGRect materialsListRect = [self addText:materialsList
-                                  withFrame:CGRectMake(kMarginPadding, materialsLabelRect.origin.y + materialsLabelRect.size.height + kPadding, _pageSize.width/2 - (kMarginPadding * 2), 100) fontSize:24.0f];
+                                  withFrame:CGRectMake(kMarginPadding, materialsLabelRect.origin.y + materialsLabelRect.size.height + kPadding, _pageSize.width/2 - (kMarginPadding * 2), 100) fontSize:21.0f];
         
         NSString * milage = [NSString stringWithFormat:@"Milage: %@ total miles",[newInvoice milage]];
         CGRect milageRect = [self addText:milage
-                                     withFrame:CGRectMake(kMarginPadding, materialsListRect.origin.y + materialsListRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                     withFrame:CGRectMake(kMarginPadding, materialsListRect.origin.y + materialsListRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:21.0f];
         
         NSString * milageRate = [NSString stringWithFormat:@"Milage rate: %@",[newInvoice milageRate]];
         CGRect milageRateRect = [self addText:milageRate
-                                withFrame:CGRectMake(kMarginPadding, milageRect.origin.y + milageRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                withFrame:CGRectMake(kMarginPadding, milageRect.origin.y + milageRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:21.0f];
         
         NSString * checkNumber = [NSString stringWithFormat:@"Paid Check #: %@",[newInvoice checkNumber]];
         CGRect checkNumberRect = [self addText:checkNumber
-                               withFrame:CGRectMake(kMarginPadding, milageRateRect.origin.y + milageRateRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                               withFrame:CGRectMake(kMarginPadding, milageRateRect.origin.y + milageRateRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
         
         
@@ -907,32 +916,32 @@ NSNumber * invoiceNumberSelected;
         
         NSString * tHours = [NSString stringWithFormat:@"Hours: %@",[newInvoice totalTime]];
         CGRect hoursRect = [self addText:tHours
-                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, totalsLineRect.origin.y + totalsLineRect.size.height + kPadding + 10, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, totalsLineRect.origin.y + totalsLineRect.size.height + kPadding + 10, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
 
-        NSString * tRate = [NSString stringWithFormat:@"Rate: %f",[newInvoice invoiceRate]];
+        NSString * tRate = [NSString stringWithFormat:@"Rate: %@",[self formatNumber:[NSNumber numberWithDouble:[newInvoice invoiceRate]]]];
         CGRect rateRect = [self addText:tRate
-                               withFrame:CGRectMake(_pageSize.width/2 + kPadding, hoursRect.origin.y + hoursRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                               withFrame:CGRectMake(_pageSize.width/2 + kPadding, hoursRect.origin.y + hoursRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
-        NSString * tSubtotal = [NSString stringWithFormat:@"Sub-total: %f",[newInvoice totalDue]];
+        NSString * tSubtotal = [NSString stringWithFormat:@"Sub-total: %@",[self formatNumber:[NSNumber numberWithDouble:[newInvoice totalDue]]]];
         CGRect subtotalRect = [self addText:tSubtotal
-                              withFrame:CGRectMake(_pageSize.width/2 + kPadding, rateRect.origin.y + rateRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                              withFrame:CGRectMake(_pageSize.width/2 + kPadding, rateRect.origin.y + rateRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
             
-        NSString * materialsTotal = [NSString stringWithFormat:@"Materials: %f",[newInvoice materialsTotal]];
+        NSString * materialsTotal = [NSString stringWithFormat:@"Materials: %@",[self formatNumber:[NSNumber numberWithDouble:[newInvoice materialsTotal]]]];
         CGRect materialsRect = [self addText:materialsTotal
-                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, subtotalRect.origin.y + subtotalRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, subtotalRect.origin.y + subtotalRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
         float transpoCost = ([[newInvoice milage] floatValue] * [[newInvoice milageRate] floatValue]);
-        NSString * milageTotal = [NSString stringWithFormat:@"Travel: %f",transpoCost];
+        NSString * milageTotal = [NSString stringWithFormat:@"Travel: %.2f",transpoCost];
         CGRect milageTotalRect = [self addText:milageTotal
-                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, materialsRect.origin.y + materialsRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, materialsRect.origin.y + materialsRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
 
-        NSString * deposit = [NSString stringWithFormat:@"Deposit: %f",[newInvoice invoiceDeposit]];
+        NSString * deposit = [NSString stringWithFormat:@"Deposit: %@",[self formatNumber:[NSNumber numberWithDouble:[newInvoice invoiceDeposit]]]];
         CGRect depositRect = [self addText:deposit
-                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, milageTotalRect.origin.y + milageTotalRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
+                                   withFrame:CGRectMake(_pageSize.width/2 + kPadding, milageTotalRect.origin.y + milageTotalRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
         
         NSNumber * grandTotal = [NSNumber numberWithFloat:([newInvoice totalDue] + [newInvoice materialsTotal] + transpoCost) - [newInvoice invoiceDeposit]];
-        CGRect totalDueRect = [self addText:[NSString stringWithFormat:@"Total Due: %@",grandTotal]
-                                 withFrame:CGRectMake(_pageSize.width/2 + kPadding, depositRect.origin.y + depositRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:36.0f];
+        CGRect totalDueRect = [self addText:[NSString stringWithFormat:@"Total Due: %@",[self formatNumber:grandTotal]]
+                                 withFrame:CGRectMake(_pageSize.width/2 + kPadding, depositRect.origin.y + depositRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:32.0f];
         
         [self finishPDF];
     }
@@ -941,6 +950,20 @@ NSNumber * invoiceNumberSelected;
         [self showMessage:@"You must complete your personal profile before creating an invoice." withTitle:@"Missing Profile"];
     }
     
+}
+
+-(NSString *)formatNumber:(NSNumber *)number
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:2];
+    [formatter setMinimumFractionDigits:2];
+    [formatter setRoundingMode: NSNumberFormatterRoundUp];
+    
+    NSString *numberString = [formatter stringFromNumber:number];
+    
+    return numberString;
 }
 
 // Show an alert message

@@ -33,9 +33,12 @@ UIPickerView * milagePicker;
     }
     //_pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
     
- 
-    
     [self loadMilagePicker];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [milagePicker selectRow:[[_selectedSession milage] longValue] inComponent:0 animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -63,13 +66,13 @@ UIPickerView * milagePicker;
 
 #pragma mark picker view delegate methods
 // The number of columns of data
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
 // The number of rows of data
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return _pickerData.count;
 }

@@ -133,7 +133,7 @@
     double minutes = fmod(trunc(ticks / 60.0), 60.0);
     double hours = trunc(ticks / 3600.0);
     
-    return [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    return [NSString stringWithFormat:@"%02.0f:%02.0f:%02.0f", hours, minutes, seconds];
     
 }
 
@@ -189,7 +189,7 @@
     }
     else
     {
-        btnTimer=[[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 105, 8, 100, 30)];
+        btnTimer=[[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
         [btnTimer setText:[self totalTimeForProjectId:[rProject projectID]]];
         [btnTimer setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
         [btnTimer setTextColor:[UIColor blackColor]];

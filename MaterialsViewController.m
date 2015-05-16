@@ -42,6 +42,11 @@ UITextView * textView;
     [self.view addGestureRecognizer:singleFingerTap];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [textView setText:_selectedSession.materials];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     //save notes
