@@ -27,6 +27,9 @@
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Sessions"];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -173,7 +176,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // [cell setBackgroundColor:[UIColor clearColor]];
+    [cell setBackgroundColor:[UIColor clearColor]];
     cell.accessoryView =nil;
     
     Session  * rSession = (Session *)[[appDelegate currentSessions] objectAtIndex:[indexPath row]];

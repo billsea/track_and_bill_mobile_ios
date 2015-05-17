@@ -52,6 +52,9 @@ NSMutableArray * clientFormFields;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
@@ -90,6 +93,9 @@ NSMutableArray * clientFormFields;
     
     //back to client list
     [[self navigationController] popViewControllerAnimated:YES];
+    
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
 

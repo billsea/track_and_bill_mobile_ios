@@ -25,12 +25,16 @@ UITextView * textView;
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Materials"];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+    
     //set textview
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
     [textView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [textView setTextColor:[UIColor blackColor]];
+    [textView setBackgroundColor:[UIColor clearColor]];
     
     [[self view] addSubview:textView];
     

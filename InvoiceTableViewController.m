@@ -37,6 +37,8 @@ NSNumber * invoiceNumberSelected;
     
     [[self navigationItem] setTitle:@"Invoice"];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
     
     //add help navigation bar button
     self.previewButton = [[UIBarButtonItem alloc]
@@ -726,16 +728,18 @@ NSNumber * invoiceNumberSelected;
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     NSString * invoicefile;
+    NSString * fileString;
     
-    //remove spaces
-    NSString * fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     
     if(_selectedInvoice)
     {
+        //remove spaces
+        fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",fileString,[[self selectedInvoice] projectID]];
     }
     else
     {
+        fileString = [[[self selectedProject] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",fileString,[[self selectedProject] projectID]];
     }
     

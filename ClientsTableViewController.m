@@ -40,7 +40,8 @@
     //self.addClientButton.tintColor = [UIColor blackColor];
     [[self navigationItem] setLeftBarButtonItem:self.addClientButton];
     
-   
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

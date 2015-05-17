@@ -25,6 +25,9 @@ UIPickerView * milagePicker;
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Mile Driven"];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+    
     _pickerData = [[NSMutableArray alloc] init];
     
     for(int i = 0; i<3000; i++)

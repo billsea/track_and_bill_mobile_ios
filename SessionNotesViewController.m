@@ -24,6 +24,9 @@ UITextView * notesTextView;
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Session Notes"];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+    
     //set textview
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
@@ -31,7 +34,7 @@ UITextView * notesTextView;
 
     [notesTextView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [notesTextView setTextColor:[UIColor blackColor]];
-    
+    [notesTextView setBackgroundColor:[UIColor clearColor]];
     [[self view] addSubview:notesTextView];
     
     

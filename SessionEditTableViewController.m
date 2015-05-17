@@ -25,6 +25,9 @@ NSArray * sessionFormFields;
     
     [[self navigationItem] setTitle:@"Session Edit"];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+    
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM/dd/yyyy h:m:s"];
     
@@ -136,7 +139,7 @@ NSArray * sessionFormFields;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // [cell setBackgroundColor:[UIColor clearColor]];
+    [cell setBackgroundColor:[UIColor clearColor]];
     cell.accessoryView =nil;
     
     //clear cell subviews-clears old cells

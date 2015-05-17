@@ -32,6 +32,9 @@ float _ticks;
     // Set the title of the navigation item
     [[self navigationItem] setTitle:[_selectedSession projectName]];
     
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -116,7 +119,7 @@ float _ticks;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-   // [cell setBackgroundColor:[UIColor clearColor]];
+   [cell setBackgroundColor:[UIColor clearColor]];
     cell.accessoryView =nil;
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(11,11, cell.frame.size.width - 100, 21)];
