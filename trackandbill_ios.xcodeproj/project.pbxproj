@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91501841B0949AD009AB281 /* left2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501831B0949AD009AB281 /* left2-32.png */; };
+		A91501861B094A58009AB281 /* left2-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501851B094A58009AB281 /* left2-25.png */; };
+		A91501881B094A97009AB281 /* left-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501871B094A97009AB281 /* left-25.png */; };
+		A915018A1B094ADD009AB281 /* back-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501891B094ADD009AB281 /* back-25.png */; };
 		A9167E2E1AEAC10D0071B992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E2D1AEAC10D0071B992 /* main.m */; };
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
 		A9167E371AEAC10E0071B992 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E361AEAC10E0071B992 /* ViewController.m */; };
@@ -133,6 +137,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A91501831B0949AD009AB281 /* left2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-32.png"; sourceTree = "<group>"; };
+		A91501851B094A58009AB281 /* left2-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-25.png"; sourceTree = "<group>"; };
+		A91501871B094A97009AB281 /* left-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-25.png"; sourceTree = "<group>"; };
+		A91501891B094ADD009AB281 /* back-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-25.png"; sourceTree = "<group>"; };
 		A9167E281AEAC10D0071B992 /* trackandbill_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackandbill_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E2C1AEAC10D0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E2D1AEAC10D0071B992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -374,6 +382,10 @@
 		A95F9FF31B0860760009CD99 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A91501891B094ADD009AB281 /* back-25.png */,
+				A91501871B094A97009AB281 /* left-25.png */,
+				A91501851B094A58009AB281 /* left2-25.png */,
+				A91501831B0949AD009AB281 /* left2-32.png */,
 				A95F9FF81B086C750009CD99 /* settings3-32.png */,
 				A95F9FF61B086C350009CD99 /* settings_filled-32.png */,
 				A95F9FF41B08609A0009CD99 /* paper_texture_02.png */,
@@ -647,7 +659,9 @@
 				A9DC4C841AEAFB8E00A00892 /* AppIcon-057.png in Resources */,
 				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,
 				A9DC4C981AEAFB8E00A00892 /* MilageViewController.xib in Resources */,
+				A91501881B094A97009AB281 /* left-25.png in Resources */,
 				A9167E3C1AEAC10E0071B992 /* Images.xcassets in Resources */,
+				A91501841B0949AD009AB281 /* left2-32.png in Resources */,
 				A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */,
 				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
 				A9DC4CCA1AEAFB8E00A00892 /* SessionViewController.xib in Resources */,
@@ -661,7 +675,9 @@
 				A9DC4CC41AEAFB8E00A00892 /* SessionNotesViewController.xib in Resources */,
 				A9DC4CC61AEAFB8E00A00892 /* SessionsTableViewCell.xib in Resources */,
 				A9DC4C861AEAFB8E00A00892 /* AppIcon-114.png in Resources */,
+				A915018A1B094ADD009AB281 /* back-25.png in Resources */,
 				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
+				A91501861B094A58009AB281 /* left2-25.png in Resources */,
 				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
 				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,

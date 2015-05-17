@@ -40,20 +40,45 @@
     
     
     //navigation bar style
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+   
+    
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    
+
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSShadowAttributeName:shadow,
+       NSFontAttributeName:[UIFont fontWithName:@"Avenir Next" size:18.0]
+       }
+     forState:UIControlStateNormal];
+    
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
-                                                           nil, NSShadowAttributeName,[UIFont fontWithName:@"Avenir Next Medium" size: 24.0], NSFontAttributeName, nil]];
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"Avenir Next" size:21.0], NSFontAttributeName, nil]];
+
+    
+ [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+// [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back-25.png"]];
+// [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back-25.png"]];
+//    
+  
     
     
     
     //tab bar style
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       [UIColor blackColor], NSForegroundColorAttributeName,
                                                        nil] forState:UIControlStateNormal];
     
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       [UIColor blackColor], NSForegroundColorAttributeName,
                                                        nil] forState:UIControlStateSelected];
     
     [self RegisterForNotifications];
@@ -167,7 +192,8 @@
 -(BOOL)createNavigationRootView
 {
     //style settings - temp
-    UIColor * navBarBgColor =[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
+    UIColor * navBarBgColor =[UIColor colorWithRed:0.02 green:0.29 blue:0.54 alpha:1.0];
+    //green //[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
     // [UIColor colorWithRed:0.71 green:0.84 blue:0.66 alpha:1.0];//light green
     
     
@@ -196,7 +222,7 @@
                                                  initWithRootViewController:clientsTableView];
     [mainNavController.navigationBar  setBarTintColor:navBarBgColor];
     
-    mainNavController.tabBarItem.title = @"Clients";
+    mainNavController.tabBarItem.title = @"Main";
     mainNavController.tabBarItem.image = [UIImage imageNamed:@"group-32.png"];//set tab image
 
     
@@ -232,7 +258,7 @@
     self.tabBarController=[[UITabBarController alloc]init];
     
     //set tab bar color
-    self.tabBarController.tabBar.barTintColor= navBarBgColor;
+    self.tabBarController.tabBar.barTintColor= [UIColor colorWithRed:0.85 green:0.85 blue:0.86 alpha:1.0];
     
     
     [self.tabBarController setViewControllers:viewControllers];

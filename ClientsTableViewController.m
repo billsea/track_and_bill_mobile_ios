@@ -48,6 +48,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -133,7 +134,7 @@
         cell = [nib objectAtIndex:0];
         
     }
-    
+  
     Client * rClient = (Client *)[[appDelegate arrClients] objectAtIndex:[indexPath row]];
     
     //set client id for table row
