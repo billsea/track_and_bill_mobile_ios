@@ -15,6 +15,8 @@
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
+		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
+		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
 		A9976D861AF7EA3600A4CC9D /* ProjectSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */; };
 		A9976D871AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */; };
 		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
@@ -144,6 +146,8 @@
 		A9167E491AEAC10E0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosTests.m; sourceTree = "<group>"; };
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
+		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
+		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
 		A9976D831AF7EA3600A4CC9D /* ProjectSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSelectTableViewController.h; sourceTree = "<group>"; };
 		A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSelectTableViewController.m; sourceTree = "<group>"; };
 		A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectSelectTableViewController.xib; sourceTree = "<group>"; };
@@ -370,6 +374,8 @@
 		A95F9FF31B0860760009CD99 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A95F9FF81B086C750009CD99 /* settings3-32.png */,
+				A95F9FF61B086C350009CD99 /* settings_filled-32.png */,
 				A95F9FF41B08609A0009CD99 /* paper_texture_02.png */,
 				A9976D8F1AF7F56A00A4CC9D /* group-32.png */,
 				A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */,
@@ -627,6 +633,7 @@
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
+				A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */,
 				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
 				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
 				A9DC4CC81AEAFB8E00A00892 /* SessionsTableViewController.xib in Resources */,
@@ -635,6 +642,7 @@
 				A9DC4CA01AEAFB8E00A00892 /* ProjectsTableViewCell.xib in Resources */,
 				A9DC4CA31AEAFB8E00A00892 /* Reader-Button-H.png in Resources */,
 				A9DC4C851AEAFB8E00A00892 /* AppIcon-072.png in Resources */,
+				A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */,
 				A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */,
 				A9DC4C841AEAFB8E00A00892 /* AppIcon-057.png in Resources */,
 				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,

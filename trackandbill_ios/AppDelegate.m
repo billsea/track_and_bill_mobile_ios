@@ -45,6 +45,17 @@
                                                            [UIColor whiteColor], NSForegroundColorAttributeName,
                                                            nil, NSShadowAttributeName,[UIFont fontWithName:@"Avenir Next Medium" size: 24.0], NSFontAttributeName, nil]];
     
+    
+    
+    //tab bar style
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       nil] forState:UIControlStateNormal];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       nil] forState:UIControlStateSelected];
+    
     [self RegisterForNotifications];
     
     _currentSessions = [[NSMutableArray alloc] init];
@@ -204,7 +215,7 @@
     UINavigationController * settingsNavController=[[UINavigationController alloc] initWithRootViewController:settingsView];
     [settingsNavController.navigationBar  setBarTintColor:navBarBgColor];
     settingsNavController.tabBarItem.title = @"Settings";
-    settingsNavController.tabBarItem.image = [UIImage imageNamed:@"settings_wrench-32.png"];
+    settingsNavController.tabBarItem.image = [UIImage imageNamed:@"settings3-32.png"];
     
     
     //add all nav controllers to stack
@@ -222,6 +233,7 @@
     
     //set tab bar color
     self.tabBarController.tabBar.barTintColor= navBarBgColor;
+    
     
     [self.tabBarController setViewControllers:viewControllers];
     
