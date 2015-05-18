@@ -66,7 +66,10 @@
     }
     if(supressSession == false)
     {
-        [self addNewSessionForSelectedProject];
+        if(_selectedProject)
+        {
+            [self addNewSessionForSelectedProject];
+        }
     }
     
 //    if(_selectedProject == nil)

@@ -463,6 +463,10 @@ NSNumber * invoiceNumberSelected;
                    return nil;
         }
     }
+    else
+    {
+        [cInvoice setMilageRate:[NSNumber numberWithFloat:0.00]];
+    }
     
                 
     
@@ -789,6 +793,7 @@ NSNumber * invoiceNumberSelected;
             ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
             readerViewController.delegate = self;
             
+            
             readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
             
@@ -967,7 +972,7 @@ NSNumber * invoiceNumberSelected;
         
         NSString * checkNumber = [NSString stringWithFormat:@"Paid Check #: %@",[newInvoice checkNumber]];
         CGRect checkNumberRect = [self addText:checkNumber
-                               withFrame:CGRectMake(kMarginPadding, breakRect.origin.y + breakRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:24.0f];
+                               withFrame:CGRectMake(kMarginPadding, breakRect.origin.y + breakRect.size.height + kPadding, _pageSize.width/2 - kPadding*2, 4) fontSize:18.0f];
         
         
         

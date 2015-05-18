@@ -177,7 +177,7 @@ InvoiceTableViewController * invoiceViewController;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 
@@ -218,7 +218,10 @@ InvoiceTableViewController * invoiceViewController;
             [cellLabel setText:@"Invoice"];
             break;
         case 2:
-            [cellLabel setText:@"All Project Sessions"];
+            [cellLabel setText:@"Edit Project Sessions"];
+            break;
+        case 3:
+            [cellLabel setText:@"Current Sessions"];
             break;
         default:
             break;
@@ -271,6 +274,7 @@ InvoiceTableViewController * invoiceViewController;
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+     SessionsTableViewController *sessionsViewController = [[SessionsTableViewController alloc] initWithNibName:@"SessionsTableViewController" bundle:nil];
     
     switch (indexPath.row) {
         case 0:
@@ -281,6 +285,10 @@ InvoiceTableViewController * invoiceViewController;
             break;
         case 2:
             [self AllSessions];
+            break;
+        case 3:
+            //show current sessions
+            [self.navigationController pushViewController:sessionsViewController animated:YES];
             break;
         default:
             break;

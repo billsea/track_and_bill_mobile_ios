@@ -34,8 +34,8 @@
 
 #define PAGING_VIEWS 3
 
-#define TOOLBAR_HEIGHT 44.0f
-#define PAGEBAR_HEIGHT 48.0f
+#define TOOLBAR_HEIGHT 65.0f
+#define PAGEBAR_HEIGHT 0.0f//bottom bar, we will not show this for now
 
 #define TAP_AREA_SIZE 48.0f
 
@@ -60,6 +60,8 @@
 	CGFloat contentWidth = (theScrollView.bounds.size.width * count);
 
 	theScrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+
+    
 }
 
 - (void)updateScrollViewContentViews
@@ -151,6 +153,8 @@
 		NSMutableDictionary *unusedViews = [contentViews mutableCopy];
 
 		CGRect viewRect = CGRectZero; viewRect.size = theScrollView.bounds.size;
+        
+        viewRect.origin.y = 30;//place the document below toolbar
 
 		for (NSInteger number = minValue; number <= maxValue; number++)
 		{
@@ -288,6 +292,7 @@
 			[notificationCenter addObserver:self selector:@selector(applicationWill:) name:UIApplicationWillResignActiveNotification object:nil];
 
 			[object updateProperties]; document = object; // Retain the supplied ReaderDocument object for our use
+            
 
 			[ReaderThumbCache touchThumbCacheWithGUID:object.guid]; // Touch the document thumb cache directory
 
@@ -323,9 +328,7 @@
 
     UIColor * navBarBgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]];//[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
     self.view.backgroundColor = navBarBgColor;
-    
 
-    
 	//self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 
 	CGRect viewRect = self.view.bounds; // View controller's view bounds
@@ -345,15 +348,12 @@
 	theScrollView.delegate = self;
 
 	[self.view addSubview:theScrollView];
-
 	CGRect toolbarRect = viewRect;
 	toolbarRect.size.height = TOOLBAR_HEIGHT;
-
+   
+    
 	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document]; // At top
-
 	mainToolbar.delegate = self;
-    
-    
 
 	[self.view addSubview:mainToolbar];
 
