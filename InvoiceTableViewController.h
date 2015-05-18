@@ -10,13 +10,17 @@
 #import "Project.h"
 #import "ReaderViewController.h"
 #import "Invoice.h"
+#import <iAd/iAd.h>
 
-@interface InvoiceTableViewController : UITableViewController<UITextFieldDelegate, ReaderViewControllerDelegate>
+@interface InvoiceTableViewController : UITableViewController<UITextFieldDelegate, ReaderViewControllerDelegate,ADInterstitialAdDelegate>
+{
+    ADInterstitialAd *interstitial;
+}
 
 @property (nonatomic, retain) Project * selectedProject;
 @property (nonatomic, retain) Invoice * selectedInvoice;
-
 @property (strong, nonatomic)  NSMutableArray *userData;
+
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 - (void)dismissReaderViewController:(ReaderViewController *)viewController;
