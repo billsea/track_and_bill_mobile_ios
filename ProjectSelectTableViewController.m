@@ -80,7 +80,7 @@ InvoiceTableViewController * invoiceViewController;
                                           preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* editInvoice = [UIAlertAction
-                                     actionWithTitle:@"Edit Invoice"
+                                     actionWithTitle:@"Edit"
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction * action)
                                      {
@@ -89,7 +89,7 @@ InvoiceTableViewController * invoiceViewController;
                                          
                                      }];
             UIAlertAction* newInvoice = [UIAlertAction
-                                     actionWithTitle:@"New Invoice"
+                                     actionWithTitle:@"New"
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction * action)
                                      {
@@ -122,7 +122,7 @@ InvoiceTableViewController * invoiceViewController;
                                                              message:@"Edit the existing invoice or create a new one?"
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
-                                                   otherButtonTitles:@"Yes",@"No",nil];
+                                                   otherButtonTitles:@"Edit",@"New",nil];
             
             dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
             [dialog show];
@@ -152,16 +152,18 @@ InvoiceTableViewController * invoiceViewController;
     switch (buttonIndex) {
         case 1:
             //invoice already set
+            [self.navigationController pushViewController:invoiceViewController animated:YES];
             break;
         case 2:
             [invoiceViewController setSelectedInvoice:nil];
             [invoiceViewController setSelectedProject:_selectedProject];
+            [self.navigationController pushViewController:invoiceViewController animated:YES];
             break;
         default:
             break;
     }
     
-     [self.navigationController pushViewController:invoiceViewController animated:YES];
+    
 }
 
 #pragma mark - Table view data source

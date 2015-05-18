@@ -78,8 +78,6 @@ NSNumber * invoiceNumberSelected;
     //Could be new invoice or edit
     if(self.selectedInvoice && self.selectedInvoice.invoiceNumber)
     {
-        //remove exisitng invoice - a new one will be created
-        [self removeExistingInvoice: _selectedInvoice.projectID];
         
         invoiceNumberSelected = [_selectedInvoice invoiceNumber];
         
@@ -108,8 +106,6 @@ NSNumber * invoiceNumberSelected;
     }
     else if(self.selectedProject)
     {
-        //remove exisitng invoice - a new one will be created
-        [self removeExistingInvoice: _selectedProject.projectID];
         
         //create long string with all notes, materials
         NSString * allNotes = [[NSString alloc] init];
@@ -219,7 +215,7 @@ NSNumber * invoiceNumberSelected;
     // Dispose of any resources that can be recreated.
 }
 
--(void)removeExistingInvoice:(NSNumber *)projectId
+-(bool)removeExistingInvoice:(NSNumber *)projectId
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
@@ -238,6 +234,8 @@ NSNumber * invoiceNumberSelected;
     {
         [[appDelegate arrInvoices] removeObjectIdenticalTo:t];
     }
+    
+    return TRUE;
 }
 
 //create invoice number based on last invoice number
@@ -273,6 +271,8 @@ NSNumber * invoiceNumberSelected;
 
 - (Invoice *)createInvoice
 {
+    
+    
     //create the new invoice from form fields
     Invoice * cInvoice = [[Invoice alloc] init];
     
@@ -413,44 +413,42 @@ NSNumber * invoiceNumberSelected;
     //milage
     iPath = [NSIndexPath indexPathForRow:7 inSection:0];
     NSInteger miles = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] integerValue];
-    if(!miles)
-    {
-        miles = [[[invoiceFormFields objectAtIndex:7] objectForKey:@"FieldValue"] integerValue];
-    }
+
     if(miles)
     {
         [cInvoice setMilage:[NSNumber numberWithInteger:miles]];
     }
     else
     {
+        miles = 0;
          [cInvoice setMilage:[NSNumber numberWithInteger:0]];
 //        [self showMessage:@"Milage field is empty or not formatted correctly" withTitle:@"Milage"];
 //        return nil;
     }
     
     
-    //milage rate
-    iPath = [NSIndexPath indexPathForRow:8 inSection:0];
-    float milageRate = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] floatValue];
-    if(!milageRate)
+    
+    //milage rate, only if miles entered
+    if(miles > 0)
     {
-        milageRate = [[[invoiceFormFields objectAtIndex:8] objectForKey:@"FieldValue"] integerValue];
-    }
-    if(milageRate)
-    {
-        [cInvoice setMilageRate:[NSNumber numberWithFloat:milageRate]];
-    }
-    else if(miles > 0)
-    {
-        [self showMessage:@"Milage rate field is empty or not formatted correctly" withTitle:@"Milage rate"];
-        return nil;
-    }
-    else
-    {
-        [cInvoice setMilageRate:[NSNumber numberWithFloat:0.0]];
+        iPath = [NSIndexPath indexPathForRow:8 inSection:0];
+        float milageRate = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] floatValue];
+        if(milageRate > 0)
+        {
+            [cInvoice setMilageRate:[NSNumber numberWithFloat:milageRate]];
+        }
+        else if(![[self.userData objectAtIndex:8] isEqualToString:@""])
+        {
+            [cInvoice setMilageRate:[NSNumber numberWithFloat:[[self.userData objectAtIndex:8] floatValue]]];
+        }
+        else
+        {
+            [self showMessage:@"Milage rate field is empty or not formatted correctly" withTitle:@"Milage Rate"];
+                   return nil;
+        }
     }
     
-    
+                
     
     //notes
     iPath = [NSIndexPath indexPathForRow:9 inSection:0];
@@ -536,9 +534,14 @@ NSNumber * invoiceNumberSelected;
     {
         invRate = [[invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
     }
+    
     if(invRate && ![invRate isEqualToString:@""])
     {
         [cInvoice setInvoiceRate:[invRate doubleValue]];
+    }
+    else if(![[self.userData objectAtIndex:15] isEqualToString:@""])
+    {
+        [cInvoice setInvoiceRate:[[self.userData objectAtIndex:15] doubleValue]];
     }
     else
     {
@@ -561,15 +564,29 @@ NSNumber * invoiceNumberSelected;
 
 - (IBAction)exportInvoice:(id)sender
 {
-
+    bool invoiceRemoved = FALSE;
+    //remove exisitng invoice - a new one will be created
+    if(_selectedInvoice)
+    {
+         invoiceRemoved = [self removeExistingInvoice: _selectedInvoice.projectID];
+    }
+    else
+    {
+        invoiceRemoved = [self removeExistingInvoice:_selectedProject.projectID];
+    }
+    
+    
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    //show exported pdf view
-    Invoice * mInvoice = [self createInvoice];
-    if(mInvoice)
-    {
-        [[appDelegate arrInvoices] addObject:mInvoice];
-        [self MakePDF:mInvoice];
+    if(invoiceRemoved)
+        {
+        //show exported pdf view
+        Invoice * mInvoice = [self createInvoice];
+        if(mInvoice)
+        {
+            [[appDelegate arrInvoices] addObject:mInvoice];
+            [self MakePDF:mInvoice];
+        }
     }
 }
 
@@ -772,7 +789,21 @@ NSNumber * invoiceNumberSelected;
      AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     //remove spaces
-    NSString * fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    //NSString * fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    NSString * invoicefile;
+    NSString * fileString;
+    
+    if(_selectedInvoice)
+    {
+        //remove spaces
+        fileString = [[[self selectedInvoice] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",fileString,[[self selectedInvoice] projectID]];
+    }
+    else
+    {
+        fileString = [[[self selectedProject] projectName] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        invoicefile = [NSString stringWithFormat:@"%@_%@.pdf",fileString,[[self selectedProject] projectID]];
+    }
     
     [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@_%@",fileString,[newInvoice projectID]] Width:850 Height:1100];
     

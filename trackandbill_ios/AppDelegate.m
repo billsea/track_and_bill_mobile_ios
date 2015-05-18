@@ -192,7 +192,7 @@
 -(BOOL)createNavigationRootView
 {
     //style settings - temp
-    UIColor * navBarBgColor =[UIColor colorWithRed:0.02 green:0.29 blue:0.54 alpha:1.0];
+    UIColor * navBarBgColor =[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
     //green //[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
     // [UIColor colorWithRed:0.71 green:0.84 blue:0.66 alpha:1.0];//light green
     
