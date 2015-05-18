@@ -321,8 +321,10 @@
 
 	assert(self.splitViewController == nil); // Not supported (sorry)
 
-    UIColor * navBarBgColor = [UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
+    UIColor * navBarBgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]];//[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
     self.view.backgroundColor = navBarBgColor;
+    
+
     
 	//self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 
@@ -350,6 +352,8 @@
 	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document]; // At top
 
 	mainToolbar.delegate = self;
+    
+    
 
 	[self.view addSubview:mainToolbar];
 
@@ -946,6 +950,8 @@
 		{
 			MFMailComposeViewController *mailComposer = [MFMailComposeViewController new];
 
+            [mailComposer.navigationBar setTintColor:[UIColor whiteColor]];
+            
 			[mailComposer addAttachmentData:attachment mimeType:@"application/pdf" fileName:fileName];
 
 			[mailComposer setSubject:fileName]; // Use the document file name for the subject
@@ -955,6 +961,7 @@
 
 			mailComposer.mailComposeDelegate = self; // Set the delegate
 
+            
             
             //will error in simulator, test on device
             [self presentViewController:mailComposer animated:YES completion:nil];

@@ -40,10 +40,6 @@
     
     
     //navigation bar style
-    
-   
-    
-    
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 1);
@@ -63,14 +59,15 @@
                                                            [UIFont fontWithName:@"Avenir Next" size:21.0], NSFontAttributeName, nil]];
 
     
- [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    //set navigation bar background color
+    UIColor * navBarBgColor =[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
+    [[UINavigationBar appearance] setBarTintColor:navBarBgColor];
     
 // [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back-25.png"]];
 // [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back-25.png"]];
-//    
-  
-    
-    
+
     
     //tab bar style
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -191,16 +188,6 @@
 #pragma mark Build Navigation
 -(BOOL)createNavigationRootView
 {
-    //style settings - temp
-    UIColor * navBarBgColor =[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
-    //green //[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
-    // [UIColor colorWithRed:0.71 green:0.84 blue:0.66 alpha:1.0];//light green
-    
-    
-    //navigation top bar bg image
-    //UIImage * navBgImage =[UIImage imageNamed:@"brushedMetal.png"];
-    //UIColor * navBarBgWithImage = [UIColor colorWithPatternImage:navBgImage];
-    
     
     //create viewControllers
     ClientsTableViewController * clientsTableView;
@@ -220,26 +207,12 @@
     //clients tab
     UINavigationController *mainNavController = [[UINavigationController alloc]
                                                  initWithRootViewController:clientsTableView];
-    [mainNavController.navigationBar  setBarTintColor:navBarBgColor];
-    
     mainNavController.tabBarItem.title = @"Main";
     mainNavController.tabBarItem.image = [UIImage imageNamed:@"group-32.png"];//set tab image
-
-    
-//    //invoices tab
-//    InvoicesTableViewController * invoicesTableView = [[InvoicesTableViewController alloc] init];
-//    UINavigationController *invoicesNavController = [[UINavigationController alloc]
-//                                                 initWithRootViewController:invoicesTableView];
-//    [invoicesNavController.navigationBar  setBarTintColor:navBarBgColor];
-//    invoicesNavController.tabBarItem.title = @"Invoices";
-//    invoicesNavController.tabBarItem.image = [UIImage imageNamed:@"bill-32.png"];
-//    
-    
     
     //Settings tab
     SettingsTableViewController * settingsView = [[SettingsTableViewController alloc] init];
     UINavigationController * settingsNavController=[[UINavigationController alloc] initWithRootViewController:settingsView];
-    [settingsNavController.navigationBar  setBarTintColor:navBarBgColor];
     settingsNavController.tabBarItem.title = @"Settings";
     settingsNavController.tabBarItem.image = [UIImage imageNamed:@"settings3-32.png"];
     
@@ -251,8 +224,6 @@
     else
         viewControllers = [NSArray arrayWithObjects:mainNavController, settingsNavController, nil];
     
-    
-    
     //load tab bar with view controllers
     // if valid request, add views to tab bar
     self.tabBarController=[[UITabBarController alloc]init];
@@ -260,10 +231,7 @@
     //set tab bar color
     self.tabBarController.tabBar.barTintColor= [UIColor colorWithRed:0.85 green:0.85 blue:0.86 alpha:1.0];
     
-    
     [self.tabBarController setViewControllers:viewControllers];
-    
-    
     self.tabBarController.delegate=self;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

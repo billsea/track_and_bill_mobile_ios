@@ -92,8 +92,12 @@
 
 	NSAssert(!(document == nil), @"ReaderDocument == nil");
 
-	self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
+    
+    //set background image
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+	//self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 
+    
 	CGRect viewRect = self.view.bounds; // View controller's view bounds
 
 	NSString *toolbarTitle = [document.fileName stringByDeletingPathExtension];

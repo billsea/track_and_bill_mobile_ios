@@ -60,16 +60,16 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		self.backgroundColor = [UIColor clearColor];
 
-		CAGradientLayer *layer = (CAGradientLayer *)self.layer;
-		UIColor *liteColor = [UIColor colorWithWhite:0.92f alpha:0.8f];
-		UIColor *darkColor = [UIColor colorWithWhite:0.32f alpha:0.8f];
-		layer.colors = [NSArray arrayWithObjects:(id)liteColor.CGColor, (id)darkColor.CGColor, nil];
+//		CAGradientLayer *layer = (CAGradientLayer *)self.layer;
+//		UIColor *liteColor = [UIColor colorWithWhite:0.92f alpha:0.8f];
+//		UIColor *darkColor = [UIColor colorWithWhite:0.32f alpha:0.8f];
+//		layer.colors = [NSArray arrayWithObjects:(id)liteColor.CGColor, (id)darkColor.CGColor, nil];
 
-		CGRect shadowRect = self.bounds; shadowRect.origin.y += shadowRect.size.height; shadowRect.size.height = 4.0f;
+	//	CGRect shadowRect = self.bounds; shadowRect.origin.y += shadowRect.size.height; shadowRect.size.height = 4.0f;
 
-		UIXToolbarShadow *shadowView = [[UIXToolbarShadow alloc] initWithFrame:shadowRect];
+	//	UIXToolbarShadow *shadowView = [[UIXToolbarShadow alloc] initWithFrame:shadowRect];
 
-		[self addSubview:shadowView]; 
+		//[self addSubview:shadowView];
 	}
 
 	return self;
