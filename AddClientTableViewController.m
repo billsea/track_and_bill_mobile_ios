@@ -75,32 +75,32 @@ NSArray * clientFormFields;
     
     //todo: handle form validation
 
-    Client * newClient = [[Client alloc] init];
+    if(![[self.userData objectAtIndex:0] isEqualToString:@""])
+    {
+
+        Client * newClient = [[Client alloc] init];
+        
+        //init new client with form values
+        [newClient setCompanyName:[self.userData objectAtIndex:0]];
+        [newClient setContactName:[self.userData objectAtIndex:1]];
+        [newClient setStreet:[self.userData objectAtIndex:2]];
+        [newClient setCity:[self.userData objectAtIndex:3]];
+        [newClient setState:[self.userData objectAtIndex:4]];
+        [newClient setCountry:[self.userData objectAtIndex:5]];
+        [newClient setPostalCode:[self.userData objectAtIndex:6]];
+        [newClient setPhoneNumber:[self.userData objectAtIndex:7]];
+        [newClient setEmail:[self.userData objectAtIndex:8]];
+        [newClient setClientID:[self createClientID]];
+        
+        //add new client object to clients list
+        [[appDelegate arrClients] addObject:newClient];
+        
+       // [self saveDataToDisk];
+    }
     
-    //init new client with form values
-    [newClient setCompanyName:[self.userData objectAtIndex:0]];
-    [newClient setContactName:[self.userData objectAtIndex:1]];
-    [newClient setStreet:[self.userData objectAtIndex:2]];
-    [newClient setCity:[self.userData objectAtIndex:3]];
-    [newClient setState:[self.userData objectAtIndex:4]];
-    [newClient setCountry:[self.userData objectAtIndex:5]];
-    [newClient setPostalCode:[self.userData objectAtIndex:6]];
-    [newClient setPhoneNumber:[self.userData objectAtIndex:7]];
-    [newClient setEmail:[self.userData objectAtIndex:8]];
-    [newClient setClientID:[self createClientID]];
-    
-    //add new client object to clients list
-    [[appDelegate arrClients] addObject:newClient];
-    
-   // [self saveDataToDisk];
     
     [[self view] endEditing:YES];
-    
-    //back to client list
-    [[self navigationController] popViewControllerAnimated:YES];
-    
-    //set background image
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+
 }
 
 

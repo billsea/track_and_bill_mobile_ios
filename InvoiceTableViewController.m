@@ -151,7 +151,7 @@ NSNumber * invoiceNumberSelected;
                  @{@"FieldName": @"Notes",@"FieldValue": allNotes},
                  @{@"FieldName": @"Materials",@"FieldValue":allMaterials},
                  @{@"FieldName": @"Materials Total",@"FieldValue":@""},
-                 @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
+                 @{@"FieldName": @"Total Hours:Minutes:Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
                  @{@"FieldName": @"Terms",@"FieldValue":@""},
                  @{@"FieldName": @"Deposit",@"FieldValue":@"" },
                  @{@"FieldName": @"Invoice Rate",@"FieldValue": @""},
@@ -925,7 +925,7 @@ NSNumber * invoiceNumberSelected;
     
         NSString * services = [NSString stringWithFormat:@"%@",[newInvoice invoiceNotes]];
         CGRect servicesRect = [self addText:services
-                                  withFrame:CGRectMake(kMarginPadding, serviceRect.origin.y + serviceRect.size.height + kPadding, _pageSize.width - kPadding, 130) fontSize:18.0f];
+                                  withFrame:CGRectMake(kMarginPadding, serviceRect.origin.y + serviceRect.size.height + kPadding, _pageSize.width - (kMarginPadding * 2), 130) fontSize:18.0f];
 
         
 ////////////Totals///////////////

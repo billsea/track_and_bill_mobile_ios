@@ -209,13 +209,13 @@ InvoiceTableViewController * invoiceViewController;
             [cellLabel setText:@"New Session"];
             break;
         case 1:
-            [cellLabel setText:@"Invoice"];
+            [cellLabel setText:@"Current Sessions"];
             break;
         case 2:
-            [cellLabel setText:@"Edit Project Sessions"];
+            [cellLabel setText:@"Edit Sessions"];
             break;
         case 3:
-            [cellLabel setText:@"Current Sessions"];
+            [cellLabel setText:@"Invoice"];
             break;
         default:
             break;
@@ -275,14 +275,15 @@ InvoiceTableViewController * invoiceViewController;
             [self CreateSessionForProject];
             break;
         case 1:
-            [self invoiceProject];
+            //just show current sessions
+            [self.navigationController pushViewController:sessionsViewController animated:YES];
             break;
         case 2:
             [self AllSessions];
             break;
         case 3:
-            //show current sessions
-            [self.navigationController pushViewController:sessionsViewController animated:YES];
+            [self invoiceProject];
+            
             break;
         default:
             break;
