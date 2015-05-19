@@ -107,7 +107,7 @@ NSNumber * invoiceNumberSelected;
                  @{@"FieldName": @"Total Hours",@"FieldValue": [_selectedInvoice totalTime]},
                  @{@"FieldName": @"Terms",@"FieldValue":[_selectedInvoice invoiceTerms]},
                  @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceDeposit]]},
-                 @{@"FieldName": @"Rate",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceRate]]},
+                 @{@"FieldName": @"Invoice Rate",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceRate]]},
                  @{@"FieldName": @"Paid Check #",@"FieldValue": [_selectedInvoice checkNumber]},
                  
                  ];
@@ -154,7 +154,7 @@ NSNumber * invoiceNumberSelected;
                  @{@"FieldName": @"Total Hours",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
                  @{@"FieldName": @"Terms",@"FieldValue":@""},
                  @{@"FieldName": @"Deposit",@"FieldValue":@"" },
-                 @{@"FieldName": @"Rate",@"FieldValue": @""},
+                 @{@"FieldName": @"Invoice Rate",@"FieldValue": @""},
                  @{@"FieldName": @"Paid Check #",@"FieldValue": @""}
                  
                  ];
@@ -296,6 +296,7 @@ NSNumber * invoiceNumberSelected;
     //new invoice or update existing?
     if(_selectedProject)
     {
+        //these fields are read only, users cannot change
         [cInvoice setProjectID:_selectedProject.projectID];
         [cInvoice setClientID:_selectedProject.clientID];
     }
@@ -652,18 +653,6 @@ NSNumber * invoiceNumberSelected;
         
     }
     
-    // [cell setBackgroundColor:[UIColor clearColor]];
-//    cell.accessoryView =nil;
-//    
-//    UITextField * cellText = [[UITextField alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 20, 21)];
-//    [cellText setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-//    [cellText setBorderStyle:UITextBorderStyleNone];
-//    [cellText setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-//    [cellText setTextColor:[UIColor blackColor]];
-//    //set placeholder text
-//    [cellText setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-//    
-    
     [[cell textInput] setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
     [[cell textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
     [[cell textInput] setTag:[indexPath row]];
@@ -672,6 +661,14 @@ NSNumber * invoiceNumberSelected;
     [[cell textInput] setBorderStyle:UITextBorderStyleNone];
     [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [[cell textInput] setTextColor:[UIColor blackColor]];
+    
+    
+    //set read only
+    if([indexPath row] == 12 || [indexPath row] == 0)
+    {
+        [[cell textInput] setEnabled:FALSE];//total hours
+    }
+    
     cell.textInput.delegate = self;
  
     //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
@@ -680,11 +677,6 @@ NSNumber * invoiceNumberSelected;
         //cell.textInput.placeholder = nil;
         cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
     }
-
-    
-    
-    // [[cell contentView] addSubview:cellText];
-    
 
     return cell;
 
