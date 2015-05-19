@@ -20,10 +20,9 @@
 
 @synthesize selectedClient = _selectedClient;
 
-@synthesize arrFormText = _arrFormText;
 
 
-NSMutableArray * projectFormFields;
+NSArray * projectFormFields;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,16 +33,11 @@ NSMutableArray * projectFormFields;
     [[self navigationItem] setTitle:@"New Project"];
     
     //input form text fields
-    projectFormFields = [[NSMutableArray alloc] init];
-    [projectFormFields addObject:@"Project Name"];
-    //[projectFormFields addObject:[_selectedClient company]];
-    
-    
-    [projectFormFields addObject:[NSString stringWithFormat:@"%@",[NSDate date]]];
-    [projectFormFields addObject:[NSString stringWithFormat:@"%@",[NSDate date]]];
-    [projectFormFields addObject:@"Create Project"];
-    
-     _arrFormText = [[NSMutableArray alloc] init];
+    projectFormFields = @[
+                         @{@"FieldName": @"Project Name", @"FieldValue":@""},
+                         @{@"FieldName": @"Start Date",@"FieldValue":[NSString stringWithFormat:@"%@",[NSDate date]]},
+                         @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[NSDate date]]},
+                         ];
     
     
     //view has been touched, for dismiss keyboard
@@ -58,6 +52,11 @@ NSMutableArray * projectFormFields;
     
     //set background image
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self newProjectSubmit];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
@@ -123,60 +122,24 @@ NSMutableArray * projectFormFields;
         
     }
     
-    if([[projectFormFields objectAtIndex:[indexPath row]] isEqualToString:@"Create Project"])
-    {
-        [[cell textInput] setHidden:YES];
-        
-        UIButton * submit = [[UIButton alloc] initWithFrame:[cell frame]];
-        
-        [submit setTitle:[projectFormFields objectAtIndex:[indexPath row]] forState:UIControlStateNormal];
-        [submit setBackgroundColor:[UIColor grayColor]];
-        [submit setTag:[indexPath row]];
-        [submit addTarget:self action:@selector(newProjectSubmit:) forControlEvents:UIControlEventTouchUpInside];
-        [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [[submit titleLabel] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-        //[submit setTitleColor:[UIColor whiteColor] forState:UIControlEventValueChanged];
-        [cell addSubview:submit];
-    }
-    else
-    {
-        //set placeholder value for new cell
-        [[cell textInput] setText:[projectFormFields objectAtIndex:[indexPath row]]];
-        [cell setTag:[indexPath row]];
-        [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
-        [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-        [[cell textInput] setTextColor:[UIColor blackColor]];
-        cell.textInput.delegate = self;
-        
-//        //populate text fields
-//        switch ([indexPath row]) {
-//            case 0:
-//                [[cell textInput] setText:[[_arrProjects objectAtIndex:0] projectName]];
-//                break;
-//            case 1:
-//                [[cell textInput] setText:[[_arrProjects objectAtIndex:0] clientName]];
-//                break;
-//            case 2:
-//                [[cell textInput] setText:[[_arrProjects objectAtIndex:0] startDate]];
-//                break;
-//            case 3:
-//                [[cell textInput] setText:[[_arrProjects objectAtIndex:0] endDate]];
-//                break;
-//            default:
-//                break;
-//        }
-        
-        
-        [[self arrFormText] addObject:cell];
-    }
+    //set placeholder value for new cell
+    [[cell textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+    [[cell labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    [cell setTag:[indexPath row]];
+    [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
+    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [[cell textInput] setTextColor:[UIColor blackColor]];
+     cell.textInput.delegate = self;
+
     
     return cell;
 }
 
 
-- (IBAction)newProjectSubmit:(id)sender;
+- (void)newProjectSubmit
 {
+   
     
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
@@ -184,50 +147,57 @@ NSMutableArray * projectFormFields;
     
     Project *nProject = [[Project alloc] init];
   
-    //set new project with form value, and generate id
-    [nProject setProjectName:[[[[self arrFormText]objectAtIndex:0] textInput] text]];
-    [nProject setClientName:[_selectedClient company]];
+    NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSString * projName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
     
     
-    NSLog(@"date:%@",[[[[self arrFormText]objectAtIndex:1] textInput] text]);
-    
-    NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy"];
-    NSDate * startDate = [df dateFromString:[[[[self arrFormText]objectAtIndex:1] textInput] text]];
-    NSDate * endDate = [df dateFromString:[[[[self arrFormText]objectAtIndex:2] textInput] text]];
-    
-    if(!startDate)
+    if(![projName isEqualToString:@""])
     {
-       [nProject setStartDate:[NSDate date]];
-    }
-    else
-    {
-        [nProject setStartDate:startDate];
-    }
-    
-    if(!endDate)
-    {
-        [nProject setEndDate:[NSDate date]];
-    }
-    else
-    {
-        [nProject setEndDate:endDate];
-    }
-    
-    [nProject setClientID:[[self selectedClient] clientID]];
-    [nProject setProjectID:[self createProjectID]];
-    
-    
-    //add projects to all projects list
-    [[appDelegate allProjects] addObject:nProject];
-  
-    //save to archive file
-   // [appDelegate saveProjectsToDisk];
-    
+        //set new project with form value, and generate id
+        [nProject setProjectName:projName];
+        [nProject setClientName:[_selectedClient company]];
+        
+
+        NSDateFormatter * df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"MM/dd/yyyy"];
+        
+        iPath = [NSIndexPath indexPathForRow:1 inSection:0];
+        NSString * projStart = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+        NSDate * startDate = [df dateFromString:projStart];
+        
+        iPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        NSString * projEnd = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+        NSDate * endDate = [df dateFromString:projEnd];
+        
+        if(!startDate)
+        {
+           [nProject setStartDate:[NSDate date]];
+        }
+        else
+        {
+            [nProject setStartDate:startDate];
+        }
+        
+        if(!endDate)
+        {
+            [nProject setEndDate:[NSDate date]];
+        }
+        else
+        {
+            [nProject setEndDate:endDate];
+        }
+        
+        [nProject setClientID:[[self selectedClient] clientID]];
+        [nProject setProjectID:[self createProjectID]];
+        
+        
+        //add projects to all projects list
+        [[appDelegate allProjects] addObject:nProject];
+      
+        //save to archive file
+       // [appDelegate saveProjectsToDisk];
+     }
     [[self view] endEditing:YES];
-    
-    //back to projects
-    [[self navigationController] popViewControllerAnimated:YES];
     
 }
 

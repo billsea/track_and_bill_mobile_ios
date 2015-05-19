@@ -104,7 +104,7 @@ NSNumber * invoiceNumberSelected;
                  
                  
                  @{@"FieldName": @"Materials Total",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice materialsTotal]]},
-                 @{@"FieldName": @"Total Hours",@"FieldValue": [_selectedInvoice totalTime]},
+                 @{@"FieldName": @"Total Hours:Minutes:Seconds",@"FieldValue": [_selectedInvoice totalTime]},
                  @{@"FieldName": @"Terms",@"FieldValue":[_selectedInvoice invoiceTerms]},
                  @{@"FieldName": @"Deposit",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceDeposit]]},
                  @{@"FieldName": @"Invoice Rate",@"FieldValue":[NSString stringWithFormat:@"%.2f",[_selectedInvoice invoiceRate]]},
@@ -653,7 +653,8 @@ NSNumber * invoiceNumberSelected;
         
     }
     
-    [[cell textInput] setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    //[[cell textInput] setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    [[cell labelCell] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
     [[cell textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
     [[cell textInput] setTag:[indexPath row]];
     [cell setTag:[indexPath row]];

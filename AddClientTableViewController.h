@@ -11,11 +11,11 @@
 
 @interface AddClientTableViewController : UITableViewController<UITextFieldDelegate>
 
-@property (nonatomic, retain) NSMutableArray *arrFormText;
 
+@property (strong, nonatomic)  NSMutableArray *userData;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-- (IBAction)newClientSubmit:(id)sender;
+- (void)newClientSubmit;
 
 
 @end

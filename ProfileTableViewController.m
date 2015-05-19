@@ -16,10 +16,12 @@
 
 @implementation ProfileTableViewController
 
-@synthesize arrProfiles = _arrProfiles;
-@synthesize arrFormText = _arrFormText;
 
-NSMutableArray * formFields;
+NSArray * formFields;
+
+@synthesize userData = _userData;
+@synthesize arrProfiles = _arrProfiles;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,21 +30,6 @@ NSMutableArray * formFields;
     // self.clearsSelectionOnViewWillAppear = NO;
     
     [[self navigationItem] setTitle:@"Profile"];
-    
-    //input form text fields
-    formFields = [[NSMutableArray alloc] init];
-    [formFields addObject:@"Your Name or Company"];
-    [formFields addObject:@"Address"];
-    [formFields addObject:@"City"];
-    [formFields addObject:@"State"];
-    [formFields addObject:@"Postal Code"];
-    [formFields addObject:@"Phone"];
-    [formFields addObject:@"Email"];
-    [formFields addObject:@"Contact Person"];
-    [formFields addObject:@"Submit"];
-    
-    
-    _arrFormText = [[NSMutableArray alloc] init];
     
     [self loadDataFromDisk];
     
@@ -58,6 +45,11 @@ NSMutableArray * formFields;
     
     //set background image
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self handleProfileSubmit];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
@@ -88,7 +80,6 @@ NSMutableArray * formFields;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
-    
     static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
     
     TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -100,93 +91,67 @@ NSMutableArray * formFields;
         
     }
     
-    if([[formFields objectAtIndex:[indexPath row]] isEqualToString:@"Submit"])
-    {
-        [[cell textInput] setHidden:YES];
-
-        
-     UIButton * submit = [[UIButton alloc] initWithFrame:[cell frame]];
-        
-        [submit setTitle:[formFields objectAtIndex:[indexPath row]] forState:UIControlStateNormal];
-        [submit setBackgroundColor:[UIColor grayColor]];
-        [submit setTag:[indexPath row]];
-        [submit addTarget:self action:@selector(handleProfileSubmit:) forControlEvents:UIControlEventTouchUpInside];
-        [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        //[submit setTitleColor:[UIColor whiteColor] forState:UIControlEventValueChanged];
-        [cell addSubview:submit];
-    }
-    else
-    {
-        //set placeholder value for new cell
-        [[cell textInput] setPlaceholder:[formFields objectAtIndex:[indexPath row]]];
-        [cell setTag:[indexPath row]];
-        [cell setFieldName:[formFields objectAtIndex:[indexPath row]]];
-        [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-        [[cell textInput] setTextColor:[UIColor blackColor]];
-        cell.textInput.delegate = self;
-        
-        //populate text fields
-        switch ([indexPath row]) {
-            case 0:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileName]];
-                break;
-            case 1:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileAddress]];
-                break;
-            case 2:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileCity]];
-                break;
-            case 3:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileState]];
-                break;
-            case 4:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileZip]];
-                break;
-            case 5:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profilePhone]];
-                break;
-            case 6:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileEmail]];
-                break;
-            case 7:
-                [[cell textInput] setText:[[_arrProfiles objectAtIndex:0] profileContact]];
-                break;
-            default:
-                break;
-        }
-        
-       
-        [[self arrFormText] addObject:cell];
+    //set placeholder value for new cell
+    //[[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath row]]];
+    [[cell labelCell] setText:[[formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    [[cell textInput] setTag:[indexPath row]];//for scrolling workaround
+    [[cell textInput] setText:[[formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+    [cell setTag:[indexPath row]];
+    [cell setFieldName:[formFields objectAtIndex:[indexPath row]]];
+    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [[cell textInput] setTextColor:[UIColor blackColor]];
+    cell.textInput.delegate = self;
+    
+    //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
+    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+        cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
     }
     
     return cell;
+
 }
 
-- (IBAction)handleProfileSubmit:(id)sender
+#pragma mark text field delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    //save text input in user data. workaround for disappearing text entry issue on scroll
+    [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
+    
+}
+
+
+-(NSMutableArray *)userData
+{
+    if(!_userData){
+        _userData = [[NSMutableArray alloc] initWithCapacity:[formFields count]];
+        for (int i = 0; i < [formFields count]; i++)
+            [_userData addObject:@""];
+    }
+    return _userData;
+}
+
+- (void)handleProfileSubmit
 {
     //todo: handle form validation
-    
-    
-    //add to profile file
-    //[self setDateFormat];
-    
-    //save plist setting
-    //[self writeSettings:@"invoiceImage" :[lblInvoiceImg stringValue]];
     
     _arrProfiles = [[NSMutableArray alloc] init];
     
     Profile *nProfile = [[Profile alloc] init];
-    
-    
-//    for(TextInputTableViewCell * cell in self.arrFormText)
-//    {
-//        NSLog(@"field: %ld", (long)cell.tag);
-//        NSLog(@"value: %@", cell.textInput);
-//    }
-    
-    //[nProfile setProfileName:(NSString *)]
+
     
     //Only one profile allowed for now
     if ([_arrProfiles count] < 1) {
@@ -195,20 +160,76 @@ NSMutableArray * formFields;
     
 
     //set form values
-    [[_arrProfiles objectAtIndex:0] setProfileName:[[[[self arrFormText]objectAtIndex:0] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfileAddress:[[[[self arrFormText]objectAtIndex:1] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfileCity:[[[[self arrFormText]objectAtIndex:2] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfileState:[[[[self arrFormText]objectAtIndex:3] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfileZip:[[[[self arrFormText]objectAtIndex:4] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfilePhone:[[[[self arrFormText]objectAtIndex:5] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfileEmail:[[[[self arrFormText]objectAtIndex:6] textInput] text]];
-    [[_arrProfiles objectAtIndex:0] setProfileContact:[[[[self arrFormText]objectAtIndex:7] textInput] text]];
+    NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSString * profName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileName:profName];
+    if([profName isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileName:[self.userData objectAtIndex:0]];
+    }
+    
+    iPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSString * profad = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileAddress:profad];
+    if([profad isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileAddress:[self.userData objectAtIndex:1]];
+    }
+    
+    iPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSString * profcity = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileCity:profcity];
+    if([profcity isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileCity:[self.userData objectAtIndex:2]];
+    }
+    
+    iPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    NSString * profstate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileState:profstate];
+    if([profstate isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileState:[self.userData objectAtIndex:3]];
+    }
+    
+    iPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    NSString * profzip = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileZip:profzip];
+    if([profzip isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileZip:[self.userData objectAtIndex:4]];
+    }
+    
+    iPath = [NSIndexPath indexPathForRow:5 inSection:0];
+    NSString * profPhone = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+     [[_arrProfiles objectAtIndex:0] setProfilePhone:profPhone];
+    if([profPhone isEqualToString:@""])
+    {
+         [[_arrProfiles objectAtIndex:0] setProfilePhone:[self.userData objectAtIndex:5]];
+    }
+    
+    iPath = [NSIndexPath indexPathForRow:6 inSection:0];
+    NSString * profemail = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileEmail:profemail];
+    if([profemail isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileEmail:[self.userData objectAtIndex:6]];
+    }
+   
+    iPath = [NSIndexPath indexPathForRow:7 inSection:0];
+    NSString * profcontact = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    [[_arrProfiles objectAtIndex:0] setProfileContact:profcontact];
+    if([profcontact isEqualToString:@""])
+    {
+        [[_arrProfiles objectAtIndex:0] setProfileContact:[self.userData objectAtIndex:7]];
+    }
+    
+    
     
     [self saveDataToDisk];
     
     [[self view] endEditing:YES];
-    
-    
+
     
 }
 
@@ -231,6 +252,19 @@ NSMutableArray * formFields;
         
         _arrProfiles = [[NSMutableArray alloc] initWithArray: newProfiles];
     }
+    
+    
+    formFields = @[
+                   @{@"FieldName": @"Your Name or Company", @"FieldValue":[NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileName]]},
+                   @{@"FieldName": @"Address",@"FieldValue":[NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileAddress]]},
+                   @{@"FieldName": @"City",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileCity]]},
+                   @{@"FieldName": @"State",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileState]]},
+                   @{@"FieldName": @"Postal Code",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileZip]]},
+                   @{@"FieldName": @"Phone",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profilePhone]]},
+                   @{@"FieldName": @"Email",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileEmail]]},
+                   @{@"FieldName": @"Contact Person",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileContact]]}
+                   
+                   ];
     
         [[self tableView] reloadData];
 }
@@ -261,28 +295,8 @@ NSMutableArray * formFields;
 
     BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject toFile:[self pathForDataFile]];
 
-    if(success)
-    {
-        //message
-        [self showMessage:@"Your personal profile has been stored" withTitle:@"Profile completed!"];
-    }
-    else{
-        //message
-          [self showMessage:@"Could not save profile" withTitle:@"Profile error"];
-    }
-
 }
 
-// Show an alert message
-- (void)showMessage:(NSString *)text withTitle:(NSString *)title
-{
-    [[[UIAlertView alloc] initWithTitle:title
-                                message:text
-                               delegate:self
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
-    
-}
 
 
 /*

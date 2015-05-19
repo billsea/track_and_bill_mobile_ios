@@ -11,13 +11,11 @@
 
 @interface AddProjectTableViewController : UITableViewController<UITextFieldDelegate>
 
-
-@property (nonatomic, retain) NSMutableArray *arrFormText;
 @property Client * selectedClient;
 
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 
-- (IBAction)newProjectSubmit:(id)sender;
+
 
 @end

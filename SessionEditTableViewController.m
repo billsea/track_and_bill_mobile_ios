@@ -7,6 +7,7 @@
 //
 
 #import "SessionEditTableViewController.h"
+#import "TextInputTableViewCell.h"
 
 @interface SessionEditTableViewController ()
 
@@ -40,7 +41,7 @@ NSArray * sessionFormFields;
                   @{@"FieldName": @"Date",@"FieldValue": [df stringFromDate:_selectedSession.sessionDate]},
                   @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionHours]},
                   @{@"FieldName": @"Minutes",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionMinutes]},
-                  @{@"FieldName": @"Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionSeconds]},
+                  @{@"FieldName": @"Seconds",@"FieldValue": [self formatNumber:_selectedSession.sessionSeconds : 0]},
                   @{@"FieldName": @"Materials",@"FieldValue": _selectedSession.materials},
                   @{@"FieldName": @"Milage",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.milage]},
                   @{@"FieldName": @"Notes",@"FieldValue": _selectedSession.txtNotes},
@@ -103,6 +104,19 @@ NSArray * sessionFormFields;
     [_selectedSession setTxtNotes:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
 }
 
+-(NSString *)formatNumber:(NSNumber *)number : (NSUInteger)fractionDigits
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:fractionDigits];
+    [formatter setMinimumFractionDigits:fractionDigits];
+    [formatter setRoundingMode: NSNumberFormatterRoundUp];
+    
+    NSString *numberString = [formatter stringFromNumber:number];
+    
+    return numberString;
+}
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
@@ -131,57 +145,30 @@ NSArray * sessionFormFields;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-  
+    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
     
-    static NSString *CellIdentifier = @"SessionCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    [cell setBackgroundColor:[UIColor clearColor]];
-    cell.accessoryView =nil;
-    
-    //clear cell subviews-clears old cells
-    if (cell != nil)
+    if (cell == nil)
     {
-        NSArray* subviews = [cell.contentView subviews];
-        for (UIView* view in subviews)
-        {
-            [view removeFromSuperview];
-        }
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        
     }
     
     
-    if([[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"] isEqualToString:@"Save and Preview"])
+    [[cell labelCell] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    [[cell textInput] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [[cell textInput] setTextColor:[UIColor blackColor]];
+    
+    //project and client are read only
+    if([indexPath row] == 0 || [indexPath row] == 1)
     {
-        
-//        UIButton * submit = [[UIButton alloc] initWithFrame:[cell frame]];
-//        
-//        [submit setTitle:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"] forState:UIControlStateNormal];
-//        [submit setBackgroundColor:[UIColor grayColor]];
-//        [submit setTag:[indexPath row]];
-//        [submit addTarget:self action:@selector(newInvoiceSubmit:) forControlEvents:UIControlEventTouchUpInside];
-//        [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        //[submit setTitleColor:[UIColor whiteColor] forState:UIControlEventValueChanged];
-//        [[cell contentView] addSubview:submit];
-        
+         [[cell textInput] setEnabled:FALSE];
     }
-    else
-    {
-        UITextField * cellText = [[UITextField alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 20, 21)];
-        [cellText setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-        [cellText setBorderStyle:UITextBorderStyleNone];
-        [cellText setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-        [cellText setTextColor:[UIColor blackColor]];
-        
-        //set placeholder text
-        [cellText setPlaceholder:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-        
-        [[cell contentView] addSubview:cellText];
-    }
-    
-    
+
     return cell;
 }
 

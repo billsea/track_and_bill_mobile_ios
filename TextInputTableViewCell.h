@@ -11,4 +11,5 @@
 @interface TextInputTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *textInput;
 @property (strong,nonatomic) NSString * fieldName;
+@property (weak, nonatomic) IBOutlet UILabel *labelCell;
 @end

@@ -17,7 +17,8 @@
 
 @implementation AddClientTableViewController
 
-NSMutableArray * clientFormFields;
+NSArray * clientFormFields;
+@synthesize userData = _userData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,21 +29,21 @@ NSMutableArray * clientFormFields;
     [[self navigationItem] setTitle:@"New Client"];
     
     //input form text fields
-    clientFormFields = [[NSMutableArray alloc] init];
-    [clientFormFields addObject:@"Client Name"];
-    [clientFormFields addObject:@"Contact Person"];
-    [clientFormFields addObject:@"Address"];
-    [clientFormFields addObject:@"City"];
-    [clientFormFields addObject:@"State"];
-    [clientFormFields addObject:@"Country"];
-    [clientFormFields addObject:@"Postal Code"];
-    [clientFormFields addObject:@"Phone"];
-    [clientFormFields addObject:@"Email"];
-    [clientFormFields addObject:@"Add Client"];
+
+    clientFormFields = @[
+                          @{@"FieldName": @"Client Name", @"FieldValue":@""},
+                          @{@"FieldName": @"Contact Person",@"FieldValue":@""},
+                          @{@"FieldName": @"Address",@"FieldValue":@"" },
+                          @{@"FieldName": @"City",@"FieldValue": @""},
+                          @{@"FieldName": @"State",@"FieldValue": @""},
+                          @{@"FieldName": @"Country",@"FieldValue": @""},
+                          @{@"FieldName": @"Postal Code",@"FieldValue": @""},
+                          @{@"FieldName": @"Phone",@"FieldValue": @""},
+                          @{@"FieldName": @"Email",@"FieldValue": @""}
+                          
+                          ];
     
-    _arrFormText = [[NSMutableArray alloc] init];
-    
-    
+
     //view has been touched, for dismiss keyboard
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -57,13 +58,18 @@ NSMutableArray * clientFormFields;
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self newClientSubmit];
+}
+
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
     
     [[self view] endEditing:YES];
 }
 
-- (IBAction)newClientSubmit:(id)sender
+- (void)newClientSubmit
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
@@ -72,16 +78,15 @@ NSMutableArray * clientFormFields;
     Client * newClient = [[Client alloc] init];
     
     //init new client with form values
-    
-    [newClient setCompanyName:[[[[self arrFormText]objectAtIndex:0] textInput] text]];
-    [newClient setContactName:[[[[self arrFormText]objectAtIndex:1] textInput] text]];
-    [newClient setStreet:[[[[self arrFormText]objectAtIndex:2] textInput] text]];
-    [newClient setCity:[[[[self arrFormText]objectAtIndex:3] textInput] text]];
-    [newClient setState:[[[[self arrFormText]objectAtIndex:4] textInput] text]];
-    [newClient setCountry:[[[[self arrFormText]objectAtIndex:5] textInput] text]];
-    [newClient setPostalCode:[[[[self arrFormText]objectAtIndex:6] textInput] text]];
-    [newClient setPhoneNumber:[[[[self arrFormText]objectAtIndex:7] textInput] text]];
-    [newClient setEmail:[[[[self arrFormText]objectAtIndex:8] textInput] text]];
+    [newClient setCompanyName:[self.userData objectAtIndex:0]];
+    [newClient setContactName:[self.userData objectAtIndex:1]];
+    [newClient setStreet:[self.userData objectAtIndex:2]];
+    [newClient setCity:[self.userData objectAtIndex:3]];
+    [newClient setState:[self.userData objectAtIndex:4]];
+    [newClient setCountry:[self.userData objectAtIndex:5]];
+    [newClient setPostalCode:[self.userData objectAtIndex:6]];
+    [newClient setPhoneNumber:[self.userData objectAtIndex:7]];
+    [newClient setEmail:[self.userData objectAtIndex:8]];
     [newClient setClientID:[self createClientID]];
     
     //add new client object to clients list
@@ -148,39 +153,56 @@ NSMutableArray * clientFormFields;
         
     }
     
-    if([[clientFormFields objectAtIndex:[indexPath row]] isEqualToString:@"Add Client"])
-    {
-        [[cell textInput] setHidden:YES];
-        
-        UIButton * submit = [[UIButton alloc] initWithFrame:[cell frame]];
-        
-        [submit setTitle:[clientFormFields objectAtIndex:[indexPath row]] forState:UIControlStateNormal];
-        [submit setBackgroundColor:[UIColor grayColor]];
-        [submit setTag:[indexPath row]];
-        [submit addTarget:self action:@selector(newClientSubmit:) forControlEvents:UIControlEventTouchUpInside];
-        [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [[submit titleLabel] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-        //[submit setTitleColor:[UIColor whiteColor] forState:UIControlEventValueChanged];
-        [cell addSubview:submit];
-    }
-    else
-    {
-        //set placeholder value for new cell
-        [[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath row]]];
-        [cell setTag:[indexPath row]];
-        [cell setFieldName:[clientFormFields objectAtIndex:[indexPath row]]];
-        [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-        [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-        [[cell textInput] setTextColor:[UIColor blackColor]];
-        cell.textInput.delegate = self;
+    //set placeholder value for new cell
+    //[[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath row]]];
+    [[cell labelCell] setText:[[clientFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    [[cell textInput] setTag:[indexPath row]];//for scrolling workaround
+    [cell setTag:[indexPath row]];
+    [cell setFieldName:[clientFormFields objectAtIndex:[indexPath row]]];
+    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [[cell textInput] setTextColor:[UIColor blackColor]];
+    cell.textInput.delegate = self;
 
-        
-        [[self arrFormText] addObject:cell];
+    //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
+    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+        cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
     }
     
     return cell;
 }
 
+#pragma mark text field delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    //save text input in user data. workaround for disappearing text entry issue on scroll
+    [textField resignFirstResponder];
+    self.userData[textField.tag] = textField.text;
+    
+}
+
+
+-(NSMutableArray *)userData
+{
+    if(!_userData){
+        _userData = [[NSMutableArray alloc] initWithCapacity:[clientFormFields count]];
+        for (int i = 0; i < [clientFormFields count]; i++)
+            [_userData addObject:@""];
+    }
+    return _userData;
+}
 
 /*
 // Override to support conditional editing of the table view.
