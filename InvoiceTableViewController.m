@@ -873,9 +873,6 @@ NSNumber * invoiceNumberSelected;
         CGRect phoneRect = [self addText:[[[self MyProfile] objectAtIndex:0] profilePhone]
                              withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width/3, 4) fontSize:24.0f];
         
-       
-        
-        
 ///////////////////////////client///////////////////
         
         CGRect lineRect =[self addLineWithFrame:CGRectMake(kMarginPadding, phoneRect.origin.y + phoneRect.size.height + kPadding, _pageSize.width - (kMarginPadding * 2), 4)

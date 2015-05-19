@@ -15,9 +15,10 @@
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
 		A9167E371AEAC10E0071B992 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E361AEAC10E0071B992 /* ViewController.m */; };
 		A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9167E381AEAC10E0071B992 /* Main.storyboard */; };
-		A9167E3C1AEAC10E0071B992 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3B1AEAC10E0071B992 /* Images.xcassets */; };
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
+		A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91F6F0D1B0AC25A00F78749 /* images.xcassets */; };
+		A91F6F101B0AC2FA00F78749 /* tBill_appIcon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A91F6F0F1B0AC2FA00F78749 /* tBill_appIcon_180.png */; };
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
 		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
@@ -111,6 +112,8 @@
 		A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */; };
 		A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */; };
 		A9E374DD1B0A4C1F004B4B90 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E374DC1B0A4C1F004B4B90 /* iAd.framework */; };
+		A9E374E41B0AC08A004B4B90 /* tBill_appIcon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E374E21B0AC08A004B4B90 /* tBill_appIcon_76.png */; };
+		A9E374E51B0AC08A004B4B90 /* tBill_appIcon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E374E31B0AC08A004B4B90 /* tBill_appIcon_120.png */; };
 		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
 		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
 /* End PBXBuildFile section */
@@ -149,11 +152,12 @@
 		A9167E351AEAC10E0071B992 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A9167E361AEAC10E0071B992 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A9167E391AEAC10E0071B992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A9167E3B1AEAC10E0071B992 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A9167E3E1AEAC10E0071B992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A9167E441AEAC10E0071B992 /* trackandbill_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackandbill_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E491AEAC10E0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosTests.m; sourceTree = "<group>"; };
+		A91F6F0D1B0AC25A00F78749 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		A91F6F0F1B0AC2FA00F78749 /* tBill_appIcon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_180.png; sourceTree = "<group>"; };
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
 		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 		A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientInvoicesTableViewController.m; sourceTree = "<group>"; };
 		A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientInvoicesTableViewController.xib; sourceTree = "<group>"; };
 		A9E374DC1B0A4C1F004B4B90 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A9E374E21B0AC08A004B4B90 /* tBill_appIcon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_76.png; sourceTree = "<group>"; };
+		A9E374E31B0AC08A004B4B90 /* tBill_appIcon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_120.png; sourceTree = "<group>"; };
 		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
 		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
 		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
@@ -348,10 +354,10 @@
 				A9167E351AEAC10E0071B992 /* ViewController.h */,
 				A9167E361AEAC10E0071B992 /* ViewController.m */,
 				A9167E381AEAC10E0071B992 /* Main.storyboard */,
-				A9167E3B1AEAC10E0071B992 /* Images.xcassets */,
 				A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */,
 				A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */,
 				A9167E2B1AEAC10D0071B992 /* Supporting Files */,
+				A91F6F0D1B0AC25A00F78749 /* images.xcassets */,
 			);
 			path = trackandbill_ios;
 			sourceTree = "<group>";
@@ -386,6 +392,9 @@
 		A95F9FF31B0860760009CD99 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A91F6F0F1B0AC2FA00F78749 /* tBill_appIcon_180.png */,
+				A9E374E21B0AC08A004B4B90 /* tBill_appIcon_76.png */,
+				A9E374E31B0AC08A004B4B90 /* tBill_appIcon_120.png */,
 				A91501891B094ADD009AB281 /* back-25.png */,
 				A91501871B094A97009AB281 /* left-25.png */,
 				A91501851B094A58009AB281 /* left2-25.png */,
@@ -638,6 +647,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E374E51B0AC08A004B4B90 /* tBill_appIcon_120.png in Resources */,
 				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
 				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
@@ -645,6 +655,7 @@
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
+				A91F6F101B0AC2FA00F78749 /* tBill_appIcon_180.png in Resources */,
 				A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
@@ -664,11 +675,12 @@
 				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,
 				A9DC4C981AEAFB8E00A00892 /* MilageViewController.xib in Resources */,
 				A91501881B094A97009AB281 /* left-25.png in Resources */,
-				A9167E3C1AEAC10E0071B992 /* Images.xcassets in Resources */,
 				A91501841B0949AD009AB281 /* left2-32.png in Resources */,
 				A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */,
+				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
 				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
 				A9DC4CCA1AEAFB8E00A00892 /* SessionViewController.xib in Resources */,
+				A9E374E41B0AC08A004B4B90 /* tBill_appIcon_76.png in Resources */,
 				A9DC4CA81AEAFB8E00A00892 /* Reader-Email@2x.png in Resources */,
 				A9DC4CAD1AEAFB8E00A00892 /* Reader-Print.png in Resources */,
 				A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */,
@@ -888,7 +900,7 @@
 		A9167E4F1AEAC10E0071B992 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,7 +915,7 @@
 		A9167E501AEAC10E0071B992 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
