@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A90747671B0BEFAF00B95607 /* tbilliPhone5screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = A90747661B0BEFAF00B95607 /* tbilliPhone5screenshot.png */; };
-		A907476A1B0BFA6700B95607 /* tBill_appIcon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A90747681B0BFA6700B95607 /* tBill_appIcon_120.png */; };
-		A907476B1B0BFA6700B95607 /* tBill_appIcon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A90747691B0BFA6700B95607 /* tBill_appIcon_180.png */; };
 		A91501841B0949AD009AB281 /* left2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501831B0949AD009AB281 /* left2-32.png */; };
 		A91501861B094A58009AB281 /* left2-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501851B094A58009AB281 /* left2-25.png */; };
 		A91501881B094A97009AB281 /* left-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501871B094A97009AB281 /* left-25.png */; };
@@ -111,11 +109,18 @@
 		A9DC4CCE1AEAFB8E00A00892 /* ThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C7D1AEAFB8E00A00892 /* ThumbsViewController.m */; };
 		A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C7F1AEAFB8E00A00892 /* UIXToolbarView.m */; };
 		A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */; };
+		A9DF54901B0E57A4009A9922 /* tBill_appIcon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */; };
+		A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */; };
+		A9DF54951B0E6A1D009A9922 /* DateInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */; };
+		A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */; };
 		A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */; };
 		A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */; };
 		A9E374DD1B0A4C1F004B4B90 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E374DC1B0A4C1F004B4B90 /* iAd.framework */; };
 		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
 		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
+		A9FDC22F1B0FD79300112426 /* ALEInlineDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FDC22E1B0FD79300112426 /* ALEInlineDatePickerViewController.m */; };
+		A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FDC2351B0FD9F900112426 /* Foundation.framework */; };
+		A9FDC2391B0FDA8200112426 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FDC2381B0FDA8200112426 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,8 +147,6 @@
 
 /* Begin PBXFileReference section */
 		A90747661B0BEFAF00B95607 /* tbilliPhone5screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tbilliPhone5screenshot.png; sourceTree = "<group>"; };
-		A90747681B0BFA6700B95607 /* tBill_appIcon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_120.png; sourceTree = "<group>"; };
-		A90747691B0BFA6700B95607 /* tBill_appIcon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_180.png; sourceTree = "<group>"; };
 		A91501831B0949AD009AB281 /* left2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-32.png"; sourceTree = "<group>"; };
 		A91501851B094A58009AB281 /* left2-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-25.png"; sourceTree = "<group>"; };
 		A91501871B094A97009AB281 /* left-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-25.png"; sourceTree = "<group>"; };
@@ -296,6 +299,11 @@
 		A9DC4C7F1AEAFB8E00A00892 /* UIXToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXToolbarView.m; sourceTree = "<group>"; };
 		A9DC4CD51AEAFDA100A00892 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_120.png; sourceTree = "<group>"; };
+		A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_180.png; sourceTree = "<group>"; };
+		A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateInputTableViewCell.h; sourceTree = "<group>"; };
+		A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateInputTableViewCell.m; sourceTree = "<group>"; };
+		A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateInputTableViewCell.xib; sourceTree = "<group>"; };
 		A9E04B1C1AF6A01400342210 /* ClientInvoicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientInvoicesTableViewController.h; sourceTree = "<group>"; };
 		A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientInvoicesTableViewController.m; sourceTree = "<group>"; };
 		A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientInvoicesTableViewController.xib; sourceTree = "<group>"; };
@@ -303,6 +311,11 @@
 		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
 		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
 		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
+		A9FDC22D1B0FD79300112426 /* ALEInlineDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEInlineDatePickerViewController.h; sourceTree = "<group>"; };
+		A9FDC22E1B0FD79300112426 /* ALEInlineDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALEInlineDatePickerViewController.m; sourceTree = "<group>"; };
+		A9FDC2351B0FD9F900112426 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9FDC2371B0FDA1F00112426 /* TrackandBill_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrackandBill_PrefixHeader.pch; path = ../TrackandBill_PrefixHeader.pch; sourceTree = "<group>"; };
+		A9FDC2381B0FDA8200112426 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +323,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FDC2391B0FDA8200112426 /* UIKit.framework in Frameworks */,
+				A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */,
 				A9E374DD1B0A4C1F004B4B90 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +342,8 @@
 		A9167E1F1AEAC10D0071B992 = {
 			isa = PBXGroup;
 			children = (
+				A9FDC2381B0FDA8200112426 /* UIKit.framework */,
+				A9FDC2351B0FD9F900112426 /* Foundation.framework */,
 				A9E374DC1B0A4C1F004B4B90 /* iAd.framework */,
 				A9DC4CD31AEAFCCF00A00892 /* PDFReader */,
 				A9DC4CD41AEAFD3900A00892 /* UIElements */,
@@ -365,6 +382,7 @@
 		A9167E2B1AEAC10D0071B992 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9FDC2371B0FDA1F00112426 /* TrackandBill_PrefixHeader.pch */,
 				A95F9FF31B0860760009CD99 /* images */,
 				A9167E2C1AEAC10D0071B992 /* Info.plist */,
 				A9167E2D1AEAC10D0071B992 /* main.m */,
@@ -392,8 +410,8 @@
 		A95F9FF31B0860760009CD99 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				A90747681B0BFA6700B95607 /* tBill_appIcon_120.png */,
-				A90747691B0BFA6700B95607 /* tBill_appIcon_180.png */,
+				A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */,
+				A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */,
 				A90747661B0BEFAF00B95607 /* tbilliPhone5screenshot.png */,
 				A91501891B094ADD009AB281 /* back-25.png */,
 				A91501871B094A97009AB281 /* left-25.png */,
@@ -429,6 +447,7 @@
 		A9DC4CD01AEAFC2600A00892 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9FDC2301B0FD79800112426 /* InlineTableViewDatePicker */,
 				A9DC4C111AEAFB8E00A00892 /* Client.h */,
 				A9DC4C121AEAFB8E00A00892 /* Client.m */,
 				A9DC4C1C1AEAFB8E00A00892 /* Invoice.h */,
@@ -557,11 +576,23 @@
 				A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */,
 				A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */,
 				A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */,
+				A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */,
+				A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */,
+				A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */,
 				A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */,
 				A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */,
 				A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */,
 			);
 			name = UIElements;
+			sourceTree = "<group>";
+		};
+		A9FDC2301B0FD79800112426 /* InlineTableViewDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				A9FDC22D1B0FD79300112426 /* ALEInlineDatePickerViewController.h */,
+				A9FDC22E1B0FD79300112426 /* ALEInlineDatePickerViewController.m */,
+			);
+			name = InlineTableViewDatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -647,7 +678,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A907476A1B0BFA6700B95607 /* tBill_appIcon_120.png in Resources */,
+				A9DF54901B0E57A4009A9922 /* tBill_appIcon_120.png in Resources */,
 				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
 				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
@@ -655,7 +686,7 @@
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
-				A907476B1B0BFA6700B95607 /* tBill_appIcon_180.png in Resources */,
+				A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */,
 				A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A90747671B0BEFAF00B95607 /* tbilliPhone5screenshot.png in Resources */,
@@ -694,6 +725,7 @@
 				A915018A1B094ADD009AB281 /* back-25.png in Resources */,
 				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
 				A91501861B094A58009AB281 /* left2-25.png in Resources */,
+				A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */,
 				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
 				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,
@@ -735,6 +767,7 @@
 				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
 				A9DC4C991AEAFB8E00A00892 /* Profile.m in Sources */,
 				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,
+				A9FDC22F1B0FD79300112426 /* ALEInlineDatePickerViewController.m in Sources */,
 				A9DC4CBA1AEAFB8E00A00892 /* ReaderThumbQueue.m in Sources */,
 				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
 				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,
@@ -764,6 +797,7 @@
 				A9DC4C881AEAFB8E00A00892 /* CGPDFDocument.m in Sources */,
 				A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */,
 				A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */,
+				A9DF54951B0E6A1D009A9922 /* DateInputTableViewCell.m in Sources */,
 				A9DC4C901AEAFB8E00A00892 /* Invoice.m in Sources */,
 				A9167E371AEAC10E0071B992 /* ViewController.m in Sources */,
 				A9167E2E1AEAC10D0071B992 /* main.m in Sources */,
@@ -907,6 +941,7 @@
 					"$(inherited)",
 					/Users/Bill/Documents/iOS_Projects/ZipDinProjects/SensorFrameworkV3,
 				);
+				GCC_PREFIX_HEADER = TrackandBill_PrefixHeader.pch;
 				INFOPLIST_FILE = trackandbill_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -923,6 +958,7 @@
 					"$(inherited)",
 					/Users/Bill/Documents/iOS_Projects/ZipDinProjects/SensorFrameworkV3,
 				);
+				GCC_PREFIX_HEADER = TrackandBill_PrefixHeader.pch;
 				INFOPLIST_FILE = trackandbill_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -683,26 +683,6 @@ NSNumber * invoiceNumberSelected;
 
 }
 
-#pragma mark text field delegates
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    self.userData[textField.tag] = textField.text;
-    return YES;
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    //save text input in user data. workaround for disappearing text entry issue on scroll
-    [textField resignFirstResponder];
-    self.userData[textField.tag] = textField.text;
- 
-}
 
 
 /*

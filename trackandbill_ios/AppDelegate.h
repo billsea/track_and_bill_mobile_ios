@@ -41,5 +41,6 @@
 - (NSString *)pathToDataFile:(NSString *)fileName;
 -(void)removeSessionsForProjectId:(NSNumber *)ProjectId;
 -(void)removeInvoicesForProjectId:(NSNumber *)ProjectId;
+- (void)showMessage:(NSString *)text withTitle:(NSString *)title;
 @end
 

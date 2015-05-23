@@ -40,10 +40,14 @@
     
     self.allProjectSessions = [[NSMutableArray alloc] init];
     
-    [self loadAllSessionsForProject];
+   
    
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+     [self loadAllSessionsForProject];
+}
 
 
 -(void)loadAllSessionsForProject

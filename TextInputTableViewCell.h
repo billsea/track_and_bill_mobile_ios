@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TextInputTableViewCell : UITableViewCell
+@interface TextInputTableViewCell : UITableViewCell<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textInput;
 @property (strong,nonatomic) NSString * fieldName;
 @property (weak, nonatomic) IBOutlet UILabel *labelCell;

@@ -121,6 +121,9 @@
     newSession.sessionDate = [NSDate date];
     newSession.startTime = [NSDate date];
     newSession.sessionID = [self newSessionId];
+    newSession.txtNotes = @"";
+    newSession.materials = @"";
+    newSession.milage = [NSNumber numberWithInt:0];
     [[appDelegate currentSessions] addObject:newSession];
     
     [[self tableView] reloadData];

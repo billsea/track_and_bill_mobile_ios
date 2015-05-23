@@ -16,6 +16,16 @@
 - (void)awakeFromNib {
     // Initialization code
     
+    self.textInput.delegate = self;
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.textInput) {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

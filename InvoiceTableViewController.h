@@ -12,7 +12,7 @@
 #import "Invoice.h"
 #import <iAd/iAd.h>
 
-@interface InvoiceTableViewController : UITableViewController<UITextFieldDelegate, ReaderViewControllerDelegate,ADInterstitialAdDelegate>
+@interface InvoiceTableViewController : UITableViewController<ReaderViewControllerDelegate,ADInterstitialAdDelegate>
 {
     ADInterstitialAd *interstitial;
 }

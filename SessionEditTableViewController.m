@@ -8,8 +8,18 @@
 
 #import "SessionEditTableViewController.h"
 #import "TextInputTableViewCell.h"
+#import "AppDelegate.h"
+
+#define kTableRowHeight 54
 
 @interface SessionEditTableViewController ()
+
+@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
+
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 
 @end
 
@@ -18,8 +28,10 @@
 @synthesize selectedSession = _selectedSession;
 NSArray * sessionFormFields;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -29,8 +41,17 @@ NSArray * sessionFormFields;
     //set background image
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
     
+    
+    
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy h:m:s"];
+    [df setDateFormat:@"MM/dd/yyyy"];
+    
+    
+    //initialize table view date picker rows
+    //Set indexPathForRow to the row number the date picker should be placed
+    self.firstDatePickerIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath];
+    [self setDate:_selectedSession.sessionDate forIndexPath:self.firstDatePickerIndexPath];
     
     //input form text fields
     sessionFormFields = [[NSMutableArray alloc] init];
@@ -38,70 +59,76 @@ NSArray * sessionFormFields;
 
                   @{@"FieldName": @"Client",@"FieldValue": _selectedSession.clientName},
                   @{@"FieldName": @"Project Name", @"FieldValue": _selectedSession.projectName},
-                  @{@"FieldName": @"Date",@"FieldValue": [df stringFromDate:_selectedSession.sessionDate]},
+                  @{@"FieldName": @"Date",@"FieldValue": [df stringFromDate:_selectedSession.sessionDate]},//replaced with date picker
                   @{@"FieldName": @"Hours",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionHours]},
                   @{@"FieldName": @"Minutes",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.sessionMinutes]},
                   @{@"FieldName": @"Seconds",@"FieldValue": [self formatNumber:_selectedSession.sessionSeconds : 0]},
-                  @{@"FieldName": @"Materials",@"FieldValue": _selectedSession.materials},
+                  @{@"FieldName": @"Materials",@"FieldValue":[NSString stringWithFormat:@"%@", _selectedSession.materials]},
                   @{@"FieldName": @"Milage",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.milage]},
-                  @{@"FieldName": @"Notes",@"FieldValue": _selectedSession.txtNotes},
+                  @{@"FieldName": @"Notes",@"FieldValue": [NSString stringWithFormat:@"%@",_selectedSession.txtNotes]},
                   
                   ];
-
-
-    //view has been touched, for dismiss keyboard
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleSingleTap:)];
     
-    [self.view addGestureRecognizer:singleFingerTap];
+
+
+//    //view has been touched, for dismiss keyboard - CAN'T USE TAPGESTURE WITH CUSTOM DATEPICKER TABLEVIEW CLASS
+//    UITapGestureRecognizer *singleFingerTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleSingleTap:)];
+//    
+//    [self.view addGestureRecognizer:singleFingerTap];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
      //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    
+    //must close date picker row to avoid crash
+    [super hideExistingPicker];
+    
     //save all but client and project info
-     NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
+     NSIndexPath *iPath = [NSIndexPath indexPathForRow:3 inSection:0] ;
     
-   // NSDateFormatter * df = [[NSDateFormatter alloc] init];
-   // [df setDateFormat:@"MM/dd/yyyy"];
+    NSDateFormatter * df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd/yyyy"];
     
-   
-   
-    //date - THERE IS AN ISSUE WITH SETTING THE DATE,
-    //WHEN SETTING THE DATE THE UPDATED SESSION BECOMES CORRUPTED, SO WE WILL NOT ALLOW THE DATE TO BE CHANGED FOR NOW
-  //  iPath = [NSIndexPath indexPathForRow:2 inSection:0];
-  //  [_selectedSession setSessionDate: [df dateFromString:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]]];
-    
+    //date -
+    NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
+    [_selectedSession setSessionDate: firstDate];
+
+
     //hours
     iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    NSString * hours =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * hours =[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput]text];
+    
     [_selectedSession setSessionHours:[NSNumber numberWithFloat:[hours floatValue]]];
     
     //minutes
     iPath = [NSIndexPath indexPathForRow:4 inSection:0];
-    NSString * minutes =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * minutes =[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     [_selectedSession setSessionMinutes:[NSNumber numberWithFloat:[minutes floatValue]]];
     
     //seconds
     iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-    NSString * seconds =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * seconds =[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     [_selectedSession setSessionSeconds:[NSNumber numberWithFloat:[seconds floatValue]]];
     
     //materials
     iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-    [_selectedSession setMaterials:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    [_selectedSession setMaterials:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text]];
     
     //milage
     iPath = [NSIndexPath indexPathForRow:7 inSection:0];
-    NSString * milage =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * milage =[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     [_selectedSession setMilage:[NSNumber numberWithFloat:[milage floatValue]]];
     
     //notes
     iPath = [NSIndexPath indexPathForRow:8 inSection:0];
-    [_selectedSession setTxtNotes:[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]];
+    [_selectedSession setTxtNotes:[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text]];
 }
 
 -(NSString *)formatNumber:(NSNumber *)number : (NSUInteger)fractionDigits
@@ -118,6 +145,7 @@ NSArray * sessionFormFields;
     return numberString;
 }
 
+//CAN'T USE TAPGESTURE WITH CUSTOM DATEPICKER TABLEVIEW CLASS
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
     
@@ -137,39 +165,160 @@ NSArray * sessionFormFields;
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return sessionFormFields.count;
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    // Return the number of rows in the section.
+//    return sessionFormFields.count;
+//}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSArray *sectionArray = sessionFormFields;
+    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [sectionArray count];
+    return numberOfRows;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-    
-    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        
-    }
-    
-    
-    [[cell labelCell] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-    [[cell textInput] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-    [[cell textInput] setTextColor:[UIColor blackColor]];
-    
-    //project and client are read only
-    if([indexPath row] == 0 || [indexPath row] == 1)
-    {
-         [[cell textInput] setEnabled:FALSE];
-    }
 
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//
+//    if([[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"] isEqualToString:@"Date"])
+//    {
+//
+//    }
+//    else
+//    {
+//        
+//    }
+//    
+//    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+//    
+//    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    
+//    if (cell == nil)
+//    {
+//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//        
+//    }
+//    
+//    [[cell labelCell] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+//    [[cell textInput] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+//    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+//    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+//    [[cell textInput] setTextColor:[UIColor blackColor]];
+//    
+//    //project and client are read only
+//    if([indexPath row] == 0 || [indexPath row] == 1)
+//    {
+//        [[cell textInput] setEnabled:FALSE];
+//    }
+//    
+//    return cell;
+//
+//}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];;
+    if (cell == nil) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        //clear cell subviews-clears old cells
+        if (cell != nil)
+        {
+            NSArray* subviews = [cell.contentView subviews];
+            for (UIView* view in subviews)
+            {
+                [view removeFromSuperview];
+            }
+        }
+        
+        NSIndexPath *adjustedIndexPath = [self adjustedIndexPathForDatasourceAccess:indexPath];
+        if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame) {
+            NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
+//            cell.textLabel.text = [NSDateFormatter localizedStringFromDate:firstDate
+//                                                                 dateStyle:NSDateFormatterShortStyle
+//                                                                 timeStyle:NSDateFormatterNoStyle];
+            
+            NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:firstDate
+                                                                 dateStyle:NSDateFormatterShortStyle
+                                                                 timeStyle:NSDateFormatterNoStyle];
+            
+            
+           
+
+            //add date label for date
+            UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
+            [dateLabel setText:dateFormatted];
+            [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [dateLabel setTintColor:[UIColor blackColor]];
+            [[cell contentView] addSubview:dateLabel];
+            
+            //add field label for date
+            UILabel * fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
+            [fieldTitle setText:@"Date"];
+            [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
+            [fieldTitle setTintColor:[UIColor lightGrayColor]];
+            
+            [[cell contentView] addSubview:fieldTitle];
+            
+        }
+        else {
+                static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+            
+                TextInputTableViewCell *cellText = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+                if (cellText == nil)
+                {
+                    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+                    cellText = [nib objectAtIndex:0];
+            
+                }
+
+                [[cellText labelCell] setText:[[sessionFormFields objectAtIndex:[adjustedIndexPath row]] valueForKey:@"FieldName"]];
+                [[cellText textInput] setText:[[sessionFormFields objectAtIndex:[adjustedIndexPath row]] valueForKey:@"FieldValue"]];
+                [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
+                [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+                [[cellText textInput] setTextColor:[UIColor blackColor]];
+                
+                //project and client are read only
+                if([adjustedIndexPath row] == 0 || [adjustedIndexPath row] == 1)
+                {
+                    [[cellText textInput] setEnabled:FALSE];
+                }
+        
+            [[cell contentView] addSubview:cellText];
+        }
+    }
+    
+    cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    [cell setBackgroundColor:[UIColor clearColor]];
+    
+    
+    
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat rowHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    if (rowHeight == 0) {
+        rowHeight = kTableRowHeight;//self.tableView.rowHeight;
+    }
+    return rowHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 
