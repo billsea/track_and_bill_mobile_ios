@@ -12,7 +12,11 @@
 #import "AppDelegate.h"
 #import "Session.h"
 
+#define kTableRowHeight 54
+
 @interface AddProjectTableViewController ()
+
+@property (nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
 
 @end
 
@@ -32,20 +36,25 @@ NSArray * projectFormFields;
     
     [[self navigationItem] setTitle:@"New Project"];
     
+    //initialize table view date picker rows
+    //Set indexPathForRow to the row number the date picker should be placed
+    self.firstDatePickerIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath];
+    [self setDate:[NSDate date] forIndexPath:self.firstDatePickerIndexPath];
+    
     //input form text fields
     projectFormFields = @[
                          @{@"FieldName": @"Project Name", @"FieldValue":@""},
-                         @{@"FieldName": @"Start Date",@"FieldValue":[NSString stringWithFormat:@"%@",[NSDate date]]},
-                         @{@"FieldName": @"End Date",@"FieldValue":[NSString stringWithFormat:@"%@",[NSDate date]]},
+                         @{@"FieldName": @"Start Date",@"FieldValue":[NSString stringWithFormat:@"%@",[NSDate date]]}
                          ];
     
     
-    //view has been touched, for dismiss keyboard
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleSingleTap:)];
-    
-     [self.view addGestureRecognizer:singleFingerTap];
+    //view has been touched, for dismiss keyboard - Can't do this with custom date picker row
+//    UITapGestureRecognizer *singleFingerTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleSingleTap:)];
+//    
+//     [self.view addGestureRecognizer:singleFingerTap];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -104,38 +113,140 @@ NSArray * projectFormFields;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    
+    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [projectFormFields count];
+    return numberOfRows;
     // Return the number of rows in the section.
-    return [projectFormFields count];
+    //return [projectFormFields count];
+    
+    
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+//    
+//    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    
+//    if (cell == nil)
+//    {
+//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//        
+//    }
+//    
+//    //set placeholder value for new cell
+//    [[cell textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+//    [[cell labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+//    [cell setTag:[indexPath row]];
+//    [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
+//    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+//    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+//    [[cell textInput] setTextColor:[UIColor blackColor]];
+//     cell.textInput.delegate = self;
+//
+//    
+//    return cell;
+//}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
     
-    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-    
-    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];;
+    if (cell == nil) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
         
+        
+        
+            NSIndexPath *adjustedIndexPath = [self adjustedIndexPathForDatasourceAccess:indexPath];
+            if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame) {
+                
+                //clear cell subviews-clears old cells
+                if (cell != nil)
+                {
+                    NSArray* subviews = [cell.contentView subviews];
+                    for (UIView* view in subviews)
+                    {
+                        [view removeFromSuperview];
+                    }
+                }
+                
+                NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
+                //            cell.textLabel.text = [NSDateFormatter localizedStringFromDate:firstDate
+                //                                                                 dateStyle:NSDateFormatterShortStyle
+                //                                                                 timeStyle:NSDateFormatterNoStyle];
+                
+                NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:firstDate
+                                                                          dateStyle:NSDateFormatterShortStyle
+                                                                          timeStyle:NSDateFormatterNoStyle];
+
+            //add date label for date
+            UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
+            [dateLabel setText:dateFormatted];
+            [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [dateLabel setTintColor:[UIColor blackColor]];
+            [[cell contentView] addSubview:dateLabel];
+            
+            //add field label for date
+            UILabel * fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
+            [fieldTitle setText:@"Date"];
+            [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
+            [fieldTitle setTintColor:[UIColor lightGrayColor]];
+            
+            [[cell contentView] addSubview:fieldTitle];
+            
+        }
+        else {
+            static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+            
+            TextInputTableViewCell *cellText = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            if (cellText == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+                cellText = [nib objectAtIndex:0];
+                
+            }
+            
+                //set placeholder value for new cell
+                [[cellText textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+                [[cellText labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+                [cellText setTag:[indexPath row]];
+                [cellText setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
+                [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
+                [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+                [[cellText textInput] setTextColor:[UIColor blackColor]];
+                 cellText.textInput.delegate = self;
+            
+            [[cell contentView] addSubview:cellText];
+        }
     }
     
-    //set placeholder value for new cell
-    [[cell textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-    [[cell labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-    [cell setTag:[indexPath row]];
-    [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
-    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-    [[cell textInput] setTextColor:[UIColor blackColor]];
-     cell.textInput.delegate = self;
-
+    cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    [cell setBackgroundColor:[UIColor clearColor]];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat rowHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    if (rowHeight == 0) {
+        rowHeight = kTableRowHeight;//self.tableView.rowHeight;
+    }
+    return rowHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
 
 - (void)newProjectSubmit
 {
@@ -148,7 +259,7 @@ NSArray * projectFormFields;
     Project *nProject = [[Project alloc] init];
   
     NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    NSString * projName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * projName = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     
     
     if(![projName isEqualToString:@""])
@@ -164,10 +275,7 @@ NSArray * projectFormFields;
         iPath = [NSIndexPath indexPathForRow:1 inSection:0];
         NSString * projStart = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
         NSDate * startDate = [df dateFromString:projStart];
-        
-        iPath = [NSIndexPath indexPathForRow:2 inSection:0];
-        NSString * projEnd = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-        NSDate * endDate = [df dateFromString:projEnd];
+
         
         if(!startDate)
         {
@@ -178,14 +286,8 @@ NSArray * projectFormFields;
             [nProject setStartDate:startDate];
         }
         
-        if(!endDate)
-        {
-            [nProject setEndDate:[NSDate date]];
-        }
-        else
-        {
-            [nProject setEndDate:endDate];
-        }
+        
+        [nProject setEndDate:[NSDate date]];
         
         [nProject setClientID:[[self selectedClient] clientID]];
         [nProject setProjectID:[self createProjectID]];
