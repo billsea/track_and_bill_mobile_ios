@@ -15,6 +15,9 @@
 #define kPadding 2
 #define kHeaderPadding 5
 #define kMarginPadding 25
+
+#define kTableRowHeight 54
+
 @interface InvoiceTableViewController (){
     CGSize _pageSize;
 }
@@ -24,7 +27,9 @@
 - (void)presentInterlude;
 
 @property UIBarButtonItem * previewButton;
-
+@property (nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
+@property (nonatomic, strong) NSIndexPath *secondDatePickerIndexPath;
+@property (nonatomic, strong) NSIndexPath *thirdDatePickerIndexPath;
 @end
 
 
@@ -81,6 +86,14 @@ NSNumber * invoiceNumberSelected;
     [df setDateFormat:@"MM/dd/yyyy"];
     
     
+    //initialize table view date picker rows
+    //Set indexPathForRow to the row number the date picker should be placed
+    self.firstDatePickerIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    self.secondDatePickerIndexPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    self.thirdDatePickerIndexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+    
+    self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath,self.secondDatePickerIndexPath,self.thirdDatePickerIndexPath];
+    
     
     
     //Could be new invoice or edit
@@ -88,6 +101,11 @@ NSNumber * invoiceNumberSelected;
     {
         
         invoiceNumberSelected = [_selectedInvoice invoiceNumber];
+        
+        //set custom date picker
+        [self setDate:[_selectedInvoice invoiceDate] forIndexPath:self.firstDatePickerIndexPath];
+        [self setDate:[_selectedInvoice startDate] forIndexPath:self.secondDatePickerIndexPath];
+        [self setDate:[_selectedInvoice endDate]forIndexPath:self.thirdDatePickerIndexPath];
         
             invoiceFormFields = @[
                  @{@"FieldName": @"Invoice Number", @"FieldValue":[NSString stringWithFormat:@"%@",[_selectedInvoice invoiceNumber]]},
@@ -119,7 +137,10 @@ NSNumber * invoiceNumberSelected;
         NSString * allNotes = [[NSString alloc] init];
         NSString * allMaterials = [[NSString alloc] init];
         
-
+        //set custom date picker
+        [self setDate:[NSDate date] forIndexPath:self.firstDatePickerIndexPath];
+        [self setDate:[_selectedProject startDate] forIndexPath:self.secondDatePickerIndexPath];
+        [self setDate:[_selectedProject endDate]forIndexPath:self.thirdDatePickerIndexPath];
         
         for(Session * s in [appDelegate storedSessions])
         {
@@ -147,13 +168,13 @@ NSNumber * invoiceNumberSelected;
                  @{@"FieldName": @"End Date",@"FieldValue":[df stringFromDate:[_selectedProject endDate]] },
                  @{@"FieldName": @"Approval Name",@"FieldValue":@""},
                  @{@"FieldName": @"Milage",@"FieldValue": [NSString stringWithFormat:@"%@",miles]},
-                 @{@"FieldName": @"Milage Rate",@"FieldValue":@""},
+                 @{@"FieldName": @"Milage Rate",@"FieldValue":@"0"},
                  @{@"FieldName": @"Notes",@"FieldValue": allNotes},
                  @{@"FieldName": @"Materials",@"FieldValue":allMaterials},
-                 @{@"FieldName": @"Materials Total",@"FieldValue":@""},
+                 @{@"FieldName": @"Materials Total",@"FieldValue":@"0"},
                  @{@"FieldName": @"Total Hours:Minutes:Seconds",@"FieldValue": [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]]},
                  @{@"FieldName": @"Terms",@"FieldValue":@""},
-                 @{@"FieldName": @"Deposit",@"FieldValue":@"" },
+                 @{@"FieldName": @"Deposit",@"FieldValue":@"0" },
                  @{@"FieldName": @"Invoice Rate",@"FieldValue": @""},
                  @{@"FieldName": @"Paid Check #",@"FieldValue": @""}
                  
@@ -162,12 +183,12 @@ NSNumber * invoiceNumberSelected;
     }
     
     
-    //view has been touched, for dismiss keyboard
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleSingleTap:)];
-    
-    [self.view addGestureRecognizer:singleFingerTap];
+//    //view has been touched, for dismiss keyboard-CANT DO THIS WITH CUSTOM DATEPICKER
+//    UITapGestureRecognizer *singleFingerTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleSingleTap:)];
+//    
+//    [self.view addGestureRecognizer:singleFingerTap];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -285,6 +306,13 @@ NSNumber * invoiceNumberSelected;
     }
 }
 
+-(BOOL)isNumeric:(NSString*)inputString{
+    
+TODO: need to test this number checker
+    NSScanner *scanner = [NSScanner scannerWithString:inputString];
+    return [scanner scanDouble:NULL] && [scanner isAtEnd];
+}
+
 - (Invoice *)createInvoice
 {
     
@@ -320,16 +348,14 @@ NSNumber * invoiceNumberSelected;
     //invoice number is read only
     [cInvoice setInvoiceNumber:invoiceNumberSelected];
 
-    //invoice date - today
-    NSIndexPath *iPath = [NSIndexPath indexPathForRow:1 inSection:0] ;
-    // NSString * invoiceDate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text]
-    [cInvoice setInvoiceDate:[NSDate date]];//date formatter was failing, but direct cast to nsdate works(see warning)
+    //invoice date
+    NSDate *invoiceDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
+    [cInvoice setInvoiceDate:invoiceDate];
     
     
-    
-    iPath = [NSIndexPath indexPathForRow:2 inSection:0] ;
+    NSIndexPath * iPath = [NSIndexPath indexPathForRow:2 inSection:0] ;
     //[cInvoice setClientName:_selectedProject.clientName];
-    NSString * clientName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * clientName = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!clientName)
     {
         clientName = [[invoiceFormFields objectAtIndex:2] objectForKey:@"FieldValue"];
@@ -348,7 +374,7 @@ NSNumber * invoiceNumberSelected;
 
     //project name
     iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    NSString * projectName = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * projectName = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!projectName)
     {
         projectName = [[invoiceFormFields objectAtIndex:3] objectForKey:@"FieldValue"];
@@ -364,51 +390,20 @@ NSNumber * invoiceNumberSelected;
         return nil;
     }
     
-    
-    
-    //dates
-    NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy"];
-    
-    iPath = [NSIndexPath indexPathForRow:4 inSection:0];
-    NSString * stDate =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    if(!stDate)
-    {
-        stDate = [[invoiceFormFields objectAtIndex:4] objectForKey:@"FieldValue"];
-    }
-    if(stDate && ![stDate isEqualToString:@""])
-    {
-        [cInvoice setStartDate:[df dateFromString:stDate]];
-    }
-    else
-    {
-        [self showMessage:@"Start date field is empty or not formatted correctly" withTitle:@"Start Date"];
-        return nil;
-    }
-    
+
+    //invoice dates
+    NSDate *startDate = [self dateForIndexPath:self.secondDatePickerIndexPath];
+    [cInvoice setStartDate:startDate];
     
     //end date
-    iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-    NSString * endDate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    if(!endDate)
-    {
-        endDate = [[invoiceFormFields objectAtIndex:5] objectForKey:@"FieldValue"];
-    }
-    if(endDate && ![endDate isEqualToString:@""])
-    {
-        [cInvoice setEndDate:[df dateFromString:endDate]];
-    }
-    else
-    {
-        [self showMessage:@"End date field is empty or not formatted correctly" withTitle:@"End Date"];
-        return nil;
-    }
+    NSDate *endDate = [self dateForIndexPath:self.thirdDatePickerIndexPath];
+    [cInvoice setEndDate:endDate];
     
     
     
     //approval
     iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-    NSString * approvalName =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * approvalName =[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!approvalName)
     {
         approvalName = [[invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
@@ -429,18 +424,32 @@ NSNumber * invoiceNumberSelected;
     
     //milage
     iPath = [NSIndexPath indexPathForRow:7 inSection:0];
-    NSInteger miles = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] integerValue];
-
-    if(miles)
+    
+    NSString * milesInput = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
+    NSInteger miles = 0;
+    
+    if([self isNumeric:milesInput])
     {
-        [cInvoice setMilage:[NSNumber numberWithInteger:miles]];
+        
+        miles = [milesInput integerValue];
+
+        
+        if(miles)
+        {
+            [cInvoice setMilage:[NSNumber numberWithInteger:miles]];
+        }
+        else
+        {
+            miles = 0;
+             [cInvoice setMilage:[NSNumber numberWithInteger:0]];
+    //        [self showMessage:@"Milage field is empty or not formatted correctly" withTitle:@"Milage"];
+    //        return nil;
+        }
     }
     else
     {
-        miles = 0;
-         [cInvoice setMilage:[NSNumber numberWithInteger:0]];
-//        [self showMessage:@"Milage field is empty or not formatted correctly" withTitle:@"Milage"];
-//        return nil;
+        [self showMessage:@"Milage field entry is not a number" withTitle:@"Milage"];
+        return nil;
     }
     
     
@@ -449,19 +458,29 @@ NSNumber * invoiceNumberSelected;
     if(miles > 0)
     {
         iPath = [NSIndexPath indexPathForRow:8 inSection:0];
-        float milageRate = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text] floatValue];
-        if(milageRate > 0)
+        NSString * milageRateInput = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
+        
+        if([self isNumeric:milageRateInput])
         {
-            [cInvoice setMilageRate:[NSNumber numberWithFloat:milageRate]];
-        }
-        else if(![[self.userData objectAtIndex:8] isEqualToString:@""])
-        {
-            [cInvoice setMilageRate:[NSNumber numberWithFloat:[[self.userData objectAtIndex:8] floatValue]]];
+            float milageRate = [milageRateInput floatValue];
+            if(milageRate > 0)
+            {
+                [cInvoice setMilageRate:[NSNumber numberWithFloat:milageRate]];
+            }
+            else if(![[self.userData objectAtIndex:8] isEqualToString:@""])
+            {
+                [cInvoice setMilageRate:[NSNumber numberWithFloat:[[self.userData objectAtIndex:8] floatValue]]];
+            }
+            else
+            {
+                [self showMessage:@"Milage rate field is empty or not formatted correctly" withTitle:@"Milage Rate"];
+                       return nil;
+            }
         }
         else
         {
-            [self showMessage:@"Milage rate field is empty or not formatted correctly" withTitle:@"Milage Rate"];
-                   return nil;
+            [self showMessage:@"Milage rate field entry is not a number" withTitle:@"Milage Rate"];
+            return nil;
         }
     }
     else
@@ -473,7 +492,7 @@ NSNumber * invoiceNumberSelected;
     
     //notes
     iPath = [NSIndexPath indexPathForRow:9 inSection:0];
-    NSString * invNotes = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * invNotes = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!invNotes)
     {
         invNotes = [[invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
@@ -491,7 +510,7 @@ NSNumber * invoiceNumberSelected;
     
     //materials - get from sessions
     iPath = [NSIndexPath indexPathForRow:10 inSection:0];
-    NSString * invMaterials = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * invMaterials = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!invMaterials)
     {
         invMaterials = [[invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
@@ -502,17 +521,25 @@ NSNumber * invoiceNumberSelected;
     
     //materials totals
     iPath = [NSIndexPath indexPathForRow:11 inSection:0];
-    NSString * materialsTotal = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    if(!materialsTotal)
-    {
-        materialsTotal = [[invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
-    }
-    [cInvoice setMaterialsTotal: [materialsTotal floatValue]];
+    NSString * materialsTotal = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0]  textInput] text];
     
+    if([self isNumeric:materialsTotal])
+    {
+        if(!materialsTotal)
+        {
+            materialsTotal = [[invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
+        }
+        [cInvoice setMaterialsTotal: [materialsTotal floatValue]];
+    }
+    else
+    {
+        [self showMessage:@"Materials total field entry is not a number" withTitle:@"Materials total"];
+        return nil;
+    }
     
     //total time
     iPath = [NSIndexPath indexPathForRow:12 inSection:0];
-    NSString * totalTime =[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * totalTime =[[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!totalTime)
     {
         totalTime = [[invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
@@ -531,7 +558,7 @@ NSNumber * invoiceNumberSelected;
     
     //terms
     iPath = [NSIndexPath indexPathForRow:13 inSection:0];
-    NSString * invTerms = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * invTerms = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!invTerms)
     {
         invTerms = [[invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
@@ -541,39 +568,58 @@ NSNumber * invoiceNumberSelected;
     
     //deposit
     iPath = [NSIndexPath indexPathForRow:14 inSection:0];
-    NSString * invDeposit = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    if(!invDeposit)
+    NSString * invDeposit = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
+    
+    if([self isNumeric:invDeposit])
     {
-        invDeposit = [[invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+        if(!invDeposit)
+        {
+            invDeposit = [[invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+        }
+        [cInvoice setInvoiceDeposit:[invDeposit doubleValue]];
+        }
+    else
+    {
+        [self showMessage:@"Deposit field entry is not a number" withTitle:@"Deposit"];
+        return nil;
     }
-    [cInvoice setInvoiceDeposit:[invDeposit doubleValue]];
+    
     
     //rate
     iPath = [NSIndexPath indexPathForRow:15 inSection:0];
-    NSString * invRate = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
-    if(!invRate)
-    {
-        invRate = [[invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
-    }
+    NSString * invRate = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     
-    if(invRate && ![invRate isEqualToString:@""])
+    if([self isNumeric:invRate])
     {
-        [cInvoice setInvoiceRate:[invRate doubleValue]];
-    }
-    else if(![[self.userData objectAtIndex:15] isEqualToString:@""])
-    {
-        [cInvoice setInvoiceRate:[[self.userData objectAtIndex:15] doubleValue]];
+        if(!invRate)
+        {
+            invRate = [[invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
+        }
+        
+        if(invRate && ![invRate isEqualToString:@""])
+        {
+            [cInvoice setInvoiceRate:[invRate doubleValue]];
+        }
+        else if(![[self.userData objectAtIndex:15] isEqualToString:@""])
+        {
+            [cInvoice setInvoiceRate:[[self.userData objectAtIndex:15] doubleValue]];
+        }
+        else
+        {
+            
+            [self showMessage:@"Invoice rate field is empty or not formatted correctly" withTitle:@"Invoice rate"];
+            return nil;
+        }
     }
     else
     {
-        
-        [self showMessage:@"Invoice rate field is empty or not formatted correctly" withTitle:@"Invoice rate"];
+        [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
         return nil;
     }
     
     
     iPath = [NSIndexPath indexPathForRow:16 inSection:0];
-    NSString * invCheck = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
+    NSString * invCheck = [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] textInput] text];
     if(!invCheck)
     {
         invCheck = [[invoiceFormFields objectAtIndex:16] objectForKey:@"FieldValue"];
@@ -634,53 +680,199 @@ NSNumber * invoiceNumberSelected;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [invoiceFormFields count];
+    return numberOfRows;
     // Return the number of rows in the section.
-    return invoiceFormFields.count;
+    //return invoiceFormFields.count;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//   // static NSString *CellIdentifier = @"InvoiceCell";
+//    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+//    
+//    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    
+//    if (cell == nil)
+//    {
+//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//        
+//    }
+//    
+//    //[[cell textInput] setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+//    [[cell labelCell] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+//    [[cell textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+//    [[cell textInput] setTag:[indexPath row]];
+//    [cell setTag:[indexPath row]];
+//    [cell setFieldName:[invoiceFormFields objectAtIndex:[indexPath row]]];
+//    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
+//    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+//    [[cell textInput] setTextColor:[UIColor blackColor]];
+//    
+//    
+//    //set read only
+//    if([indexPath row] == 12 || [indexPath row] == 0)
+//    {
+//        [[cell textInput] setEnabled:FALSE];//total hours
+//    }
+//    
+//    cell.textInput.delegate = self;
+// 
+//    //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
+//    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+//        NSLog(@"%@ at indexPath.row %ld",[invoiceFormFields objectAtIndex:indexPath.row], (long)indexPath.row);
+//        //cell.textInput.placeholder = nil;
+//        cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
+//    }
+//
+//    return cell;
+//
+//}
 
-   // static NSString *CellIdentifier = @"InvoiceCell";
-    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
     
-    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];;
+    if (cell == nil) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
         
-    }
-    
-    //[[cell textInput] setPlaceholder:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-    [[cell labelCell] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-    [[cell textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-    [[cell textInput] setTag:[indexPath row]];
-    [cell setTag:[indexPath row]];
-    [cell setFieldName:[invoiceFormFields objectAtIndex:[indexPath row]]];
-    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-    [[cell textInput] setTextColor:[UIColor blackColor]];
-    
-    
-    //set read only
-    if([indexPath row] == 12 || [indexPath row] == 0)
-    {
-        [[cell textInput] setEnabled:FALSE];//total hours
-    }
-    
-    cell.textInput.delegate = self;
- 
-    //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
-    if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
-        NSLog(@"%@ at indexPath.row %ld",[invoiceFormFields objectAtIndex:indexPath.row], (long)indexPath.row);
-        //cell.textInput.placeholder = nil;
-        cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
-    }
+        //clear cell subviews-clears old cells
+        if (cell != nil)
+        {
+            NSArray* subviews = [cell.contentView subviews];
+            for (UIView* view in subviews)
+            {
+                [view removeFromSuperview];
+            }
+        }
+        
+        NSIndexPath *adjustedIndexPath = [self adjustedIndexPathForDatasourceAccess:indexPath];
+        if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame) {
+        
+            
+            NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
+            //            cell.textLabel.text = [NSDateFormatter localizedStringFromDate:firstDate
+            //                                                                 dateStyle:NSDateFormatterShortStyle
+            //                                                                 timeStyle:NSDateFormatterNoStyle];
+            
+            NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:firstDate
+                                                                      dateStyle:NSDateFormatterShortStyle
+                                                                      timeStyle:NSDateFormatterNoStyle];
+            
+            //add date label for date
+            UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
+            [dateLabel setText:dateFormatted];
+            [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [dateLabel setTintColor:[UIColor blackColor]];
+            [[cell contentView] addSubview:dateLabel];
+            
+            //add field label for date
+            UILabel * fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
+            [fieldTitle setText:@"Date"];
+            [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
+            [fieldTitle setTintColor:[UIColor lightGrayColor]];
+            
+            [[cell contentView] addSubview:fieldTitle];
+        }
+        else if ([adjustedIndexPath compare:self.secondDatePickerIndexPath] == NSOrderedSame) {
+            
+            NSDate *secondDate = [self dateForIndexPath:self.secondDatePickerIndexPath];
+            
+            NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:secondDate
+                                                                      dateStyle:NSDateFormatterShortStyle
+                                                                      timeStyle:NSDateFormatterNoStyle];
+            //add date label for date
+            UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
+            [dateLabel setText:dateFormatted];
+            [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [dateLabel setTintColor:[UIColor blackColor]];
+            [[cell contentView] addSubview:dateLabel];
+            
+            //add field label for date
+            UILabel * fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
+            [fieldTitle setText:@"Start Date"];
+            [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
+            [fieldTitle setTintColor:[UIColor lightGrayColor]];
+            
+            [[cell contentView] addSubview:fieldTitle];
+        }
+        else if ([adjustedIndexPath compare:self.thirdDatePickerIndexPath] == NSOrderedSame) {
 
+            NSDate *thirdDate = [self dateForIndexPath:self.thirdDatePickerIndexPath];
+            
+            NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:thirdDate
+                                                                      dateStyle:NSDateFormatterShortStyle
+                                                                      timeStyle:NSDateFormatterNoStyle];
+            //add date label for date
+            UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
+            [dateLabel setText:dateFormatted];
+            [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [dateLabel setTintColor:[UIColor blackColor]];
+            [[cell contentView] addSubview:dateLabel];
+            
+            //add field label for date
+            UILabel * fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
+            [fieldTitle setText:@"End Date"];
+            [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
+            [fieldTitle setTintColor:[UIColor lightGrayColor]];
+            
+            [[cell contentView] addSubview:fieldTitle];
+        }
+        else {
+            static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+            
+            TextInputTableViewCell *cellText = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            if (cellText == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+                cellText = [nib objectAtIndex:0];
+                
+            }
+
+            
+            //set placeholder value for new cell
+            [[cellText textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+            [[cellText labelCell] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+            [cellText setTag:[indexPath row]];
+            [cellText setFieldName:[invoiceFormFields objectAtIndex:[indexPath row]]];
+            [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
+            [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [[cellText textInput] setTextColor:[UIColor blackColor]];
+            //cellText.textInput.delegate = self;
+            
+            [[cell contentView] addSubview:cellText];
+        
+            //set read only
+            if([indexPath row] == 12 || [indexPath row] == 0)
+            {
+                [[cellText textInput] setEnabled:FALSE];//total hours
+            }
+        
+            //check if user entered text into field, and load it. this fixes problem with scrolling, and text field input disappearing
+            if(![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]){
+                NSLog(@"%@ at indexPath.row %ld",[invoiceFormFields objectAtIndex:indexPath.row], (long)indexPath.row);
+                //cell.textInput.placeholder = nil;
+                cellText.textInput.text = [self.userData objectAtIndex:indexPath.row];
+            }
+            
+            [[cell contentView] addSubview:cellText];
+        }
+    }
+    
+    //cell.textInput.delegate = self;
+    
+    cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    [cell setBackgroundColor:[UIColor clearColor]];
+    
     return cell;
-
 }
 
 
@@ -721,13 +913,18 @@ NSNumber * invoiceNumberSelected;
 
 
 #pragma mark - Table view delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat rowHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    if (rowHeight == 0) {
+        rowHeight = kTableRowHeight;//self.tableView.rowHeight;
+    }
+    return rowHeight;
+}
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 #pragma mark pdf create methods

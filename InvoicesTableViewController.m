@@ -12,6 +12,8 @@
 #import "Client.h"
 #import "ClientInvoicesTableViewController.h"
 
+
+
 @interface InvoicesTableViewController ()
 
 @end
@@ -80,6 +82,7 @@
     
     return cell;
 }
+
 
 
 /*
