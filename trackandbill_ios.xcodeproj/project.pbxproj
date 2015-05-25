@@ -30,6 +30,7 @@
 		A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8F1AF7F56A00A4CC9D /* group-32.png */; };
 		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
 		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
+		A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */; };
 		A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */; };
 		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
 		A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */; };
@@ -177,6 +178,8 @@
 		A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		A9D7B7031B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineDateAndNumberPickerViewController.h; sourceTree = "<group>"; };
+		A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineDateAndNumberPickerViewController.m; sourceTree = "<group>"; };
 		A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientTableViewController.h; sourceTree = "<group>"; };
 		A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientTableViewController.m; sourceTree = "<group>"; };
 		A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClientTableViewController.xib; sourceTree = "<group>"; };
@@ -444,9 +447,19 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		A9D7B7021B13ABC000E48FBF /* InlineTableViewDateAndNumberPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A9D7B7031B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.h */,
+				A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */,
+			);
+			name = InlineTableViewDateAndNumberPicker;
+			sourceTree = "<group>";
+		};
 		A9DC4CD01AEAFC2600A00892 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9D7B7021B13ABC000E48FBF /* InlineTableViewDateAndNumberPicker */,
 				A9FDC2301B0FD79800112426 /* InlineTableViewDatePicker */,
 				A9DC4C111AEAFB8E00A00892 /* Client.h */,
 				A9DC4C121AEAFB8E00A00892 /* Client.m */,
@@ -774,6 +787,7 @@
 				A9DC4CBD1AEAFB8E00A00892 /* ReaderThumbsView.m in Sources */,
 				A9DC4C9E1AEAFB8E00A00892 /* Project.m in Sources */,
 				A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */,
+				A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */,
 				A9DC4CC91AEAFB8E00A00892 /* SessionViewController.m in Sources */,
 				A9DC4CB41AEAFB8E00A00892 /* ReaderContentView.m in Sources */,
 				A9DC4CCE1AEAFB8E00A00892 /* ThumbsViewController.m in Sources */,

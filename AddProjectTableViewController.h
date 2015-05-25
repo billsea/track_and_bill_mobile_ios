@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Client.h"
-#import "ALEInlineDatePickerViewController.h"
+#import "InlineDateAndNumberPickerViewController.h"
 
-@interface AddProjectTableViewController : ALEInlineDatePickerViewController<UITextFieldDelegate>
+@interface AddProjectTableViewController : InlineDateAndNumberPickerViewController<UITextFieldDelegate>
 
 @property Client * selectedClient;
 

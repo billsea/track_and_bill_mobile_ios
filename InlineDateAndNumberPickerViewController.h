@@ -1,52 +1,78 @@
-//  Created by Alessio on 25/02/14.
-//  Copyright (c) 2014 Alessio Orlando. All rights reserved.
+//
+//  InlineDateAndNumberPickerViewController.h
+//  trackandbill_ios
+//
+//  Created by William Seaman on 5/25/15.
+//  Copyright (c) 2015 loudsoftware. All rights reserved.
+//
 
 /*
-  This view controller simplifies the presentation of a date picker inline in a tableview.
-  The dates inserted by the user can be accessed with the corresponding date picker's indexPath.
-  Must sublclass to use.
-
-  Subclasses MUST do at least 2 things:
-  - provide an array of indexPaths from which the date picker can be displayed (datePickerPossibleIndexPaths)
-  - call super in the tableview delegate & datasource before their implementation as detailed below
-
-  Notes: you can use a nib if you want and connect the tableView outlet, otherwise you can use initWithSyle:
+ This view controller is based on the ALEInlineDatePickerViewController code which simplifies the presentation of a date picker inline in a tableview. This class includes a number picker as well as the date picker
+ 
+ DATE PICKER RULES:
+ The dates inserted by the user can be accessed with the corresponding date picker's indexPath.
+ Must sublclass to use.
+ 
+ Subclasses MUST do at least 2 things:
+ - provide an array of indexPaths from which the date picker can be displayed (datePickerPossibleIndexPaths)
+ - call super in the tableview delegate & datasource before their implementation as detailed below
+ 
+ Notes: you can use a nib if you want and connect the tableView outlet, otherwise you can use initWithSyle:
  */
 
-@interface ALEDatePickerCell : UITableViewCell
+@interface InlineDatePickerCell : UITableViewCell
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @end
 
-@interface ALEInlineDatePickerViewController : UIViewController
-<
-UITableViewDelegate,
-UITableViewDataSource
->
+@interface InlineNumberPickerCell : UITableViewCell<UIPickerViewDataSource,UIPickerViewDelegate>
+@property (strong, nonatomic) UIPickerView *numberPicker;
+@property NSMutableArray * pickerData;
+@end
+
+@interface InlineDateAndNumberPickerViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong, readonly) NSIndexPath *datePickerIndexPath;
 @property (nonatomic, strong) NSArray *datePickerPossibleIndexPaths;
+
+@property (nonatomic, strong, readonly) NSIndexPath *numberPickerIndexPath;
+@property (nonatomic, strong) NSArray *numberPickerPossibleIndexPaths;
+
 
 
 
 - (id)initWithStyle:(UITableViewStyle)style;
 
 - (BOOL)datePickerIsShown;
-
 - (void)hideExistingPicker;
 
+- (BOOL)numberPickerIsShown;
+- (void)hideExistingNumberPicker;
+
 //  you can override this method, call super and then customize the date picker associated with the cell
-- (ALEDatePickerCell *)createPickerCell:(NSDate *)date;
+- (InlineDatePickerCell *)createPickerCell:(NSDate *)date;
+
+- (InlineNumberPickerCell *)createNumberPickerCell:(NSNumber *)dollars : (NSNumber *)cents;
 
 //  call super if you override this
 - (IBAction)dateChanged:(UIDatePicker *)sender;
+
+- (IBAction)numbePickerChanged:(UIPickerView *)sender;
 
 //  you can use this methods to get and set the date object associated with an indexPath
 - (NSDate *)dateForIndexPath:(NSIndexPath *)indexPath;
 - (void)setDate:(NSDate *)date forIndexPath:(NSIndexPath *)indexPath;
 
+- (NSNumber *)numberForIndexPath:(NSIndexPath *)indexPath;
+- (void)setNumber:(NSNumber *)number forIndexPath:(NSIndexPath *)indexPath;
+
+
+
 //  utils
 //  recalculates the correct index path for accessing the datasource depending on the date picker presence in the tableview. Call this method before accessing your datasource
 - (NSIndexPath *)adjustedIndexPathForDatasourceAccess:(NSIndexPath *)indexPath;
+
+- (NSIndexPath *)adjustedNumberIndexPathForDatasourceAccess:(NSIndexPath *)indexPath;
 
 //-------------------------------------------------------------------
 //  tableview delegate & datasource
@@ -63,5 +89,6 @@ UITableViewDataSource
 
 //  subclasses should call this method on super, before proceding with their own implementation
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 
 @end

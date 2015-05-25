@@ -308,7 +308,6 @@ NSNumber * invoiceNumberSelected;
 
 -(BOOL)isNumeric:(NSString*)inputString{
     
-TODO: need to test this number checker
     NSScanner *scanner = [NSScanner scannerWithString:inputString];
     return [scanner scanDouble:NULL] && [scanner isAtEnd];
 }

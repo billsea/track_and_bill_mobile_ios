@@ -11,9 +11,9 @@
 #import "ReaderViewController.h"
 #import "Invoice.h"
 #import <iAd/iAd.h>
-#import "ALEInlineDatePickerViewController.h"
+#import "InlineDateAndNumberPickerViewController.h"
 
-@interface InvoiceTableViewController : ALEInlineDatePickerViewController<ReaderViewControllerDelegate,ADInterstitialAdDelegate>
+@interface InvoiceTableViewController : InlineDateAndNumberPickerViewController<ReaderViewControllerDelegate,ADInterstitialAdDelegate>
 {
     ADInterstitialAd *interstitial;
 }

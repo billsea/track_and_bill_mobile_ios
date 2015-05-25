@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
+@property (nonatomic, strong) NSIndexPath *firstNumberPickerIndexPath;
 
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
@@ -52,6 +53,13 @@ NSArray * sessionFormFields;
     self.firstDatePickerIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath];
     [self setDate:_selectedSession.sessionDate forIndexPath:self.firstDatePickerIndexPath];
+    
+    
+    //number picker rows
+    self.firstNumberPickerIndexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    self.numberPickerPossibleIndexPaths = @[self.firstNumberPickerIndexPath];
+    [self setNumber:_selectedSession.sessionHours forIndexPath:self.firstNumberPickerIndexPath];
+    
     
     //input form text fields
     sessionFormFields = [[NSMutableArray alloc] init];
@@ -242,18 +250,13 @@ NSArray * sessionFormFields;
         }
         
         NSIndexPath *adjustedIndexPath = [self adjustedIndexPathForDatasourceAccess:indexPath];
-        if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame) {
+        if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame)
+        {
             NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
-//            cell.textLabel.text = [NSDateFormatter localizedStringFromDate:firstDate
-//                                                                 dateStyle:NSDateFormatterShortStyle
-//                                                                 timeStyle:NSDateFormatterNoStyle];
             
             NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:firstDate
                                                                  dateStyle:NSDateFormatterShortStyle
                                                                  timeStyle:NSDateFormatterNoStyle];
-            
-            
-           
 
             //add date label for date
             UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
@@ -271,7 +274,27 @@ NSArray * sessionFormFields;
             [[cell contentView] addSubview:fieldTitle];
             
         }
-        else {
+        else if ([adjustedIndexPath compare:self.firstNumberPickerIndexPath] == NSOrderedSame)
+        {
+              NSNumber *firstNumber = [self numberForIndexPath:self.firstNumberPickerIndexPath];
+            
+            //add date label for date
+            UILabel * numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
+            [numberLabel setText:[NSString stringWithFormat:@"%@",firstNumber]];
+            [numberLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+            [numberLabel setTintColor:[UIColor blackColor]];
+            [[cell contentView] addSubview:numberLabel];
+            
+            //add field label for date
+            UILabel * fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
+            [fieldTitle setText:@"Hours"];
+            [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
+            [fieldTitle setTintColor:[UIColor lightGrayColor]];
+            
+            [[cell contentView] addSubview:fieldTitle];
+        }
+        else
+        {
                 static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
             
                 TextInputTableViewCell *cellText = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
