@@ -206,8 +206,11 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     [self.tableView reloadData];
 }
 
+
+Note: this is not being called - see readmeStatus.txt
 - (void)numberPickerChanged:(UIPickerView *)sender
 {
+    
     UIPickerView * tmpPicker = sender;
     NSIndexPath *keyIndexPath = [NSIndexPath indexPathForRow:self.numberPickerIndexPath.row -1 inSection:self.numberPickerIndexPath.section];
     [self setNumber:[NSNumber numberWithInteger:[tmpPicker selectedRowInComponent:0]] forIndexPath:keyIndexPath];
@@ -258,9 +261,8 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 
     [cell.numberPicker selectRow:[dollars longValue] inComponent:0 animated:NO];
    // [cell.numberPicker selectRow:[cents longValue] inComponent:1 animated:NO];
-    
-   // [cell targetForAction:@selector(numberPickerChanged:)  withSender:cell];
-    
+
+    [[cell numberPicker]targetForAction:@selector(numberPickerChanged:)  withSender:cell];
     
     
     return cell;

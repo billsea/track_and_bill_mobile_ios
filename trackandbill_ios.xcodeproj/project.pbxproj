@@ -30,6 +30,7 @@
 		A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8F1AF7F56A00A4CC9D /* group-32.png */; };
 		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
 		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
+		A9A2E68B1B14D60400A478AE /* readMeStatus in Resources */ = {isa = PBXBuildFile; fileRef = A9A2E68A1B14D60400A478AE /* readMeStatus */; };
 		A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */; };
 		A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */; };
 		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
@@ -178,6 +179,7 @@
 		A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		A9A2E68A1B14D60400A478AE /* readMeStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readMeStatus; sourceTree = "<group>"; };
 		A9D7B7031B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineDateAndNumberPickerViewController.h; sourceTree = "<group>"; };
 		A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineDateAndNumberPickerViewController.m; sourceTree = "<group>"; };
 		A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientTableViewController.h; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		A9167E1F1AEAC10D0071B992 = {
 			isa = PBXGroup;
 			children = (
+				A9A2E68A1B14D60400A478AE /* readMeStatus */,
 				A9FDC2381B0FDA8200112426 /* UIKit.framework */,
 				A9FDC2351B0FD9F900112426 /* Foundation.framework */,
 				A9E374DC1B0A4C1F004B4B90 /* iAd.framework */,
@@ -697,6 +700,7 @@
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
 				A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */,
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
+				A9A2E68B1B14D60400A478AE /* readMeStatus in Resources */,
 				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
 				A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */,

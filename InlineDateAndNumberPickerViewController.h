@@ -57,7 +57,7 @@
 //  call super if you override this
 - (IBAction)dateChanged:(UIDatePicker *)sender;
 
-- (IBAction)numbePickerChanged:(UIPickerView *)sender;
+- (void)numberPickerChanged:(UIPickerView *)sender;
 
 //  you can use this methods to get and set the date object associated with an indexPath
 - (NSDate *)dateForIndexPath:(NSIndexPath *)indexPath;
