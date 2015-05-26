@@ -52,7 +52,7 @@
 //  you can override this method, call super and then customize the date picker associated with the cell
 - (InlineDatePickerCell *)createPickerCell:(NSDate *)date;
 
-- (InlineNumberPickerCell *)createNumberPickerCell:(NSNumber *)dollars : (NSNumber *)cents;
+- (InlineNumberPickerCell *)createNumberPickerCell:(NSNumber *)dollars;
 
 //  call super if you override this
 - (IBAction)dateChanged:(UIDatePicker *)sender;

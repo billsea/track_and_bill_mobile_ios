@@ -36,14 +36,16 @@
     if (self) {
         self.numberPicker = [[UIPickerView alloc]init];
         self.numberPicker.translatesAutoresizingMaskIntoConstraints = NO;
+        self.numberPicker.delegate = self;
         
         //add values to picker
         self.pickerData = [[NSMutableArray alloc] init];
         
-        for(int i = 0; i<2000; i++)
+        for(int i = 0; i<500; i++)
         {
             [_pickerData addObject:[NSString stringWithFormat:@"%d",i]];
         }
+
         
         [self addSubview:self.numberPicker];
         
@@ -57,13 +59,13 @@
 
 #pragma mark picker view delegate methods
 // The number of columns of data
-- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 2;
+    return 1;
 }
 
 // The number of rows of data
-- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     
     return self.pickerData.count;
@@ -75,11 +77,15 @@
     return self.pickerData[row];
 }
 
+
+
 @end
 
 @interface InlineDateAndNumberPickerViewController ()
 @property (nonatomic, strong, readwrite) NSIndexPath *datePickerIndexPath;
+@property (nonatomic, strong, readwrite) NSIndexPath *numberPickerIndexPath;
 @property (nonatomic, assign) CGFloat pickerCellRowHeight;
+@property (nonatomic, assign) CGFloat numberPickerCellRowHeight;
 @property (nonatomic, assign) UITableViewStyle tableViewStyle;
 @property (nonatomic, strong) NSMutableDictionary *dates;   //key is NSIndexPath, value is NSDate
 @property (nonatomic, strong) NSMutableDictionary *numbers;
@@ -91,7 +97,7 @@
 //Number picker
 - (NSIndexPath *)calculateIndexPathForNewNumberPicker:(NSIndexPath *)selectedIndexPathNumber;
 - (void)showNewNumberPickerAtIndex:(NSIndexPath *)indexPath;
-- (NSString *)stringNumberFromIndexPath:(NSIndexPath *)indexPath;
+//- (NSString *)stringNumberFromIndexPath:(NSIndexPath *)indexPath;
 @end
 
 static NSString *DateCellIdentifier = @"DateCell";
@@ -130,11 +136,16 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 {
     [super viewDidLoad];
     
+    //date picker
     [self.tableView registerClass:[InlineDatePickerCell class] forCellReuseIdentifier:DateCellIdentifier];
-    
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     self.pickerCellRowHeight = datePicker.frame.size.height;
     
+    
+    //number picker
+    [self.tableView registerClass:[InlineNumberPickerCell class] forCellReuseIdentifier:NumberCellIdentifier];
+    UIPickerView *numberPicker = [[UIPickerView alloc]init];
+    self.numberPickerCellRowHeight = numberPicker.frame.size.height;
     
     //set background image
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
@@ -210,6 +221,11 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     return self.datePickerIndexPath != nil;
 }
 
+- (BOOL)numberPickerIsShown
+{
+    return self.numberPickerIndexPath != nil;
+}
+
 - (InlineDatePickerCell *)createPickerCell:(NSDate *)date
 {
     
@@ -228,7 +244,7 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     return cell;
 }
 
-- (InlineNumberPickerCell *)createNumberPickerCell:(NSNumber *)dollars : (NSNumber *)cents
+- (InlineNumberPickerCell *)createNumberPickerCell:(NSNumber *)dollars
 {
     InlineNumberPickerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NumberCellIdentifier];
     
@@ -236,14 +252,16 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     if (!dollars) {
         dollars = 0;
     }
-    if (!cents) {
-        cents = 0;
-    }
+//    if (!cents) {
+//        cents = 0;
+//    }
 
     [cell.numberPicker selectRow:[dollars longValue] inComponent:0 animated:NO];
-    [cell.numberPicker selectRow:[cents longValue] inComponent:1 animated:NO];
+   // [cell.numberPicker selectRow:[cents longValue] inComponent:1 animated:NO];
     
-    [cell targetForAction:@selector(numberPickerChanged:)  withSender:cell];
+   // [cell targetForAction:@selector(numberPickerChanged:)  withSender:cell];
+    
+    
     
     return cell;
 }
@@ -264,12 +282,46 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     [self.tableView endUpdates];
 }
 
+- (void)hideExistingNumberPicker {
+    
+    if (!self.numberPickerIsShown) {
+        return;
+    }
+    
+    [self.tableView beginUpdates];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.numberPickerIndexPath.row inSection:self.numberPickerIndexPath.section]]
+                          withRowAnimation:UITableViewRowAnimationFade];
+    
+    self.numberPickerIndexPath = nil;
+    
+    [self.tableView endUpdates];
+}
+
 - (NSIndexPath *)calculateIndexPathForNewPicker:(NSIndexPath *)selectedIndexPath
 {
     
     NSIndexPath *newIndexPath;
     
     if (([self datePickerIsShown]) && (self.datePickerIndexPath.row < selectedIndexPath.row)){
+        
+        newIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row - 1 inSection:selectedIndexPath.section];
+        
+    }else {
+        
+        newIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row  inSection:selectedIndexPath.section];
+        
+    }
+    
+    return newIndexPath;
+}
+
+- (NSIndexPath *)calculateIndexPathForNewNumberPicker:(NSIndexPath *)selectedIndexPath
+{
+    
+    NSIndexPath *newIndexPath;
+    
+    if (([self numberPickerIsShown]) && (self.numberPickerIndexPath.row < selectedIndexPath.row)){
         
         newIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row - 1 inSection:selectedIndexPath.section];
         
@@ -304,6 +356,12 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     return date;
 }
 
+- (NSNumber *)numberForIndexPath:(NSIndexPath *)indexPath
+{
+    NSNumber *nbr = [self.numbers objectForKey:[self stringFromIndexPath:indexPath]];
+    return nbr;
+}
+
 - (void)setDate:(NSDate *)date forIndexPath:(NSIndexPath *)indexPath
 {
     [self.dates setObject:date forKey:[self stringFromIndexPath:indexPath]];
@@ -311,7 +369,7 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 
 - (void)setNumber:(NSNumber *)number forIndexPath:(NSIndexPath *)indexPath
 {
-    [self.numbers setObject:number forKey:[self stringNumberFromIndexPath:indexPath]];
+    [self.numbers setObject:number forKey:[self stringFromIndexPath:indexPath]];
 }
 
 
@@ -320,30 +378,58 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows = 0;
-    //    for (NSIndexPath *indexPath in self.datePickerPossibleIndexPaths) {
+
     if (self.datePickerIndexPath.section == section) {
-        [self datePickerIsShown] ? (numberOfRows = 1) :  (numberOfRows = 0);
-        //            break;
+        if([self datePickerIsShown])
+        {
+            (numberOfRows = 1);
+        }
+        else
+        {
+           (numberOfRows = 0);
+        }
+
     }
-    //  }
+    
+
+    if(numberOfRows == 0)
+    {
+        if (self.numberPickerIndexPath.section == section) {
+            [self numberPickerIsShown] ? (numberOfRows = 1) :  (numberOfRows = 0);
+        }
+    }
+    
     return numberOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InlineDatePickerCell *cell = nil;
+    UITableViewCell * cell = nil;
     
+    //InlineDatePickerCell *cell = nil;
     
     if ([self datePickerIsShown] && ([self.datePickerIndexPath compare:indexPath] == NSOrderedSame)) {
         
         NSIndexPath *keyIndexPath = [NSIndexPath indexPathForRow:indexPath.row -1 inSection:indexPath.section];
         NSDate *date = [self dateForIndexPath:keyIndexPath];
-        cell = [self createPickerCell:date];
+        cell = (InlineDatePickerCell *)[self createPickerCell:date];
     }
     
+   //number picker
+   // InlineNumberPickerCell *numberCell = nil;
     
+    
+    else if ([self numberPickerIsShown] && ([self.numberPickerIndexPath compare:indexPath] == NSOrderedSame)) {
+        
+        NSIndexPath *keyIndexPath = [NSIndexPath indexPathForRow:indexPath.row -1 inSection:indexPath.section];
+        NSNumber * nbr = [self numberForIndexPath:keyIndexPath];
+        cell = (InlineNumberPickerCell * )[self createNumberPickerCell:nbr];
+        
+    }
     
     return cell;
+    
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -354,11 +440,16 @@ static NSString *NumberCellIdentifier = @"NumberCell";
         rowHeight = self.pickerCellRowHeight;
     }
     
+    if ([self numberPickerIsShown] && ([self.numberPickerIndexPath compare:indexPath] == NSOrderedSame)){
+        rowHeight = self.pickerCellRowHeight;
+    }
+    
     return rowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //date picker
     for (NSIndexPath *possibleIndexPath in self.datePickerPossibleIndexPaths) {
         if ([self datePickerIsShown]) {
             if (possibleIndexPath.section == indexPath.section && (indexPath.row == possibleIndexPath.row || indexPath.row == possibleIndexPath.row +1) ) {
@@ -394,6 +485,46 @@ static NSString *NumberCellIdentifier = @"NumberCell";
             break;
         }
     }
+    
+    
+    //number picker
+    for (NSIndexPath *possibleIndexPath in self.numberPickerPossibleIndexPaths) {
+        if ([self numberPickerIsShown]) {
+            if (possibleIndexPath.section == indexPath.section && (indexPath.row == possibleIndexPath.row || indexPath.row == possibleIndexPath.row +1) ) {
+                [self.tableView beginUpdates];
+                
+                [self hideExistingNumberPicker];
+                [tableView deselectRowAtIndexPath:indexPath animated:YES];
+                
+                [self.tableView endUpdates];
+                
+                break;
+            }
+        }
+        else if ([possibleIndexPath compare:indexPath] == NSOrderedSame) {
+            [tableView beginUpdates];
+            
+            NSIndexPath *newPickerIndexPath = [self calculateIndexPathForNewNumberPicker:indexPath];
+            
+            if ([self numberPickerIsShown]){
+                
+                [self hideExistingNumberPicker];
+                
+            }
+            
+            [self.view endEditing:YES];
+            [self showNewNumberPickerAtIndex:newPickerIndexPath];
+            
+            NSLog(@"row:%ld",(long)newPickerIndexPath.row);
+            
+            self.numberPickerIndexPath = [NSIndexPath indexPathForRow:newPickerIndexPath.row + 1 inSection:newPickerIndexPath.section];
+            
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            [tableView endUpdates];
+            break;
+        }
+    }
 }
 
 
@@ -408,28 +539,39 @@ static NSString *NumberCellIdentifier = @"NumberCell";
         (indexPath.row > self.datePickerIndexPath.row)) {
         keyIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
     }
-    return keyIndexPath;
-}
-
-- (NSIndexPath *)adjustedNumberIndexPathForDatasourceAccess:(NSIndexPath *)indexPath
-{
-    NSIndexPath *keyIndexPath = indexPath;
+    
+    _Bool numShow = [self numberPickerIsShown];
+    
     if ([self numberPickerIsShown] &&
         (indexPath.section == self.numberPickerIndexPath.section) &&
         (indexPath.row > self.numberPickerIndexPath.row)) {
         keyIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
     }
+    
     return keyIndexPath;
 }
 
-
-
-
+//- (NSIndexPath *)adjustedNumberIndexPathForDatasourceAccess:(NSIndexPath *)indexPath
+//{
+//    NSIndexPath *keyIndexPath = indexPath;
+//    if ([self numberPickerIsShown] &&
+//        (indexPath.section == self.numberPickerIndexPath.section) &&
+//        (indexPath.row > self.numberPickerIndexPath.row)) {
+//        keyIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
+//    }
+//    return keyIndexPath;
+//}
 
 - (NSString *)stringFromIndexPath:(NSIndexPath *)indexPath
 {
     NSString *iPathString = [NSString stringWithFormat:@"%li-%li", (long)indexPath.section, (long)indexPath.row];
     return iPathString;
 }
+//- (NSString *)stringNumberFromIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSString *iPathString = [NSString stringWithFormat:@"%li-%li", (long)indexPath.section, (long)indexPath.row];
+//    return iPathString;
+//}
+
 
 @end
