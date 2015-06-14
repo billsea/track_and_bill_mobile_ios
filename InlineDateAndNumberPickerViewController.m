@@ -207,7 +207,7 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 }
 
 
-Note: this is not being called - see readmeStatus.txt
+//TODO: Note: this is not being called - see readmeStatus.txt
 - (void)numberPickerChanged:(UIPickerView *)sender
 {
     
@@ -234,7 +234,9 @@ Note: this is not being called - see readmeStatus.txt
     
     InlineDatePickerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DateCellIdentifier];
     
-    cell.datePicker.datePickerMode =  UIDatePickerModeDate;
+    //cell.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    cell.datePicker.datePickerMode =  UIDatePickerModeDate;//date only
+    
     
     if (!date) {
         date = [NSDate date];

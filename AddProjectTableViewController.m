@@ -218,6 +218,10 @@ NSArray * projectFormFields;
                 [[cellText textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
                 [[cellText labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
                 [cellText setTag:[indexPath row]];
+            
+                //set this if we need to save save userdata on textinputdidend event
+                //[[cellText textInput] setTag:[indexPath row]];
+            
                 [cellText setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
                 [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
                 [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];

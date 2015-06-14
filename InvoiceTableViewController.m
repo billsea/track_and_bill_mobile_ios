@@ -840,7 +840,14 @@ NSNumber * invoiceNumberSelected;
             //set placeholder value for new cell
             [[cellText textInput] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
             [[cellText labelCell] setText:[[invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-            [cellText setTag:[indexPath row]];
+            
+
+            //[cellText setTag:[indexPath row]];
+
+            //set this to save userdata on textinputdidend event
+            [[cellText textInput] setTag:[indexPath row]];
+            
+            
             [cellText setFieldName:[invoiceFormFields objectAtIndex:[indexPath row]]];
             [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
             [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
