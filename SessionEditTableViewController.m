@@ -14,11 +14,8 @@
 
 @interface SessionEditTableViewController ()
 
-@property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
 @property (nonatomic, strong) NSIndexPath *firstNumberPickerIndexPath;
-
-@property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 
@@ -188,45 +185,6 @@ NSArray * sessionFormFields;
 
 
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//
-//    if([[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"] isEqualToString:@"Date"])
-//    {
-//
-//    }
-//    else
-//    {
-//        
-//    }
-//    
-//    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-//    
-//    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    
-//    if (cell == nil)
-//    {
-//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-//        cell = [nib objectAtIndex:0];
-//        
-//    }
-//    
-//    [[cell labelCell] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-//    [[cell textInput] setText:[[sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-//    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-//    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-//    [[cell textInput] setTextColor:[UIColor blackColor]];
-//    
-//    //project and client are read only
-//    if([indexPath row] == 0 || [indexPath row] == 1)
-//    {
-//        [[cell textInput] setEnabled:FALSE];
-//    }
-//    
-//    return cell;
-//
-//}
-
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -249,7 +207,13 @@ NSArray * sessionFormFields;
             }
         }
         
+    
+        
         NSIndexPath *adjustedIndexPath = [self adjustedIndexPathForDatasourceAccess:indexPath];
+        
+        NSLog(@"row:%ld",(long)indexPath.row);
+        NSLog(@"adjusted index path row:%ld",(long)adjustedIndexPath.row);
+        
         if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame)
         {
             NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];

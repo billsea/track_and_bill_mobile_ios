@@ -24,12 +24,12 @@
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @end
 
-@interface InlineNumberPickerCell : UITableViewCell<UIPickerViewDataSource,UIPickerViewDelegate>
+@interface InlineNumberPickerCell : UITableViewCell
 @property (strong, nonatomic) UIPickerView *numberPicker;
 @property NSMutableArray * pickerData;
 @end
 
-@interface InlineDateAndNumberPickerViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface InlineDateAndNumberPickerViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong, readonly) NSIndexPath *datePickerIndexPath;
@@ -38,7 +38,7 @@
 @property (nonatomic, strong, readonly) NSIndexPath *numberPickerIndexPath;
 @property (nonatomic, strong) NSArray *numberPickerPossibleIndexPaths;
 
-
+@property NSMutableArray * pickerData;
 
 
 - (id)initWithStyle:(UITableViewStyle)style;
@@ -57,7 +57,7 @@
 //  call super if you override this
 - (IBAction)dateChanged:(UIDatePicker *)sender;
 
-- (void)numberPickerChanged:(UIPickerView *)sender;
+- (IBAction)numberPickerChanged:(UIPickerView *)sender;
 
 //  you can use this methods to get and set the date object associated with an indexPath
 - (NSDate *)dateForIndexPath:(NSIndexPath *)indexPath;

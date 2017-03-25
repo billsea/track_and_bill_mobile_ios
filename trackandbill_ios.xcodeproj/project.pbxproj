@@ -120,7 +120,6 @@
 		A9E374DD1B0A4C1F004B4B90 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E374DC1B0A4C1F004B4B90 /* iAd.framework */; };
 		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
 		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
-		A9FDC22F1B0FD79300112426 /* ALEInlineDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FDC22E1B0FD79300112426 /* ALEInlineDatePickerViewController.m */; };
 		A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FDC2351B0FD9F900112426 /* Foundation.framework */; };
 		A9FDC2391B0FDA8200112426 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FDC2381B0FDA8200112426 /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -316,8 +315,6 @@
 		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
 		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
 		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
-		A9FDC22D1B0FD79300112426 /* ALEInlineDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEInlineDatePickerViewController.h; sourceTree = "<group>"; };
-		A9FDC22E1B0FD79300112426 /* ALEInlineDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALEInlineDatePickerViewController.m; sourceTree = "<group>"; };
 		A9FDC2351B0FD9F900112426 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9FDC2371B0FDA1F00112426 /* TrackandBill_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrackandBill_PrefixHeader.pch; path = ../TrackandBill_PrefixHeader.pch; sourceTree = "<group>"; };
 		A9FDC2381B0FDA8200112426 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -463,7 +460,6 @@
 			isa = PBXGroup;
 			children = (
 				A9D7B7021B13ABC000E48FBF /* InlineTableViewDateAndNumberPicker */,
-				A9FDC2301B0FD79800112426 /* InlineTableViewDatePicker */,
 				A9DC4C111AEAFB8E00A00892 /* Client.h */,
 				A9DC4C121AEAFB8E00A00892 /* Client.m */,
 				A9DC4C1C1AEAFB8E00A00892 /* Invoice.h */,
@@ -600,15 +596,6 @@
 				A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */,
 			);
 			name = UIElements;
-			sourceTree = "<group>";
-		};
-		A9FDC2301B0FD79800112426 /* InlineTableViewDatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				A9FDC22D1B0FD79300112426 /* ALEInlineDatePickerViewController.h */,
-				A9FDC22E1B0FD79300112426 /* ALEInlineDatePickerViewController.m */,
-			);
-			name = InlineTableViewDatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,7 +771,6 @@
 				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
 				A9DC4C991AEAFB8E00A00892 /* Profile.m in Sources */,
 				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,
-				A9FDC22F1B0FD79300112426 /* ALEInlineDatePickerViewController.m in Sources */,
 				A9DC4CBA1AEAFB8E00A00892 /* ReaderThumbQueue.m in Sources */,
 				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
 				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,

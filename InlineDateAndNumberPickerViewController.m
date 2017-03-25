@@ -57,27 +57,31 @@
     return self;
 }
 
-#pragma mark picker view delegate methods
-// The number of columns of data
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-// The number of rows of data
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    
-    return self.pickerData.count;
-}
-
-// The data to return for the row and component (column) that's being passed in
-- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return self.pickerData[row];
-}
-
-
+//#pragma mark picker view delegate methods
+//// The number of columns of data
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+//{
+//    return 1;
+//}
+//
+//// The number of rows of data
+//- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+//{
+//    
+//    return self.pickerData.count;
+//}
+//
+//// The data to return for the row and component (column) that's being passed in
+//- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    return self.pickerData[row];
+//}
+//
+//#pragma mark uipickerview delegates
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+//{
+//    
+//}
 
 @end
 
@@ -104,6 +108,34 @@ static NSString *DateCellIdentifier = @"DateCell";
 static NSString *NumberCellIdentifier = @"NumberCell";
 
 @implementation InlineDateAndNumberPickerViewController
+
+
+
+#pragma mark picker view delegate methods
+// The number of columns of data
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    
+    return self.pickerData.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.pickerData[row];
+}
+
+#pragma mark uipickerview delegates
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [self numberPickerChanged:pickerView];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -150,7 +182,13 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     //set background image
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
     
+    //add values to picker
+    self.pickerData = [[NSMutableArray alloc] init];
     
+    for(int i = 0; i<500; i++)
+    {
+        [_pickerData addObject:[NSString stringWithFormat:@"%d",i]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -246,6 +284,8 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     
     [cell.datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     
+   
+    
     return cell;
 }
 
@@ -253,19 +293,17 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 {
     InlineNumberPickerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NumberCellIdentifier];
     
+    cell.numberPicker.delegate = self;
     
-    if (!dollars) {
-        dollars = 0;
-    }
+//    if (!dollars) {
+//        dollars = 0;
+//    }
 //    if (!cents) {
 //        cents = 0;
 //    }
 
-    [cell.numberPicker selectRow:[dollars longValue] inComponent:0 animated:NO];
+    //[cell.numberPicker selectRow:[dollars longValue] inComponent:0 animated:NO];
    // [cell.numberPicker selectRow:[cents longValue] inComponent:1 animated:NO];
-
-    [[cell numberPicker]targetForAction:@selector(numberPickerChanged:)  withSender:cell];
-    
     
     return cell;
 }

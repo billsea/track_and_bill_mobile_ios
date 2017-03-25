@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/InvoiceTableViewController.m \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/TrackandBill_PrefixHeader.pch \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/InvoiceTableViewController.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Project.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderViewController.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderDocument.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderContentView.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderThumbView.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderMainToolbar.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/UIXToolbarView.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderMainPagebar.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ThumbsViewController.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ThumbsMainToolbar.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderThumbsView.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Invoice.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/InlineDateAndNumberPickerViewController.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/trackandbill_ios/AppDelegate.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Session.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Profile.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/TextInputTableViewCell.h \
+  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Client.h
