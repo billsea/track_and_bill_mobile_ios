@@ -12,10 +12,7 @@
 #import "Client.h"
 #import "ClientInvoicesTableViewController.h"
 
-
-
 @interface InvoicesTableViewController ()
-
 @end
 
 @implementation InvoicesTableViewController
