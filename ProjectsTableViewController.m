@@ -22,9 +22,6 @@
 
 @implementation ProjectsTableViewController
 
-@synthesize selectedClient = _selectedClient;
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

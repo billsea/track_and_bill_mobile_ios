@@ -27,8 +27,7 @@
     [self setInvoiceNotes:@""];
 	[self setInvoiceMaterials:@""];
     [self setMilage:[NSNumber numberWithInt:0]];
-	
-	
+
 	return self;
 }
 - (NSNumber *)invoiceNumber

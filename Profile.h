@@ -11,7 +11,6 @@
 
 
 @interface Profile : NSObject <NSCoding>{
-	
 	NSString *profileName;
 	NSString *profileAddress;
 	NSString *profileCity;
@@ -20,9 +19,7 @@
 	NSString *profilePhone;
 	NSString *profileEmail;
 	NSString *profileContact;
-
 }
-
 
 -(NSString *) profileName;
 -(NSString *) profileAddress;

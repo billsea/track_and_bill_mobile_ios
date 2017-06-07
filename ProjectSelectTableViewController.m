@@ -13,14 +13,15 @@
 #import "Invoice.h"
 #import "AppDelegate.h"
 
-@interface ProjectSelectTableViewController ()
+@interface ProjectSelectTableViewController () {
+    InvoiceTableViewController * _invoiceViewController;
+}
 
 @end
 
 @implementation ProjectSelectTableViewController
 
 
-InvoiceTableViewController * invoiceViewController;
 
 @synthesize selectedProject = _selectedProject;
 
@@ -50,19 +51,19 @@ InvoiceTableViewController * invoiceViewController;
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     //push inovices view controller
-    invoiceViewController = [[InvoiceTableViewController alloc] init];
+    _invoiceViewController = [[InvoiceTableViewController alloc] init];
     
     //see if there is an exisiting invoice for this project
     for(Invoice * invoice in [appDelegate arrInvoices])
     {
         if((invoice.projectID == _selectedProject.projectID) && invoice.invoiceNumber)
         {
-            [invoiceViewController setSelectedInvoice:invoice];
+            [_invoiceViewController setSelectedInvoice:invoice];
             break;
         }
     }
     
-    if([invoiceViewController selectedInvoice])
+    if([_invoiceViewController selectedInvoice])
     {
         //alert - An invoice exists for this project. Edit existing or create new invoice?
         if ([UIAlertController class])
@@ -78,7 +79,7 @@ InvoiceTableViewController * invoiceViewController;
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction * action)
                                      {
-                                          [self.navigationController pushViewController:invoiceViewController animated:YES];
+                                          [self.navigationController pushViewController:_invoiceViewController animated:YES];
                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                          
                                      }];
@@ -87,10 +88,10 @@ InvoiceTableViewController * invoiceViewController;
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction * action)
                                      {
-                                         [invoiceViewController setSelectedInvoice:nil];
-                                         [invoiceViewController setSelectedProject:_selectedProject];
+                                         [_invoiceViewController setSelectedInvoice:nil];
+                                         [_invoiceViewController setSelectedProject:_selectedProject];
                                          
-                                          [self.navigationController pushViewController:invoiceViewController animated:YES];
+                                          [self.navigationController pushViewController:_invoiceViewController animated:YES];
                                          
                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                      }];
@@ -125,9 +126,9 @@ InvoiceTableViewController * invoiceViewController;
     else
     {
         //no invoice exists for project, so create a new one
-        [invoiceViewController setSelectedInvoice:nil];
-        [invoiceViewController setSelectedProject:_selectedProject];
-        [self.navigationController pushViewController:invoiceViewController animated:YES];
+        [_invoiceViewController setSelectedInvoice:nil];
+        [_invoiceViewController setSelectedProject:_selectedProject];
+        [self.navigationController pushViewController:_invoiceViewController animated:YES];
         
     }
     
@@ -146,12 +147,12 @@ InvoiceTableViewController * invoiceViewController;
     switch (buttonIndex) {
         case 1:
             //invoice already set
-            [self.navigationController pushViewController:invoiceViewController animated:YES];
+            [self.navigationController pushViewController:_invoiceViewController animated:YES];
             break;
         case 2:
-            [invoiceViewController setSelectedInvoice:nil];
-            [invoiceViewController setSelectedProject:_selectedProject];
-            [self.navigationController pushViewController:invoiceViewController animated:YES];
+            [_invoiceViewController setSelectedInvoice:nil];
+            [_invoiceViewController setSelectedProject:_selectedProject];
+            [self.navigationController pushViewController:_invoiceViewController animated:YES];
             break;
         default:
             break;
@@ -227,42 +228,6 @@ InvoiceTableViewController * invoiceViewController;
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
@@ -288,15 +253,12 @@ InvoiceTableViewController * invoiceViewController;
         default:
             break;
     }
-    
-
 }
 
 
 
 -(void)CreateSessionForProject
 {
- 
     //push the sessions table view
     SessionsTableViewController *sessionsViewController = [[SessionsTableViewController alloc] initWithNibName:@"SessionsTableViewController" bundle:nil];
     
@@ -319,14 +281,6 @@ InvoiceTableViewController * invoiceViewController;
     [self.navigationController pushViewController:allSessionsViewController animated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

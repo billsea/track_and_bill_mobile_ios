@@ -10,7 +10,6 @@
 #import "ProfileTableViewController.h"
 
 @interface SettingsTableViewController ()
-
 @end
 
 @implementation SettingsTableViewController

@@ -13,13 +13,9 @@
 #import "SessionDetailTableViewController.h"
 
 @interface SessionsTableViewController ()
-
 @end
 
 @implementation SessionsTableViewController
-
-@synthesize selectedProject = _selectedProject;
-@synthesize sessionRefreshTimer = _sessionRefreshTimer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,13 +39,6 @@
 }
 
 
--(void)viewWillAppear:(BOOL)animated
-{
-
-    
-    
-}
-
 - (void)loadSessionsList
 {
     //check duplicates and if session was recently removed
@@ -71,11 +60,6 @@
             [self addNewSessionForSelectedProject];
         }
     }
-    
-//    if(_selectedProject == nil)
-//    {
-//        [[self tableView] reloadData];
-//    }
     
 }
 

@@ -9,13 +9,12 @@
 #import "SessionNotesViewController.h"
 
 @interface SessionNotesViewController ()
-
+@property(nonatomic)UITextView * notesTextView;
 @end
 
 @implementation SessionNotesViewController
 
-UITextView * notesTextView;
-@synthesize selectedSession = _selectedSession;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,12 +29,12 @@ UITextView * notesTextView;
     //set textview
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    notesTextView = [[UITextView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
+    _notesTextView = [[UITextView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
 
-    [notesTextView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-    [notesTextView setTextColor:[UIColor blackColor]];
-    [notesTextView setBackgroundColor:[UIColor clearColor]];
-    [[self view] addSubview:notesTextView];
+    [_notesTextView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [_notesTextView setTextColor:[UIColor blackColor]];
+    [_notesTextView setBackgroundColor:[UIColor clearColor]];
+    [[self view] addSubview:_notesTextView];
     
     
     //view has been touched, for dismiss keyboard
@@ -46,12 +45,12 @@ UITextView * notesTextView;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    [notesTextView setText:_selectedSession.txtNotes];
+    [_notesTextView setText:_selectedSession.txtNotes];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     //save notes
-    [_selectedSession setTxtNotes:[notesTextView text]];
+    [_selectedSession setTxtNotes:[_notesTextView text]];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {

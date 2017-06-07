@@ -9,14 +9,12 @@
 #import "MilageViewController.h"
 
 @interface MilageViewController ()
-
+@property(nonatomic)UIPickerView * milagePicker;
 @end
 
 @implementation MilageViewController
 
-UIPickerView * milagePicker;
-@synthesize selectedSession = _selectedSession;
-@synthesize pickerData = _pickerData;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,13 +38,13 @@ UIPickerView * milagePicker;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [milagePicker selectRow:[[_selectedSession milage] longValue] inComponent:0 animated:NO];
+    [_milagePicker selectRow:[[_selectedSession milage] longValue] inComponent:0 animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     //save milage selection
-    [_selectedSession setMilage:[NSNumber numberWithInteger:[milagePicker selectedRowInComponent:0]]];
+    [_selectedSession setMilage:[NSNumber numberWithInteger:[_milagePicker selectedRowInComponent:0]]];
 }
 
 - (void)loadMilagePicker
@@ -54,11 +52,11 @@ UIPickerView * milagePicker;
     //set pickerview
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    milagePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
-    milagePicker.delegate = self;
-    milagePicker.showsSelectionIndicator = YES;
+    _milagePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
+    _milagePicker.delegate = self;
+    _milagePicker.showsSelectionIndicator = YES;
     
-    [[self view] addSubview:milagePicker];
+    [[self view] addSubview:_milagePicker];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,13 +66,13 @@ UIPickerView * milagePicker;
 
 #pragma mark picker view delegate methods
 // The number of columns of data
-- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
 // The number of rows of data
-- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return _pickerData.count;
 }
@@ -85,14 +83,6 @@ UIPickerView * milagePicker;
     return _pickerData[row];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

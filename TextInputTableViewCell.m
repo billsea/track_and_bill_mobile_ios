@@ -11,8 +11,6 @@
 
 @implementation TextInputTableViewCell
 
-@synthesize fieldName = _fieldName;
-
 - (void)awakeFromNib {
     // Initialization code
     

@@ -10,5 +10,4 @@
 
 @interface ClientsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *clientNameLabel;
-
 @end

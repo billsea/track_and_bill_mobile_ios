@@ -13,5 +13,4 @@
 @property (nonatomic, retain) Session * selectedSession;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-
 @end

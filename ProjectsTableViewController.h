@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "client.h"
+#import "Client.h"
 
 @interface ProjectsTableViewController : UITableViewController
-
-
 @property (nonatomic, retain) Client * selectedClient;
 
 - (NSString *)pathForProjectsFile;

@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ClientsTableViewController : UITableViewController
-
-
 - (IBAction)addClient:(id)sender;
 
 @end

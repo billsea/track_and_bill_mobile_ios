@@ -11,12 +11,6 @@
 #import "InlineDateAndNumberPickerViewController.h"
 
 @interface AddProjectTableViewController : InlineDateAndNumberPickerViewController<UITextFieldDelegate>
-
 @property Client * selectedClient;
-
-
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-
-
-
 @end

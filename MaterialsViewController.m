@@ -9,15 +9,10 @@
 #import "MaterialsViewController.h"
 
 @interface MaterialsViewController ()
-
-
+@property(nonatomic) UITextView * textView;
 @end
 
 @implementation MaterialsViewController
-
-UITextView * textView;
-@synthesize selectedSession = _selectedSession;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,12 +26,12 @@ UITextView * textView;
     //set textview
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
-    [textView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-    [textView setTextColor:[UIColor blackColor]];
-    [textView setBackgroundColor:[UIColor clearColor]];
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10, screenRect.size.width - 10, screenRect.size.height - 50)];
+    [_textView setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+    [_textView setTextColor:[UIColor blackColor]];
+    [_textView setBackgroundColor:[UIColor clearColor]];
     
-    [[self view] addSubview:textView];
+    [[self view] addSubview:_textView];
     
     
     //view has been touched, for dismiss keyboard
@@ -48,13 +43,13 @@ UITextView * textView;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [textView setText:_selectedSession.materials];
+    [_textView setText:_selectedSession.materials];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     //save notes
-    [_selectedSession setMaterials:[textView text]];
+    [_selectedSession setMaterials:[_textView text]];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {

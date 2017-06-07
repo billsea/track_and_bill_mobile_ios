@@ -11,5 +11,5 @@
 
 @interface MilageViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 @property (nonatomic, retain) Session * selectedSession;
-@property NSMutableArray * pickerData;
+@property(nonatomic) NSMutableArray * pickerData;
 @end

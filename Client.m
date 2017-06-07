@@ -142,7 +142,6 @@
 {
 	if (self = [super init])
 	{
-
 		[self setCompanyName: [coder decodeObjectForKey:@"company"]];
 		[self setContactName: [coder decodeObjectForKey:@"contactName"]];
 		[self setEmail: [coder decodeObjectForKey:@"email"]];

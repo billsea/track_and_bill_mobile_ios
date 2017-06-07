@@ -12,9 +12,8 @@
 @interface SessionViewController : ViewController<UITextInputDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sessionProjectName;
 @property (weak, nonatomic) IBOutlet UIButton *timerButton;
-
-- (IBAction)timerToggle:(id)sender;
 @property (nonatomic, retain) Session * selectedSession;
 
+- (IBAction)timerToggle:(id)sender;
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 @end

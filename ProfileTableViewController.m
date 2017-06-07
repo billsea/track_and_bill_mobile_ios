@@ -10,17 +10,13 @@
 #import "TextInputTableViewCell.h"
 #import "Profile.h"
 
-@interface ProfileTableViewController ()
+@interface ProfileTableViewController () {
+    NSArray * _formFields;
+}
 
 @end
 
 @implementation ProfileTableViewController
-
-
-NSArray * formFields;
-
-@synthesize userData = _userData;
-@synthesize arrProfiles = _arrProfiles;
 
 
 - (void)viewDidLoad {
@@ -74,7 +70,7 @@ NSArray * formFields;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return [formFields count];
+    return [_formFields count];
 }
 
 
@@ -93,11 +89,11 @@ NSArray * formFields;
     
     //set placeholder value for new cell
     //[[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath row]]];
-    [[cell labelCell] setText:[[formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+    [[cell labelCell] setText:[[_formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
     [[cell textInput] setTag:[indexPath row]];//for scrolling workaround
-    [[cell textInput] setText:[[formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+    [[cell textInput] setText:[[_formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
     [cell setTag:[indexPath row]];
-    [cell setFieldName:[formFields objectAtIndex:[indexPath row]]];
+    [cell setFieldName:[_formFields objectAtIndex:[indexPath row]]];
     [[cell textInput] setBorderStyle:UITextBorderStyleNone];
     [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
     [[cell textInput] setTextColor:[UIColor blackColor]];
@@ -137,8 +133,8 @@ NSArray * formFields;
 -(NSMutableArray *)userData
 {
     if(!_userData){
-        _userData = [[NSMutableArray alloc] initWithCapacity:[formFields count]];
-        for (int i = 0; i < [formFields count]; i++)
+        _userData = [[NSMutableArray alloc] initWithCapacity:[_formFields count]];
+        for (int i = 0; i < [_formFields count]; i++)
             [_userData addObject:@""];
     }
     return _userData;
@@ -147,11 +143,9 @@ NSArray * formFields;
 - (void)handleProfileSubmit
 {
     //todo: handle form validation
-    
     _arrProfiles = [[NSMutableArray alloc] init];
     
     Profile *nProfile = [[Profile alloc] init];
-
     
     //Only one profile allowed for now
     if ([_arrProfiles count] < 1) {
@@ -254,7 +248,7 @@ NSArray * formFields;
     }
     
     
-    formFields = @[
+    _formFields = @[
                    @{@"FieldName": @"Your Name or Company", @"FieldValue":[NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileName]]},
                    @{@"FieldName": @"Address",@"FieldValue":[NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileAddress]]},
                    @{@"FieldName": @"City",@"FieldValue": [NSString stringWithFormat:@"%@",[[_arrProfiles objectAtIndex:0] profileCity]]},
@@ -293,7 +287,7 @@ NSArray * formFields;
 
     [rootObject setValue:_arrProfiles forKey:@"profile"];
 
-    BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject toFile:[self pathForDataFile]];
+    //BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject toFile:[self pathForDataFile]];
 
 }
 

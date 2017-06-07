@@ -8,25 +8,19 @@
 
 #import "AddProjectTableViewController.h"
 #import "TextInputTableViewCell.h"
-#import "project.h"
+#import "Project.h"
 #import "AppDelegate.h"
 #import "Session.h"
 
 #define kTableRowHeight 54
 
-@interface AddProjectTableViewController ()
-
+@interface AddProjectTableViewController () {
+    NSArray * _projectFormFields;
+}
 @property (nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
-
 @end
 
 @implementation AddProjectTableViewController
-
-@synthesize selectedClient = _selectedClient;
-
-
-
-NSArray * projectFormFields;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,22 +37,10 @@ NSArray * projectFormFields;
     [self setDate:[NSDate date] forIndexPath:self.firstDatePickerIndexPath];
     
     //input form text fields
-    projectFormFields = @[
+    _projectFormFields = @[
                          @{@"FieldName": @"Project Name", @"FieldValue":@""},
                          @{@"FieldName": @"Start Date",@"FieldValue":[NSString stringWithFormat:@"%@",[NSDate date]]}
                          ];
-    
-    
-    //view has been touched, for dismiss keyboard - Can't do this with custom date picker row
-//    UITapGestureRecognizer *singleFingerTap =
-//    [[UITapGestureRecognizer alloc] initWithTarget:self
-//                                            action:@selector(handleSingleTap:)];
-//    
-//     [self.view addGestureRecognizer:singleFingerTap];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     //set background image
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 }
@@ -69,8 +51,6 @@ NSArray * projectFormFields;
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
-    
     [[self view] endEditing:YES];
 }
 
@@ -97,8 +77,6 @@ NSArray * projectFormFields;
             }
         }
     }
-    
-    
     return newId;
 }
 
@@ -112,43 +90,9 @@ NSArray * projectFormFields;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    
-    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [projectFormFields count];
+    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [_projectFormFields count];
     return numberOfRows;
-    // Return the number of rows in the section.
-    //return [projectFormFields count];
-    
-    
 }
-
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-//    
-//    TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    
-//    if (cell == nil)
-//    {
-//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-//        cell = [nib objectAtIndex:0];
-//        
-//    }
-//    
-//    //set placeholder value for new cell
-//    [[cell textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-//    [[cell labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-//    [cell setTag:[indexPath row]];
-//    [cell setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
-//    [[cell textInput] setBorderStyle:UITextBorderStyleNone];
-//    [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-//    [[cell textInput] setTextColor:[UIColor blackColor]];
-//     cell.textInput.delegate = self;
-//
-//    
-//    return cell;
-//}
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,10 +122,6 @@ NSArray * projectFormFields;
                 }
                 
                 NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
-                //            cell.textLabel.text = [NSDateFormatter localizedStringFromDate:firstDate
-                //                                                                 dateStyle:NSDateFormatterShortStyle
-                //                                                                 timeStyle:NSDateFormatterNoStyle];
-                
                 NSString * dateFormatted = [NSDateFormatter localizedStringFromDate:firstDate
                                                                           dateStyle:NSDateFormatterShortStyle
                                                                           timeStyle:NSDateFormatterNoStyle];
@@ -215,20 +155,18 @@ NSArray * projectFormFields;
             }
             
                 //set placeholder value for new cell
-                [[cellText textInput] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-                [[cellText labelCell] setText:[[projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+                [[cellText textInput] setText:[[_projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+                [[cellText labelCell] setText:[[_projectFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
                 [cellText setTag:[indexPath row]];
             
                 //set this if we need to save save userdata on textinputdidend event
-                //[[cellText textInput] setTag:[indexPath row]];
-            
-                [cellText setFieldName:[projectFormFields objectAtIndex:[indexPath row]]];
+                [cellText setFieldName:[_projectFormFields objectAtIndex:[indexPath row]]];
                 [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
                 [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
                 [[cellText textInput] setTextColor:[UIColor blackColor]];
                  cellText.textInput.delegate = self;
             
-            [[cell contentView] addSubview:cellText];
+                [[cell contentView] addSubview:cellText];
         }
     }
     
@@ -254,8 +192,6 @@ NSArray * projectFormFields;
 
 - (void)newProjectSubmit
 {
-   
-    
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     //todo: handle form validation
@@ -280,7 +216,6 @@ NSArray * projectFormFields;
         NSString * projStart = [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0] text];
         NSDate * startDate = [df dateFromString:projStart];
 
-        
         if(!startDate)
         {
            [nProject setStartDate:[NSDate date]];
@@ -292,10 +227,8 @@ NSArray * projectFormFields;
         
         
         [nProject setEndDate:[NSDate date]];
-        
         [nProject setClientID:[[self selectedClient] clientID]];
         [nProject setProjectID:[self createProjectID]];
-        
         
         //add projects to all projects list
         [[appDelegate allProjects] addObject:nProject];
@@ -304,70 +237,5 @@ NSArray * projectFormFields;
        // [appDelegate saveProjectsToDisk];
      }
     [[self view] endEditing:YES];
-    
 }
-
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

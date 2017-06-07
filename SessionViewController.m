@@ -9,14 +9,9 @@
 #import "SessionViewController.h"
 
 @interface SessionViewController ()
-
 @end
 
 @implementation SessionViewController
-
-@synthesize selectedSession = _selectedSession;
-@synthesize sessionProjectName = _sessionProjectName;
-@synthesize timerButton = _timerButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

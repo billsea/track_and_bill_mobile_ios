@@ -13,15 +13,9 @@
 #import "SessionEditTableViewController.h"
 
 @interface AllSessionsTableViewController ()
-
-
 @end
 
 @implementation AllSessionsTableViewController
-
-@synthesize selectedProject = _selectedProject;
-@synthesize allProjectSessions = _allProjectSessions;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];

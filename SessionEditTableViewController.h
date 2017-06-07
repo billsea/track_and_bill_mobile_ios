@@ -11,7 +11,5 @@
 #import "InlineDateAndNumberPickerViewController.h"
 
 @interface SessionEditTableViewController : InlineDateAndNumberPickerViewController
-
-@property (nonatomic,retain) Session * selectedSession;
-
+@property (nonatomic) Session * selectedSession;
 @end

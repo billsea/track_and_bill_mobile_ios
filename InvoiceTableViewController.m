@@ -32,13 +32,7 @@
 @property (nonatomic, strong) NSIndexPath *thirdDatePickerIndexPath;
 @end
 
-
-
 @implementation InvoiceTableViewController
-
-@synthesize selectedProject = _selectedProject;
-@synthesize selectedInvoice = _selectedInvoice;
-@synthesize userData = _userData;
 
 NSArray * invoiceFormFields;
 NSNumber * invoiceNumberSelected;

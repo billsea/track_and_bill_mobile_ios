@@ -11,5 +11,4 @@
 
 @interface ProjectSelectTableViewController : UITableViewController<UIActionSheetDelegate>
 @property (nonatomic, retain) Project * selectedProject;
-
 @end
