@@ -281,6 +281,4 @@
     [self.navigationController pushViewController:allSessionsViewController animated:YES];
 }
 
-
-
 @end

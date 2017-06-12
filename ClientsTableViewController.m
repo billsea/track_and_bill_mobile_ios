@@ -15,7 +15,7 @@
 #import "Project.h"
 
 @interface ClientsTableViewController ()
-@property UIBarButtonItem * addClientButton;
+@property UIBarButtonItem *addClientButton;
 @end
 
 @implementation ClientsTableViewController

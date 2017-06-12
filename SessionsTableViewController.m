@@ -60,7 +60,6 @@
             [self addNewSessionForSelectedProject];
         }
     }
-    
 }
 
 //update the timer label for each session when timer ticks

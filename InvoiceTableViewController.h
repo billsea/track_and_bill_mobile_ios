@@ -15,7 +15,7 @@
 
 @interface InvoiceTableViewController : InlineDateAndNumberPickerViewController<ReaderViewControllerDelegate,ADInterstitialAdDelegate>
 {
-    ADInterstitialAd *interstitial;
+  ADInterstitialAd *interstitial;
 }
 
 @property (nonatomic, retain) Project * selectedProject;

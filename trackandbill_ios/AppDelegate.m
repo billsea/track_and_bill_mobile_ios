@@ -20,18 +20,6 @@
 
 @implementation AppDelegate
 
-@synthesize tabBarController = _tabBarController;
-@synthesize sessionTimer = _sessionTimer;
-@synthesize arrClients = _arrClients;
-@synthesize arrInvoices = _arrInvoices;
-@synthesize currentSessions = _currentSessions;
-@synthesize storedSessions = _storedSessions;
-@synthesize clientProjects = _clientProjects;//only currently displayed projects for selected client
-@synthesize allProjects = _allProjects;
-@synthesize removedSession = _removedSession;
-@synthesize activeSession = _activeSession;
-@synthesize timeSave = _timeSave;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //check ios version
