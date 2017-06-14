@@ -13,15 +13,15 @@
 #import <iAd/iAd.h>
 #import "InlineDateAndNumberPickerViewController.h"
 
-@interface InvoiceTableViewController : InlineDateAndNumberPickerViewController<ReaderViewControllerDelegate,ADInterstitialAdDelegate>
-{
+@interface InvoiceTableViewController
+    : InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate,
+                                               ADInterstitialAdDelegate> {
   ADInterstitialAd *interstitial;
 }
 
-@property (nonatomic, retain) Project * selectedProject;
-@property (nonatomic, retain) Invoice * selectedInvoice;
-@property (strong, nonatomic)  NSMutableArray *userData;
-
+@property(nonatomic, retain) Project *selectedProject;
+@property(nonatomic, retain) Invoice *selectedInvoice;
+@property(strong, nonatomic) NSMutableArray *userData;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 - (void)dismissReaderViewController:(ReaderViewController *)viewController;

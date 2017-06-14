@@ -10,37 +10,40 @@
 #import <CoreData/CoreData.h>
 #import "Session.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
+@interface AppDelegate
+    : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) UIWindow *window;
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (retain, nonatomic) UITabBarController * tabBarController;
-@property (weak) NSTimer * sessionTimer;
+@property(readonly, strong, nonatomic)
+    NSManagedObjectContext *managedObjectContext;
+@property(readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property(readonly, strong, nonatomic)
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property(retain, nonatomic) UITabBarController *tabBarController;
+@property(weak) NSTimer *sessionTimer;
 
-@property (nonatomic, retain) NSMutableArray *arrClients;
-@property (nonatomic, retain) NSMutableArray *currentSessions;
-@property (nonatomic, retain) NSMutableArray *storedSessions;
-@property (nonatomic, retain) NSMutableArray *selSessions;
-@property (nonatomic, retain) NSMutableArray *arrInvoices;
-@property (nonatomic, retain) NSMutableArray *clientProjects;
-@property (nonatomic,retain) NSMutableArray *allProjects;
-@property Session * removedSession;
-@property Session * activeSession;
-@property NSDate * timeSave;
+@property(nonatomic, retain) NSMutableArray *arrClients;
+@property(nonatomic, retain) NSMutableArray *currentSessions;
+@property(nonatomic, retain) NSMutableArray *storedSessions;
+@property(nonatomic, retain) NSMutableArray *selSessions;
+@property(nonatomic, retain) NSMutableArray *arrInvoices;
+@property(nonatomic, retain) NSMutableArray *clientProjects;
+@property(nonatomic, retain) NSMutableArray *allProjects;
+@property Session *removedSession;
+@property Session *activeSession;
+@property NSDate *timeSave;
 
-
-- (void) saveProjectsToDisk;
-- (void) saveInvoicesToDisk;
-- (void) saveClientsToDisk;
-- (void) saveSessionsToDisk;
+- (void)saveProjectsToDisk;
+- (void)saveInvoicesToDisk;
+- (void)saveClientsToDisk;
+- (void)saveSessionsToDisk;
 
 - (void)RegisterForNotifications;
 - (NSString *)pathToDataFile:(NSString *)fileName;
--(void)removeSessionsForProjectId:(NSNumber *)ProjectId;
--(void)removeInvoicesForProjectId:(NSNumber *)ProjectId;
+- (void)removeSessionsForProjectId:(NSNumber *)ProjectId;
+- (void)removeInvoicesForProjectId:(NSNumber *)ProjectId;
 - (void)showMessage:(NSString *)text withTitle:(NSString *)title;
 @end
+
 

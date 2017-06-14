@@ -9,10 +9,10 @@
 #import "ViewController.h"
 #import "Session.h"
 
-@interface SessionViewController : ViewController<UITextInputDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *sessionProjectName;
-@property (weak, nonatomic) IBOutlet UIButton *timerButton;
-@property (nonatomic, retain) Session * selectedSession;
+@interface SessionViewController : ViewController <UITextInputDelegate>
+@property(weak, nonatomic) IBOutlet UILabel *sessionProjectName;
+@property(weak, nonatomic) IBOutlet UIButton *timerButton;
+@property(nonatomic, retain) Session *selectedSession;
 
 - (IBAction)timerToggle:(id)sender;
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;

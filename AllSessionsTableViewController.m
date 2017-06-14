@@ -18,179 +18,183 @@
 @implementation AllSessionsTableViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Set the title of the navigation item
-    [[self navigationItem] setTitle:[_selectedProject projectName]];
-    
-    //set background image
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.allProjectSessions = [[NSMutableArray alloc] init];
-    
-   
-   
+  [super viewDidLoad];
+
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+
+  // Set the title of the navigation item
+  [[self navigationItem] setTitle:[_selectedProject projectName]];
+
+  // set background image
+  [[self view]
+      setBackgroundColor:[UIColor
+                             colorWithPatternImage:
+                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
+
+  // Uncomment the following line to display an Edit button in the navigation
+  // bar for this view controller.
+  self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+  self.allProjectSessions = [[NSMutableArray alloc] init];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-     [self loadAllSessionsForProject];
+- (void)viewWillAppear:(BOOL)animated {
+  [self loadAllSessionsForProject];
 }
 
+- (void)loadAllSessionsForProject {
+  AppDelegate *appDelegate =
+      (AppDelegate *)[UIApplication sharedApplication].delegate;
 
--(void)loadAllSessionsForProject
-{
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+  // remove existing
+  [self.allProjectSessions removeAllObjects];
 
-    //remove existing
-    [self.allProjectSessions removeAllObjects];
-    
-    for(Session * s in [appDelegate storedSessions])
-    {
-        if(s.projectIDref == [_selectedProject projectID])
-        {
-            [self.allProjectSessions addObject:s];
-        }
+  for (Session *s in [appDelegate storedSessions]) {
+    if (s.projectIDref == [_selectedProject projectID]) {
+      [self.allProjectSessions addObject:s];
     }
-    
-    [[self tableView] reloadData];
+  }
+
+  [[self tableView] reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    // Return the number of sections.
-    return 1;
+  // Return the number of sections.
+  return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView
+    numberOfRowsInSection:(NSInteger)section {
 
-    // Return the number of rows in the section.
-    return [self.allProjectSessions count];
+  // Return the number of rows in the section.
+  return [self.allProjectSessions count];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy"];
-    
-    static NSString *CellIdentifier = @"SessionCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+  NSDateFormatter *df = [[NSDateFormatter alloc] init];
+  [df setDateFormat:@"MM/dd/yyyy"];
+
+  static NSString *CellIdentifier = @"SessionCell";
+  UITableViewCell *cell =
+      [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:CellIdentifier];
+  }
+
+  [cell setBackgroundColor:[UIColor clearColor]];
+  cell.accessoryView = nil;
+
+  // clear cell subviews-clears old cells
+  if (cell != nil) {
+    NSArray *subviews = [cell.contentView subviews];
+    for (UIView *view in subviews) {
+      [view removeFromSuperview];
     }
-    
-    [cell setBackgroundColor:[UIColor clearColor]];
-    cell.accessoryView =nil;
-    
-    //clear cell subviews-clears old cells
-    if (cell != nil)
-    {
-        NSArray* subviews = [cell.contentView subviews];
-        for (UIView* view in subviews)
-        {
-            [view removeFromSuperview];
-        }
-    }
-    
-    
-    Session *rSession = [self.allProjectSessions objectAtIndex:[indexPath row]];
-    
-    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,11, cell.frame.size.width - 100, 21)];
-    //[cellLabel setText:rSession.projectName];
-    [cellLabel setText:[df stringFromDate:rSession.sessionDate]];
-    [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
-    [cellLabel setTextColor:[UIColor blackColor]];
-    
-    
+  }
 
-    [[cell contentView] addSubview:cellLabel];
+  Session *rSession = [self.allProjectSessions objectAtIndex:[indexPath row]];
 
-    return cell;
+  UILabel *cellLabel = [[UILabel alloc]
+      initWithFrame:CGRectMake(10, 11, cell.frame.size.width - 100, 21)];
+  //[cellLabel setText:rSession.projectName];
+  [cellLabel setText:[df stringFromDate:rSession.sessionDate]];
+  [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
+  [cellLabel setTextColor:[UIColor blackColor]];
+
+  [[cell contentView] addSubview:cellLabel];
+
+  return cell;
 }
-
-
 
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (BOOL)tableView:(UITableView *)tableView
+    canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+  // Return NO if you do not want the specified item to be editable.
+  return YES;
 }
-
-
 
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        
-        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        Session *removeSession = [self.allProjectSessions objectAtIndex:[indexPath row]];
-        
-        //remove session from stored sessions array
-        [[appDelegate storedSessions] removeObjectIdenticalTo:removeSession];
-        
-        // Delete the row from the data source
-       // [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        [self loadAllSessionsForProject];
-        
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
+- (void)tableView:(UITableView *)tableView
+    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+     forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
 
+    AppDelegate *appDelegate =
+        (AppDelegate *)[UIApplication sharedApplication].delegate;
+    Session *removeSession =
+        [self.allProjectSessions objectAtIndex:[indexPath row]];
+
+    // remove session from stored sessions array
+    [[appDelegate storedSessions] removeObjectIdenticalTo:removeSession];
+
+    // Delete the row from the data source
+    // [tableView deleteRowsAtIndexPaths:@[indexPath]
+    // withRowAnimation:UITableViewRowAnimationFade];
+
+    [self loadAllSessionsForProject];
+
+  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    // Create a new instance of the appropriate class, insert it into the array,
+    // and add a new row to the table view
+  }
+}
 
 /*
 // Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath
+*)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
 }
 */
 
 /*
 // Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath
+*)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
 */
 
-
 #pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    SessionEditTableViewController *editViewController = [[SessionEditTableViewController alloc] initWithNibName:@"SessionEditTableViewController" bundle:nil];
-    
-    Session * selSession = (Session *)[self.allProjectSessions objectAtIndex:[indexPath row]];
-    
-    // Pass the selected object to the new view controller.
-    [editViewController setSelectedSession:selSession];
-    // Push the view controller.
-    [self.navigationController pushViewController:editViewController animated:YES];
-}
+// In a xib-based application, navigation from a table can be handled in
+// -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView
+    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  // Navigation logic may go here, for example:
+  // Create the next view controller.
+  SessionEditTableViewController *editViewController =
+      [[SessionEditTableViewController alloc]
+          initWithNibName:@"SessionEditTableViewController"
+                   bundle:nil];
 
+  Session *selSession =
+      (Session *)[self.allProjectSessions objectAtIndex:[indexPath row]];
+
+  // Pass the selected object to the new view controller.
+  [editViewController setSelectedSession:selSession];
+  // Push the view controller.
+  [self.navigationController pushViewController:editViewController
+                                       animated:YES];
+}
 
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+// In a storyboard-based application, you will often want to do a little
+preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

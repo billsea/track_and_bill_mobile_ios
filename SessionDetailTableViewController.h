@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Session.h"
 
-@interface SessionDetailTableViewController : UITableViewController<UIActionSheetDelegate>
-@property (nonatomic, retain) Session * selectedSession;
+@interface SessionDetailTableViewController
+    : UITableViewController <UIActionSheetDelegate>
+@property(nonatomic, retain) Session *selectedSession;
 
 - (IBAction)timerToggle:(id)sender;
 @end

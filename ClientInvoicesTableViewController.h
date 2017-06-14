@@ -11,6 +11,6 @@
 
 @interface ClientInvoicesTableViewController : UITableViewController
 
-@property (nonatomic) Client * selClient;
-@property (nonatomic) NSMutableArray * invoicesForClient;
+@property(nonatomic) Client *selClient;
+@property(nonatomic) NSMutableArray *invoicesForClient;
 @end

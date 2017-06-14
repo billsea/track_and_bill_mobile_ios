@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Client.h"
 
-@interface AddClientTableViewController : UITableViewController<UITextFieldDelegate>
-@property (strong, nonatomic)  NSMutableArray *userData;
+@interface AddClientTableViewController
+    : UITableViewController <UITextFieldDelegate>
+@property(strong, nonatomic) NSMutableArray *userData;
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 - (void)newClientSubmit;
 @end

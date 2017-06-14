@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Session.h"
 
-@interface MaterialsViewController : UIViewController<UITextInputDelegate>
-@property (nonatomic, retain) Session * selectedSession;
+@interface MaterialsViewController : UIViewController <UITextInputDelegate>
+@property(nonatomic, retain) Session *selectedSession;
 @end

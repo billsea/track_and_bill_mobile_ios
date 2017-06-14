@@ -9,25 +9,23 @@
 //#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 
-
-@interface Project : NSObject <NSCoding>{
-	NSString *projectName;
-	NSString *clientName;
-	NSDate *startDate;
-	NSDate *endDate;
-	NSString *totalTime;
-	NSNumber * projectID;
-	NSNumber * clientID;
+@interface Project : NSObject <NSCoding> {
+  NSString *projectName;
+  NSString *clientName;
+  NSDate *startDate;
+  NSDate *endDate;
+  NSString *totalTime;
+  NSNumber *projectID;
+  NSNumber *clientID;
 }
 
-- (NSString *) projectName;
-- (NSString *) clientName;
-- (NSDate *) startDate;
-- (NSDate *) endDate;
-- (NSString *) totalTime;
-- (NSNumber *) projectID;
-- (NSNumber *) clientID;
-
+- (NSString *)projectName;
+- (NSString *)clientName;
+- (NSDate *)startDate;
+- (NSDate *)endDate;
+- (NSString *)totalTime;
+- (NSNumber *)projectID;
+- (NSNumber *)clientID;
 
 - (void)setProjectName:(NSString *)pName;
 - (void)setClientName:(NSString *)cName;

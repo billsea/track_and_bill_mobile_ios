@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SessionsTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *sessionNameLabel;
+@property(weak, nonatomic) IBOutlet UILabel *sessionNameLabel;
 
 @end

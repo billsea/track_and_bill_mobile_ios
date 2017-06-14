@@ -9,60 +9,59 @@
 //#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 
-
-@interface Invoice : NSObject <NSCoding>{
-	NSNumber *invoiceNumber;
-	NSString *projectName;
-	NSString *clientName;
-	NSDate *startDate;
-	NSDate *endDate;
-	NSDate *invoiceDate;
-	NSString *totalTime;
-	NSNumber *projectID;
-	NSNumber *clientID;
-	NSString *checkNumber;
-	NSString *approvalName;
-	NSString *invoiceTerms;
-	NSString *invoiceNotes;
-	NSString *invoiceMaterials;
-	float materialsTotal;
-	NSString *SmaterialsTotal;//materials total as string value
-	float invoiceDeposit;
-	NSString *SinvoiceDeposit;
-	float totalDue;
-	NSString *StotalDue;
-	double invoiceRate;
-	NSString *SinvoiceRate;
-	double grandTotal;
-	NSString *SgrandTotal;
-    NSNumber * milage;
-    NSNumber * milageRate;
+@interface Invoice : NSObject <NSCoding> {
+  NSNumber *invoiceNumber;
+  NSString *projectName;
+  NSString *clientName;
+  NSDate *startDate;
+  NSDate *endDate;
+  NSDate *invoiceDate;
+  NSString *totalTime;
+  NSNumber *projectID;
+  NSNumber *clientID;
+  NSString *checkNumber;
+  NSString *approvalName;
+  NSString *invoiceTerms;
+  NSString *invoiceNotes;
+  NSString *invoiceMaterials;
+  float materialsTotal;
+  NSString *SmaterialsTotal; // materials total as string value
+  float invoiceDeposit;
+  NSString *SinvoiceDeposit;
+  float totalDue;
+  NSString *StotalDue;
+  double invoiceRate;
+  NSString *SinvoiceRate;
+  double grandTotal;
+  NSString *SgrandTotal;
+  NSNumber *milage;
+  NSNumber *milageRate;
 }
 
-- (NSNumber *) invoiceNumber;
-- (NSString *) projectName;
-- (NSString *) clientName;
-- (NSDate *) startDate;
-- (NSDate *) endDate;
-- (NSDate *) invoiceDate;
-- (NSString *) totalTime;
-- (NSNumber *) projectID;
-- (NSNumber *) clientID;
-- (NSString *) checkNumber;
-- (NSString *) approvalName;
-- (NSString *) invoiceTerms;
-- (NSString *) invoiceNotes;
-- (NSString *) invoiceMaterials;
-- (float) materialsTotal;
-- (NSString *) SmaterialsTotal;//materials total as string value
-- (float) invoiceDeposit;
-- (NSString *) SinvoiceDeposit;
-- (float) totalDue;
-- (NSString *) StotalDue;
-- (double) invoiceRate;
-- (NSString *) SinvoiceRate;
-- (double) grandTotal;
-- (NSString *) SgrandTotal;
+- (NSNumber *)invoiceNumber;
+- (NSString *)projectName;
+- (NSString *)clientName;
+- (NSDate *)startDate;
+- (NSDate *)endDate;
+- (NSDate *)invoiceDate;
+- (NSString *)totalTime;
+- (NSNumber *)projectID;
+- (NSNumber *)clientID;
+- (NSString *)checkNumber;
+- (NSString *)approvalName;
+- (NSString *)invoiceTerms;
+- (NSString *)invoiceNotes;
+- (NSString *)invoiceMaterials;
+- (float)materialsTotal;
+- (NSString *)SmaterialsTotal; // materials total as string value
+- (float)invoiceDeposit;
+- (NSString *)SinvoiceDeposit;
+- (float)totalDue;
+- (NSString *)StotalDue;
+- (double)invoiceRate;
+- (NSString *)SinvoiceRate;
+- (double)grandTotal;
+- (NSString *)SgrandTotal;
 - (NSNumber *)milage;
 - (NSNumber *)milageRate;
 

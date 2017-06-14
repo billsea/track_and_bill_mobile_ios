@@ -10,7 +10,7 @@
 #import "Client.h"
 
 @interface ProjectsTableViewController : UITableViewController
-@property (nonatomic, retain) Client * selectedClient;
+@property(nonatomic, retain) Client *selectedClient;
 
 - (NSString *)pathForProjectsFile;
 - (void)RetrieveProjects;

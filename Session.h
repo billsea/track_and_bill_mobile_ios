@@ -9,50 +9,47 @@
 //#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 
+@interface Session : NSObject <NSCoding> {
 
-@interface Session : NSObject <NSCoding>{
+  NSString *projectName;
+  NSString *clientName;
+  NSDate *sessionDate;
+  NSDate *startTime;
+  NSDate *endTime;
+  // NSButtonCell *startClock;
+  // NSButtonCell *textNotes; //for text and audio notes
+  NSString *txtNotes;
+  NSNumber *milage;
+  NSNumber *projectIDref;
+  NSNumber *sessionID;
 
-	NSString * projectName;
-	NSString * clientName;
-	NSDate * sessionDate;
-	NSDate * startTime;
-	NSDate * endTime;
-	//NSButtonCell *startClock;
-	//NSButtonCell *textNotes; //for text and audio notes
-	NSString * txtNotes;
-    NSNumber * milage;
-	NSNumber * projectIDref;
-	NSNumber * sessionID;
-    
-    NSNumber * sessionHours;
-    NSNumber * sessionMinutes;
-    NSNumber * sessionSeconds;
-    
-    NSString * materials;
+  NSNumber *sessionHours;
+  NSNumber *sessionMinutes;
+  NSNumber *sessionSeconds;
 
-    float _ticks;
-	
+  NSString *materials;
+
+  float _ticks;
 }
 
-@property (weak) NSTimer * sessionTimer;
+@property(weak) NSTimer *sessionTimer;
 @property BOOL TimerRunning;
-@property NSString * timerValue;
+@property NSString *timerValue;
 
-- (NSString *) projectName;
-- (NSString *) clientName;
-- (NSDate *) sessionDate;
-- (NSString *) startTime;
-- (NSString *) endTime;
-- (NSString *) txtNotes;
-- (NSNumber *) milage;
-- (NSNumber *) projectIDref;
-- (NSNumber *) sessionID;
-- (NSNumber *) sessionHours;
-- (NSNumber *) sessionMinutes;
-- (NSNumber *) sessionSeconds;
-- (NSString *) materials;
--(float)ticks;
-
+- (NSString *)projectName;
+- (NSString *)clientName;
+- (NSDate *)sessionDate;
+- (NSString *)startTime;
+- (NSString *)endTime;
+- (NSString *)txtNotes;
+- (NSNumber *)milage;
+- (NSNumber *)projectIDref;
+- (NSNumber *)sessionID;
+- (NSNumber *)sessionHours;
+- (NSNumber *)sessionMinutes;
+- (NSNumber *)sessionSeconds;
+- (NSString *)materials;
+- (float)ticks;
 
 - (void)setProjectName:(NSString *)pName;
 - (void)setClientName:(NSString *)cName;
@@ -64,11 +61,11 @@
 - (void)setProjectIDref:(NSNumber *)pIDref;
 - (void)setSessionID:(NSNumber *)sID;
 - (int)getDateFormatSetting;
--(void)setSessionHours:(NSNumber *)hours;
--(void)setSessionMinutes:(NSNumber *)minutes;
--(void)setSessionSeconds:(NSNumber *)seconds;
+- (void)setSessionHours:(NSNumber *)hours;
+- (void)setSessionMinutes:(NSNumber *)minutes;
+- (void)setSessionSeconds:(NSNumber *)seconds;
 - (void)setMaterials:(NSString *)pMaterials;
 - (void)startTimer;
--(void)stopTimer;
--(void)setTicks:(float)nTicks;
+- (void)stopTimer;
+- (void)setTicks:(float)nTicks;
 @end

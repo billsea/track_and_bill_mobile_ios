@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Project.h" 
+#import "Project.h"
 
 @interface AllSessionsTableViewController : UITableViewController
-@property (nonatomic, retain) Project * selectedProject;
-@property (nonatomic) NSMutableArray *allProjectSessions;
+@property(nonatomic, retain) Project *selectedProject;
+@property(nonatomic) NSMutableArray *allProjectSessions;
 @end

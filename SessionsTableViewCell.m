@@ -11,9 +11,9 @@
 @implementation SessionsTableViewCell
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+  [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+  // Configure the view for the selected state
 }
 
 @end

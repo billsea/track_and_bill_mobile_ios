@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Project.h"
 
-@interface SessionsTableViewController : UITableViewController<UIActionSheetDelegate>
-@property (weak) NSTimer * sessionRefreshTimer;
+@interface SessionsTableViewController
+    : UITableViewController <UIActionSheetDelegate>
+@property(weak) NSTimer *sessionRefreshTimer;
 @property(nonatomic, retain) Project *selectedProject;
 @end

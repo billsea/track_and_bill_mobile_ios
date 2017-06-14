@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileTableViewController : UITableViewController<UITextFieldDelegate>
-@property (nonatomic, retain) NSMutableArray *arrProfiles;
-@property (strong, nonatomic)  NSMutableArray *userData;
+@interface ProfileTableViewController
+    : UITableViewController <UITextFieldDelegate>
+@property(nonatomic, retain) NSMutableArray *arrProfiles;
+@property(strong, nonatomic) NSMutableArray *userData;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-- (void) saveDataToDisk;
+- (void)saveDataToDisk;
 
 @end

@@ -12,24 +12,23 @@
 @implementation TextInputTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    
-    self.textInput.delegate = self;
-    
+  // Initialization code
+
+  self.textInput.delegate = self;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == self.textInput) {
-        [textField resignFirstResponder];
-        return NO;
-    }
-    return YES;
+  if (textField == self.textInput) {
+    [textField resignFirstResponder];
+    return NO;
+  }
+  return YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+  [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+  // Configure the view for the selected state
 }
 
 @end

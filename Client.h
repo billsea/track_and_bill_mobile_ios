@@ -8,30 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Client : NSObject <NSCoding>{
-	NSString *company;
-	NSString *contactName;
-	NSString *email;
-	NSString *streetAddress;
-	NSString *city;
-	NSString *country;
-	NSString *state;
-	NSString *postalCode;
-	NSString *phoneNumber;
-	NSNumber * clientID;
-
+@interface Client : NSObject <NSCoding> {
+  NSString *company;
+  NSString *contactName;
+  NSString *email;
+  NSString *streetAddress;
+  NSString *city;
+  NSString *country;
+  NSString *state;
+  NSString *postalCode;
+  NSString *phoneNumber;
+  NSNumber *clientID;
 }
 
-- (NSString *) company;
-- (NSString *) contactName;
-- (NSString *) email;
-- (NSString *) streetAddress;
-- (NSString *) city;
-- (NSString *) country;
-- (NSString *) state;
-- (NSString *) postalCode;
-- (NSString *) phoneNumber;
-- (NSNumber *) clientID;
+- (NSString *)company;
+- (NSString *)contactName;
+- (NSString *)email;
+- (NSString *)streetAddress;
+- (NSString *)city;
+- (NSString *)country;
+- (NSString *)state;
+- (NSString *)postalCode;
+- (NSString *)phoneNumber;
+- (NSNumber *)clientID;
 
 - (void)setCompanyName:(NSString *)pCompany;
 - (void)setContactName:(NSString *)pContact;
