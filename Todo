@@ -1,4 +1,5 @@
 
+////Bugs////////////
 - Here's where I left off with development
 '- Form input validation(sessionEditTableView, InvoiceTableView)
     - Added a custom view which included a date picker, for date, and picker view for number input
@@ -13,3 +14,16 @@
 - Project create should include button to start a session.
 
 - PDF Exporter view "Done" button is not working. could be because of some cleanup work.
+
+////Enhancements ///////
+	- Remove tabs, and change clients table view to collection view, and add client and settings cell
+		- do the same with project table, and anywhere else where there's a finite number of cells
+	- If no profile exists when creating invoice, user should be taken to the profile settings view, in addition to displaying alert.
+	- App Icon
+		- Use simple clock or gear with dollar sign in middle
+	- Add NUI to app, and work with styling
+	- Clean up model classes...they are a bit of a mishmash.
+
+////Advertisements //////
+	- Add banner to each view
+	- Add full view interstitial when user creates an invoice.
