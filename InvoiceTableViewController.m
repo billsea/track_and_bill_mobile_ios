@@ -291,7 +291,7 @@ NSNumber *invoiceNumberSelected;
 }
 
 - (void)viewDidUnload {
-  interstitial.delegate = nil;
+
 }
 - (NSMutableArray *)userData {
   if (!_userData) {
@@ -1689,67 +1689,7 @@ array, and add a new row to the table view
   // [self dismissModalViewControllerAnimated:YES];
 }
 
-#pragma mark Interstitial Management
 
-- (void)cycleInterstitial {
-  // Clean up the old interstitial...
-  interstitial.delegate = nil;
-  // and create a new interstitial. We set the delegate so that we can be
-  // notified of when
-  interstitial = [[ADInterstitialAd alloc] init];
-  interstitial.delegate = self;
-}
-
-- (void)presentInterlude {
-  // If the interstitial managed to load, then we'll present it now.
-  if (interstitial.loaded) {
-    // [interstitial presentFromViewController:self];
-    // [self requestInterstitialAdPresentation];
-    [interstitial presentInView:self.view];
-  } else {
-    //[self resetGameSoon];
-  }
-}
-
-#pragma mark ADInterstitialViewDelegate methods
-
-// When this method is invoked, the application should remove the view from the
-// screen and tear it down.
-// The content will be unloaded shortly after this method is called and no new
-// content will be loaded in that view.
-// This may occur either when the user dismisses the interstitial view via the
-// dismiss button or
-// if the content in the view has expired.
-- (void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd {
-  [self cycleInterstitial];
-  //    if (gamePhase == ADGameWon) {
-  //        [self resetGameSoon];
-  //    }
-}
-
-// This method will be invoked when an error has occurred attempting to get
-// advertisement content.
-// The ADError enum lists the possible error codes.
-- (void)interstitialAd:(ADInterstitialAd *)interstitialAd
-      didFailWithError:(NSError *)error {
-  [self cycleInterstitial];
-  //    if (gamePhase == ADGameWon) {
-  //        [self resetGameSoon];
-  //    }
-}
-
-//-(void)interstitialAdDidLoad:(ADInterstitialAd *)interstitialAd {
-//    NSLog(@"interstitialAdDidLOAD");
-//    if (interstitialAd != nil && interstitial != nil) {
-//        [self requestInterstitialAdPresentation];
-//       // [interstitial presentFromViewController:self];
-//        NSLog(@"interstitialAdDidPRESENT");
-//    }//end if
-//}
-
-- (void)dealloc {
-  interstitial.delegate = nil;
-}
 /*
 #pragma mark - Navigation
 

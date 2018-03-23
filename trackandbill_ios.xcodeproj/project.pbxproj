@@ -117,7 +117,6 @@
 		A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */; };
 		A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */; };
 		A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */; };
-		A9E374DD1B0A4C1F004B4B90 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E374DC1B0A4C1F004B4B90 /* iAd.framework */; };
 		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
 		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
 		A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FDC2351B0FD9F900112426 /* Foundation.framework */; };
@@ -311,7 +310,6 @@
 		A9E04B1C1AF6A01400342210 /* ClientInvoicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientInvoicesTableViewController.h; sourceTree = "<group>"; };
 		A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientInvoicesTableViewController.m; sourceTree = "<group>"; };
 		A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientInvoicesTableViewController.xib; sourceTree = "<group>"; };
-		A9E374DC1B0A4C1F004B4B90 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
 		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
 		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 			files = (
 				A9FDC2391B0FDA8200112426 /* UIKit.framework in Frameworks */,
 				A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */,
-				A9E374DD1B0A4C1F004B4B90 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +344,6 @@
 				A9A2E68A1B14D60400A478AE /* readMeStatus */,
 				A9FDC2381B0FDA8200112426 /* UIKit.framework */,
 				A9FDC2351B0FD9F900112426 /* Foundation.framework */,
-				A9E374DC1B0A4C1F004B4B90 /* iAd.framework */,
 				A9DC4CD31AEAFCCF00A00892 /* PDFReader */,
 				A9DC4CD41AEAFD3900A00892 /* UIElements */,
 				A9DC4CD01AEAFC2600A00892 /* Classes */,

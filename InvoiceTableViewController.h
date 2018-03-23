@@ -10,13 +10,10 @@
 #import "Project.h"
 #import "ReaderViewController.h"
 #import "Invoice.h"
-#import <iAd/iAd.h>
 #import "InlineDateAndNumberPickerViewController.h"
 
 @interface InvoiceTableViewController
-    : InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate,
-                                               ADInterstitialAdDelegate> {
-  ADInterstitialAd *interstitial;
+    : InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate> {
 }
 
 @property(nonatomic, retain) Project *selectedProject;
