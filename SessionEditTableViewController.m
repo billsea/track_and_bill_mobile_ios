@@ -80,7 +80,7 @@
     },
     @{
       @"FieldName" : @"Seconds",
-      @"FieldValue" : [self formatNumber:_selectedSession.sessionSeconds:0]
+      @"FieldValue" : [self formatNumberWithNumber:_selectedSession.sessionSeconds andDigits:0]
     },
     @{
       @"FieldName" : @"Materials",
@@ -173,7 +173,7 @@
                       contentView] subviews] objectAtIndex:0] textInput] text]];
 }
 
-- (NSString *)formatNumber:(NSNumber *)number:(NSUInteger)fractionDigits {
+- (NSString *)formatNumberWithNumber:(NSNumber *)number andDigits:(NSUInteger)fractionDigits {
   NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 
   [formatter setNumberStyle:NSNumberFormatterDecimalStyle];

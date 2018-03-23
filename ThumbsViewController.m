@@ -331,7 +331,7 @@
 
 	NSInteger page = (showBookmarked ? [[bookmarked objectAtIndex:index] integerValue] : (index + 1));
 
-	[thumbCell showText:[NSString stringWithFormat:@"%d", page]]; // Page number place holder
+	[thumbCell showText:[NSString stringWithFormat:@"%ld", (long)page]]; // Page number place holder
 
 	[thumbCell showBookmark:[document.bookmarks containsIndex:page]]; // Show bookmarked status
 
@@ -444,7 +444,7 @@
 		textLabel.userInteractionEnabled = NO;
 		textLabel.contentMode = UIViewContentModeRedraw;
 		textLabel.autoresizingMask = UIViewAutoresizingNone;
-		textLabel.textAlignment = UITextAlignmentCenter;
+		textLabel.textAlignment = NSTextAlignmentCenter;
 		textLabel.font = [UIFont systemFontOfSize:fontSize];
 		textLabel.textColor = [UIColor colorWithWhite:0.24f alpha:1.0f];
 		textLabel.backgroundColor = [UIColor whiteColor];

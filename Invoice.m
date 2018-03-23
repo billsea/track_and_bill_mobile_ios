@@ -81,7 +81,7 @@
 - (float)invoiceDeposit {
   return invoiceDeposit;
 }
-- (float)grandTotal {
+- (double)grandTotal {
   return grandTotal;
 }
 - (NSString *)SgrandTotal {

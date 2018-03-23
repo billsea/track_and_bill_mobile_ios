@@ -7,7 +7,7 @@
 //
 
 #import "ProjectsTableViewController.h"
-#import "project.h"
+#import "Project.h"
 #import "ProjectsTableViewCell.h"
 #import "SessionsTableViewController.h"
 #import "AddProjectTableViewController.h"
@@ -103,6 +103,8 @@
 
   BOOL success = [NSKeyedArchiver archiveRootObject:rootObject
                                              toFile:[self pathForProjectsFile]];
+	
+	assert(success);
 }
 
 // calculate total project time from session data

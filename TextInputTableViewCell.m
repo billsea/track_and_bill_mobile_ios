@@ -12,8 +12,7 @@
 @implementation TextInputTableViewCell
 
 - (void)awakeFromNib {
-  // Initialization code
-
+	[super awakeFromNib];
   self.textInput.delegate = self;
 }
 

@@ -318,25 +318,16 @@
 }
 
 - (void)saveClientsToDisk {
-
   NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-
   [rootObject setValue:[self arrClients] forKey:@"client"];
-
-  BOOL success =
-      [NSKeyedArchiver archiveRootObject:rootObject
-                                  toFile:[self pathToDataFile:@"clients.tbd"]];
+	[self archiveObjectWithFileName:@"clients.tbd" andRootObject:rootObject];
 }
 
 - (void)saveInvoicesToDisk {
 
   NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-
   [rootObject setValue:[self arrInvoices] forKey:@"invoice"];
-
-  BOOL success =
-      [NSKeyedArchiver archiveRootObject:rootObject
-                                  toFile:[self pathToDataFile:@"invoices.tbd"]];
+	[self archiveObjectWithFileName:@"invoices.tbd" andRootObject:rootObject];
 }
 
 - (void)saveProjectsToDisk {
@@ -351,22 +342,22 @@
   }
 
   NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-
   [rootObject setValue:storeProjects forKey:@"project"];
-
-  BOOL success =
-      [NSKeyedArchiver archiveRootObject:rootObject
-                                  toFile:[self pathToDataFile:@"projects.tbd"]];
+	[self archiveObjectWithFileName:@"projects.tbd" andRootObject:rootObject];
 }
 
 - (void)saveSessionsToDisk {
   NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-
   [rootObject setValue:[self storedSessions] forKey:@"session"];
+	[self archiveObjectWithFileName:@"sessions.tbd" andRootObject:rootObject];
+}
 
-  BOOL success =
-      [NSKeyedArchiver archiveRootObject:rootObject
-                                  toFile:[self pathToDataFile:@"sessions.tbd"]];
+- (void)archiveObjectWithFileName:(NSString*)fileName andRootObject:(NSMutableDictionary*)rootObject {
+	BOOL success =
+	[NSKeyedArchiver archiveRootObject:rootObject
+															toFile:[self pathToDataFile:fileName]];
+	
+	assert(success);
 }
 
 #pragma mark update lists

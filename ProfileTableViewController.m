@@ -327,6 +327,8 @@
 
    BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject
    toFile:[self pathForDataFile]];
+	
+	assert(success);
 }
 
 /*

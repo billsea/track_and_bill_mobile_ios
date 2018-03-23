@@ -32,7 +32,7 @@
   self.addClientButton = [[UIBarButtonItem alloc]
       // initWithImage:[UIImage imageNamed:@"reload-50.png"]
       initWithTitle:@"New"
-              style:UIBarButtonItemStyleBordered
+              style:UIBarButtonItemStylePlain
              target:self
              action:@selector(addClient:)];
   // self.addClientButton.tintColor = [UIColor blackColor];
@@ -96,6 +96,7 @@
 
   BOOL success = [NSKeyedArchiver archiveRootObject:rootObject
                                              toFile:[self pathForClientsFile]];
+	assert(success);
 }
 
 #pragma mark - Table view data source

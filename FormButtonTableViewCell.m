@@ -11,6 +11,7 @@
 @implementation FormButtonTableViewCell
 
 - (void)awakeFromNib {
+	[super awakeFromNib];
   // Initialization code
 }
 

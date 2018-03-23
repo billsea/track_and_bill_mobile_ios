@@ -55,7 +55,7 @@ NSNumber *invoiceNumberSelected;
   self.previewButton = [[UIBarButtonItem alloc]
       // initWithImage:[UIImage imageNamed:@"reload-50.png"]
       initWithTitle:@"Save & Export"
-              style:UIBarButtonItemStyleBordered
+              style:UIBarButtonItemStylePlain
              target:self
              action:@selector(exportInvoice:)];
   // self.addClientButton.tintColor = [UIColor blackColor];
@@ -78,7 +78,7 @@ NSNumber *invoiceNumberSelected;
   NSNumber *minutes = [[NSNumber alloc] init];
   NSNumber *seconds = [[NSNumber alloc] init];
   NSNumber *miles = [[NSNumber alloc] init];
-  [self projectTotals:&hours:&minutes:&seconds:&miles];
+	[self projectTotalsWithHours:&hours andMinutes:&minutes andSeconds:&seconds andMiles:&miles];
 
   NSDateFormatter *df = [[NSDateFormatter alloc] init];
   [df setDateFormat:@"MM/dd/yyyy"];
@@ -303,10 +303,10 @@ NSNumber *invoiceNumberSelected;
   return _userData;
 }
 
-- (void)projectTotals:(NSNumber **)
-                hours:(NSNumber **)
-              minutes:(NSNumber **)
-              seconds:(NSNumber **)miles {
+- (void)projectTotalsWithHours:(NSNumber **)hours
+              andMinutes:(NSNumber **)minutes
+              andSeconds:(NSNumber **)seconds
+							andMiles:(NSNumber **)miles{
   AppDelegate *appDelegate =
       (AppDelegate *)[UIApplication sharedApplication].delegate;
   int ml = 0;

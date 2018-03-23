@@ -109,8 +109,6 @@ static NSString *NumberCellIdentifier = @"NumberCell";
 
 @implementation InlineDateAndNumberPickerViewController
 
-
-
 #pragma mark picker view delegate methods
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -581,8 +579,6 @@ static NSString *NumberCellIdentifier = @"NumberCell";
         (indexPath.row > self.datePickerIndexPath.row)) {
         keyIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
     }
-    
-    _Bool numShow = [self numberPickerIsShown];
     
     if ([self numberPickerIsShown] &&
         (indexPath.section == self.numberPickerIndexPath.section) &&
