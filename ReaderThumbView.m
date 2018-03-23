@@ -96,7 +96,7 @@
 
 	_targetTag = 0; // Clear target tag
 
-	[self.operation cancel], self.operation = nil;
+	(void)([self.operation cancel]), self.operation = nil;
 
 	[super removeFromSuperview];
 }
@@ -109,7 +109,7 @@
 
 	_targetTag = 0; // Clear target tag
 
-	[self.operation cancel], self.operation = nil;
+	(void)([self.operation cancel]), self.operation = nil;
 
 	imageView.image = nil; // Release image
 }

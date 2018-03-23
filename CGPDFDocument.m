@@ -68,7 +68,7 @@ CGPDFDocumentRef CGPDFDocumentCreateX(CFURLRef theURL, NSString *password)
 
 				if (CGPDFDocumentIsUnlocked(thePDFDocRef) == FALSE) // Cleanup unlock failure
 				{
-					CGPDFDocumentRelease(thePDFDocRef), thePDFDocRef = NULL;
+					(void)(CGPDFDocumentRelease(thePDFDocRef)), thePDFDocRef = NULL;
 				}
 			}
 		}
