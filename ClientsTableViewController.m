@@ -226,6 +226,8 @@
   // Navigation logic may go here, for example:
   // Create the next view controller.
 
+	[self saveDataToDisk];
+	
   AppDelegate *appDelegate =
       (AppDelegate *)[UIApplication sharedApplication].delegate;
 

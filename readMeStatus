@@ -6,5 +6,8 @@
         - number picker is working
         - Number picker is currently displaying only single digits
             - need to have the picker show two components(i.e. hours, or dollars and cents)
-
         - Setup number picker to invoice view.
+
+- Empty Profile forms displays "(null)"
+- On first launch, the settings profile form should be displayed
+- Project create should include button to start a session.

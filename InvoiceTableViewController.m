@@ -1635,8 +1635,9 @@ array, and add a new row to the table view
   CGContextMoveToPoint(currentContext, startPoint.x, startPoint.y);
   CGContextAddLineToPoint(currentContext, endPoint.x, endPoint.y);
 
+	CGContextDrawPath(currentContext, kCGPathFillStroke);
   CGContextClosePath(currentContext);
-  CGContextDrawPath(currentContext, kCGPathFillStroke);
+	
 
   return frame;
 }
