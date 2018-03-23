@@ -11,3 +11,5 @@
 - Empty Profile forms displays "(null)"
 - On first launch, the settings profile form should be displayed
 - Project create should include button to start a session.
+
+- PDF Exporter view "Done" button is not working. could be because of some cleanup work.
