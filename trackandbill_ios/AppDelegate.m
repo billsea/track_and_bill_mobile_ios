@@ -7,9 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ClientsTableViewController.h"
-#import "InvoicesTableViewController.h"
-#import "SettingsTableViewController.h"
 #import "Project.h"
 #import "Session.h"
 #import "Invoice.h"
@@ -64,21 +61,6 @@
   // imageNamed:@"back-25.png"]];
   // [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage
   // imageNamed:@"back-25.png"]];
-
-  // tab bar style
-  [[UITabBarItem appearance]
-      setTitleTextAttributes:
-          [NSDictionary
-              dictionaryWithObjectsAndKeys:[UIColor blackColor],
-                                           NSForegroundColorAttributeName, nil]
-                    forState:UIControlStateNormal];
-
-  [[UITabBarItem appearance]
-      setTitleTextAttributes:
-          [NSDictionary
-              dictionaryWithObjectsAndKeys:[UIColor blackColor],
-                                           NSForegroundColorAttributeName, nil]
-                    forState:UIControlStateSelected];
 
   [self RegisterForNotifications];
 
@@ -190,66 +172,15 @@
 
 #pragma mark Build Navigation
 - (BOOL)createNavigationRootView {
-
-  // create viewControllers
-  ClientsTableViewController *clientsTableView;
-
-  @try {
-    clientsTableView = [[ClientsTableViewController alloc] init];
-    // [[CustomerSharedModel sharedModel]
-    // setMainViewController:mainViewController];
-  } @catch (NSException *exception) {
-    clientsTableView = nil;
-    NSString *alertString = [NSString
-        stringWithFormat:
-            @"There was an error while initializing the clients view"];
-    UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:@"Error initializing clients view"
-                                   message:alertString
-                                  delegate:self
-                         cancelButtonTitle:@"Ok"
-                         otherButtonTitles:nil];
-    [alert show];
-  }
-
-  // clients tab
-  UINavigationController *mainNavController = [[UINavigationController alloc]
-      initWithRootViewController:clientsTableView];
-  mainNavController.tabBarItem.title = @"Main";
-  mainNavController.tabBarItem.image =
-      [UIImage imageNamed:@"group-32.png"]; // set tab image
-
-  // Settings tab
-  SettingsTableViewController *settingsView =
-      [[SettingsTableViewController alloc] init];
-  UINavigationController *settingsNavController =
-      [[UINavigationController alloc] initWithRootViewController:settingsView];
-  settingsNavController.tabBarItem.title = @"Settings";
-  settingsNavController.tabBarItem.image =
-      [UIImage imageNamed:@"settings3-32.png"];
-
-  // add all nav controllers to stack
-  NSArray *viewControllers;
-  if (clientsTableView != nil)
-    viewControllers = [NSArray
-        arrayWithObjects:mainNavController, settingsNavController, nil];
-  else
-    viewControllers = [NSArray
-        arrayWithObjects:mainNavController, settingsNavController, nil];
-
-  // load tab bar with view controllers
-  // if valid request, add views to tab bar
-  self.tabBarController = [[UITabBarController alloc] init];
-
-  // set tab bar color
-  self.tabBarController.tabBar.barTintColor =
-      [UIColor colorWithRed:0.85 green:0.85 blue:0.86 alpha:1.0];
-
-  [self.tabBarController setViewControllers:viewControllers];
-  self.tabBarController.delegate = self;
-
+  // load dashboard
+	_dashboardViewController = [[DashboardCollectionViewController alloc]
+	 initWithNibName:@"DashboardCollectionViewController"
+	 bundle:nil];
+	
+	UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:_dashboardViewController];
+	
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  [[self window] setRootViewController:self.tabBarController];
+  [[self window] setRootViewController:nav];
   [[self window] makeKeyAndVisible];
 
   return YES;

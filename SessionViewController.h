@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 William Seaman. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "Session.h"
 
-@interface SessionViewController : ViewController <UITextInputDelegate>
+@interface SessionViewController : UIViewController <UITextInputDelegate>
 @property(weak, nonatomic) IBOutlet UILabel *sessionProjectName;
 @property(weak, nonatomic) IBOutlet UIButton *timerButton;
 @property(nonatomic, retain) Session *selectedSession;

@@ -14,7 +14,6 @@
 		A915018A1B094ADD009AB281 /* back-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501891B094ADD009AB281 /* back-25.png */; };
 		A9167E2E1AEAC10D0071B992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E2D1AEAC10D0071B992 /* main.m */; };
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
-		A9167E371AEAC10E0071B992 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E361AEAC10E0071B992 /* ViewController.m */; };
 		A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9167E381AEAC10E0071B992 /* Main.storyboard */; };
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
@@ -31,6 +30,10 @@
 		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
 		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
 		A9A2E68B1B14D60400A478AE /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = A9A2E68A1B14D60400A478AE /* Todo */; };
+		A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */; };
+		A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */; };
+		A9CB2A162065D9C300B9EA5A /* DashboardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */; };
+		A9CB2A172065D9C300B9EA5A /* DashboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CB2A152065D9C300B9EA5A /* DashboardCollectionViewCell.xib */; };
 		A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */; };
 		A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */; };
 		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
@@ -155,8 +158,6 @@
 		A9167E2C1AEAC10D0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E2D1AEAC10D0071B992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9167E331AEAC10E0071B992 /* trackandbill_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = trackandbill_ios.xcdatamodel; sourceTree = "<group>"; };
-		A9167E351AEAC10E0071B992 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A9167E361AEAC10E0071B992 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A9167E391AEAC10E0071B992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9167E3E1AEAC10E0071B992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A9167E441AEAC10E0071B992 /* trackandbill_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackandbill_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +179,12 @@
 		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 		A9A2E68A1B14D60400A478AE /* Todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
+		A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardCollectionViewController.h; sourceTree = "<group>"; };
+		A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardCollectionViewController.m; sourceTree = "<group>"; };
+		A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewController.xib; sourceTree = "<group>"; };
+		A9CB2A132065D9C300B9EA5A /* DashboardCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardCollectionViewCell.h; sourceTree = "<group>"; };
+		A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardCollectionViewCell.m; sourceTree = "<group>"; };
+		A9CB2A152065D9C300B9EA5A /* DashboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		A9D7B7031B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineDateAndNumberPickerViewController.h; sourceTree = "<group>"; };
 		A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineDateAndNumberPickerViewController.m; sourceTree = "<group>"; };
 		A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientTableViewController.h; sourceTree = "<group>"; };
@@ -367,8 +374,6 @@
 			children = (
 				A9DC4CD51AEAFDA100A00892 /* AppDelegate.h */,
 				A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */,
-				A9167E351AEAC10E0071B992 /* ViewController.h */,
-				A9167E361AEAC10E0071B992 /* ViewController.m */,
 				A9167E381AEAC10E0071B992 /* Main.storyboard */,
 				A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */,
 				A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */,
@@ -441,6 +446,34 @@
 				A9DC4C471AEAFB8E00A00892 /* Reader-Thumbs@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		A9CB2A0D2065C95000B9EA5A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C131AEAFB8E00A00892 /* ClientsTableViewCell.h */,
+				A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */,
+				A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */,
+				A9DC4C191AEAFB8E00A00892 /* FormButtonTableViewCell.h */,
+				A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */,
+				A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */,
+				A9DC4C341AEAFB8E00A00892 /* ProjectsTableViewCell.h */,
+				A9DC4C351AEAFB8E00A00892 /* ProjectsTableViewCell.m */,
+				A9DC4C361AEAFB8E00A00892 /* ProjectsTableViewCell.xib */,
+				A9DC4C6E1AEAFB8E00A00892 /* SessionsTableViewCell.h */,
+				A9DC4C6F1AEAFB8E00A00892 /* SessionsTableViewCell.m */,
+				A9DC4C701AEAFB8E00A00892 /* SessionsTableViewCell.xib */,
+				A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */,
+				A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */,
+				A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */,
+				A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */,
+				A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */,
+				A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */,
+				A9CB2A132065D9C300B9EA5A /* DashboardCollectionViewCell.h */,
+				A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */,
+				A9CB2A152065D9C300B9EA5A /* DashboardCollectionViewCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		A9D7B7021B13ABC000E48FBF /* InlineTableViewDateAndNumberPicker */ = {
@@ -518,21 +551,16 @@
 		A9DC4CD41AEAFD3900A00892 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				A9CB2A0D2065C95000B9EA5A /* Cells */,
 				A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */,
 				A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */,
 				A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */,
 				A9DC4C081AEAFB8E00A00892 /* AddProjectTableViewController.h */,
 				A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */,
 				A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */,
-				A9DC4C131AEAFB8E00A00892 /* ClientsTableViewCell.h */,
-				A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */,
-				A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */,
 				A9DC4C161AEAFB8E00A00892 /* ClientsTableViewController.h */,
 				A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */,
 				A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */,
-				A9DC4C191AEAFB8E00A00892 /* FormButtonTableViewCell.h */,
-				A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */,
-				A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */,
 				A9DC4C1E1AEAFB8E00A00892 /* InvoicesTableViewController.h */,
 				A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */,
 				A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */,
@@ -551,9 +579,6 @@
 				A9DC4C2C1AEAFB8E00A00892 /* ProfileTableViewController.h */,
 				A9DC4C2D1AEAFB8E00A00892 /* ProfileTableViewController.m */,
 				A9DC4C2E1AEAFB8E00A00892 /* ProfileTableViewController.xib */,
-				A9DC4C341AEAFB8E00A00892 /* ProjectsTableViewCell.h */,
-				A9DC4C351AEAFB8E00A00892 /* ProjectsTableViewCell.m */,
-				A9DC4C361AEAFB8E00A00892 /* ProjectsTableViewCell.xib */,
 				A9DC4C371AEAFB8E00A00892 /* ProjectsTableViewController.h */,
 				A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */,
 				A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */,
@@ -572,24 +597,18 @@
 				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
 				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
 				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
-				A9DC4C6E1AEAFB8E00A00892 /* SessionsTableViewCell.h */,
-				A9DC4C6F1AEAFB8E00A00892 /* SessionsTableViewCell.m */,
-				A9DC4C701AEAFB8E00A00892 /* SessionsTableViewCell.xib */,
 				A9DC4C711AEAFB8E00A00892 /* SessionsTableViewController.h */,
 				A9DC4C721AEAFB8E00A00892 /* SessionsTableViewController.m */,
 				A9DC4C731AEAFB8E00A00892 /* SessionsTableViewController.xib */,
 				A9DC4C741AEAFB8E00A00892 /* SessionViewController.h */,
 				A9DC4C751AEAFB8E00A00892 /* SessionViewController.m */,
 				A9DC4C761AEAFB8E00A00892 /* SessionViewController.xib */,
-				A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */,
-				A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */,
-				A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */,
-				A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */,
-				A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */,
-				A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */,
 				A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */,
 				A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */,
 				A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */,
+				A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */,
+				A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */,
+				A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -709,6 +728,7 @@
 				A9DC4C981AEAFB8E00A00892 /* MilageViewController.xib in Resources */,
 				A91501881B094A97009AB281 /* left-25.png in Resources */,
 				A91501841B0949AD009AB281 /* left2-32.png in Resources */,
+				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
 				A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */,
 				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
 				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
@@ -736,6 +756,7 @@
 				A9976D871AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib in Resources */,
 				A9DC4C871AEAFB8E00A00892 /* AppIcon-144.png in Resources */,
 				A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */,
+				A9CB2A172065D9C300B9EA5A /* DashboardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +775,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9DC4CB81AEAFB8E00A00892 /* ReaderThumbCache.m in Sources */,
+				A9CB2A162065D9C300B9EA5A /* DashboardCollectionViewCell.m in Sources */,
 				A9DC4CCD1AEAFB8E00A00892 /* ThumbsMainToolbar.m in Sources */,
 				A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */,
 				A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */,
@@ -768,6 +790,7 @@
 				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
 				A9DC4C991AEAFB8E00A00892 /* Profile.m in Sources */,
 				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,
+				A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */,
 				A9DC4CBA1AEAFB8E00A00892 /* ReaderThumbQueue.m in Sources */,
 				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
 				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,
@@ -800,7 +823,6 @@
 				A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */,
 				A9DF54951B0E6A1D009A9922 /* DateInputTableViewCell.m in Sources */,
 				A9DC4C901AEAFB8E00A00892 /* Invoice.m in Sources */,
-				A9167E371AEAC10E0071B992 /* ViewController.m in Sources */,
 				A9167E2E1AEAC10D0071B992 /* main.m in Sources */,
 				A9DC4C9F1AEAFB8E00A00892 /* ProjectsTableViewCell.m in Sources */,
 				A9DC4CB31AEAFB8E00A00892 /* ReaderContentTile.m in Sources */,
@@ -893,7 +915,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
@@ -940,7 +962,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "261bf0e2-a61b-4ab6-b363-d5abf869fb27";
@@ -964,7 +986,7 @@
 				);
 				GCC_PREFIX_HEADER = TrackandBill_PrefixHeader.pch;
 				INFOPLIST_FILE = trackandbill_ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -987,7 +1009,7 @@
 				);
 				GCC_PREFIX_HEADER = TrackandBill_PrefixHeader.pch;
 				INFOPLIST_FILE = trackandbill_ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

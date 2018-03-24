@@ -22,9 +22,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  // self.tableView.dataSource = self;
-
+	
   // Set the title of the navigation item
   [[self navigationItem] setTitle:@"Clients"];
 
@@ -35,21 +33,14 @@
               style:UIBarButtonItemStylePlain
              target:self
              action:@selector(addClient:)];
-  // self.addClientButton.tintColor = [UIColor blackColor];
-  [[self navigationItem] setLeftBarButtonItem:self.addClientButton];
-
+	
   // set background image
   [[self view]
       setBackgroundColor:[UIColor
                              colorWithPatternImage:
                                  [UIImage imageNamed:@"paper_texture_02.png"]]];
 
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-
-  // Uncomment the following line to display an Edit button in the navigation
-  // bar for this view controller.
-  self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.navigationItem.rightBarButtonItems = @[self.addClientButton, self.editButtonItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

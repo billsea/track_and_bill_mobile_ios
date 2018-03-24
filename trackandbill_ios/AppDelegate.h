@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Session.h"
+#import "DashboardCollectionViewController.h"
 
 @interface AppDelegate
-    : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
+    : UIResponder <UIApplicationDelegate>
 
 @property(strong, nonatomic) UIWindow *window;
 
@@ -20,7 +21,7 @@
 @property(readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property(readonly, strong, nonatomic)
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property(retain, nonatomic) UITabBarController *tabBarController;
+@property(nonatomic)DashboardCollectionViewController* dashboardViewController;
 @property(weak) NSTimer *sessionTimer;
 
 @property(nonatomic, retain) NSMutableArray *arrClients;
