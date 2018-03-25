@@ -104,6 +104,8 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"Cell";
 
+	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	
   UITableViewCell *cell =
       [super tableView:tableView cellForRowAtIndexPath:indexPath];
   ;

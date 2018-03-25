@@ -115,7 +115,7 @@
       (AppDelegate *)[UIApplication sharedApplication].delegate;
 
   static NSString *simpleTableIdentifier = @"ClientsTableViewCell";
-
+	
   ClientsTableViewCell *cell = (ClientsTableViewCell *)[tableView
       dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 

@@ -129,7 +129,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-
+	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	
   TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView
       dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
@@ -146,7 +147,6 @@
   [[cell textInput] setTag:[indexPath row]]; // for scrolling workaround
   [cell setTag:[indexPath row]];
   [cell setFieldName:[_clientFormFields objectAtIndex:[indexPath row]]];
-  [[cell textInput] setBorderStyle:UITextBorderStyleNone];
   [[cell textInput]
       setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
   [[cell textInput] setTextColor:[UIColor blackColor]];

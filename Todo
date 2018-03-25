@@ -6,12 +6,10 @@
             - need to have the picker show two components(i.e. hours, or dollars and cents)
         - Add number picker to invoice view.
 
-- An empty profile form displays "(null)" in the text fields.
 - PDF Exporter view "Done" button is not working. could be because of some cleanup work.
 
 ////Enhancements ///////
-	- Remove tabs, and change clients table view to collection view, and add client and settings cell
-		- do the same with project table, and anywhere else where there's a finite number of cells
+	- Change project table to collection view, and anywhere else where there's a finite number of cells
 	- If no profile exists when creating invoice, user should be taken to the profile settings view, in addition to displaying alert.
 	- App Icon
 		- Use simple clock or gear with dollar sign in middle
