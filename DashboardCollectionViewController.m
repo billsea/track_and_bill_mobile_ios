@@ -8,7 +8,7 @@
 
 #import "DashboardCollectionViewController.h"
 #import "ClientsTableViewController.h"
-#import "SettingsTableViewController.h"
+#import "ProfileTableViewController.h"
 #import "DashboardCollectionViewCell.h"
 
 @interface DashboardCollectionViewController (){
@@ -24,16 +24,18 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	self.title = @"Dashboard";
+	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
 															bundle:nil];
 	
 	NSMutableDictionary* clientsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:clientsVC, @"vc", @"Clients",@"title", nil];
 	
-	SettingsTableViewController* settingsVC = [[SettingsTableViewController alloc]
+	ProfileTableViewController* profileVC = [[ProfileTableViewController alloc]
 																					 initWithNibName:@"SettingsTableViewController"
 																					 bundle:nil];
-	NSMutableDictionary* settingsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:settingsVC, @"vc", @"Settings",@"title", nil];
+	NSMutableDictionary* settingsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", @"Profile",@"title", nil];
 	
 	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, settingsDict, nil];
 	
