@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "Session.h"
 
-#define kTableRowHeight 54
+#define kTableRowHeight 80
 
 @interface AddProjectTableViewController () {
   NSArray *_projectFormFields;
@@ -178,7 +178,6 @@
       // set this if we need to save save userdata on textinputdidend event
       [cellText
           setFieldName:[_projectFormFields objectAtIndex:[indexPath row]]];
-      [[cellText textInput] setBorderStyle:UITextBorderStyleNone];
       [[cellText textInput]
           setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
       [[cellText textInput] setTextColor:[UIColor blackColor]];
