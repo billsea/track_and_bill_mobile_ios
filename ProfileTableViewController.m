@@ -76,6 +76,11 @@
   return [_formFields count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 80;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -91,17 +96,24 @@
     cell = [nib objectAtIndex:0];
   }
 
+	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
   // set placeholder value for new cell
   //[[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath
   //row]]];
-  [[cell labelCell] setText:[[_formFields objectAtIndex:[indexPath row]]
-                                valueForKey:@"FieldName"]];
+	NSString* fieldName = [[_formFields objectAtIndex:[indexPath row]]
+												 valueForKey:@"FieldName"];
+	if(fieldName)
+			[[cell labelCell] setText:fieldName];
   [[cell textInput] setTag:[indexPath row]]; // for scrolling workaround
-  [[cell textInput] setText:[[_formFields objectAtIndex:[indexPath row]]
-                                valueForKey:@"FieldValue"]];
+	
+	NSString* fieldValue = [[_formFields objectAtIndex:[indexPath row]]
+													valueForKey:@"FieldValue"];
+	if(fieldValue)
+			[[cell textInput] setText:fieldValue];
+	
   [cell setTag:[indexPath row]];
   [cell setFieldName:[_formFields objectAtIndex:[indexPath row]]];
-  [[cell textInput] setBorderStyle:UITextBorderStyleNone];
   [[cell textInput]
       setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
   [[cell textInput] setTextColor:[UIColor blackColor]];
@@ -219,7 +231,7 @@
       [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
           objectAtIndex:0] text];
   [[_arrProfiles objectAtIndex:0] setProfileEmail:profemail];
-  if ([profemail isEqualToString:@""]) {
+  if (!profemail || [profemail isEqualToString:@""]) {
     [[_arrProfiles objectAtIndex:0]
         setProfileEmail:[self.userData objectAtIndex:6]];
   }
@@ -229,10 +241,12 @@
       [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
           objectAtIndex:0] text];
   [[_arrProfiles objectAtIndex:0] setProfileContact:profcontact];
-  if ([profcontact isEqualToString:@""]) {
+  if (!profcontact || [profcontact isEqualToString:@""]) {
     [[_arrProfiles objectAtIndex:0]
         setProfileContact:[self.userData objectAtIndex:7]];
   }
+	
+	
 
   [self saveDataToDisk];
 
@@ -249,53 +263,44 @@
 }
 
 - (void)setProfiles:(NSArray *)newProfiles {
-  if (_arrProfiles != newProfiles) {
-
+  if (newProfiles && _arrProfiles != newProfiles) {
     _arrProfiles = [[NSMutableArray alloc] initWithArray:newProfiles];
   }
-
+	
   _formFields = @[
     @{
       @"FieldName" : @"Your Name or Company",
-      @"FieldValue" : [NSString
-          stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0] profileName]]
+			@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileName] : @""
     },
     @{
       @"FieldName" : @"Address",
-      @"FieldValue" :
-          [NSString stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0]
-                                                profileAddress]]
+      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
+                                                profileAddress] : @""
     },
     @{
       @"FieldName" : @"City",
-      @"FieldValue" : [NSString
-          stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0] profileCity]]
+      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileCity] : @""
     },
     @{
       @"FieldName" : @"State",
-      @"FieldValue" : [NSString
-          stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0] profileState]]
+      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileState] : @""
     },
     @{
       @"FieldName" : @"Postal Code",
-      @"FieldValue" : [NSString
-          stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0] profileZip]]
+      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileZip] : @""
     },
     @{
       @"FieldName" : @"Phone",
-      @"FieldValue" : [NSString
-          stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0] profilePhone]]
+      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profilePhone] : @""
     },
     @{
       @"FieldName" : @"Email",
-      @"FieldValue" : [NSString
-          stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0] profileEmail]]
+      @"FieldValue" :  newProfiles ? [[_arrProfiles objectAtIndex:0] profileEmail] : @""
     },
     @{
       @"FieldName" : @"Contact Person",
-      @"FieldValue" :
-          [NSString stringWithFormat:@"%@", [[_arrProfiles objectAtIndex:0]
-                                                profileContact]]
+      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
+                                                profileContact] : @""
     }
 
   ];

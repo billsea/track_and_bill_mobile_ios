@@ -50,42 +50,34 @@
 
 - (void)setProfileName:(NSString *)pName {
   pName = [pName copy];
-
   profileName = pName;
 }
 - (void)setProfileAddress:(NSString *)pAddress {
   pAddress = [pAddress copy];
-
   profileAddress = pAddress;
 }
 - (void)setProfileCity:(NSString *)pCity {
   pCity = [pCity copy];
-
   profileCity = pCity;
 }
 - (void)setProfileState:(NSString *)pState {
   pState = [pState copy];
-
   profileState = pState;
 }
 - (void)setProfileZip:(NSString *)pZip {
   pZip = [pZip copy];
-
   profileZip = pZip;
 }
 - (void)setProfilePhone:(NSString *)pPhone {
   pPhone = [pPhone copy];
-
   profilePhone = pPhone;
 }
 - (void)setProfileEmail:(NSString *)pEmail {
   pEmail = [pEmail copy];
-
   profileEmail = pEmail;
 }
 - (void)setProfileContact:(NSString *)pContact {
   pContact = [pContact copy];
-
   profileContact = pContact;
 }
 
@@ -106,7 +98,6 @@
 // load from file
 - (id)initWithCoder:(NSCoder *)coder {
   if (self = [super init]) {
-
     [self setProfileName:[coder decodeObjectForKey:@"profileName"]];
     [self setProfileAddress:[coder decodeObjectForKey:@"profileAddress"]];
     [self setProfileCity:[coder decodeObjectForKey:@"profileCity"]];
