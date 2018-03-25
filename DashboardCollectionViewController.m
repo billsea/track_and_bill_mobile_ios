@@ -9,6 +9,7 @@
 #import "DashboardCollectionViewController.h"
 #import "ClientsTableViewController.h"
 #import "ProfileTableViewController.h"
+#import "ClientInvoicesTableViewController.h"
 #import "DashboardCollectionViewCell.h"
 
 @interface DashboardCollectionViewController (){
@@ -32,12 +33,18 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	NSMutableDictionary* clientsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:clientsVC, @"vc", @"Clients",@"title", nil];
 	
+	ClientInvoicesTableViewController* invoicesVC = [[ClientInvoicesTableViewController alloc]
+																					 initWithNibName:@"ClientInvoicesTableViewController"
+																					 bundle:nil];
+	
+	NSMutableDictionary* invoicesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:invoicesVC, @"vc", @"Invoices",@"title", nil];
+	
 	ProfileTableViewController* profileVC = [[ProfileTableViewController alloc]
 																					 initWithNibName:@"SettingsTableViewController"
 																					 bundle:nil];
 	NSMutableDictionary* settingsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", @"Profile",@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, settingsDict, nil];
+	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, invoicesDict, settingsDict, nil];
 	
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
