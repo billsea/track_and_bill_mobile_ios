@@ -14,7 +14,7 @@
 #import "InvoiceTableViewController.h"
 #import "Session.h"
 #import "AppDelegate.h"
-#import "ProjectSelectTableViewController.h"
+#import "ProjectCollectionViewController.h"
 
 @interface ProjectsTableViewController ()
 
@@ -300,13 +300,12 @@
   } else {
 
     // push the project select/options table view
-    ProjectSelectTableViewController *projectSelectViewController =
-        [[ProjectSelectTableViewController alloc]
-            initWithNibName:@"ProjectSelectTableViewController"
+    ProjectCollectionViewController *projectSelectViewController =
+        [[ProjectCollectionViewController alloc]
+            initWithNibName:@"ProjectCollectionViewController"
                      bundle:nil];
 
     // Pass the selected object to the new view controller.
-
     [projectSelectViewController setSelectedProject:selProject];
 
     // Push the view controller.

@@ -93,6 +93,21 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	return cell;
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+	int cellCount = 2;
+	float cellWidth = 120;
+	float spacing = 40;
+	NSInteger viewWidth = self.view.window.frame.size.width;
+	NSInteger totalCellWidth = cellWidth * cellCount;
+	NSInteger totalSpacingWidth = spacing * (cellCount - 1);
+	
+	NSInteger leftInset = (viewWidth - (totalCellWidth + totalSpacingWidth)) / 2;
+	NSInteger rightInset = leftInset;
+	
+	return UIEdgeInsetsMake(0, leftInset, 0, rightInset);
+}
+
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	[[self navigationController] pushViewController:[[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"] animated:YES];

@@ -248,7 +248,7 @@
     [[appDelegate allProjects] addObject:nProject];
 
     // save to archive file
-    // [appDelegate saveProjectsToDisk];
+		[appDelegate saveProjectsToDisk];
   }
   [[self view] endEditing:YES];
 }

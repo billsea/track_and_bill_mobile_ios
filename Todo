@@ -16,7 +16,7 @@
 	- Add NUI to app, and work with styling
 	- Project create should include button to start a session.
 	- On first launch, prompt to complete settings profile
-	- Clean up model classes...they are a bit of a mishmash.
+	- Update model classes...setters/getters should be implicit?.
 
 ////Advertisements //////
 	- Implement AdMob(with pm_sales account!)

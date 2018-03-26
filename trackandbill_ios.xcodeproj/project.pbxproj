@@ -21,6 +21,8 @@
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
 		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
+		A9729BB42068715900651DAB /* ProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9729BB22068715900651DAB /* ProjectCollectionViewController.m */; };
+		A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */; };
 		A9976D861AF7EA3600A4CC9D /* ProjectSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */; };
 		A9976D871AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */; };
 		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
@@ -167,6 +169,9 @@
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
 		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
+		A9729BB12068715900651DAB /* ProjectCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectCollectionViewController.h; sourceTree = "<group>"; };
+		A9729BB22068715900651DAB /* ProjectCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectCollectionViewController.m; sourceTree = "<group>"; };
+		A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCollectionViewController.xib; sourceTree = "<group>"; };
 		A9976D831AF7EA3600A4CC9D /* ProjectSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSelectTableViewController.h; sourceTree = "<group>"; };
 		A9976D841AF7EA3600A4CC9D /* ProjectSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSelectTableViewController.m; sourceTree = "<group>"; };
 		A9976D851AF7EA3600A4CC9D /* ProjectSelectTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectSelectTableViewController.xib; sourceTree = "<group>"; };
@@ -609,6 +614,9 @@
 				A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */,
 				A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */,
 				A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */,
+				A9729BB12068715900651DAB /* ProjectCollectionViewController.h */,
+				A9729BB22068715900651DAB /* ProjectCollectionViewController.m */,
+				A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -701,6 +709,7 @@
 				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
 				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
+				A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */,
 				A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */,
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9A2E68B1B14D60400A478AE /* Todo in Resources */,
@@ -809,6 +818,7 @@
 				A9DC4C951AEAFB8E00A00892 /* MaterialsViewController.m in Sources */,
 				A9DC4CB51AEAFB8E00A00892 /* ReaderDocument.m in Sources */,
 				A9DC4C891AEAFB8E00A00892 /* Client.m in Sources */,
+				A9729BB42068715900651DAB /* ProjectCollectionViewController.m in Sources */,
 				A9DC4CA11AEAFB8E00A00892 /* ProjectsTableViewController.m in Sources */,
 				A9DC4CB91AEAFB8E00A00892 /* ReaderThumbFetch.m in Sources */,
 				A9DC4CBB1AEAFB8E00A00892 /* ReaderThumbRender.m in Sources */,
