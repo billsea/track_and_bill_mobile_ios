@@ -113,6 +113,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 	
 	return UIEdgeInsetsMake(0, leftInset, 0, rightInset);
 }
+
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	

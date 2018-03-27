@@ -300,16 +300,16 @@
   } else {
 
     // push the project select/options table view
-    ProjectCollectionViewController *projectSelectViewController =
+    ProjectCollectionViewController *projectSelectCollectionVC =
         [[ProjectCollectionViewController alloc]
             initWithNibName:@"ProjectCollectionViewController"
                      bundle:nil];
 
     // Pass the selected object to the new view controller.
-    [projectSelectViewController setSelectedProject:selProject];
+    [projectSelectCollectionVC setSelectedProject:selProject];
 
     // Push the view controller.
-    [self.navigationController pushViewController:projectSelectViewController
+    [self.navigationController pushViewController:projectSelectCollectionVC
                                          animated:YES];
   }
 }

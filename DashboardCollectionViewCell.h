@@ -10,5 +10,6 @@
 
 @interface DashboardCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *dashboardLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 
 @end

@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "SessionsTableViewCell.h"
 #import "Session.h"
-#import "SessionDetailTableViewController.h"
+#import "SessionDetailCollectionViewController.h"
 
 @interface SessionsTableViewController ()
 @end
@@ -340,18 +340,18 @@
 
   // Navigation logic may go here, for example:
   // Create the next view controller.
-  SessionDetailTableViewController *sessionDetailTableViewController =
-      [[SessionDetailTableViewController alloc]
-          initWithNibName:@"SessionDetailTableViewController"
+  SessionDetailCollectionViewController *sessionDetailCollectionViewController =
+      [[SessionDetailCollectionViewController alloc]
+          initWithNibName:@"SessionDetailCollectionViewController"
                    bundle:nil];
 
   // Pass the selected object to the new view controller.
-  [sessionDetailTableViewController
+  [sessionDetailCollectionViewController
       setSelectedSession:[[appDelegate currentSessions]
                              objectAtIndex:[indexPath row]]];
 
   // Push the view controller.
-  [self.navigationController pushViewController:sessionDetailTableViewController
+  [self.navigationController pushViewController:sessionDetailCollectionViewController
                                        animated:YES];
 }
 

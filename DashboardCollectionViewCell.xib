@@ -35,6 +35,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
+                <outlet property="cellImage" destination="1tP-bi-NdB" id="3xz-FM-Jtm"/>
                 <outlet property="dashboardLabel" destination="nIQ-w6-4he" id="Btq-F3-kl9"/>
             </connections>
         </collectionViewCell>
