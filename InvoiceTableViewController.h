@@ -13,7 +13,7 @@
 #import "InlineDateAndNumberPickerViewController.h"
 
 @interface InvoiceTableViewController
-    : InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate> {
+    : InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate,UITextFieldDelegate> {
 }
 
 @property(nonatomic, retain) Project *selectedProject;

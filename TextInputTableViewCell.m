@@ -30,4 +30,9 @@
   // Configure the view for the selected state
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+	self.fieldUpdateCallback(textField.text,_fieldName);
+}
+
+
 @end

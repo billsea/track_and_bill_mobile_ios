@@ -6,6 +6,7 @@
             - need to have the picker show two components(i.e. hours, or dollars and cents)
         - Add number picker to invoice view.
 
+- Create invoice form is not preserving field values on scroll.
 - PDF Exporter view "Done" button is not working. could be because of some cleanup work.
 
 ////Enhancements ///////

@@ -90,9 +90,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
       dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
   if (cell == nil) {
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell"
-                                                 owner:self
-                                               options:nil];
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
     cell = [nib objectAtIndex:0];
   }
 
@@ -101,21 +99,19 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   // set placeholder value for new cell
   //[[cell textInput] setPlaceholder:[clientFormFields objectAtIndex:[indexPath
   //row]]];
-	NSString* fieldName = [[_formFields objectAtIndex:[indexPath row]]
-												 valueForKey:@"FieldName"];
+	NSString* fieldName = [[_formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"];
 	if(fieldName)
-			[[cell labelCell] setText:fieldName];
+		[[cell labelCell] setText:fieldName];
+	
   [[cell textInput] setTag:[indexPath row]]; // for scrolling workaround
 	
-	NSString* fieldValue = [[_formFields objectAtIndex:[indexPath row]]
-													valueForKey:@"FieldValue"];
+	NSString* fieldValue = [[_formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"];
 	if(fieldValue)
-			[[cell textInput] setText:fieldValue];
+		[[cell textInput] setText:fieldValue];
 	
   [cell setTag:[indexPath row]];
   [cell setFieldName:[_formFields objectAtIndex:[indexPath row]]];
-  [[cell textInput]
-      setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+  [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
   [[cell textInput] setTextColor:[UIColor blackColor]];
   cell.textInput.delegate = self;
 

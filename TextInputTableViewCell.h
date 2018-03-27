@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TextInputTableViewCell : UITableViewCell <UITextFieldDelegate>
+@property(nonatomic) void (^fieldUpdateCallback)(NSString*, NSString*);
 @property(weak, nonatomic) IBOutlet UITextField *textInput;
 @property(strong, nonatomic) NSString *fieldName;
 @property(weak, nonatomic) IBOutlet UILabel *labelCell;
