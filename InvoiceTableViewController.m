@@ -57,10 +57,6 @@
 	[self loadForm];
 }
 
-- (void)viewDidUnload {
-
-}
-
 - (void)loadForm {
 	// input form text fields
 	_invoiceFormFields = [[NSMutableArray alloc] init];
@@ -145,10 +141,7 @@
   return TRUE;
 }
 
-
-
 - (BOOL)isNumeric:(NSString *)inputString {
-
   NSScanner *scanner = [NSScanner scannerWithString:inputString];
   return [scanner scanDouble:NULL] && [scanner isAtEnd];
 }
@@ -171,8 +164,8 @@
 
   //    //allow to update the invoice number
   //    NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
-  //    NSString * invoiceNumber = [[[[[[self tableView]
-  //    cellForRowAtIndexPath:iPath] contentView] subviews] objectAtIndex:0]
+  //    NSString * invoiceNumber = [[[[[self tableView]
+  //    cellForRowAtIndexPath:iPath] subviews] objectAtIndex:0]
   //    text];
   //    if(!invoiceNumber)
   //    {
@@ -189,15 +182,8 @@
   NSDate *invoiceDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
   [cInvoice setInvoiceDate:invoiceDate];
 
-  NSIndexPath *iPath = [NSIndexPath indexPathForRow:2 inSection:0];
-  //[cInvoice setClientName:_selectedProject.clientName];
-  NSString *clientName =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!clientName) {
-    clientName =
-		[[_invoiceFormFields objectAtIndex:2] objectForKey:@"FieldValue"];
-  }
+	
+	NSString *clientName = [self inputForFieldName:@"Client Name"];//TODO: change rest of these like so
 
   if (clientName && ![clientName isEqualToString:@""]) {
     [cInvoice setClientName:clientName];
@@ -208,14 +194,7 @@
   }
 
   // project name
-  iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-  NSString *projectName =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!projectName) {
-    projectName =
-		[[_invoiceFormFields objectAtIndex:3] objectForKey:@"FieldValue"];
-  }
+  NSString *projectName = [[_invoiceFormFields objectAtIndex:3] objectForKey:@"FieldValue"];
 
   if (projectName && ![projectName isEqualToString:@""]) {
     [cInvoice setProjectName:projectName];
@@ -234,14 +213,8 @@
   [cInvoice setEndDate:endDate];
 
   // approval
-  iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-  NSString *approvalName =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!approvalName) {
-    approvalName =
-		[[_invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
-  }
+  NSString *approvalName = [[_invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
+
   if (approvalName && ![approvalName isEqualToString:@""]) {
     [cInvoice setApprovalName:approvalName];
   } else {
@@ -252,13 +225,10 @@
   }
 
   // milage
-  iPath = [NSIndexPath indexPathForRow:7 inSection:0];
 	NSString *milesInput =[self inputForFieldName:@"Milage"];
-	
   NSInteger miles = 0;
 
   if ([self isNumeric:milesInput]) {
-
     miles = [milesInput integerValue];
 
     if (miles) {
@@ -278,24 +248,9 @@
 
   // milage rate, only if miles entered
   if (miles > 0) {
-    iPath = [NSIndexPath indexPathForRow:8 inSection:0];
-		NSString *milageRateInput = [self inputForFieldName:@"Mileage Rate"];
+		NSString *milageRateInput = [self inputForFieldName:@"Milage Rate"];
 
-    if ([self isNumeric:milageRateInput]) {
-      float milageRate = [milageRateInput floatValue];
-      if (milageRate > 0) {
-        [cInvoice setMilageRate:[NSNumber numberWithFloat:milageRate]];
-      } else if (![[self.userData objectAtIndex:8] isEqualToString:@""]) {
-        [cInvoice setMilageRate:[NSNumber numberWithFloat:[[self.userData
-                                                              objectAtIndex:8]
-                                                              floatValue]]];
-      } else {
-        [self
-            showMessage:@"Milage rate field is empty or not formatted correctly"
-              withTitle:@"Milage Rate"];
-        return nil;
-      }
-    } else {
+    if (![self isNumeric:milageRateInput]) {
       [self showMessage:@"Milage rate field entry is not a number"
               withTitle:@"Milage Rate"];
       return nil;
@@ -305,135 +260,48 @@
   }
 
   // notes
-  iPath = [NSIndexPath indexPathForRow:9 inSection:0];
-  NSString *invNotes =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!invNotes) {
-		invNotes = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
-  }
+  NSString *invNotes = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
   if (invNotes && ![invNotes isEqualToString:@""]) {
     [cInvoice setInvoiceNotes:invNotes];
   }
-  //    else
-  //    {
-  //        [self showMessage:@"Invoice notes field is empty or not formatted
-  //        correctly" withTitle:@"Invoice Notes"];
-  //        return nil;
-  //    }
 
   // materials - get from sessions
-  iPath = [NSIndexPath indexPathForRow:10 inSection:0];
-  NSString *invMaterials =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!invMaterials) {
-    invMaterials =
-		[[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
-  }
+  NSString *invMaterials = [[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
   [cInvoice setInvoiceMaterials:invMaterials];
 
   // materials totals
-  iPath = [NSIndexPath indexPathForRow:11 inSection:0];
-  NSString *materialsTotal =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-
-  if ([self isNumeric:materialsTotal]) {
-    if (!materialsTotal) {
-      materialsTotal =
-			[[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
-    }
-    [cInvoice setMaterialsTotal:[materialsTotal floatValue]];
-  } else {
+  NSString *materialsTotal = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
+  if (![self isNumeric:materialsTotal]) {
     [self showMessage:@"Materials total field entry is not a number"
             withTitle:@"Materials total"];
     return nil;
   }
 
   // total time
-  iPath = [NSIndexPath indexPathForRow:12 inSection:0];
-  NSString *totalTime =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!totalTime) {
-    totalTime =
-		[[_invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
-  }
-  if (totalTime && ![totalTime isEqualToString:@""]) {
-    [cInvoice setTotalTime:totalTime];
-  } else {
-    [self showMessage:
-              @"Total hours field(HH:MM:SS) is empty or not formatted correctly"
-            withTitle:@"Total hours"];
-    return nil;
-  }
+  NSString *totalTime = [[_invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
 
   // terms
-  iPath = [NSIndexPath indexPathForRow:13 inSection:0];
-  NSString *invTerms =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!invTerms) {
-    invTerms =
-		[[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
-  }
+  NSString *invTerms = [[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
   [cInvoice setInvoiceTerms:invTerms];
 
   // deposit
-  iPath = [NSIndexPath indexPathForRow:14 inSection:0];
-  NSString *invDeposit =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
+  NSString *invDeposit = [[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
 
-  if ([self isNumeric:invDeposit]) {
-    if (!invDeposit) {
-      invDeposit =
-			[[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
-    }
-    [cInvoice setInvoiceDeposit:[invDeposit doubleValue]];
-  } else {
+  if (![self isNumeric:invDeposit]) {
     [self showMessage:@"Deposit field entry is not a number"
             withTitle:@"Deposit"];
     return nil;
   }
 
   // rate
-  iPath = [NSIndexPath indexPathForRow:15 inSection:0];
-  NSString *invRate =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
+	NSString *invRate = [[_invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
 
-  if ([self isNumeric:invRate]) {
-    if (!invRate) {
-      invRate =
-			[[_invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
-    }
-
-    if (invRate && ![invRate isEqualToString:@""]) {
-      [cInvoice setInvoiceRate:[invRate doubleValue]];
-    } else if (![[self.userData objectAtIndex:15] isEqualToString:@""]) {
-      [cInvoice setInvoiceRate:[[self.userData objectAtIndex:15] doubleValue]];
-    } else {
-
-      [self
-          showMessage:@"Invoice rate field is empty or not formatted correctly"
-            withTitle:@"Invoice rate"];
-      return nil;
-    }
-  } else {
+  if (![self isNumeric:invRate]) {
     [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
     return nil;
   }
 
-  iPath = [NSIndexPath indexPathForRow:16 inSection:0];
-  NSString *invCheck =
-      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] textInput] text];
-  if (!invCheck) {
-    invCheck =
-		[[_invoiceFormFields objectAtIndex:16] objectForKey:@"FieldValue"];
-  }
+  NSString *invCheck =[[_invoiceFormFields objectAtIndex:16] objectForKey:@"FieldValue"];
   [cInvoice setCheckNumber:invCheck];
 
   return cInvoice;
@@ -442,7 +310,7 @@
 - (NSString*)inputForFieldName:(NSString*)name {
 	NSString* value = @"";
 	for(NSMutableDictionary* obj in _invoiceFormFields){
-		if([[obj valueForKey:@"FieldName"] isEqualToString:@"Milage"]){
+		if([[obj valueForKey:@"FieldName"] isEqualToString:name]){
 			value = [obj valueForKey:@"FieldValue"];
 			break;
 		}
@@ -521,7 +389,7 @@
 
     // clear cell subviews-clears old cells
     if (cell != nil) {
-      NSArray *subviews = [cell.contentView subviews];
+      NSArray *subviews = [cell subviews];
       for (UIView *view in subviews) {
         [view removeFromSuperview];
       }
@@ -540,7 +408,7 @@
       [dateLabel setText:dateFormatted];
       [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
       [dateLabel setTintColor:[UIColor blackColor]];
-      [[cell contentView] addSubview:dateLabel];
+      [cell addSubview:dateLabel];
 
       // add field label for date
       UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
@@ -548,7 +416,7 @@
       [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
       [fieldTitle setTintColor:[UIColor lightGrayColor]];
 
-      [[cell contentView] addSubview:fieldTitle];
+      [cell addSubview:fieldTitle];
 			
     } else if ([adjustedIndexPath compare:self.secondDatePickerIndexPath] == NSOrderedSame) {
       NSDate *secondDate = [self dateForIndexPath:self.secondDatePickerIndexPath];
@@ -560,7 +428,7 @@
       [dateLabel setText:dateFormatted];
       [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
       [dateLabel setTintColor:[UIColor blackColor]];
-      [[cell contentView] addSubview:dateLabel];
+      [cell addSubview:dateLabel];
 
       // add field label for date
       UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
@@ -568,7 +436,7 @@
       [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
       [fieldTitle setTintColor:[UIColor lightGrayColor]];
 
-      [[cell contentView] addSubview:fieldTitle];
+      [cell addSubview:fieldTitle];
 			
     } else if ([adjustedIndexPath compare:self.thirdDatePickerIndexPath] == NSOrderedSame) {
 
@@ -582,7 +450,7 @@
       [dateLabel setText:dateFormatted];
       [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
       [dateLabel setTintColor:[UIColor blackColor]];
-      [[cell contentView] addSubview:dateLabel];
+      [cell addSubview:dateLabel];
 
       // add field label for date
       UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
@@ -590,52 +458,49 @@
       [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
       [fieldTitle setTintColor:[UIColor lightGrayColor]];
 
-      [[cell contentView] addSubview:fieldTitle];
+      [cell addSubview:fieldTitle];
 			
     } else {
-      static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-      TextInputTableViewCell *cellText = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
-      if (cellText == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-        cellText = [nib objectAtIndex:0];
-      }
+			static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+			TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+			
+			if (cell == nil) {
+				NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+				cell = [nib objectAtIndex:0];
+			}
 			
 			//callback when text field is updated, and focus changed
-			cellText.fieldUpdateCallback = ^(NSString * textInput, NSString * field) {
-				
+			cell.fieldUpdateCallback = ^(NSString * textInput, NSString * field) {
 				for(NSMutableDictionary* obj in _invoiceFormFields){
 					if([[obj valueForKey:@"FieldName"] isEqualToString:[field valueForKey:@"FieldName"]]){
 						[obj setObject:textInput forKey:@"FieldValue"];
 					}
 				}
-				
 			};
-
-      // set placeholder value for new cell
-      [[cellText textInput] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-      [[cellText labelCell] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
-
-      // set this to save userdata on textinputdidend event
-      [[cellText textInput] setTag:[indexPath row]];
-			[cellText setFieldName:[_invoiceFormFields objectAtIndex:[indexPath row]]];
-      [[cellText textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-      [[cellText textInput] setTextColor:[UIColor blackColor]];
-      [[cell contentView] addSubview:cellText];
-
-      // set read only
-      if ([indexPath row] == 12 || [indexPath row] == 0) {
-        [[cellText textInput] setEnabled:FALSE]; // total hours
-      }
-
+			
+			// set placeholder value for new cell
+			[[cell textInput] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+			[[cell labelCell] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+			
+			// set this to save userdata on textinputdidend event
+			[[cell textInput] setTag:[indexPath row]];
+			[cell setFieldName:[_invoiceFormFields objectAtIndex:[indexPath row]]];
+			[[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
+			[[cell textInput] setTextColor:[UIColor blackColor]];
+			
+			// set read only
+			if ([indexPath row] == 12 || [indexPath row] == 0) {
+				[[cell textInput] setEnabled:FALSE]; // total hours
+			}
+			
 			// check if user entered text into field, and load it.
 			//TOD0: text entered after load is disappearing on scroll only if
 			// another text field is selected.
 			if (![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]) {
-				cellText.textInput.text = [self.userData objectAtIndex:indexPath.row];
+				cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
 			}
-
-      [[cell contentView] addSubview:cellText];
+			
+			return cell;
     }
   }
 
