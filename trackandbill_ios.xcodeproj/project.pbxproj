@@ -18,6 +18,7 @@
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
 		A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91F6F0D1B0AC25A00F78749 /* images.xcassets */; };
+		A94AE5AF206B19A100B079B2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A94AE5AE206B19A100B079B2 /* Model.m */; };
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
 		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
@@ -162,6 +163,8 @@
 		A9167E491AEAC10E0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosTests.m; sourceTree = "<group>"; };
 		A91F6F0D1B0AC25A00F78749 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		A94AE5AD206B19A100B079B2 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		A94AE5AE206B19A100B079B2 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
 		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
@@ -347,6 +350,7 @@
 				A9FDC2381B0FDA8200112426 /* UIKit.framework */,
 				A9FDC2351B0FD9F900112426 /* Foundation.framework */,
 				A9DC4CD31AEAFCCF00A00892 /* PDFReader */,
+				A94AE5B0206B1EC800B079B2 /* Model */,
 				A9DC4CD41AEAFD3900A00892 /* UIElements */,
 				A9DC4CD01AEAFC2600A00892 /* Classes */,
 				A9167E2A1AEAC10D0071B992 /* trackandbill_ios */,
@@ -404,6 +408,15 @@
 				A9167E491AEAC10E0071B992 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A94AE5B0206B1EC800B079B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A94AE5AD206B19A100B079B2 /* Model.h */,
+				A94AE5AE206B19A100B079B2 /* Model.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A95F9FF31B0860760009CD99 /* images */ = {
@@ -786,6 +799,7 @@
 				A9DC4CBD1AEAFB8E00A00892 /* ReaderThumbsView.m in Sources */,
 				A9DC4C9E1AEAFB8E00A00892 /* Project.m in Sources */,
 				A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */,
+				A94AE5AF206B19A100B079B2 /* Model.m in Sources */,
 				A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */,
 				A9DC4CB41AEAFB8E00A00892 /* ReaderContentView.m in Sources */,
 				A9DC4CCE1AEAFB8E00A00892 /* ThumbsViewController.m in Sources */,
