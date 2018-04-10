@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Invoice.h"
-#import "Project.h"
+#import "Invoice+CoreDataClass.h"
+#import "Project+CoreDataClass.h"
 
 @interface Model : NSObject
 + (NSMutableArray*)loadInvoicesWithSelected:(Invoice*)selectedInvoice andProject:(Project*)selectedProject andEdit:(BOOL)isEdit;

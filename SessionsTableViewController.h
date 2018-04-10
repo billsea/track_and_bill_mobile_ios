@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Project.h"
+#import "Project+CoreDataClass.h"
 
 @interface SessionsTableViewController
     : UITableViewController <UIActionSheetDelegate>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Session.h"
+#import "Session+CoreDataClass.h"
 
 @interface MilageViewController
     : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>

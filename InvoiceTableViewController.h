@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Project.h"
+#import "Project+CoreDataClass.h"
 #import "ReaderViewController.h"
-#import "Invoice.h"
+#import "Invoice+CoreDataClass.h"
 #import "InlineDateAndNumberPickerViewController.h"
 
 @interface InvoiceTableViewController

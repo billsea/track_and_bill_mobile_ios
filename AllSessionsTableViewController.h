@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Project.h"
+#import "Project+CoreDataClass.h"
 
 @interface AllSessionsTableViewController : UITableViewController
 @property(nonatomic, retain) Project *selectedProject;

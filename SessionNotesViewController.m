@@ -46,11 +46,11 @@
   [self.view addGestureRecognizer:singleFingerTap];
 }
 - (void)viewWillAppear:(BOOL)animated {
-  [_notesTextView setText:_selectedSession.txtNotes];
+	//TODO DATA:[_notesTextView setText:_selectedSession.txtNotes];
 }
 - (void)viewWillDisappear:(BOOL)animated {
   // save notes
-  [_selectedSession setTxtNotes:[_notesTextView text]];
+	//TODO DATA:[_selectedSession setTxtNotes:[_notesTextView text]];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Client.h"
+#import "Client+CoreDataClass.h"
 
 @interface ProjectsTableViewController : UITableViewController
 @property(nonatomic, retain) Client *selectedClient;

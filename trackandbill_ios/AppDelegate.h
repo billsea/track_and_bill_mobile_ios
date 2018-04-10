@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "Session.h"
+#import "Session+CoreDataClass.h"
 #import "DashboardCollectionViewController.h"
 
 @interface AppDelegate

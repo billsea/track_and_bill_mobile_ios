@@ -8,16 +8,18 @@
 
 #import "ProfileTableViewController.h"
 #import "TextInputTableViewCell.h"
-#import "Profile.h"
+#import "Profile+CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface ProfileTableViewController () {
   NSArray *_formFields;
+	AppDelegate *_app;
 }
 
 @end
 
 @implementation ProfileTableViewController
-
+//TODO DATA
 - (void)viewDidLoad {
   [super viewDidLoad];
 
@@ -26,7 +28,9 @@
 
   [[self navigationItem] setTitle:@"Profile"];
 
-  [self loadDataFromDisk];
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
+  [self fetchData];
 
   // view has been touched, for dismiss keyboard
   UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc]
@@ -46,8 +50,127 @@
                                  [UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
+- (void)fetchData {
+	// Fetch data from persistent data store
+	NSManagedObjectContext *managedObjectContext = _app.persistentContainer.viewContext;
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Profile"];
+	NSMutableArray* data = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+	
+	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
+	
+	//TODO DATA - Finish form field loading with managed object
+	_formFields = @[
+									@{
+										@"FieldName" : @"Your Name or Company",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"name"] : @""
+										}//,
+//									@{
+//										@"FieldName" : @"Address",
+//										@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
+//																									 profileAddress] : @""
+//										},
+//									@{
+//										@"FieldName" : @"City",
+//										@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileCity] : @""
+//										},
+//									@{
+//										@"FieldName" : @"State",
+//										@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileState] : @""
+//										},
+//									@{
+//										@"FieldName" : @"Postal Code",
+//										@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileZip] : @""
+//										},
+//									@{
+//										@"FieldName" : @"Phone",
+//										@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profilePhone] : @""
+//										},
+//									@{
+//										@"FieldName" : @"Email",
+//										@"FieldValue" :  newProfiles ? [[_arrProfiles objectAtIndex:0] profileEmail] : @""
+//										},
+//									@{
+//										@"FieldName" : @"Contact Person",
+//										@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
+//																									 profileContact] : @""
+//										}
+									
+									];
+	
+	[[self tableView] reloadData];
+	
+}
+
+- (void)save {
+	NSManagedObjectContext *context = _app.persistentContainer.viewContext;
+	
+	// Create a new managed object
+	NSManagedObject *newProfile = [NSEntityDescription insertNewObjectForEntityForName:@"Profile" inManagedObjectContext:context];
+
+	
+//TODO DATA - Finish form field save
+// set form values
+	NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	NSString *profName =
+			[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+					objectAtIndex:0] text];
+	
+	[newProfile setValue:[profName isEqualToString:@""] ? [self.userData objectAtIndex:0] : profName forKey:@"name"];
+	
+	//save context in appDelegate
+	[_app saveContext];
+}
+
+//- (void)setProfiles:(NSArray *)newProfiles {
+//  if (newProfiles && _arrProfiles != newProfiles) {
+//    _arrProfiles = [[NSMutableArray alloc] initWithArray:newProfiles];
+//  }
+//
+//  _formFields = @[
+//    @{
+//      @"FieldName" : @"Your Name or Company",
+//			@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileName] : @""
+//    },
+//    @{
+//      @"FieldName" : @"Address",
+//      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
+//                                                profileAddress] : @""
+//    },
+//    @{
+//      @"FieldName" : @"City",
+//      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileCity] : @""
+//    },
+//    @{
+//      @"FieldName" : @"State",
+//      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileState] : @""
+//    },
+//    @{
+//      @"FieldName" : @"Postal Code",
+//      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileZip] : @""
+//    },
+//    @{
+//      @"FieldName" : @"Phone",
+//      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profilePhone] : @""
+//    },
+//    @{
+//      @"FieldName" : @"Email",
+//      @"FieldValue" :  newProfiles ? [[_arrProfiles objectAtIndex:0] profileEmail] : @""
+//    },
+//    @{
+//      @"FieldName" : @"Contact Person",
+//      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
+//                                                profileContact] : @""
+//    }
+//
+//  ];
+//
+//  [[self tableView] reloadData];
+//}
+
+
 - (void)viewWillDisappear:(BOOL)animated {
-  [self handleProfileSubmit];
+	[self save];
+  //[self handleProfileSubmit];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
@@ -102,13 +225,13 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString* fieldName = [[_formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"];
 	if(fieldName)
 		[[cell labelCell] setText:fieldName];
-	
+
   [[cell textInput] setTag:[indexPath row]]; // for scrolling workaround
-	
+
 	NSString* fieldValue = [[_formFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"];
 	if(fieldValue)
 		[[cell textInput] setText:fieldValue];
-	
+
   [cell setTag:[indexPath row]];
   [cell setFieldName:[_formFields objectAtIndex:[indexPath row]]];
   [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
@@ -149,188 +272,144 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   }
   return _userData;
 }
+//
+//- (void)handleProfileSubmit {
+//  // todo: handle form validation
+//  _arrProfiles = [[NSMutableArray alloc] init];
+//
+//  Profile *nProfile = [[Profile alloc] init];
+//
+//  // Only one profile allowed for now
+//  if ([_arrProfiles count] < 1) {
+//    [_arrProfiles addObject:nProfile];
+//  }
+//
+//  // set form values
+//  NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//  NSString *profName =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileName:profName];
+//  if ([profName isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileName:[self.userData objectAtIndex:0]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:1 inSection:0];
+//  NSString *profad =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileAddress:profad];
+//  if ([profad isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileAddress:[self.userData objectAtIndex:1]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:2 inSection:0];
+//  NSString *profcity =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileCity:profcity];
+//  if ([profcity isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileCity:[self.userData objectAtIndex:2]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:3 inSection:0];
+//  NSString *profstate =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileState:profstate];
+//  if ([profstate isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileState:[self.userData objectAtIndex:3]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:4 inSection:0];
+//  NSString *profzip =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileZip:profzip];
+//  if ([profzip isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileZip:[self.userData objectAtIndex:4]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:5 inSection:0];
+//  NSString *profPhone =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfilePhone:profPhone];
+//  if ([profPhone isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfilePhone:[self.userData objectAtIndex:5]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:6 inSection:0];
+//  NSString *profemail =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileEmail:profemail];
+//  if (!profemail || [profemail isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileEmail:[self.userData objectAtIndex:6]];
+//  }
+//
+//  iPath = [NSIndexPath indexPathForRow:7 inSection:0];
+//  NSString *profcontact =
+//      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
+//          objectAtIndex:0] text];
+//  [[_arrProfiles objectAtIndex:0] setProfileContact:profcontact];
+//  if (!profcontact || [profcontact isEqualToString:@""]) {
+//    [[_arrProfiles objectAtIndex:0]
+//        setProfileContact:[self.userData objectAtIndex:7]];
+//  }
+//
+//
+//
+//  [self saveDataToDisk];
+//
+//  [[self view] endEditing:YES];
+//}
+//
+//- (void)loadDataFromDisk {
+//  // TODO: May need to test if file exists to avoid error
+//  NSDictionary *rootObject;
+//  rootObject =
+//      [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathForDataFile]];
+//
+//  [self setProfiles:[rootObject valueForKey:@"profile"]];
+//}
+//
 
-- (void)handleProfileSubmit {
-  // todo: handle form validation
-  _arrProfiles = [[NSMutableArray alloc] init];
-
-  Profile *nProfile = [[Profile alloc] init];
-
-  // Only one profile allowed for now
-  if ([_arrProfiles count] < 1) {
-    [_arrProfiles addObject:nProfile];
-  }
-
-  // set form values
-  NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0];
-  NSString *profName =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileName:profName];
-  if ([profName isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileName:[self.userData objectAtIndex:0]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:1 inSection:0];
-  NSString *profad =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileAddress:profad];
-  if ([profad isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileAddress:[self.userData objectAtIndex:1]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:2 inSection:0];
-  NSString *profcity =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileCity:profcity];
-  if ([profcity isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileCity:[self.userData objectAtIndex:2]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-  NSString *profstate =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileState:profstate];
-  if ([profstate isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileState:[self.userData objectAtIndex:3]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:4 inSection:0];
-  NSString *profzip =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileZip:profzip];
-  if ([profzip isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileZip:[self.userData objectAtIndex:4]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-  NSString *profPhone =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfilePhone:profPhone];
-  if ([profPhone isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfilePhone:[self.userData objectAtIndex:5]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-  NSString *profemail =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileEmail:profemail];
-  if (!profemail || [profemail isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileEmail:[self.userData objectAtIndex:6]];
-  }
-
-  iPath = [NSIndexPath indexPathForRow:7 inSection:0];
-  NSString *profcontact =
-      [[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-          objectAtIndex:0] text];
-  [[_arrProfiles objectAtIndex:0] setProfileContact:profcontact];
-  if (!profcontact || [profcontact isEqualToString:@""]) {
-    [[_arrProfiles objectAtIndex:0]
-        setProfileContact:[self.userData objectAtIndex:7]];
-  }
-	
-	
-
-  [self saveDataToDisk];
-
-  [[self view] endEditing:YES];
-}
-
-- (void)loadDataFromDisk {
-  // TODO: May need to test if file exists to avoid error
-  NSDictionary *rootObject;
-  rootObject =
-      [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathForDataFile]];
-
-  [self setProfiles:[rootObject valueForKey:@"profile"]];
-}
-
-- (void)setProfiles:(NSArray *)newProfiles {
-  if (newProfiles && _arrProfiles != newProfiles) {
-    _arrProfiles = [[NSMutableArray alloc] initWithArray:newProfiles];
-  }
-	
-  _formFields = @[
-    @{
-      @"FieldName" : @"Your Name or Company",
-			@"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileName] : @""
-    },
-    @{
-      @"FieldName" : @"Address",
-      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
-                                                profileAddress] : @""
-    },
-    @{
-      @"FieldName" : @"City",
-      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileCity] : @""
-    },
-    @{
-      @"FieldName" : @"State",
-      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileState] : @""
-    },
-    @{
-      @"FieldName" : @"Postal Code",
-      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profileZip] : @""
-    },
-    @{
-      @"FieldName" : @"Phone",
-      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0] profilePhone] : @""
-    },
-    @{
-      @"FieldName" : @"Email",
-      @"FieldValue" :  newProfiles ? [[_arrProfiles objectAtIndex:0] profileEmail] : @""
-    },
-    @{
-      @"FieldName" : @"Contact Person",
-      @"FieldValue" : newProfiles ? [[_arrProfiles objectAtIndex:0]
-                                                profileContact] : @""
-    }
-
-  ];
-
-  [[self tableView] reloadData];
-}
-
-- (NSString *)pathForDataFile {
-  // Accessible files are stored in the devices "Documents" directory
-  NSArray *documentDir = NSSearchPathForDirectoriesInDomains(
-      NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *path = nil;
-
-  if (documentDir) {
-    path = [documentDir objectAtIndex:0];
-  }
-
-  NSLog(@"path....%@",
-        [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"]);
-
-  return [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"];
-}
-
-- (void)saveDataToDisk {
-
-  NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-
-  [rootObject setValue:_arrProfiles forKey:@"profile"];
-
-   BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject
-   toFile:[self pathForDataFile]];
-	
-	assert(success);
-}
+//
+//- (NSString *)pathForDataFile {
+//  // Accessible files are stored in the devices "Documents" directory
+//  NSArray *documentDir = NSSearchPathForDirectoriesInDomains(
+//      NSDocumentDirectory, NSUserDomainMask, YES);
+//  NSString *path = nil;
+//
+//  if (documentDir) {
+//    path = [documentDir objectAtIndex:0];
+//  }
+//
+//  NSLog(@"path....%@",
+//        [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"]);
+//
+//  return [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"];
+//}
+//
+//- (void)saveDataToDisk {
+//
+//  NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
+//
+//  [rootObject setValue:_arrProfiles forKey:@"profile"];
+//
+//   BOOL success =  [NSKeyedArchiver archiveRootObject: rootObject
+//   toFile:[self pathForDataFile]];
+//
+//	assert(success);
+//}
 
 /*
 // Override to support conditional editing of the table view.
