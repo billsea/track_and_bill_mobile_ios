@@ -13,9 +13,8 @@
 
 @interface AppDelegate
     : UIResponder <UIApplicationDelegate>
-
+@property (readonly, strong) NSPersistentContainer *persistentContainer;
 @property(strong, nonatomic) UIWindow *window;
-
 @property(readonly, strong, nonatomic)
     NSManagedObjectContext *managedObjectContext;
 @property(readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -35,6 +34,7 @@
 @property Session *activeSession;
 @property NSDate *timeSave;
 
+- (void)saveContext;
 - (void)saveProjectsToDisk;
 - (void)saveInvoicesToDisk;
 - (void)saveClientsToDisk;
