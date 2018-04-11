@@ -23,51 +23,8 @@
   NSString *version = [[UIDevice currentDevice] systemVersion];
   NSLog(@"ios version: %@", version);
 
-  // navigation bar style
-  NSShadow *shadow = [[NSShadow alloc] init];
-  shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-  shadow.shadowOffset = CGSizeMake(0, 1);
-
-	NSArray* styleClassesNav = @[[UINavigationBar class]];
-  [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:styleClassesNav]
-      setTitleTextAttributes:@{
-        NSForegroundColorAttributeName : [UIColor whiteColor],
-        NSShadowAttributeName : shadow,
-        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:18.0]
-      }
-                    forState:UIControlStateNormal];
+	[self addStyle];
 	
-	
-	[[UINavigationBar appearance]
-	 setTitleTextAttributes:
-	 [NSDictionary
-		dictionaryWithObjectsAndKeys:[UIColor colorWithRed:245.0 / 255.0
-																								 green:245.0 / 255.0
-																									blue:245.0 / 255.0
-																								 alpha:1.0],
-		NSForegroundColorAttributeName,
-		shadow, NSShadowAttributeName,
-		[UIFont fontWithName:@"HelveticaNeue"
-										size:21.0],
-		NSFontAttributeName, nil]];
-	
-	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-	
-	// set navigation bar background color
-	UIColor *navBarBgColor =
-	[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
-	[[UINavigationBar appearance] setBarTintColor:navBarBgColor];
-	
-	//other styles
-	NSArray* styleClassesCollection = @[[UICollectionView class]];
-
-	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
-	
-	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setTextColor:navBarBgColor];
-
-
   [self RegisterForNotifications];
 
   _currentSessions = [[NSMutableArray alloc] init];
@@ -155,6 +112,53 @@
   // appropriate. See also applicationDidEnterBackground:.
   // Saves changes in the application's managed object context before the
   // application terminates.
+}
+
+#pragma mark Style
+- (void)addStyle {
+	// navigation bar style
+	NSShadow *shadow = [[NSShadow alloc] init];
+	shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+	shadow.shadowOffset = CGSizeMake(0, 1);
+	
+	NSArray* styleClassesNav = @[[UINavigationBar class]];
+	[[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:styleClassesNav]
+	 setTitleTextAttributes:@{
+														NSForegroundColorAttributeName : [UIColor whiteColor],
+														NSShadowAttributeName : shadow,
+														NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:18.0]
+														}
+	 forState:UIControlStateNormal];
+	
+	
+	[[UINavigationBar appearance]
+	 setTitleTextAttributes:
+	 [NSDictionary
+		dictionaryWithObjectsAndKeys:[UIColor colorWithRed:245.0 / 255.0
+																								 green:245.0 / 255.0
+																									blue:245.0 / 255.0
+																								 alpha:1.0],
+		NSForegroundColorAttributeName,
+		shadow, NSShadowAttributeName,
+		[UIFont fontWithName:@"HelveticaNeue"
+										size:21.0],
+		NSFontAttributeName, nil]];
+	
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+	
+	// set navigation bar background color
+	UIColor *navBarBgColor =
+	[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
+	[[UINavigationBar appearance] setBarTintColor:navBarBgColor];
+	
+	//other styles
+	NSArray* styleClassesCollection = @[[UICollectionView class]];
+	
+	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
+	 setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+	
+	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
+	 setTextColor:navBarBgColor];
 }
 
 #pragma mark - Notifications
