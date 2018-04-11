@@ -28,38 +28,45 @@
   shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
   shadow.shadowOffset = CGSizeMake(0, 1);
 
-  [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+	NSArray* styleClassesNav = @[[UINavigationBar class]];
+  [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:styleClassesNav]
       setTitleTextAttributes:@{
         NSForegroundColorAttributeName : [UIColor whiteColor],
         NSShadowAttributeName : shadow,
-        NSFontAttributeName : [UIFont fontWithName:@"Avenir Next" size:18.0]
+        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:18.0]
       }
                     forState:UIControlStateNormal];
+	
+	
+	[[UINavigationBar appearance]
+	 setTitleTextAttributes:
+	 [NSDictionary
+		dictionaryWithObjectsAndKeys:[UIColor colorWithRed:245.0 / 255.0
+																								 green:245.0 / 255.0
+																									blue:245.0 / 255.0
+																								 alpha:1.0],
+		NSForegroundColorAttributeName,
+		shadow, NSShadowAttributeName,
+		[UIFont fontWithName:@"HelveticaNeue"
+										size:21.0],
+		NSFontAttributeName, nil]];
+	
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+	
+	// set navigation bar background color
+	UIColor *navBarBgColor =
+	[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
+	[[UINavigationBar appearance] setBarTintColor:navBarBgColor];
+	
+	//other styles
+	NSArray* styleClassesCollection = @[[UICollectionView class]];
 
-  [[UINavigationBar appearance]
-      setTitleTextAttributes:
-          [NSDictionary
-              dictionaryWithObjectsAndKeys:[UIColor colorWithRed:245.0 / 255.0
-                                                           green:245.0 / 255.0
-                                                            blue:245.0 / 255.0
-                                                           alpha:1.0],
-                                           NSForegroundColorAttributeName,
-                                           shadow, NSShadowAttributeName,
-                                           [UIFont fontWithName:@"Avenir Next"
-                                                           size:21.0],
-                                           NSFontAttributeName, nil]];
+	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
+	setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+	
+	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
+	 setTextColor:navBarBgColor];
 
-  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
-  // set navigation bar background color
-  UIColor *navBarBgColor =
-      [UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
-  [[UINavigationBar appearance] setBarTintColor:navBarBgColor];
-
-  // [[UINavigationBar appearance] setBackIndicatorImage:[UIImage
-  // imageNamed:@"back-25.png"]];
-  // [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage
-  // imageNamed:@"back-25.png"]];
 
   [self RegisterForNotifications];
 
