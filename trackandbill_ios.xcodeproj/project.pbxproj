@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A90747671B0BEFAF00B95607 /* tbilliPhone5screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = A90747661B0BEFAF00B95607 /* tbilliPhone5screenshot.png */; };
 		A91501841B0949AD009AB281 /* left2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501831B0949AD009AB281 /* left2-32.png */; };
 		A91501861B094A58009AB281 /* left2-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501851B094A58009AB281 /* left2-25.png */; };
 		A91501881B094A97009AB281 /* left-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501871B094A97009AB281 /* left-25.png */; };
@@ -31,6 +30,15 @@
 		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
 		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
 		A9A2E68B1B14D60400A478AE /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = A9A2E68A1B14D60400A478AE /* Todo */; };
+		A9AAEFDC207E8958006BF1C6 /* stopwatch-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */; };
+		A9AAEFDE207E8965006BF1C6 /* timer-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFDD207E8965006BF1C6 /* timer-50.png */; };
+		A9AAEFE0207E8B45006BF1C6 /* groups-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFDF207E8B45006BF1C6 /* groups-50.png */; };
+		A9AAEFE2207E8B7C006BF1C6 /* invoice-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE1207E8B7C006BF1C6 /* invoice-50.png */; };
+		A9AAEFE4207E8C14006BF1C6 /* administrator-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE3207E8C14006BF1C6 /* administrator-50.png */; };
+		A9AAEFE6207E8D36006BF1C6 /* running-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE5207E8D36006BF1C6 /* running-50.png */; };
+		A9AAEFE8207E8E5D006BF1C6 /* drafting_compass2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */; };
+		A9AAEFEA207E8E78006BF1C6 /* cars-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE9207E8E78006BF1C6 /* cars-50.png */; };
+		A9AAEFEC207E8F25006BF1C6 /* sellotape-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */; };
 		A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */; };
 		A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */; };
 		A9CB2A162065D9C300B9EA5A /* DashboardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */; };
@@ -42,10 +50,6 @@
 		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
 		A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */; };
 		A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */; };
-		A9DC4C841AEAFB8E00A00892 /* AppIcon-057.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */; };
-		A9DC4C851AEAFB8E00A00892 /* AppIcon-072.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */; };
-		A9DC4C861AEAFB8E00A00892 /* AppIcon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */; };
-		A9DC4C871AEAFB8E00A00892 /* AppIcon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C0E1AEAFB8E00A00892 /* AppIcon-144.png */; };
 		A9DC4C881AEAFB8E00A00892 /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C101AEAFB8E00A00892 /* CGPDFDocument.m */; };
 		A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */; };
 		A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */; };
@@ -143,7 +147,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A90747661B0BEFAF00B95607 /* tbilliPhone5screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tbilliPhone5screenshot.png; sourceTree = "<group>"; };
 		A91501831B0949AD009AB281 /* left2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-32.png"; sourceTree = "<group>"; };
 		A91501851B094A58009AB281 /* left2-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-25.png"; sourceTree = "<group>"; };
 		A91501871B094A97009AB281 /* left-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-25.png"; sourceTree = "<group>"; };
@@ -175,6 +178,15 @@
 		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 		A9A2E68A1B14D60400A478AE /* Todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
+		A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stopwatch-50.png"; sourceTree = "<group>"; };
+		A9AAEFDD207E8965006BF1C6 /* timer-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-50.png"; sourceTree = "<group>"; };
+		A9AAEFDF207E8B45006BF1C6 /* groups-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groups-50.png"; sourceTree = "<group>"; };
+		A9AAEFE1207E8B7C006BF1C6 /* invoice-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invoice-50.png"; sourceTree = "<group>"; };
+		A9AAEFE3207E8C14006BF1C6 /* administrator-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "administrator-50.png"; sourceTree = "<group>"; };
+		A9AAEFE5207E8D36006BF1C6 /* running-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "running-50.png"; sourceTree = "<group>"; };
+		A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drafting_compass2-50.png"; sourceTree = "<group>"; };
+		A9AAEFE9207E8E78006BF1C6 /* cars-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cars-50.png"; sourceTree = "<group>"; };
+		A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sellotape-50.png"; sourceTree = "<group>"; };
 		A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardCollectionViewController.h; sourceTree = "<group>"; };
 		A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardCollectionViewController.m; sourceTree = "<group>"; };
 		A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewController.xib; sourceTree = "<group>"; };
@@ -192,10 +204,6 @@
 		A9DC4C081AEAFB8E00A00892 /* AddProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectTableViewController.h; sourceTree = "<group>"; };
 		A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectTableViewController.m; sourceTree = "<group>"; };
 		A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddProjectTableViewController.xib; sourceTree = "<group>"; };
-		A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-057.png"; path = "../AppIcon-057.png"; sourceTree = "<group>"; };
-		A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-072.png"; path = "../AppIcon-072.png"; sourceTree = "<group>"; };
-		A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-114.png"; path = "../AppIcon-114.png"; sourceTree = "<group>"; };
-		A9DC4C0E1AEAFB8E00A00892 /* AppIcon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon-144.png"; path = "../AppIcon-144.png"; sourceTree = "<group>"; };
 		A9DC4C0F1AEAFB8E00A00892 /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
 		A9DC4C101AEAFB8E00A00892 /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
 		A9DC4C131AEAFB8E00A00892 /* ClientsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsTableViewCell.h; sourceTree = "<group>"; };
@@ -407,9 +415,9 @@
 		A95F9FF31B0860760009CD99 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A9AAEFDA207E893C006BF1C6 /* CollectionItems */,
 				A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */,
 				A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */,
-				A90747661B0BEFAF00B95607 /* tbilliPhone5screenshot.png */,
 				A91501891B094ADD009AB281 /* back-25.png */,
 				A91501871B094A97009AB281 /* left-25.png */,
 				A91501851B094A58009AB281 /* left2-25.png */,
@@ -419,10 +427,6 @@
 				A95F9FF41B08609A0009CD99 /* paper_texture_02.png */,
 				A9976D8F1AF7F56A00A4CC9D /* group-32.png */,
 				A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */,
-				A9DC4C0B1AEAFB8E00A00892 /* AppIcon-057.png */,
-				A9DC4C0C1AEAFB8E00A00892 /* AppIcon-072.png */,
-				A9DC4C0D1AEAFB8E00A00892 /* AppIcon-114.png */,
-				A9DC4C0E1AEAFB8E00A00892 /* AppIcon-144.png */,
 				A9DC4C3A1AEAFB8E00A00892 /* Reader-Button-H.png */,
 				A9DC4C3B1AEAFB8E00A00892 /* Reader-Button-H@2x.png */,
 				A9DC4C3C1AEAFB8E00A00892 /* Reader-Button-N.png */,
@@ -453,6 +457,22 @@
 			children = (
 			);
 			path = archive_classes_old;
+			sourceTree = "<group>";
+		};
+		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
+			isa = PBXGroup;
+			children = (
+				A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */,
+				A9AAEFDD207E8965006BF1C6 /* timer-50.png */,
+				A9AAEFDF207E8B45006BF1C6 /* groups-50.png */,
+				A9AAEFE1207E8B7C006BF1C6 /* invoice-50.png */,
+				A9AAEFE3207E8C14006BF1C6 /* administrator-50.png */,
+				A9AAEFE5207E8D36006BF1C6 /* running-50.png */,
+				A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */,
+				A9AAEFE9207E8E78006BF1C6 /* cars-50.png */,
+				A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */,
+			);
+			name = CollectionItems;
 			sourceTree = "<group>";
 		};
 		A9CB2A0D2065C95000B9EA5A /* Cells */ = {
@@ -695,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9DF54901B0E57A4009A9922 /* tBill_appIcon_120.png in Resources */,
+				A9AAEFDC207E8958006BF1C6 /* stopwatch-50.png in Resources */,
 				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
 				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
 				A9CE75CA2069D27D00CBD406 /* SessionDetailCollectionViewController.xib in Resources */,
@@ -703,29 +724,32 @@
 				A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */,
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9A2E68B1B14D60400A478AE /* Todo in Resources */,
+				A9AAEFE2207E8B7C006BF1C6 /* invoice-50.png in Resources */,
+				A9AAEFDE207E8965006BF1C6 /* timer-50.png in Resources */,
 				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
+				A9AAEFEC207E8F25006BF1C6 /* sellotape-50.png in Resources */,
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
 				A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */,
 				A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
-				A90747671B0BEFAF00B95607 /* tbilliPhone5screenshot.png in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
 				A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */,
 				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
+				A9AAEFEA207E8E78006BF1C6 /* cars-50.png in Resources */,
 				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
 				A9DC4CC81AEAFB8E00A00892 /* SessionsTableViewController.xib in Resources */,
 				A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */,
 				A9DC4CA01AEAFB8E00A00892 /* ProjectsTableViewCell.xib in Resources */,
 				A9DC4CA31AEAFB8E00A00892 /* Reader-Button-H.png in Resources */,
-				A9DC4C851AEAFB8E00A00892 /* AppIcon-072.png in Resources */,
 				A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */,
+				A9AAEFE0207E8B45006BF1C6 /* groups-50.png in Resources */,
 				A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */,
-				A9DC4C841AEAFB8E00A00892 /* AppIcon-057.png in Resources */,
 				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,
 				A9DC4C981AEAFB8E00A00892 /* MilageViewController.xib in Resources */,
 				A91501881B094A97009AB281 /* left-25.png in Resources */,
 				A91501841B0949AD009AB281 /* left2-32.png in Resources */,
+				A9AAEFE4207E8C14006BF1C6 /* administrator-50.png in Resources */,
 				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
 				A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */,
 				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
@@ -736,21 +760,21 @@
 				A9DC4CA21AEAFB8E00A00892 /* ProjectsTableViewController.xib in Resources */,
 				A9DC4C921AEAFB8E00A00892 /* InvoicesTableViewController.xib in Resources */,
 				A9DC4C961AEAFB8E00A00892 /* MaterialsViewController.xib in Resources */,
+				A9AAEFE6207E8D36006BF1C6 /* running-50.png in Resources */,
 				A9DC4C9B1AEAFB8E00A00892 /* ProfileTableViewController.xib in Resources */,
 				A9DC4CC41AEAFB8E00A00892 /* SessionNotesViewController.xib in Resources */,
 				A9DC4CC61AEAFB8E00A00892 /* SessionsTableViewCell.xib in Resources */,
-				A9DC4C861AEAFB8E00A00892 /* AppIcon-114.png in Resources */,
 				A915018A1B094ADD009AB281 /* back-25.png in Resources */,
 				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
 				A91501861B094A58009AB281 /* left2-25.png in Resources */,
 				A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */,
+				A9AAEFE8207E8E5D006BF1C6 /* drafting_compass2-50.png in Resources */,
 				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
 				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,
 				A9DC4CAE1AEAFB8E00A00892 /* Reader-Print@2x.png in Resources */,
 				A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */,
 				A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */,
-				A9DC4C871AEAFB8E00A00892 /* AppIcon-144.png in Resources */,
 				A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */,
 				A9CB2A172065D9C300B9EA5A /* DashboardCollectionViewCell.xib in Resources */,
 			);
