@@ -10,10 +10,6 @@
 
 @interface ProfileTableViewController
     : UITableViewController <UITextFieldDelegate>
-@property(nonatomic, retain) NSMutableArray *arrProfiles;
 @property(strong, nonatomic) NSMutableArray *userData;
-
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-- (void)saveDataToDisk;
-
 @end
