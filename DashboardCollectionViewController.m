@@ -14,6 +14,7 @@
 
 @interface DashboardCollectionViewController (){
 	NSMutableArray* _cellData;
+	NSArray* _cellImages;
 }
 
 @end
@@ -26,6 +27,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     [super viewDidLoad];
 	
 	self.title = @"Dashboard";
+	
+	_cellImages = @[@"groups", @"invoice", @"administrator"];
 	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
@@ -89,7 +92,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	DashboardCollectionViewCell* cell = (DashboardCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 	
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
+	
 	return cell;
 }
 
