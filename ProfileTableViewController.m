@@ -11,8 +11,8 @@
 #import "AppDelegate.h"
 
 @interface ProfileTableViewController () {
-  NSArray*_formFields;
-	AppDelegate*_app;
+  NSArray* _formFields;
+	AppDelegate* _app;
 	NSManagedObjectContext* _context;
 	NSFetchRequest* _fetchRequest;
 	NSArray* _dataFields;
@@ -100,7 +100,7 @@
 	// update or create new managed object
 	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
 	
-	NSManagedObject *userProfile;
+	NSManagedObject* userProfile;
 	if(data.count > 0) {
 		userProfile = [data objectAtIndex:0];
 	} else {
@@ -118,7 +118,7 @@
 
 - (NSString*)valueForTextCellWithIndex:(int)rowIndex {
 	UIView* cellContent = [[[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:0]] contentView];
-	NSString *value = [[[cellContent subviews] objectAtIndex:0] text];
+	NSString* value = [[[cellContent subviews] objectAtIndex:0] text];
 	
 	value = value && ![value isEqualToString:@""] ? value : [self.userData objectAtIndex:rowIndex] ? [self.userData objectAtIndex:rowIndex] : @"";
 	
@@ -158,7 +158,7 @@
 
   static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
 
-  TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView
+  TextInputTableViewCell* cell = (TextInputTableViewCell *)[tableView
       dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
   if (cell == nil) {
