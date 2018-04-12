@@ -90,9 +90,8 @@
   }
 
 	NSManagedObject *dataObject = [_data objectAtIndex:indexPath.row];
-  //set client id for table row
-  //[cell setTag:[[dataObject valueForKey:@"id"] integerValue]];
-	cell.dataObjectId = [dataObject objectID];//id reference for managed object
+  //id reference for managed object
+	cell.dataObjectId = [dataObject objectID];
   [cell.clientNameLabel setText:[dataObject valueForKey:@"name"]];
 
   return cell;

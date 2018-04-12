@@ -30,7 +30,8 @@
 
   [[self navigationItem] setTitle:@"New Client"];
 
-	_dataFields = @[@"name",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email",@"contact"];
+	//data field sequence must match form fields sequence
+	_dataFields = @[@"name",@"contact",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	_fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Client"];
