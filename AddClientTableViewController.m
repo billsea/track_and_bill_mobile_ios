@@ -8,98 +8,134 @@
 
 #import "AddClientTableViewController.h"
 #import "TextInputTableViewCell.h"
-#import "AppDelegate.h"
+
 
 @interface AddClientTableViewController () {
-  NSArray *_clientFormFields;
+	NSArray* _formFields;
+	AppDelegate* _app;
+	NSManagedObjectContext* _context;
+	NSFetchRequest* _fetchRequest;
+	NSArray* _dataFields;
 }
+
 @end
 
 @implementation AddClientTableViewController
 
-//TODO DATA
-//- (void)viewDidLoad {
-//  [super viewDidLoad];
-//
-//  // Uncomment the following line to preserve selection between presentations.
-//  // self.clearsSelectionOnViewWillAppear = NO;
-//
-//  [[self navigationItem] setTitle:@"New Client"];
-//
-//  // input form text fields
-//
-//  _clientFormFields = @[
-//    @{ @"FieldName" : @"Client Name",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"Contact Person",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"Address",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"City",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"State",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"Country",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"Postal Code",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"Phone",
-//       @"FieldValue" : @"" },
-//    @{ @"FieldName" : @"Email",
-//       @"FieldValue" : @"" }
-//
-//  ];
-//
-//  // view has been touched, for dismiss keyboard
-//  UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc]
-//      initWithTarget:self
-//              action:@selector(handleSingleTap:)];
-//
-//  [self.view addGestureRecognizer:singleFingerTap];
-//
-//  // set background image
-//  [[self view]
-//      setBackgroundColor:[UIColor
-//                             colorWithPatternImage:
-//                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//  [self newClientSubmit];
-//}
-//
-//- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-//  [[self view] endEditing:YES];
-//}
-//
-//- (void)newClientSubmit {
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  // TODO: handle form validation
-//  if (![[self.userData objectAtIndex:0] isEqualToString:@""]) {
-//    Client *newClient = [[Client alloc] init];
-//
-//    // init new client with form values
-//    [newClient setCompanyName:[self.userData objectAtIndex:0]];
-//    [newClient setContactName:[self.userData objectAtIndex:1]];
-//    [newClient setStreet:[self.userData objectAtIndex:2]];
-//    [newClient setCity:[self.userData objectAtIndex:3]];
-//    [newClient setState:[self.userData objectAtIndex:4]];
-//    [newClient setCountry:[self.userData objectAtIndex:5]];
-//    [newClient setPostalCode:[self.userData objectAtIndex:6]];
-//    [newClient setPhoneNumber:[self.userData objectAtIndex:7]];
-//    [newClient setEmail:[self.userData objectAtIndex:8]];
-//    [newClient setClientID:[self createClientID]];
-//
-//    // add new client object to clients list
-//    [[appDelegate arrClients] addObject:newClient];
-//
-//    // [self saveDataToDisk];
-//  }
-//  [[self view] endEditing:YES];
-//}
-//
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+
+  [[self navigationItem] setTitle:@"New Client"];
+
+	_dataFields = @[@"name",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email",@"contact"];
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	_context = _app.persistentContainer.viewContext;
+	_fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Client"];
+	[self fetchData];
+
+  // view has been touched, for dismiss keyboard
+  UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc]
+      initWithTarget:self
+              action:@selector(handleSingleTap:)];
+
+  [self.view addGestureRecognizer:singleFingerTap];
+
+  // set background image
+  [[self view]
+      setBackgroundColor:[UIColor
+                             colorWithPatternImage:
+                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+  [self save];
+}
+
+- (void)fetchData {
+	// Fetch data from persistent data store;
+	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
+	
+	_formFields = @[
+									@{
+										@"FieldName" : @"Client Name",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"name"] : @""
+										},
+									@{
+										@"FieldName" : @"Contact Person",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"contact"] : @""
+										},
+									@{
+										@"FieldName" : @"Address",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"address"] : @""
+										},
+									@{
+										@"FieldName" : @"City",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"city"] : @""
+										},
+									@{
+										@"FieldName" : @"State",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"state"] : @""
+										},
+									@{
+										@"FieldName" : @"Country",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"country"] : @""
+										},
+									@{
+										@"FieldName" : @"Postal Code",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"postalcode"] : @""
+										},
+									@{
+										@"FieldName" : @"Phone",
+										@"FieldValue" : dataObject ? [dataObject valueForKey:@"phone"] : @""
+										},
+									@{
+										@"FieldName" : @"Email",
+										@"FieldValue" :  dataObject ? [dataObject valueForKey:@"email"] : @""
+										}
+									];
+	
+	[[self tableView] reloadData];
+}
+
+- (void)save {
+	// update or create new managed object
+	//[_fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@", _clientId]];
+	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	
+	
+	NSManagedObject* clientObject;
+	if(_clientObjectId) {
+		clientObject = [data objectAtIndex:[data indexOfObject:_clientObjectId]];
+	} else {
+		clientObject = [NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:_context];
+	}
+	
+	// save form values
+	for(int i = 0; i < _dataFields.count; i++){
+		[clientObject setValue:[self valueForTextCellWithIndex:i] forKey:_dataFields[i]];
+	}
+	
+	//save context in appDelegate
+	[_app saveContext];
+}
+
+- (NSString*)valueForTextCellWithIndex:(int)rowIndex {
+	UIView* cellContent = [[[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:0]] contentView];
+	NSString* value = [[[cellContent subviews] objectAtIndex:0] text];
+	
+	value = value && ![value isEqualToString:@""] ? value : [self.userData objectAtIndex:rowIndex] ? [self.userData objectAtIndex:rowIndex] : @"";
+	
+	return value;
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+  [[self view] endEditing:YES];
+}
+
 //- (NSNumber *)createClientID {
 //  AppDelegate *appDelegate =
 //      (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -112,78 +148,72 @@
 //  }
 //  return newId;
 //}
-//
-//- (void)didReceiveMemoryWarning {
-//  [super didReceiveMemoryWarning];
-//  // Dispose of any resources that can be recreated.
-//}
-//
-//#pragma mark - Table view data source
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//  return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView
-//    numberOfRowsInSection:(NSInteger)section {
-//  return [_clientFormFields count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView
-//         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//  static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-//	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//
-//  TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView
-//      dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//
-//  if (cell == nil) {
-//    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell"
-//                                                 owner:self
-//                                               options:nil];
-//    cell = [nib objectAtIndex:0];
-//  }
-//
-//  // set placeholder value for new cell
-//  [[cell labelCell] setText:[[_clientFormFields objectAtIndex:[indexPath row]]
-//                                valueForKey:@"FieldName"]];
-//  [[cell textInput] setTag:[indexPath row]]; // for scrolling workaround
-//  [cell setTag:[indexPath row]];
-//  [cell setFieldName:[_clientFormFields objectAtIndex:[indexPath row]]];
-//  [[cell textInput]
-//      setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-//  [[cell textInput] setTextColor:[UIColor blackColor]];
-//  cell.textInput.delegate = self;
-//
-//  // check if user entered text into field, and load it. this fixes problem with
-//  // scrolling, and text field input disappearing
-//  if (![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]) {
-//    cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
-//  }
-//  return cell;
-//}
-//
-//#pragma mark text field delegates
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-//  [textField resignFirstResponder];
-//  self.userData[textField.tag] = textField.text;
-//  return YES;
-//}
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField {
-//  // save text input in user data. workaround for disappearing text entry issue
-//  // on scroll
-//  [textField resignFirstResponder];
-//  self.userData[textField.tag] = textField.text;
-//}
-//
-//- (NSMutableArray *)userData {
-//  if (!_userData) {
-//    _userData =
-//        [[NSMutableArray alloc] initWithCapacity:[_clientFormFields count]];
-//    for (int i = 0; i < [_clientFormFields count]; i++)
-//      [_userData addObject:@""];
-//  }
-//  return _userData;
-//}
+
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return _formFields.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
+	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+  TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView
+      dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
+  if (cell == nil) {
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+    cell = [nib objectAtIndex:0];
+  }
+
+  // set placeholder value for new cell
+  [[cell labelCell] setText:[[_formFields objectAtIndex:[indexPath row]]
+                                valueForKey:@"FieldName"]];
+  [[cell textInput] setTag:[indexPath row]]; // for scrolling workaround
+  [cell setTag:[indexPath row]];
+  [cell setFieldName:[_formFields objectAtIndex:[indexPath row]]];
+  cell.textInput.delegate = self;
+
+  // check if user entered text into field, and load it. this fixes problem with
+  // scrolling, and text field input disappearing
+  if (![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]) {
+    cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
+  }
+  return cell;
+}
+
+#pragma mark text field delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  self.userData[textField.tag] = textField.text;
+  return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  // save text input in user data. workaround for disappearing text entry issue
+  // on scroll
+  [textField resignFirstResponder];
+  self.userData[textField.tag] = textField.text;
+}
+
+- (NSMutableArray *)userData {
+  if (!_userData) {
+    _userData =
+        [[NSMutableArray alloc] initWithCapacity:[_formFields count]];
+    for (int i = 0; i < [_formFields count]; i++)
+      [_userData addObject:@""];
+  }
+  return _userData;
+}
 
 @end

@@ -10,4 +10,5 @@
 
 @interface ClientsTableViewCell : UITableViewCell
 @property(weak, nonatomic) IBOutlet UILabel *clientNameLabel;
+@property(nonatomic) id dataObjectId;
 @end

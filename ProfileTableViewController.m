@@ -181,8 +181,6 @@
 
   [cell setTag:[indexPath row]];
   [cell setFieldName:[_formFields objectAtIndex:[indexPath row]]];
-  [[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-  [[cell textInput] setTextColor:[UIColor blackColor]];
   cell.textInput.delegate = self;
 
   // check if user entered text into field, and load it. this fixes problem with

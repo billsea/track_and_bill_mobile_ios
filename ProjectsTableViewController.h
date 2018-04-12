@@ -11,6 +11,7 @@
 
 @interface ProjectsTableViewController : UITableViewController
 @property(nonatomic, retain) Client *selectedClient;
+@property(nonatomic) id dataObjectId;
 
 - (NSString *)pathForProjectsFile;
 - (void)RetrieveProjects;

@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Client+CoreDataClass.h"
+#import "AppDelegate.h"
 
-@interface AddClientTableViewController
-    : UITableViewController <UITextFieldDelegate>
+@interface AddClientTableViewController : UITableViewController <UITextFieldDelegate>
 @property(strong, nonatomic) NSMutableArray *userData;
+@property(nonatomic) NSManagedObjectID *clientObjectId;
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
-- (void)newClientSubmit;
 @end

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ClientsTableViewController : UITableViewController
+@property UIBarButtonItem *addClientButton;
 - (IBAction)addClient:(id)sender;
-
 @end

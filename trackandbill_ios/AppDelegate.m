@@ -116,6 +116,8 @@
 
 #pragma mark Style
 - (void)addStyle {
+	NSString* selectedFontName = @"HelveticaNeue";
+	
 	// navigation bar style
 	NSShadow *shadow = [[NSShadow alloc] init];
 	shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
@@ -126,7 +128,7 @@
 	 setTitleTextAttributes:@{
 														NSForegroundColorAttributeName : [UIColor whiteColor],
 														NSShadowAttributeName : shadow,
-														NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:18.0]
+														NSFontAttributeName : [UIFont fontWithName:selectedFontName size:18.0]
 														}
 	 forState:UIControlStateNormal];
 	
@@ -140,7 +142,7 @@
 																								 alpha:1.0],
 		NSForegroundColorAttributeName,
 		shadow, NSShadowAttributeName,
-		[UIFont fontWithName:@"HelveticaNeue"
+		[UIFont fontWithName:selectedFontName
 										size:21.0],
 		NSFontAttributeName, nil]];
 	
@@ -155,10 +157,17 @@
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+	 setFont:[UIFont fontWithName:selectedFontName size:16.0]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
 	 setTextColor:navBarBgColor];
+	
+	NSArray* styleClassesTable = @[[UITableView class]];
+	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
+	 setFont:[UIFont fontWithName:selectedFontName size:21.0]];
+	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
+	 setTextColor:navBarBgColor];
+	
 }
 
 #pragma mark - Notifications
