@@ -28,7 +28,7 @@
   // Uncomment the following line to preserve selection between presentations.
   // self.clearsSelectionOnViewWillAppear = NO;
 
-  [[self navigationItem] setTitle:@"New Client"];
+  [[self navigationItem] setTitle: NSLocalizedString(@"New Client",nil)];
 
 	//data field sequence must match form fields sequence
 	_dataFields = @[@"name",@"contact",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email"];
@@ -62,39 +62,39 @@
 	
 	_formFields = @[
 									@{
-										@"FieldName" : @"Client Name",
+										@"FieldName" :  NSLocalizedString(@"Client Name",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"name"] : @""
 										},
 									@{
-										@"FieldName" : @"Contact Person",
+										@"FieldName" :  NSLocalizedString(@"Contact Person",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"contact"] : @""
 										},
 									@{
-										@"FieldName" : @"Address",
+										@"FieldName" :  NSLocalizedString(@"Address",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"address"] : @""
 										},
 									@{
-										@"FieldName" : @"City",
+										@"FieldName" :  NSLocalizedString(@"City",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"city"] : @""
 										},
 									@{
-										@"FieldName" : @"State",
+										@"FieldName" :  NSLocalizedString(@"State",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"state"] : @""
 										},
 									@{
-										@"FieldName" : @"Country",
+										@"FieldName" :  NSLocalizedString(@"Country",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"country"] : @""
 										},
 									@{
-										@"FieldName" : @"Postal Code",
+										@"FieldName" :  NSLocalizedString(@"Postal Code",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"postalcode"] : @""
 										},
 									@{
-										@"FieldName" : @"Phone",
+										@"FieldName" :  NSLocalizedString(@"Phone",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"phone"] : @""
 										},
 									@{
-										@"FieldName" : @"Email",
+										@"FieldName" :  NSLocalizedString(@"Email",nil),
 										@"FieldValue" :  dataObject ? [dataObject valueForKey:@"email"] : @""
 										}
 									];

@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 	
-  [[self navigationItem] setTitle:@"Profile"];
+  [[self navigationItem] setTitle: NSLocalizedString(@"Profile",nil)];
 
 	_dataFields = @[@"name",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email",@"contact"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -55,39 +55,39 @@
 	
 	_formFields = @[
 									@{
-										@"FieldName" : @"Your Name or Company",
+										@"FieldName" : NSLocalizedString(@"Your Name or Company", nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"name"] : @""
 										},
 									@{
-										@"FieldName" : @"Address",
+										@"FieldName" :  NSLocalizedString(@"Address",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"address"] : @""
 										},
 									@{
-										@"FieldName" : @"City",
+										@"FieldName" :  NSLocalizedString(@"City",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"city"] : @""
 										},
 									@{
-										@"FieldName" : @"State",
+										@"FieldName" :  NSLocalizedString(@"State",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"state"] : @""
 										},
 									@{
-										@"FieldName" : @"Country",
+										@"FieldName" :  NSLocalizedString(@"Country",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"country"] : @""
 										},
 									@{
-										@"FieldName" : @"Postal Code",
+										@"FieldName" :  NSLocalizedString(@"Postal Code",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"postalcode"] : @""
 										},
 									@{
-										@"FieldName" : @"Phone",
+										@"FieldName" :  NSLocalizedString(@"Phone",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"phone"] : @""
 										},
 									@{
-										@"FieldName" : @"Email",
+										@"FieldName" :  NSLocalizedString(@"Email",nil),
 										@"FieldValue" :  dataObject ? [dataObject valueForKey:@"email"] : @""
 										},
 									@{
-										@"FieldName" : @"Contact Person",
+										@"FieldName" :  NSLocalizedString(@"Contact Person",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"contact"] : @""
 										}
 									

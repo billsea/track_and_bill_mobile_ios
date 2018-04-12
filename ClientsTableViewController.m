@@ -29,12 +29,12 @@
   [super viewDidLoad];
 
   // Set the title of the navigation item
-  [[self navigationItem] setTitle:@"Clients"];
+  [[self navigationItem] setTitle: NSLocalizedString(@"Clients",nil)];
 
   // add new navigation bar button
   self.addClientButton = [[UIBarButtonItem alloc]
       // initWithImage:[UIImage imageNamed:@"reload-50.png"]
-      initWithTitle:@"New"
+      initWithTitle: NSLocalizedString(@"New",nil)
               style:UIBarButtonItemStylePlain
              target:self
              action:@selector(addClient:)];
