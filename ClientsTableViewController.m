@@ -11,6 +11,8 @@
 #import "ClientsTableViewCell.h"
 #import "ProjectsTableViewController.h"
 #import "AddClientTableViewController.h"
+#import "Client+CoreDataProperties.h"
+#import "Project+CoreDataProperties.h"
 
 @interface ClientsTableViewController (){
 	AppDelegate* _app;
@@ -108,9 +110,27 @@
     commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
      forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
-		// TODO: Delete the row from the data source,
-		// TODO: remove projects for the deleted client
-		// TODO: remove sessions for the deleted projects
+		
+		//get client
+		Client* client = (Client*)[_data objectAtIndex:indexPath.row];
+		
+		// Remove sessions and invoices for the client's projects
+		for(Project* p in client.projects){
+			[p removeSessions:p.sessions];
+			[p removeInvoices:p.invoices];
+		}
+		
+		// Remove projects for the selected client
+		[client removeProjects:client.projects];
+		
+		// Delete the row from the table
+		[_context deleteObject:[_data objectAtIndex:indexPath.row]];
+		
+		[_app saveContext];
+		
+		
+		// Delete the row from
+		[_data removeObjectAtIndex:indexPath.row];
 
     [tableView deleteRowsAtIndexPaths:@[ indexPath ]
                      withRowAnimation:UITableViewRowAnimationFade];
