@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Client+CoreDataClass.h"
 #import "InlineDateAndNumberPickerViewController.h"
+#import "AppDelegate.h"
 
-@interface AddProjectTableViewController
-    : InlineDateAndNumberPickerViewController <UITextFieldDelegate>
-@property Client *selectedClient;
+@interface AddProjectTableViewController : InlineDateAndNumberPickerViewController <UITextFieldDelegate>
+@property(nonatomic) NSManagedObjectID *clientObjectId;
+@property(nonatomic) NSManagedObjectID *projectObjectId;
+@property(strong, nonatomic) NSMutableArray *userData;
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 @end

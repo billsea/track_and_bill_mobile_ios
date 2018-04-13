@@ -107,7 +107,6 @@
 	//[_fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@", _clientId]];
 	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
 	
-	
 	NSManagedObject* clientObject;
 	if(_clientObjectId) {
 		clientObject = [data objectAtIndex:[data indexOfObject:_clientObjectId]];

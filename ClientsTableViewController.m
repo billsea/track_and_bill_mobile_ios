@@ -92,8 +92,6 @@
   }
 
 	NSManagedObject *dataObject = [_data objectAtIndex:indexPath.row];
-  //id reference for managed object
-	cell.dataObjectId = [dataObject objectID];
   [cell.clientNameLabel setText:[dataObject valueForKey:@"name"]];
 
   return cell;
@@ -147,8 +145,7 @@
           initWithNibName:@"ProjectsTableViewController"
                    bundle:nil];
 	
-	ClientsTableViewCell *cell = (ClientsTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-	projectsViewController.dataObjectId = cell.dataObjectId; //selected data object id
+	projectsViewController.clientObjectId = [_data objectAtIndex:indexPath.row]; //selected client data object id
 
   // Push the view controller.
   [self.navigationController pushViewController:projectsViewController
