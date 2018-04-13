@@ -17,9 +17,9 @@
 
 @interface ProjectsTableViewController (){
 	Client* _client;
-	AppDelegate* _app;
-	NSManagedObjectContext* _context;
-	NSFetchRequest* _fetchRequest;
+//	AppDelegate* _app;
+//	NSManagedObjectContext* _context;
+//	NSFetchRequest* _fetchRequest;
 	NSArray* _clientProjects;
 }
 @end
@@ -59,11 +59,6 @@
 }
 
 - (void)fetchData {
-	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	_fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Project"];
-	_context = _app.persistentContainer.viewContext;
-	NSMutableArray* _data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
-	
 	_clientProjects = [_client.projects allObjects];
 	[self.tableView reloadData];
 }
@@ -77,7 +72,7 @@
 		AddProjectTableViewController *addProjectView =
 		[[AddProjectTableViewController alloc] init];
 		
-		//[addProjectView setSelectedClient:_selectedClient];
+	[addProjectView setClientObjectId:_clientObjectId];
 		
 		[self.navigationController pushViewController:addProjectView animated:YES];
 }

@@ -18,7 +18,7 @@
 	NSManagedObjectContext* _context;
 	NSFetchRequest* _fetchRequest;
 	NSArray* _dataFields;
-	Client* _client
+	Client* _client;
 }
 @property(nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
 @end
@@ -82,10 +82,6 @@
 	if(_projectObjectId) {
 		projectObject = [data objectAtIndex:[data indexOfObject:_projectObjectId]];
 	} else {
-		
-		//TODO: can we add to _client.projects???
-		//[_client.projects setByAddingObject:projectObject];
-		
 		//This doesn't add to the current client project??
 		projectObject = [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:_context];
 	}
@@ -94,6 +90,9 @@
 	for(int i = 0; i < _dataFields.count; i++){
 		[projectObject setValue:[self valueForTextCellWithIndex:i] forKey:_dataFields[i]];
 	}
+	
+	//add to client projects (one to many relationship)
+	[_client addProjectsObject:(Project*)projectObject];
 	
 	//save context in appDelegate
 	[_app saveContext];
