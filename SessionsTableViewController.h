@@ -12,5 +12,5 @@
 @interface SessionsTableViewController
     : UITableViewController <UIActionSheetDelegate>
 @property(weak) NSTimer *sessionRefreshTimer;
-@property(nonatomic, retain) Project *selectedProject;
+@property(nonatomic) id projectObjectId;
 @end

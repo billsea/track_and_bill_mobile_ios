@@ -10,70 +10,75 @@
 #import "AppDelegate.h"
 #import "SessionsTableViewCell.h"
 #import "Session+CoreDataClass.h"
+#import "Project+CoreDataClass.h"
 #import "SessionDetailCollectionViewController.h"
 
-@interface SessionsTableViewController ()
+@interface SessionsTableViewController (){
+	Project* _project;
+	AppDelegate* _app;
+	NSManagedObjectContext* _context;
+	NSFetchRequest* _fetchRequest;
+}
 @end
 
 @implementation SessionsTableViewController
-//TODO DATA
-//- (void)viewDidLoad {
-//  [super viewDidLoad];
-//
-//  // Set the title of the navigation item
-//  [[self navigationItem] setTitle:@"Sessions"];
-//
-//  // set background image
-//  [[self view]
-//      setBackgroundColor:[UIColor
-//                             colorWithPatternImage:
-//                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
-//
-//  // Uncomment the following line to preserve selection between presentations.
-//  // self.clearsSelectionOnViewWillAppear = NO;
-//
-//  // Uncomment the following line to display an Edit button in the navigation
-//  // bar for this view controller.
-//  self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//
-//  // refreshes the timer label in each sessison row
-//  _sessionRefreshTimer =
-//      [NSTimer scheduledTimerWithTimeInterval:1
-//                                       target:self
-//                                     selector:@selector(updateTimerLabel)
-//                                     userInfo:nil
-//                                      repeats:YES];
-//
-//  [self loadSessionsList];
-//}
-//
-//- (void)loadSessionsList {
-//  // check duplicates and if session was recently removed
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//  bool supressSession = false;
-//
-//  for (Session *s in appDelegate.currentSessions) {
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
+  // Set the title of the navigation item
+  [[self navigationItem] setTitle:@"Sessions"];
+
+  // set background image
+  [[self view]
+      setBackgroundColor:[UIColor
+                             colorWithPatternImage:
+                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
+
+  _project = (Project*)_projectObjectId;
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	_context = _app.persistentContainer.viewContext;
+
+  // Uncomment the following line to display an Edit button in the navigation
+  // bar for this view controller.
+  self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+  // refreshes the timer label in each sessison row
+  _sessionRefreshTimer =
+      [NSTimer scheduledTimerWithTimeInterval:1
+                                       target:self
+                                     selector:@selector(updateTimerLabel)
+                                     userInfo:nil
+                                      repeats:YES];
+
+  [self loadSessionsList];
+}
+
+- (void)loadSessionsList {
+  // check duplicates and if session was recently removed
+  bool supressSession = false;
+
+	[self addNewSessionForSelectedProject];
+	//TODO: check for duplicates
+//  for (Session *s in _app.currentSessions) {
 //    if (s.projectIDref == _selectedProject.projectID) {
 //      supressSession = true;
 //    }
 //  }
 //  if (supressSession == false) {
-//    if (_selectedProject) {
+//    if (_project) {
 //      [self addNewSessionForSelectedProject];
 //    }
 //  }
-//}
-//
-//// update the timer label for each session when timer ticks
-//- (void)updateTimerLabel {
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//  NSInteger index = 0;
-//  UITableViewCell *sessionCell = [[UITableViewCell alloc] init];
-//  UILabel *timerLabel = [[UILabel alloc] init];
-//  NSIndexPath *iPath = [[NSIndexPath alloc] init];
-//
+}
+
+// update the timer label for each session when timer ticks
+- (void)updateTimerLabel {
+  NSInteger index = 0;
+  UITableViewCell *sessionCell = [[UITableViewCell alloc] init];
+  UILabel *timerLabel = [[UILabel alloc] init];
+  NSIndexPath *iPath = [[NSIndexPath alloc] init];
+
 //  for (Session *curSession in [appDelegate currentSessions]) {
 //    iPath = [NSIndexPath indexPathForRow:index inSection:0];
 //
@@ -86,32 +91,27 @@
 //
 //    index++;
 //  }
-//}
+}
 //
-//- (void)didReceiveMemoryWarning {
-//  [super didReceiveMemoryWarning];
-//  // Dispose of any resources that can be recreated.
-//}
-//
-//- (void)addNewSessionForSelectedProject {
-//
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  Session *newSession = [[Session alloc] init];
-//  newSession.projectName = [_selectedProject projectName];
-//  newSession.projectIDref = [_selectedProject projectID];
-//  newSession.clientName = [_selectedProject clientName];
-//  newSession.sessionDate = [NSDate date];
-//  newSession.startTime = [NSDate date];
-//  newSession.sessionID = [self newSessionId];
-//  newSession.txtNotes = @"";
-//  newSession.materials = @"";
-//  newSession.milage = [NSNumber numberWithInt:0];
-//  [[appDelegate currentSessions] addObject:newSession];
-//
-//  [[self tableView] reloadData];
-//}
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+- (void)addNewSessionForSelectedProject {
+
+	NSManagedObject* sessionObject;
+	sessionObject = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:_context];
+	
+	Session* newSession = (Session*)sessionObject;
+	newSession.sessiondate = [NSDate date];
+	newSession.start = [NSDate date];
+	[_project addSessionsObject:newSession];
+
+  [_app.currentSessions addObject:newSession];
+
+  [[self tableView] reloadData];
+}
 //
 //// generate new session id using the stored sessions
 //- (NSNumber *)newSessionId {
@@ -130,76 +130,59 @@
 //  return newId;
 //}
 //
-//#pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//
-//  // Return the number of sections.
-//  return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView
-//    numberOfRowsInSection:(NSInteger)section {
-//
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  NSLog(@"appDelegate.currentSessions count:%lu",
-//        (unsigned long)[[appDelegate currentSessions] count]);
-//
-//  // Return the number of rows in the section.
-//  return [[appDelegate currentSessions] count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView
-//         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  CGRect screenRect = [[UIScreen mainScreen] bounds];
-//  CGFloat screenWidth = screenRect.size.width;
-//
-//  static NSString *CellIdentifier = @"SessionsCell";
-//  UITableViewCell *cell =
-//      [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//  if (cell == nil) {
-//    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-//                                  reuseIdentifier:CellIdentifier];
-//  }
-//
-//  [cell setBackgroundColor:[UIColor clearColor]];
-//  cell.accessoryView = nil;
-//
-//  Session *rSession =
-//      (Session *)[[appDelegate currentSessions] objectAtIndex:[indexPath row]];
-//
-//  UILabel *cellLabel = [[UILabel alloc]
-//      initWithFrame:CGRectMake(10, 11, cell.frame.size.width - 100, 21)];
-//  [cellLabel setText:[rSession projectName]];
-//  [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-//  [cellLabel setTextColor:[UIColor blackColor]];
-//
-//  UILabel *timerLabel =
-//      [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
-//  [timerLabel setText:[rSession timerValue]];
-//  timerLabel.tag = [indexPath row] + 1; // need to start tag at one, NOT ZERO
-//  [timerLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
-//  [timerLabel setTextColor:[UIColor blackColor]];
-//
-//  // clear cell subviews-clears old cells
-//  if (cell != nil) {
-//    NSArray *subviews = [cell.contentView subviews];
-//    for (UIView *view in subviews) {
-//      [view removeFromSuperview];
-//    }
-//  }
-//
-//  [[cell contentView] addSubview:cellLabel];
-//  [[cell contentView] addSubview:timerLabel];
-//
-//  return cell;
-//}
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  NSLog(@"appDelegate.currentSessions count:%lu",
+        (unsigned long)[[_app currentSessions] count]);
+	
+  return [[_app currentSessions] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  CGRect screenRect = [[UIScreen mainScreen] bounds];
+  CGFloat screenWidth = screenRect.size.width;
+
+  static NSString *CellIdentifier = @"SessionsCell";
+  UITableViewCell *cell =
+      [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:CellIdentifier];
+  }
+
+  [cell setBackgroundColor:[UIColor clearColor]];
+  cell.accessoryView = nil;
+
+  Session *rSession = [[_app currentSessions] objectAtIndex:[indexPath row]];
+
+  UILabel *cellLabel = [[UILabel alloc]
+      initWithFrame:CGRectMake(10, 11, cell.frame.size.width - 100, 21)];
+  [cellLabel setText:_project.name];
+
+  UILabel *timerLabel =
+      [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
+  //[timerLabel setText:[rSession timerValue]];
+  timerLabel.tag = [indexPath row] + 1; // need to start tag at one, NOT ZERO
+
+
+  // clear cell subviews-clears old cells
+  if (cell != nil) {
+    NSArray *subviews = [cell.contentView subviews];
+    for (UIView *view in subviews) {
+      [view removeFromSuperview];
+    }
+  }
+
+  [[cell contentView] addSubview:cellLabel];
+  [[cell contentView] addSubview:timerLabel];
+
+  return cell;
+}
 //
 ///*
 //// Override to support conditional editing of the table view.

@@ -16,7 +16,7 @@
     : InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate,UITextFieldDelegate> {
 }
 
-@property(nonatomic, retain) Project *selectedProject;
+@property(nonatomic) id projectObjectId;
 @property(nonatomic, retain) Invoice *selectedInvoice;
 @property(strong, nonatomic) NSMutableArray *userData;
 

@@ -10,6 +10,6 @@
 #import "Project+CoreDataClass.h"
 
 @interface AllSessionsTableViewController : UITableViewController
-@property(nonatomic, retain) Project *selectedProject;
+@property(nonatomic) id projectObjectId;
 @property(nonatomic) NSMutableArray *allProjectSessions;
 @end
