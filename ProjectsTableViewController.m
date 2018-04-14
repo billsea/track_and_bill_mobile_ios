@@ -8,18 +8,17 @@
 
 #import "ProjectsTableViewController.h"
 #import "ProjectsTableViewCell.h"
-#import "SessionsTableViewController.h"
+#import "Project+CoreDataClass.h"
 #import "AddProjectTableViewController.h"
-#import "InvoiceTableViewController.h"
 #import "AppDelegate.h"
 #import "ProjectCollectionViewController.h"
 #import "Client+CoreDataProperties.h"
 
 @interface ProjectsTableViewController (){
 	Client* _client;
-//	AppDelegate* _app;
-//	NSManagedObjectContext* _context;
-//	NSFetchRequest* _fetchRequest;
+	AppDelegate* _app;
+	NSManagedObjectContext* _context;
+	NSFetchRequest* _fetchRequest;
 	NSArray* _clientProjects;
 }
 @end
@@ -30,7 +29,9 @@
   [super viewDidLoad];
 
 	_client = (Client*)_clientObjectId;
-
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	_context = _app.persistentContainer.viewContext;
+	
   // Set the title of the navigation item
   [[self navigationItem] setTitle:_client.name];
 
@@ -77,26 +78,24 @@
 		[self.navigationController pushViewController:addProjectView animated:YES];
 }
 
-//// calculate total project time from session data
-//- (NSString *)totalTimeForProjectId:(NSNumber *)projectId {
-//
-//  int ticks = 0;
-//
-//  for (Session *s in [appDelegate storedSessions]) {
-//    if (s.projectIDref == projectId) {
-//      ticks = ticks + s.sessionHours.intValue * 3600;
-//      ticks = ticks + s.sessionMinutes.intValue * 60;
-//      ticks = ticks + s.sessionSeconds.intValue;
-//    }
-//  }
-//
-//  double seconds = fmod(ticks, 60.0);
-//  double minutes = fmod(trunc(ticks / 60.0), 60.0);
-//  double hours = trunc(ticks / 3600.0);
-//
-//  return [NSString
-//      stringWithFormat:@"%02.0f:%02.0f:%02.0f", hours, minutes, seconds];
-//}
+// calculate total project time from session data
+- (NSString *)totalTimeForProject:(Project *)project {
+
+  int ticks = 0;
+	
+  for (Session *s in project.sessions) {
+		ticks = ticks + s.hours * 3600;
+		ticks = ticks + s.minutes * 60;
+		ticks = ticks + s.seconds;
+  }
+
+  double seconds = fmod(ticks, 60.0);
+  double minutes = fmod(trunc(ticks / 60.0), 60.0);
+  double hours = trunc(ticks / 3600.0);
+
+  return [NSString
+      stringWithFormat:@"%02.0f:%02.0f:%02.0f", hours, minutes, seconds];
+}
 
 #pragma mark - Table view data source
 
@@ -127,27 +126,9 @@
 	
   UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 11, cell.frame.size.width - 100, 21)];
   [cellLabel setText:rProject.name];
-	
-//  [cellLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-//  [cellLabel setTextColor:[UIColor blackColor]];
 
-  // UILabel * timerLabel = [[UILabel alloc]
-  // initWithFrame:CGRectMake(screenWidth - 95, 8, 100, 30)];
-
-  UILabel *btnTimer;
-
-  if (indexPath.row == 0) {
-    [cellLabel setTextColor:[UIColor colorWithRed:0.0
-                                            green:122.0 / 255.0
-                                             blue:1.0
-                                            alpha:1.0]];
-  } else {
-    btnTimer = [[UILabel alloc]
-        initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
-    //[btnTimer setText:[self totalTimeForProjectId:[rProject projectID]]];//TODO
-    [btnTimer setFont:[UIFont fontWithName:@"Avenir Next Medium" size:18]];
-    [btnTimer setTextColor:[UIColor blackColor]];
-  }
+	UILabel *btnTimer = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
+	[btnTimer setText:[self totalTimeForProject:rProject]];
 
   // clear cell subviews-clears old cells
   if (cell != nil) {
@@ -158,18 +139,15 @@
   }
   [[cell contentView] addSubview:btnTimer];
   [[cell contentView] addSubview:cellLabel];
-  //[[cell contentView] addSubview:timerLabel];
 
   return cell;
 }
-/*
+
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath
-*)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
     return YES;
 }
-*/
+
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView
@@ -177,40 +155,24 @@
      forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     // Delete the row from the data source
-
-//    AppDelegate *appDelegate =
-//        (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//    if ([indexPath row] > 0) {
-//      // determine project id in allProjects array, and remove
-//      Project *projRemove =
-//          [[appDelegate clientProjects] objectAtIndex:[indexPath row]];
-//
-//      for (Project *proj in [appDelegate allProjects]) {
-//        if (proj.projectID == projRemove.projectID &&
-//            proj.clientID == projRemove.clientID) {
-//          // remove associated sessions
-//          [appDelegate removeSessionsForProjectId:proj.projectID];
-//          // remove associated invoices
-//          [appDelegate removeInvoicesForProjectId:proj.projectID];
-//          [[appDelegate allProjects] removeObjectIdenticalTo:proj];
-//
-//          break;
-//        }
-//      }
-//
-//      [[appDelegate clientProjects] removeObjectIdenticalTo:projRemove];
-//
-//      [tableView deleteRowsAtIndexPaths:@[ indexPath ]
-//                       withRowAnimation:UITableViewRowAnimationFade];
-//
-//      // save updated projects to disk
-//      [self saveDataToDisk];
-//    }
+		Project* project = (Project*)[_clientProjects objectAtIndex:indexPath.row];
+		
+		// Remove sessions and invoices
+		[project removeSessions:project.sessions];
+		[project removeInvoices:project.invoices];
+		
+		// Remove projects for the selected client
+		[_client removeProjectsObject:project];
+		
+		// Delete the row from the table
+		[_context deleteObject:[_clientProjects objectAtIndex:indexPath.row]];
+		
+		[_app saveContext];
+		
+		[tableView deleteRowsAtIndexPaths:@[ indexPath ]
+										 withRowAnimation:UITableViewRowAnimationFade];
 
   } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-    // Create a new instance of the appropriate class, insert it into the array,
-    // and add a new row to the table view
   }
 }
 
@@ -227,12 +189,9 @@
             initWithNibName:@"ProjectCollectionViewController"
                      bundle:nil];
 
-    // Pass the selected object to the new view controller.
-    //[projectSelectCollectionVC setSelectedProject:selProject];
-
-    // Push the view controller.
-    [self.navigationController pushViewController:projectSelectCollectionVC
-                                         animated:YES];
+		projectSelectCollectionVC.projectObjectId = [_clientProjects objectAtIndex:indexPath.row];
+	
+    [self.navigationController pushViewController:projectSelectCollectionVC animated:YES];
 
 }
 
