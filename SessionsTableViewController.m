@@ -51,25 +51,7 @@
                                      userInfo:nil
                                       repeats:YES];
 
-  [self loadSessionsList];
-}
-
-- (void)loadSessionsList {
-  // check duplicates and if session was recently removed
-  bool supressSession = false;
-
-	[self addNewSessionForSelectedProject];
-	//TODO: check for duplicates
-//  for (Session *s in _app.currentSessions) {
-//    if (s.projectIDref == _selectedProject.projectID) {
-//      supressSession = true;
-//    }
-//  }
-//  if (supressSession == false) {
-//    if (_project) {
-//      [self addNewSessionForSelectedProject];
-//    }
-//  }
+  [self addNewSessionForSelectedProject];
 }
 
 // update the timer label for each session when timer ticks
@@ -79,6 +61,7 @@
   UILabel *timerLabel = [[UILabel alloc] init];
   NSIndexPath *iPath = [[NSIndexPath alloc] init];
 
+	//TODO: Add timer label
 //  for (Session *curSession in [appDelegate currentSessions]) {
 //    iPath = [NSIndexPath indexPathForRow:index inSection:0];
 //
@@ -92,7 +75,7 @@
 //    index++;
 //  }
 }
-//
+
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
@@ -108,28 +91,12 @@
 	newSession.start = [NSDate date];
 	[_project addSessionsObject:newSession];
 
+	//TODO:Check for duplicates(allow only one session for each project)
   [_app.currentSessions addObject:newSession];
 
   [[self tableView] reloadData];
 }
-//
-//// generate new session id using the stored sessions
-//- (NSNumber *)newSessionId {
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//  NSNumber *newId = [[NSNumber alloc] initWithLong:0];
-//
-//  if ([[appDelegate storedSessions] count] > 0) {
-//    for (Session *sess in [appDelegate storedSessions]) {
-//      if (sess.sessionID >= newId) {
-//        newId = [NSNumber numberWithLong:sess.sessionID.intValue + 1];
-//      }
-//    }
-//  }
-//
-//  return newId;
-//}
-//
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -142,8 +109,7 @@
   return [[_app currentSessions] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   CGRect screenRect = [[UIScreen mainScreen] bounds];
   CGFloat screenWidth = screenRect.size.width;
 
@@ -166,7 +132,7 @@
 
   UILabel *timerLabel =
       [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
-  //[timerLabel setText:[rSession timerValue]];
+	//[timerLabel setText:[rSession timerValue]];//TODO: Timer counter value
   timerLabel.tag = [indexPath row] + 1; // need to start tag at one, NOT ZERO
 
 
@@ -183,161 +149,124 @@
 
   return cell;
 }
-//
-///*
-//// Override to support conditional editing of the table view.
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath
-//*)indexPath {
-//    // Return NO if you do not want the specified item to be editable.
-//    return YES;
-//}
-//*/
-//
-//// Override to support editing the table view.
-//- (void)tableView:(UITableView *)tableView
-//    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-//     forRowAtIndexPath:(NSIndexPath *)indexPath {
-//  if (editingStyle == UITableViewCellEditingStyleDelete) {
-//
-//    AppDelegate *appDelegate =
-//        (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//    if ([UIAlertController class]) {
-//
-//      UIAlertController *alert = [UIAlertController
-//          alertControllerWithTitle:@"Save Session Data?"
-//                           message:@"Would you like save session data to disk?"
-//                    preferredStyle:UIAlertControllerStyleAlert];
-//
-//      UIAlertAction *remove = [UIAlertAction
-//          actionWithTitle:@"Yes"
-//                    style:UIAlertActionStyleDefault
-//                  handler:^(UIAlertAction *action) {
-//
-//                    Session *thisSession =
-//                        (Session *)[[appDelegate currentSessions]
-//                            objectAtIndex:[indexPath row]];
-//
-//                    [thisSession stopTimer];
-//
-//                    // save to stored projects
-//                    [[appDelegate storedSessions]
-//                        addObject:[[appDelegate currentSessions]
-//                                      objectAtIndex:[indexPath row]]];
-//
-//                    // remove session from current sessions
-//                    [[appDelegate currentSessions]
-//                        removeObjectAtIndex:[indexPath row]];
-//
-//                    // remove from table view
-//                    [tableView
-//                        deleteRowsAtIndexPaths:@[ indexPath ]
-//                              withRowAnimation:UITableViewRowAnimationFade];
-//
-//                    [alert dismissViewControllerAnimated:YES completion:nil];
-//
-//                  }];
-//      UIAlertAction *delete = [UIAlertAction
-//          actionWithTitle:@"No"
-//                    style:UIAlertActionStyleDefault
-//                  handler:^(UIAlertAction *action) {
-//                    // remove session from current sessions
-//                    [[appDelegate currentSessions]
-//                        removeObjectAtIndex:[indexPath row]];
-//
-//                    // remove from table view
-//                    [tableView
-//                        deleteRowsAtIndexPaths:@[ indexPath ]
-//                              withRowAnimation:UITableViewRowAnimationFade];
-//
-//                    [alert dismissViewControllerAnimated:YES completion:nil];
-//                  }];
-//      UIAlertAction *cancel = [UIAlertAction
-//          actionWithTitle:@"Cancel"
-//                    style:UIAlertActionStyleDefault
-//                  handler:^(UIAlertAction *action) {
-//                    [alert dismissViewControllerAnimated:YES completion:nil];
-//
-//                  }];
-//
-//      [alert addAction:remove];
-//      [alert addAction:delete];
-//      [alert addAction:cancel];
-//
-//      [self presentViewController:alert animated:YES completion:nil];
-//    } else {
-//      // use UIAlertView
-//      UIAlertView *dialog = [[UIAlertView alloc]
-//              initWithTitle:@"Save Session Data?"
-//                    message:@"Would you like save session data to disk?"
-//                   delegate:self
-//          cancelButtonTitle:@"Cancel"
-//          otherButtonTitles:@"Yes", @"No", nil];
-//
-//      dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
-//      dialog.tag = [indexPath row];
-//      [dialog show];
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if ([UIAlertController class]) {
+
+      UIAlertController *alert = [UIAlertController
+          alertControllerWithTitle:@"Save Session Data?"
+                           message:@"Would you like save session data to disk?"
+                    preferredStyle:UIAlertControllerStyleAlert];
+
+      UIAlertAction *remove = [UIAlertAction
+          actionWithTitle:@"Yes"
+                    style:UIAlertActionStyleDefault
+                  handler:^(UIAlertAction *action) {
+
+										//TODO?
+                    //Session *thisSession = (Session *)[[_app currentSessions] objectAtIndex:[indexPath row]];
+                   // [thisSession stopTimer];
+
+                    // save to stored projects
+                    [[_app storedSessions] addObject:[[_app currentSessions]
+                                      objectAtIndex:[indexPath row]]];
+
+                    // remove session from current sessions
+                    [[_app currentSessions] removeObjectAtIndex:[indexPath row]];
+
+                    // remove from table view
+                    [tableView
+                        deleteRowsAtIndexPaths:@[ indexPath ]
+                              withRowAnimation:UITableViewRowAnimationFade];
+
+                    [alert dismissViewControllerAnimated:YES completion:nil];
+
+                  }];
+      UIAlertAction *delete = [UIAlertAction actionWithTitle:@"No"
+                    style:UIAlertActionStyleDefault
+                  handler:^(UIAlertAction *action) {
+                    // remove session from current sessions
+                    [[_app currentSessions]
+                        removeObjectAtIndex:[indexPath row]];
+
+                    // remove from table view
+                    [tableView deleteRowsAtIndexPaths:@[ indexPath ]
+                              withRowAnimation:UITableViewRowAnimationFade];
+
+                    [alert dismissViewControllerAnimated:YES completion:nil];
+                  }];
+      UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
+                    style:UIAlertActionStyleDefault
+                  handler:^(UIAlertAction *action) {
+                    [alert dismissViewControllerAnimated:YES completion:nil];
+
+                  }];
+
+      [alert addAction:remove];
+      [alert addAction:delete];
+      [alert addAction:cancel];
+
+      [self presentViewController:alert animated:YES completion:nil];
+    } else {
+      // use UIAlertView
+      UIAlertView *dialog = [[UIAlertView alloc]
+              initWithTitle:@"Save Session Data?"
+                    message:@"Would you like save session data to disk?"
+                   delegate:self
+          cancelButtonTitle:@"Cancel"
+          otherButtonTitles:@"Yes", @"No", nil];
+
+      dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
+      dialog.tag = [indexPath row];
+      [dialog show];
+    }
+
+  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    // Create a new instance of the appropriate class, insert it into the array,
+    // and add a new row to the table view
+  }
+}
+
+//-(void)tableView:(UITableView *)tableView
+//didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(![_sessionRefreshTimer isValid])
+//    {
+//        _sessionRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:1
+//        target:self selector:@selector(updateTimerLabel) userInfo:nil
+//        repeats:YES];
 //    }
-//
-//  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//    // Create a new instance of the appropriate class, insert it into the array,
-//    // and add a new row to the table view
-//  }
 //}
-//
-////-(void)tableView:(UITableView *)tableView
-////didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
-////{
-////    if(![_sessionRefreshTimer isValid])
-////    {
-////        _sessionRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:1
-////        target:self selector:@selector(updateTimerLabel) userInfo:nil
-////        repeats:YES];
-////    }
-////}
-///*
-//// Override to support rearranging the table view.
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath
-//*)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-//}
-//*/
-//
-///*
-//// Override to support conditional rearranging of the table view.
-//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath
-//*)indexPath {
-//    // Return NO if you do not want the item to be re-orderable.
-//    return YES;
-//}
-//*/
-//
-//#pragma mark - Table view delegate
-//
-//// In a xib-based application, navigation from a table can be handled in
-//// -tableView:didSelectRowAtIndexPath:
-//- (void)tableView:(UITableView *)tableView
-//    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  // Navigation logic may go here, for example:
-//  // Create the next view controller.
-//  SessionDetailCollectionViewController *sessionDetailCollectionViewController =
-//      [[SessionDetailCollectionViewController alloc]
-//          initWithNibName:@"SessionDetailCollectionViewController"
-//                   bundle:nil];
-//
-//  // Pass the selected object to the new view controller.
-//  [sessionDetailCollectionViewController
-//      setSelectedSession:[[appDelegate currentSessions]
-//                             objectAtIndex:[indexPath row]]];
-//
-//  // Push the view controller.
-//  [self.navigationController pushViewController:sessionDetailCollectionViewController
-//                                       animated:YES];
-//}
-//
+
+
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in
+// -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView
+    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+  // Navigation logic may go here, for example:
+  // Create the next view controller.
+  SessionDetailCollectionViewController *sessionDetailCollectionViewController =
+      [[SessionDetailCollectionViewController alloc]
+          initWithNibName:@"SessionDetailCollectionViewController"
+                   bundle:nil];
+
+	sessionDetailCollectionViewController.selectedSession = (Session*)[[_app currentSessions] objectAtIndex:[indexPath row]];
+	sessionDetailCollectionViewController.selectedProject = _project;
+
+  [self.navigationController pushViewController:sessionDetailCollectionViewController
+                                       animated:YES];
+}
+
 //- (void)deleteSessionForRow:(NSInteger)row {
 //  AppDelegate *appDelegate =
 //      (AppDelegate *)[UIApplication sharedApplication].delegate;

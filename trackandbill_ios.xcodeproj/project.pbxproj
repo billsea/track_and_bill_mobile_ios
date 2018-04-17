@@ -19,6 +19,7 @@
 		A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91F6F0D1B0AC25A00F78749 /* images.xcassets */; };
 		A94AE5AF206B19A100B079B2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A94AE5AE206B19A100B079B2 /* Model.m */; };
 		A94D0B80208576490052F7A5 /* surgical_scissors-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */; };
+		A94D0B8220857C7A0052F7A5 /* pen-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B8120857C7A0052F7A5 /* pen-50.png */; };
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
 		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
@@ -165,6 +166,7 @@
 		A94AE5AD206B19A100B079B2 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		A94AE5AE206B19A100B079B2 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surgical_scissors-50.png"; sourceTree = "<group>"; };
+		A94D0B8120857C7A0052F7A5 /* pen-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pen-50.png"; sourceTree = "<group>"; };
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
 		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
 			isa = PBXGroup;
 			children = (
+				A94D0B8120857C7A0052F7A5 /* pen-50.png */,
 				A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */,
 				A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */,
 				A9AAEFDD207E8965006BF1C6 /* timer-50.png */,
@@ -777,6 +780,7 @@
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
 				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,
 				A9DC4CAE1AEAFB8E00A00892 /* Reader-Print@2x.png in Resources */,
+				A94D0B8220857C7A0052F7A5 /* pen-50.png in Resources */,
 				A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */,
 				A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */,
 				A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */,
