@@ -18,6 +18,7 @@
 	NSMutableArray* _cellData;
 	InvoiceTableViewController *_invoiceViewController;
 	Project* _project;
+	NSArray* _cellImages;
 }
 @end
 
@@ -25,11 +26,11 @@
 
 static NSString * const reuseIdentifier = @"DashboardCell";
 
-//TODO DATA
 - (void)viewDidLoad {
     [super viewDidLoad];
 
 	_project = (Project*)_projectObjectId;
+	_cellImages = @[@"stopwatch", @"running", @"surgical_scissors",@"invoice"];
 	
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:_project.name];
@@ -82,6 +83,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 	// Configure the cell
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
 	return cell;
 }
 
