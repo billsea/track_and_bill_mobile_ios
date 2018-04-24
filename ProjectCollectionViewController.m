@@ -8,17 +8,20 @@
 
 #import "ProjectCollectionViewController.h"
 #import "InvoiceTableViewController.h"
-#import "SessionsTableViewController.h"
+#import "SessionDetailCollectionViewController.h"
 #import "AllSessionsTableViewController.h"
 #import "DashboardCollectionViewCell.h"
 #import "Project+CoreDataClass.h"
 #import "AppDelegate.h"
+#import "ProjectsTableViewController.h"
 
 @interface ProjectCollectionViewController (){
 	NSMutableArray* _cellData;
+	NSManagedObjectContext* _context;
 	InvoiceTableViewController *_invoiceViewController;
 	Project* _project;
 	NSArray* _cellImages;
+	AppDelegate* _app;
 }
 @end
 
@@ -30,24 +33,42 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     [super viewDidLoad];
 
 	_project = (Project*)_projectObjectId;
-	_cellImages = @[@"stopwatch", @"running", @"surgical_scissors",@"invoice"];
+	_cellImages = @[@"stopwatch", @"surgical_scissors",@"invoice"];
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	_context = _app.persistentContainer.viewContext;
 	
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:_project.name];
 
 
 	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"New Session",@"title", nil];
-	NSMutableDictionary* currentSessionsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys: @"Current Sessions",@"title", nil];
 	NSMutableDictionary* allSessionsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys: @"Edit Sessions",@"title", nil];
 	NSMutableDictionary* invoiceDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice",@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, currentSessionsDict, allSessionsDict, invoiceDict, nil];
+	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, allSessionsDict, invoiceDict, nil];
 
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 		[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-
+	
+	for(Session* currentSession in [_app currentSessions]){
+		if([currentSession projects].name == [_project name]){
+			//A project session is running...push session detail
+			SessionDetailCollectionViewController *sessionDetailCollectionViewController =
+			[[SessionDetailCollectionViewController alloc]
+			 initWithNibName:@"SessionDetailCollectionViewController"
+			 bundle:nil];
+			
+			sessionDetailCollectionViewController.selectedSession = currentSession;
+			sessionDetailCollectionViewController.selectedProject = _project;
+			
+			[self.navigationController pushViewController:sessionDetailCollectionViewController
+																					 animated:YES];
+			break;
+		}
+	}
 }
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	switch (buttonIndex) {
@@ -105,11 +126,9 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	NSString* cellTitle = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-		SessionsTableViewController *sessionsViewController = [[SessionsTableViewController alloc] initWithNibName:@"SessionsTableViewController" bundle:nil];
+	
 	if([cellTitle isEqualToString: @"New Session"]){
 		[self CreateSessionForProject];
-	} else if([cellTitle isEqualToString: @"Current Sessions"]){
-		[self.navigationController pushViewController:sessionsViewController animated:YES];
 	} else if([cellTitle isEqualToString: @"Edit Sessions"]){
 		[self AllSessions];
 	} else if([cellTitle isEqualToString: @"Invoice"]){
@@ -118,13 +137,27 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 }
 
 - (void)CreateSessionForProject {
-	// push the sessions table view
-	SessionsTableViewController *sessionsViewController =
-	[[SessionsTableViewController alloc] initWithNibName:@"SessionsTableViewController" bundle:nil];
-
-	sessionsViewController.projectObjectId = _projectObjectId;
+	NSManagedObject* sessionObject;
+	sessionObject = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:_context];
 	
-	[self.navigationController pushViewController:sessionsViewController
+	Session* newSession = (Session*)sessionObject;
+	newSession.sessiondate = [NSDate date];
+	newSession.start = [NSDate date];
+	[_project addSessionsObject:newSession];
+	
+	//keep track of current sessions
+	[_app.currentSessions addObject:newSession];
+	
+	// Session detail
+	SessionDetailCollectionViewController *sessionDetailCollectionViewController =
+	[[SessionDetailCollectionViewController alloc]
+	 initWithNibName:@"SessionDetailCollectionViewController"
+	 bundle:nil];
+	
+	sessionDetailCollectionViewController.selectedSession = newSession;
+	sessionDetailCollectionViewController.selectedProject = _project;
+	
+	[self.navigationController pushViewController:sessionDetailCollectionViewController
 																			 animated:YES];
 }
 
@@ -142,8 +175,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 }
 
 - (void)invoiceProject {
-	AppDelegate *appDelegate =
-	(AppDelegate *)[UIApplication sharedApplication].delegate;
 
 	// push inovices view controller
 	_invoiceViewController = [[InvoiceTableViewController alloc] init];

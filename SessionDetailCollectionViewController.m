@@ -13,6 +13,7 @@
 #import "DashboardCollectionViewCell.h"
 #import "AppDelegate.h"
 #import "Session+CoreDataClass.h"
+#import "ProjectsTableViewController.h"
 
 @interface SessionDetailCollectionViewController () {
 	float _ticks;
@@ -62,6 +63,29 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
+	
+	for(Session* currentSession in [_app currentSessions]){
+		if([currentSession projects].name == [_selectedProject name]){
+			//Go to ProjectsTableViewController
+			ProjectsTableViewController *projectsViewController =
+			[[ProjectsTableViewController alloc]
+			 initWithNibName:@"ProjectsTableViewController"
+			 bundle:nil];
+			
+			projectsViewController.clientObjectId = [_selectedProject clients]; //selected client data object id
+			
+			// Push the view controller.
+			[self.navigationController pushViewController:projectsViewController
+																					 animated:YES];
+			break;
+		}
+	}
+	
+}
+
+
 - (void)saveSessionToStored {
 	for (Session *stored in _app.storedSessions) {
 		if (_selectedSession == stored) {
@@ -92,6 +116,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 -(void)removeCurrentSession
 {
+	//todo
+	//_selectedProject removeSessions:<#(nonnull NSSet<Session *> *)#>
 	for(Session * s in _app.currentSessions)
 	{
 		if(s == _selectedSession)
@@ -105,6 +131,50 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[[self navigationController] popViewControllerAnimated:YES];
 }
 
+//- (void)saveAlert {
+//	UIAlertController *alert = [UIAlertController
+//															alertControllerWithTitle:@"Stop Session?"
+//															message:@"Would you like to stop the session?"
+//															preferredStyle:UIAlertControllerStyleAlert];
+//
+//	UIAlertAction *stop = [UIAlertAction
+//													 actionWithTitle:@"Yes"
+//													 style:UIAlertActionStyleDefault
+//													 handler:^(UIAlertAction *action) {
+//														 //stop timer and go to project collection view
+//														 [self removeCurrentSession];
+//														 [alert dismissViewControllerAnimated:YES completion:nil];
+//
+//													 }];
+//	UIAlertAction *noStop = [UIAlertAction actionWithTitle:@"No"
+//																									 style:UIAlertActionStyleDefault
+//																								 handler:^(UIAlertAction *action) {
+//																									 //Go to ProjectsTableViewController(don't pop back to collection view)
+//																									 ProjectsTableViewController *projectsViewController =
+//																									 [[ProjectsTableViewController alloc]
+//																										initWithNibName:@"ProjectsTableViewController"
+//																										bundle:nil];
+//
+//																									 projectsViewController.clientObjectId = [_selectedProject clients]; //selected client data object id
+//
+//																									 // Push the view controller.
+//																									 [self.navigationController pushViewController:projectsViewController
+//																																												animated:YES];
+//
+//																								 }];
+//	UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
+//																									 style:UIAlertActionStyleDefault
+//																								 handler:^(UIAlertAction *action) {
+//																									 [alert dismissViewControllerAnimated:YES completion:nil];
+//																									 //do nothing
+//																								 }];
+//
+//	[alert addAction:stop];
+//	[alert addAction:noStop];
+//	[alert addAction:cancel];
+//
+//	[self presentViewController:alert animated:YES completion:nil];
+//}
 #pragma mark - collection view data source
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 	return 1;
@@ -169,56 +239,56 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	return UIEdgeInsetsMake(0, leftInset, 0, rightInset);
 }
 
--(void)RemoveSession
-{
-	if ([UIAlertController class])
-	{
-
-			UIAlertController * alert=   [UIAlertController
-																		alertControllerWithTitle:@"Remove Session?"
-																		message:@"Would you like to Remove the selected session from the Sessions list?"
-																		preferredStyle:UIAlertControllerStyleAlert];
-
-			UIAlertAction* remove = [UIAlertAction
-															 actionWithTitle:@"Remove from List"
-															 style:UIAlertActionStyleDefault
-															 handler:^(UIAlertAction * action)
-															 {
-																	 //remove session from current sessions
-																	 [self removeCurrentSession];
-
-																	 [alert dismissViewControllerAnimated:YES
-																	 completion:nil];
-															 }];
-
-			UIAlertAction* cancel = [UIAlertAction
-															 actionWithTitle:@"Cancel"
-															 style:UIAlertActionStyleDefault
-															 handler:^(UIAlertAction * action)
-															 {
-																	 [alert
-																	 dismissViewControllerAnimated:YES
-																	 completion:nil];
-															 }];
-
-			[alert addAction:remove];
-			[alert addAction:cancel];
-			[self presentViewController:alert animated:YES completion:nil];
-	}
-	else
-	{
-			// use UIAlertView
-			UIAlertView* dialog = [[UIAlertView alloc] initWithTitle:@"Remove Session?"
-																											 message:@"Would you like to Remove the selected session from the list?"
-																											delegate:self
-																						 cancelButtonTitle:@"Cancel"
-																						 otherButtonTitles:@"Remove",nil];
-
-			dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
-			//dialog.tag = [indexPath row];
-			[dialog show];
-	}
-}
+//-(void)RemoveSession
+//{
+//	if ([UIAlertController class])
+//	{
+//
+//			UIAlertController * alert=   [UIAlertController
+//																		alertControllerWithTitle:@"Remove Session?"
+//																		message:@"Would you like to Remove the selected session from the Sessions list?"
+//																		preferredStyle:UIAlertControllerStyleAlert];
+//
+//			UIAlertAction* remove = [UIAlertAction
+//															 actionWithTitle:@"Remove from List"
+//															 style:UIAlertActionStyleDefault
+//															 handler:^(UIAlertAction * action)
+//															 {
+//																	 //remove session from current sessions
+//																	 [self removeCurrentSession];
+//
+//																	 [alert dismissViewControllerAnimated:YES
+//																	 completion:nil];
+//															 }];
+//
+//			UIAlertAction* cancel = [UIAlertAction
+//															 actionWithTitle:@"Cancel"
+//															 style:UIAlertActionStyleDefault
+//															 handler:^(UIAlertAction * action)
+//															 {
+//																	 [alert
+//																	 dismissViewControllerAnimated:YES
+//																	 completion:nil];
+//															 }];
+//
+//			[alert addAction:remove];
+//			[alert addAction:cancel];
+//			[self presentViewController:alert animated:YES completion:nil];
+//	}
+//	else
+//	{
+//			// use UIAlertView
+//			UIAlertView* dialog = [[UIAlertView alloc] initWithTitle:@"Remove Session?"
+//																											 message:@"Would you like to Remove the selected session from the list?"
+//																											delegate:self
+//																						 cancelButtonTitle:@"Cancel"
+//																						 otherButtonTitles:@"Remove",nil];
+//
+//			dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
+//			//dialog.tag = [indexPath row];
+//			[dialog show];
+//	}
+//}
 
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex
