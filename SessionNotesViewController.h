@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Session+CoreDataClass.h"
+#import "SessionInfoViewController.h"
 
-@interface SessionNotesViewController : UIViewController <UITextInputDelegate>
-@property(nonatomic, retain) Session *selectedSession;
+@interface SessionNotesViewController : SessionInfoViewController <UITextInputDelegate>
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 @end

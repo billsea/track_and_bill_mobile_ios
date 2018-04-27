@@ -15,6 +15,7 @@
 #import "Session+CoreDataClass.h"
 #import "ProjectsTableViewController.h"
 #import "utility.h"
+#import "SessionInfoViewController.h"
 
 @interface SessionDetailCollectionViewController () {
 	long _ticks;
@@ -148,10 +149,10 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	UIViewController* selVC = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"];
+	SessionInfoViewController* selVC = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"];
 
 	if(selVC){
-		//[selVC setSelectedSession:_selectedSession];
+		[selVC setSelectedSession:_selectedSession];
 		[[self navigationController] pushViewController:[[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"] animated:YES];
 	}
 }

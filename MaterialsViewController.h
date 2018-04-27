@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Session+CoreDataClass.h"
+#import "SessionInfoViewController.h"
 
-@interface MaterialsViewController : UIViewController <UITextInputDelegate>
-@property(nonatomic, retain) Session *selectedSession;
+@interface MaterialsViewController : SessionInfoViewController <UITextInputDelegate>
+
 @end

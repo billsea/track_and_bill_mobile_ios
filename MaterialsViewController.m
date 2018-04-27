@@ -46,12 +46,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [_textView setText:_selectedSession.materials];
+  [_textView setText:self.selectedSession.materials];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
   // save notes
-  [_selectedSession setMaterials:[_textView text]];
+  [self.selectedSession setMaterials:[_textView text]];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {

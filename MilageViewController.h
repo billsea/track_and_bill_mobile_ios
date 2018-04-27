@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Session+CoreDataClass.h"
+#import "SessionInfoViewController.h"
 
 @interface MilageViewController
-    : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
-@property(nonatomic, retain) Session *selectedSession;
+    : SessionInfoViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 @property(nonatomic) NSMutableArray *pickerData;
 @end
