@@ -50,23 +50,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 		[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-	
-	for(Session* currentSession in [_app currentSessions]){
-		if([currentSession projects].name == [_project name]){
-			//A project session is running...push session detail
-			SessionDetailCollectionViewController *sessionDetailCollectionViewController =
-			[[SessionDetailCollectionViewController alloc]
-			 initWithNibName:@"SessionDetailCollectionViewController"
-			 bundle:nil];
-			
-			sessionDetailCollectionViewController.selectedSession = currentSession;
-			sessionDetailCollectionViewController.selectedProject = _project;
-			
-			[self.navigationController pushViewController:sessionDetailCollectionViewController
-																					 animated:YES];
-			break;
-		}
-	}
 }
 
 

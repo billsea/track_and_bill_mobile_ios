@@ -63,29 +63,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-	[super viewWillDisappear:animated];
-	
-	for(Session* currentSession in [_app currentSessions]){
-		if([currentSession projects].name == [_selectedProject name]){
-			//Go to ProjectsTableViewController
-			ProjectsTableViewController *projectsViewController =
-			[[ProjectsTableViewController alloc]
-			 initWithNibName:@"ProjectsTableViewController"
-			 bundle:nil];
-			
-			projectsViewController.clientObjectId = [_selectedProject clients]; //selected client data object id
-			
-			// Push the view controller.
-			[self.navigationController pushViewController:projectsViewController
-																					 animated:YES];
-			break;
-		}
-	}
-	
-}
-
-
 - (void)saveSessionToStored {
 	for (Session *stored in _app.storedSessions) {
 		if (_selectedSession == stored) {

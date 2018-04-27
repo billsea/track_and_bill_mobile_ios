@@ -69,13 +69,10 @@
 }
 
 - (IBAction)addProject:(id)sender {
-		// push create new project view
-		AddProjectTableViewController *addProjectView =
-		[[AddProjectTableViewController alloc] init];
-		
+	// push create new project view
+	AddProjectTableViewController *addProjectView = [[AddProjectTableViewController alloc] init];
 	[addProjectView setClientObjectId:_clientObjectId];
-		
-		[self.navigationController pushViewController:addProjectView animated:YES];
+	[self.navigationController pushViewController:addProjectView animated:YES];
 }
 
 // calculate total project time from session data
