@@ -30,6 +30,10 @@
                         <rect key="frame" x="25" y="6" width="70" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nqC-CK-RJ2">
+                        <rect key="frame" x="37" y="32" width="49" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </switch>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -37,6 +41,7 @@
             <connections>
                 <outlet property="cellImage" destination="1tP-bi-NdB" id="3xz-FM-Jtm"/>
                 <outlet property="dashboardLabel" destination="nIQ-w6-4he" id="Btq-F3-kl9"/>
+                <outlet property="timerSwitch" destination="nqC-CK-RJ2" id="FLq-Aa-ww7"/>
             </connections>
         </collectionViewCell>
     </objects>

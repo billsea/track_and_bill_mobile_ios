@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "ProjectCollectionViewController.h"
 #import "Client+CoreDataProperties.h"
+#import "utility.h"
 
 @interface ProjectsTableViewController (){
 	Client* _client;

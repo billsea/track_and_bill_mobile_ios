@@ -17,6 +17,7 @@
 		A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9167E3D1AEAC10E0071B992 /* LaunchScreen.xib */; };
 		A9167E4B1AEAC10E0071B992 /* trackandbill_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */; };
 		A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91F6F0D1B0AC25A00F78749 /* images.xcassets */; };
+		A93829FC2093CEE20086B2ED /* utility.mm in Sources */ = {isa = PBXBuildFile; fileRef = A93829FA2093CEE20086B2ED /* utility.mm */; };
 		A94AE5AF206B19A100B079B2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A94AE5AE206B19A100B079B2 /* Model.m */; };
 		A94D0B80208576490052F7A5 /* surgical_scissors-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */; };
 		A94D0B8220857C7A0052F7A5 /* pen-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B8120857C7A0052F7A5 /* pen-50.png */; };
@@ -163,6 +164,8 @@
 		A9167E491AEAC10E0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E4A1AEAC10E0071B992 /* trackandbill_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosTests.m; sourceTree = "<group>"; };
 		A91F6F0D1B0AC25A00F78749 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		A93829FA2093CEE20086B2ED /* utility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = utility.mm; sourceTree = "<group>"; };
+		A93829FB2093CEE20086B2ED /* utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
 		A94AE5AD206B19A100B079B2 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		A94AE5AE206B19A100B079B2 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surgical_scissors-50.png"; sourceTree = "<group>"; };
@@ -343,6 +346,7 @@
 		A9167E1F1AEAC10D0071B992 = {
 			isa = PBXGroup;
 			children = (
+				A93829FD2093CF080086B2ED /* Helper */,
 				A9A2E68A1B14D60400A478AE /* Todo */,
 				A9FDC2381B0FDA8200112426 /* UIKit.framework */,
 				A9FDC2351B0FD9F900112426 /* Foundation.framework */,
@@ -407,6 +411,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A93829FD2093CF080086B2ED /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A93829FB2093CEE20086B2ED /* utility.h */,
+				A93829FA2093CEE20086B2ED /* utility.mm */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		A94AE5B0206B1EC800B079B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,20 +460,6 @@
 				A9DC4C471AEAFB8E00A00892 /* Reader-Thumbs@2x.png */,
 			);
 			name = images;
-			sourceTree = "<group>";
-		};
-		A99A7295207C34E0009A37A9 /* MO_Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MO_Subclasses;
-			sourceTree = "<group>";
-		};
-		A99A7296207C3518009A37A9 /* archive_classes_old */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = archive_classes_old;
 			sourceTree = "<group>";
 		};
 		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
@@ -521,8 +520,6 @@
 		A9DC4CD01AEAFC2600A00892 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A99A7296207C3518009A37A9 /* archive_classes_old */,
-				A99A7295207C34E0009A37A9 /* MO_Subclasses */,
 				A9D7B7021B13ABC000E48FBF /* InlineTableViewDateAndNumberPicker */,
 			);
 			name = Classes;
@@ -820,6 +817,7 @@
 				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
 				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,
 				A9DC4CBD1AEAFB8E00A00892 /* ReaderThumbsView.m in Sources */,
+				A93829FC2093CEE20086B2ED /* utility.mm in Sources */,
 				A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */,
 				A94AE5AF206B19A100B079B2 /* Model.m in Sources */,
 				A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */,

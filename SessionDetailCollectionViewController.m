@@ -14,13 +14,15 @@
 #import "AppDelegate.h"
 #import "Session+CoreDataClass.h"
 #import "ProjectsTableViewController.h"
+#import "utility.h"
 
 @interface SessionDetailCollectionViewController () {
-	float _ticks;
+	long _ticks;
 	NSArray* _cellData;
-	Session* _session;
 	AppDelegate* _app;
 	NSArray* _cellImages;
+	bool _timerOn;
+	NSTimer* _sessionTimer;
 }
 @end
 
@@ -35,8 +37,9 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[[self navigationItem] setTitle:_selectedProject.name];
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	
 	_cellImages = @[@"timer", @"cars", @"pen", @"sellotape"];
+	
+	_timerOn = NO;
 	
 	//TODO: Add these to cell data
 	//@"Save and Remove", @"Delete"
@@ -61,97 +64,59 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	// Register cell classes
 	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+	
+	
+	//Override back button
+	UIButton* exitButton = [[UIButton alloc] initWithFrame:CGRectMake(-10, 0, 40, 80)];
+	[exitButton setTitle:NSLocalizedString(@"save_and_exit", nil) forState:UIControlStateNormal];
+	[exitButton setImage:[[UIImage imageNamed:@"back-25.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+	[exitButton.imageView setTintColor:[UIColor whiteColor]];
+	[exitButton addTarget:self action:@selector(backButtonHit:)
+	 forControlEvents:UIControlEventTouchUpInside];
+	UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]
+																 initWithCustomView:exitButton];
+	self.navigationItem.leftBarButtonItem = buttonItem;
+	
 }
 
-- (void)saveSessionToStored {
-	for (Session *stored in _app.storedSessions) {
-		if (_selectedSession == stored) {
-			[_app.storedSessions removeObjectIdenticalTo:stored];
-			break;
-		}
+- (IBAction)backButtonHit:(id)sender{
+	//check timer
+	if (_timerOn) {
+		[utility showAlertWithTitle:@"Timer is Running" andMessage:@"Please stop timer before continuing." andVC:self];
+	} else {
+		//save timer ticks and exit
+		[self saveSession];
+		[self.navigationController popViewControllerAnimated:YES];
 	}
-
-	[_app.storedSessions addObject:_selectedSession];
 }
 
-//- (IBAction)timerToggle:(id)sender {
-//	AppDelegate *appDelegate =
-//	(AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//	UISwitch *timerSwitch = sender;
-//
-//	if (timerSwitch.on) {
-//		// start session instance timer
-//		[_selectedSession startTimer];
-//		[appDelegate setActiveSession:_selectedSession];
-//	} else {
-//		// stop instance timer
-//		[_selectedSession stopTimer];
-//		[appDelegate setActiveSession:nil];
-//	}
-//}
+-(void)saveSession {
+	NSArray* hms = [utility hoursMinutesAndSecondsFromTicks:_ticks];
+	_selectedSession.hours = [hms[0] intValue];
+	_selectedSession.minutes = [hms[1] intValue];
+	_selectedSession.seconds = [hms [2] intValue];
+	[_app saveContext];
+}
 
--(void)removeCurrentSession
-{
-	//todo
-	//_selectedProject removeSessions:<#(nonnull NSSet<Session *> *)#>
-	for(Session * s in _app.currentSessions)
-	{
-		if(s == _selectedSession)
-		{
-			[_app.currentSessions removeObject:s];
-			[_app setRemovedSession:s];//track removed session for session table view reload
-			break;
-		}
+- (IBAction)updateTicks:(id)sender {
+	_ticks++;
+}
+
+- (IBAction)timerToggle:(id)sender {
+	UISwitch *timerSwitch = sender;
+	_timerOn = timerSwitch.on;
+	
+	if(_timerOn){
+		_sessionTimer = [NSTimer scheduledTimerWithTimeInterval:1
+																										 target:self selector:@selector(updateTicks:) userInfo:nil
+																										repeats:YES];
+	} else {
+		[_sessionTimer invalidate];
 	}
-	//back to sessions
-	[[self navigationController] popViewControllerAnimated:YES];
 }
 
-//- (void)saveAlert {
-//	UIAlertController *alert = [UIAlertController
-//															alertControllerWithTitle:@"Stop Session?"
-//															message:@"Would you like to stop the session?"
-//															preferredStyle:UIAlertControllerStyleAlert];
-//
-//	UIAlertAction *stop = [UIAlertAction
-//													 actionWithTitle:@"Yes"
-//													 style:UIAlertActionStyleDefault
-//													 handler:^(UIAlertAction *action) {
-//														 //stop timer and go to project collection view
-//														 [self removeCurrentSession];
-//														 [alert dismissViewControllerAnimated:YES completion:nil];
-//
-//													 }];
-//	UIAlertAction *noStop = [UIAlertAction actionWithTitle:@"No"
-//																									 style:UIAlertActionStyleDefault
-//																								 handler:^(UIAlertAction *action) {
-//																									 //Go to ProjectsTableViewController(don't pop back to collection view)
-//																									 ProjectsTableViewController *projectsViewController =
-//																									 [[ProjectsTableViewController alloc]
-//																										initWithNibName:@"ProjectsTableViewController"
-//																										bundle:nil];
-//
-//																									 projectsViewController.clientObjectId = [_selectedProject clients]; //selected client data object id
-//
-//																									 // Push the view controller.
-//																									 [self.navigationController pushViewController:projectsViewController
-//																																												animated:YES];
-//
-//																								 }];
-//	UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
-//																									 style:UIAlertActionStyleDefault
-//																								 handler:^(UIAlertAction *action) {
-//																									 [alert dismissViewControllerAnimated:YES completion:nil];
-//																									 //do nothing
-//																								 }];
-//
-//	[alert addAction:stop];
-//	[alert addAction:noStop];
-//	[alert addAction:cancel];
-//
-//	[self presentViewController:alert animated:YES completion:nil];
-//}
+
+
 #pragma mark - collection view data source
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 	return 1;
@@ -165,34 +130,24 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 	DashboardCollectionViewCell* cell = (DashboardCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-	if([indexPath row] == 0) {
-		float switchWidth = 49.0f;
-		float switchHeight = 31.0f;
-		UISwitch *tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width/2 - switchWidth/2, cell.frame.size.height/2 - switchHeight/2, switchWidth, switchHeight)];
-
-		[tSwitch addTarget:self
-								action:@selector(timerToggle:)
-			forControlEvents:UIControlEventValueChanged];
-
-		// set timer toggle state using session instance timer status
-//		if ([_selectedSession TimerRunning]) {
-//			[tSwitch setOn:TRUE];
-//		}
-		[cell.cellImage setHidden:YES];
-		[cell addSubview:tSwitch];
-
-	}
-
 	// Configure the cell
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-  cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
 	
+	//Timer cell
+	if([indexPath row] == 0) {
+		cell.timerSwitch.hidden = NO;
+		[cell.timerSwitch addTarget:self
+								action:@selector(timerToggle:)
+			forControlEvents:UIControlEventValueChanged];
+		cell.cellImage.hidden = YES;
+	}
+
 	return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
 	UIViewController* selVC = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"];
 
 	if(selVC){
@@ -200,7 +155,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		[[self navigationController] pushViewController:[[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"] animated:YES];
 	}
 }
-
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -214,69 +168,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	NSInteger rightInset = leftInset;
 
 	return UIEdgeInsetsMake(0, leftInset, 0, rightInset);
-}
-
-//-(void)RemoveSession
-//{
-//	if ([UIAlertController class])
-//	{
-//
-//			UIAlertController * alert=   [UIAlertController
-//																		alertControllerWithTitle:@"Remove Session?"
-//																		message:@"Would you like to Remove the selected session from the Sessions list?"
-//																		preferredStyle:UIAlertControllerStyleAlert];
-//
-//			UIAlertAction* remove = [UIAlertAction
-//															 actionWithTitle:@"Remove from List"
-//															 style:UIAlertActionStyleDefault
-//															 handler:^(UIAlertAction * action)
-//															 {
-//																	 //remove session from current sessions
-//																	 [self removeCurrentSession];
-//
-//																	 [alert dismissViewControllerAnimated:YES
-//																	 completion:nil];
-//															 }];
-//
-//			UIAlertAction* cancel = [UIAlertAction
-//															 actionWithTitle:@"Cancel"
-//															 style:UIAlertActionStyleDefault
-//															 handler:^(UIAlertAction * action)
-//															 {
-//																	 [alert
-//																	 dismissViewControllerAnimated:YES
-//																	 completion:nil];
-//															 }];
-//
-//			[alert addAction:remove];
-//			[alert addAction:cancel];
-//			[self presentViewController:alert animated:YES completion:nil];
-//	}
-//	else
-//	{
-//			// use UIAlertView
-//			UIAlertView* dialog = [[UIAlertView alloc] initWithTitle:@"Remove Session?"
-//																											 message:@"Would you like to Remove the selected session from the list?"
-//																											delegate:self
-//																						 cancelButtonTitle:@"Cancel"
-//																						 otherButtonTitles:@"Remove",nil];
-//
-//			dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
-//			//dialog.tag = [indexPath row];
-//			[dialog show];
-//	}
-//}
-
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	switch (buttonIndex) {
-			case 1:
-					[self removeCurrentSession];
-					break;
-			default:
-					break;
-	}
 }
 
 - (void)didReceiveMemoryWarning {
