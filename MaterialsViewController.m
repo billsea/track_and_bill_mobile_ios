@@ -18,7 +18,7 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   // Set the title of the navigation item
-  [[self navigationItem] setTitle:@"Materials"];
+  [[self navigationItem] setTitle:NSLocalizedString(@"materials", nil)];
 
   // set background image
   [[self view]
@@ -65,8 +65,10 @@
 
 - (void)textDidChange:(id<UITextInput>)textInput {
 }
+
 - (void)selectionWillChange:(id<UITextInput>)textInput {
 }
+
 - (void)selectionDidChange:(id<UITextInput>)textInput {
 }
 
@@ -74,16 +76,5 @@
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little
-preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

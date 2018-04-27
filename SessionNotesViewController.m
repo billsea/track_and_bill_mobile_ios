@@ -19,7 +19,7 @@
   // Do any additional setup after loading the view from its nib.
 
   // Set the title of the navigation item
-  [[self navigationItem] setTitle:@"Session Notes"];
+  [[self navigationItem] setTitle:NSLocalizedString(@"session_notes", nil)];
 
   // set background image
   [[self view]
@@ -46,11 +46,11 @@
   [self.view addGestureRecognizer:singleFingerTap];
 }
 - (void)viewWillAppear:(BOOL)animated {
-	//TODO DATA:[_notesTextView setText:_selectedSession.txtNotes];
+	[_notesTextView setText:self.selectedSession.notes];
 }
 - (void)viewWillDisappear:(BOOL)animated {
   // save notes
-	//TODO DATA:[_selectedSession setTxtNotes:[_notesTextView text]];
+	[self.selectedSession setNotes:[_notesTextView text]];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
