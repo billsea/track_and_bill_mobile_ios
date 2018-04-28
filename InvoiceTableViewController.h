@@ -17,8 +17,9 @@
 }
 
 @property(nonatomic) id projectObjectId;
-@property(nonatomic, retain) Invoice *selectedInvoice;
-@property(strong, nonatomic) NSMutableArray *userData;
+@property(nonatomic) Invoice *selectedInvoice;
+@property(nonatomic) Project *selectedProject;
+@property(nonatomic) NSMutableArray *userData;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 - (void)dismissReaderViewController:(ReaderViewController *)viewController;

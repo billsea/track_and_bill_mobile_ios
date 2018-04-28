@@ -37,9 +37,12 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:_selectedProject.name];
 	
+	//Add project start date with first session date
+	if(!_selectedProject.start)
+		_selectedProject.start = [NSDate date];
+	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_cellImages = @[@"timer", @"cars", @"pen", @"sellotape"];
-	
 	_timerOn = NO;
 	
 	//TODO: Add these to cell data
