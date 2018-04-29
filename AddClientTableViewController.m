@@ -8,13 +8,12 @@
 
 #import "AddClientTableViewController.h"
 #import "TextInputTableViewCell.h"
-
+#import "Model.h"
 
 @interface AddClientTableViewController () {
 	NSArray* _formFields;
 	AppDelegate* _app;
 	NSManagedObjectContext* _context;
-	NSFetchRequest* _fetchRequest;
 	NSArray* _dataFields;
 }
 
@@ -34,7 +33,6 @@
 	_dataFields = @[@"name",@"contact",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
-	_fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Client"];
 	[self fetchData];
 
   // view has been touched, for dismiss keyboard
@@ -57,7 +55,7 @@
 
 - (void)fetchData {
 	// Fetch data from persistent data store;
-	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	NSMutableArray* data = [Model dataForEntity:@"Client"];
 	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
 	
 	_formFields = @[
@@ -105,7 +103,7 @@
 - (void)save {
 	// update or create new managed object
 	//[_fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@", _clientId]];
-	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	NSMutableArray* data = [Model dataForEntity:@"Client"];
 	
 	NSManagedObject* clientObject;
 	if(_clientObjectId) {
