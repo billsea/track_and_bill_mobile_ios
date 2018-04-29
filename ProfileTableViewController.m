@@ -15,7 +15,6 @@
   NSArray* _formFields;
 	AppDelegate* _app;
 	NSManagedObjectContext* _context;
-	NSFetchRequest* _fetchRequest;
 	NSArray* _dataFields;
 }
 
@@ -97,7 +96,7 @@
 
 - (void)save {
 	// update or create new managed object
-	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	NSMutableArray* data = [Model dataForEntity:@"Profile"];
 	
 	NSManagedObject* userProfile;
 	if(data.count > 0) {
