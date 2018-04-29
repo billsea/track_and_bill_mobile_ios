@@ -62,39 +62,39 @@
 	
 	_formFields = @[
 									@{
-										@"FieldName" :  NSLocalizedString(@"Client Name",nil),
+										@"FieldName" :  NSLocalizedString(@"client_name",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"name"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"Contact Person",nil),
+										@"FieldName" :  NSLocalizedString(@"contact_person",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"contact"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"Address",nil),
+										@"FieldName" :  NSLocalizedString(@"address",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"address"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"City",nil),
+										@"FieldName" :  NSLocalizedString(@"city",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"city"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"State",nil),
+										@"FieldName" :  NSLocalizedString(@"state",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"state"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"Country",nil),
+										@"FieldName" :  NSLocalizedString(@"country",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"country"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"Postal Code",nil),
+										@"FieldName" :  NSLocalizedString(@"postal_code",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"postalcode"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"Phone",nil),
+										@"FieldName" :  NSLocalizedString(@"phone",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"phone"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"Email",nil),
+										@"FieldName" :  NSLocalizedString(@"email",nil),
 										@"FieldValue" :  dataObject ? [dataObject valueForKey:@"email"] : @""
 										}
 									];

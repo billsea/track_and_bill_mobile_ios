@@ -33,20 +33,20 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	[[self navigationItem] setTitle:_project.name];
+	
 	_project = (Project*)_projectObjectId;
-	_cellImages = @[@"stopwatch", @"surgical_scissors",@"invoice"];
+	_cellImages = @[@"stopwatch", @"surgical_scissors",@"invoice", @"cargo_ship"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
-	// Set the title of the navigation item
-	[[self navigationItem] setTitle:_project.name];
-
-
-	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"New Session",@"title", nil];
-	NSMutableDictionary* allSessionsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys: @"Edit Sessions",@"title", nil];
-	NSMutableDictionary* invoiceDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice",@"title", nil];
+	//Cell item data
+	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"new_session", nil),@"title", nil];
+	NSMutableDictionary* allSessionsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"edit_sessions", nil),@"title", nil];
+	NSMutableDictionary* invoiceDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"invoice", nil),@"title", nil];
+	NSMutableDictionary* exportDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"export", nil),@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, allSessionsDict, invoiceDict, nil];
+	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, allSessionsDict, invoiceDict, exportDict, nil];
 
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
