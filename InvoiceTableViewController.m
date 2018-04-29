@@ -95,14 +95,13 @@
 		[self setDate:[NSDate date]
 		 forIndexPath:self.thirdDatePickerIndexPath];
 	}
-
 	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedInvoice andProject:_selectedProject andEdit:isEdit];
 }
 
 - (NSMutableArray *)userData {
   if (!_userData) {
-    _userData = [[NSMutableArray alloc] initWithCapacity:[_invoiceFormFields count]];
-		for (int i = 0; i < [_invoiceFormFields count]; i++)
+    _userData = [[NSMutableArray alloc] initWithCapacity:_invoiceFormFields.count];
+		for (int i = 0; i < _invoiceFormFields.count; i++)
       [_userData addObject:@""];
     }
   return _userData;
@@ -143,17 +142,24 @@
 //
 //  return TRUE;
 //}
-//
+
 - (BOOL)isNumeric:(NSString *)inputString {
   NSScanner *scanner = [NSScanner scannerWithString:inputString];
   return [scanner scanDouble:NULL] && [scanner isAtEnd];
 }
 
-- (Invoice *)createInvoice {
-
+- (void)createInvoice {
   // create the new invoice from form fields
-  Invoice *cInvoice = [[Invoice alloc] init];
+	NSManagedObject* invoiceObject = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:_context];
 
+	Invoice* cInvoice = (Invoice*)invoiceObject;
+	
+//	// save form values
+//	for(int i = 0; i < _dataFields.count; i++){
+//		[invoiceObject setValue:[self valueForTextCellWithIndex:i] forKey:_dataFields[i]];
+//	}
+	
+	
   // new invoice or update existing?
   if (_selectedProject) {
     // these fields are read only, users cannot change
@@ -185,82 +191,17 @@
   NSDate *invoiceDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
   [cInvoice setDate:invoiceDate];
 
-
-	NSString *clientName = [self inputForFieldName:@"Client Name"];//TODO: change rest of these like so
-
-  if (clientName && ![clientName isEqualToString:@""]) {
-    //[cInvoice setName:clientName];
-  } else {
-    [self showMessage:@"Client Name field is empty or not formatted correctly"
-            withTitle:@"Client Name"];
-    return nil;
-  }
-
-  // project name
-  NSString *projectName = [[_invoiceFormFields objectAtIndex:3] objectForKey:@"FieldValue"];
-
-  if (projectName && ![projectName isEqualToString:@""]) {
-    //[cInvoice setProjectName:projectName];
-  } else {
-    [self showMessage:@"Project Name field is empty or not formatted correctly"
-            withTitle:@"Project Name"];
-    return nil;
-  }
-
-  // invoice dates
-  NSDate *startDate = [self dateForIndexPath:self.secondDatePickerIndexPath];
-  //[cInvoice setStartDate:startDate];
-
-  // end date
-  NSDate *endDate = [self dateForIndexPath:self.thirdDatePickerIndexPath];
-  //[cInvoice setEndDate:endDate];
-
   // approval
   NSString *approvalName = [[_invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
 
   if (approvalName && ![approvalName isEqualToString:@""]) {
-   // [cInvoice setApprovalName:approvalName];
+		[cInvoice setApprovedby: approvalName];
   } else {
     [cInvoice setApprovedby:@"-"];
-    //        [self showMessage:@"Approval Name field is empty or not formatted
-    //        correctly" withTitle:@"Approval Name"];
-    //        return nil;
   }
 
-  // milage
-	NSString *milesInput =[self inputForFieldName:@"Milage"];
-  NSInteger miles = 0;
-
-  if ([self isNumeric:milesInput]) {
-    miles = [milesInput integerValue];
-
-    if (miles) {
-     // [cInvoice setMilage:[NSNumber numberWithInteger:miles]];
-    } else {
-      miles = 0;
-     // [cInvoice setMilage:[NSNumber numberWithInteger:0]];
-      //        [self showMessage:@"Milage field is empty or not formatted
-      //        correctly" withTitle:@"Milage"];
-      //        return nil;
-    }
-  } else {
-    [self showMessage:@"Milage field entry is not a number"
-            withTitle:@"Milage"];
-    return nil;
-  }
-
-  // milage rate, only if miles entered
-  if (miles > 0) {
-		NSString *milageRateInput = [self inputForFieldName:@"Milage Rate"];
-
-    if (![self isNumeric:milageRateInput]) {
-      [self showMessage:@"Milage rate field entry is not a number"
-              withTitle:@"Milage Rate"];
-      return nil;
-    }
-  } else {
-    [cInvoice setMilage_rate:0.00f];
-  }
+	//Mileage rate
+	[cInvoice setMilage_rate:0.00f];
 
   // notes
   NSString *invNotes = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
@@ -268,46 +209,52 @@
     [cInvoice setNotes:invNotes];
   }
 
-  // materials - get from sessions
-  NSString *invMaterials = [[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
-  //[cInvoice setMaterials:invMaterials];
 
   // materials totals
-  NSString *materialsTotal = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
-  if (![self isNumeric:materialsTotal]) {
-    [self showMessage:@"Materials total field entry is not a number"
-            withTitle:@"Materials total"];
-    return nil;
-  }
-
-  // total time
-  NSString *totalTime = [[_invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
+  NSString *materialsTotal = [[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
+//  if (![self isNumeric:materialsTotal]) {
+//    [self showMessage:@"Materials total field entry is not a number"
+//            withTitle:@"Materials total"];
+//    return;
+//	} else {
+		[cInvoice setMaterials_cost:materialsTotal.floatValue];
+//	}
 
   // terms
-  NSString *invTerms = [[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
+  NSString *invTerms = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
   [cInvoice setTerms:invTerms];
 
   // deposit
-  NSString *invDeposit = [[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+  NSString *invDeposit = [[_invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
 
-  if (![self isNumeric:invDeposit]) {
-    [self showMessage:@"Deposit field entry is not a number"
-            withTitle:@"Deposit"];
-    return nil;
-  }
+//  if (![self isNumeric:invDeposit]) {
+//    [self showMessage:@"Deposit field entry is not a number"
+//            withTitle:@"Deposit"];
+//    return;
+//	} else {
+		[cInvoice setDeposit:invDeposit.floatValue];
+//	}
 
   // rate
-	NSString *invRate = [[_invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
+	NSString *invRate = [[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
 
-  if (![self isNumeric:invRate]) {
-    [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
-    return nil;
-  }
+//  if (![self isNumeric:invRate]) {
+//    [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
+//    return;
+//	} else {
+		[cInvoice setRate:invRate.floatValue];
+//	}
 
-  NSString *invCheck =[[_invoiceFormFields objectAtIndex:16] objectForKey:@"FieldValue"];
+	//Check number
+  NSString *invCheck =[[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
   [cInvoice setCheck:invCheck];
 
-  return cInvoice;
+	//save context in appDelegate
+	[_app saveContext];
+
+	//create pdf
+	[self MakePDF:cInvoice];
+	
 }
 
 - (NSString*)inputForFieldName:(NSString*)name {
@@ -320,56 +267,20 @@
 	}
 	return value;
 }
+
 - (IBAction)exportInvoice:(id)sender {
-  bool invoiceRemoved = FALSE;
-  // remove exisitng invoice - a new one will be created
-  if (_selectedInvoice) {
-    //invoiceRemoved = [self removeExistingInvoice:_selectedInvoice.projectID];
-  } else {
-    //invoiceRemoved = [self removeExistingInvoice:_selectedProject.projectID];
-  }
-
-  AppDelegate *appDelegate =
-      (AppDelegate *)[UIApplication sharedApplication].delegate;
-
-  if (invoiceRemoved) {
-    // show exported pdf view
-    Invoice *mInvoice = [self createInvoice];
-    if (mInvoice) {
-      [[appDelegate arrInvoices] addObject:mInvoice];
-      [self MakePDF:mInvoice];
-    }
-  }
+	[self createInvoice];
 }
 
-//-(void)saveInvoice
-//{
-//    //save invoice to invoice stack
-//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication
-//    sharedApplication].delegate;
-//
-//    //add new invoice object to clients list
-//    Invoice * mInvoice = [self createInvoice];
-//    if(mInvoice)
-//    {
-//        [[appDelegate arrInvoices] addObject:mInvoice];
-//    }
-//}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-  // Return the number of sections.
   return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
-    numberOfRowsInSection:(NSInteger)section {
-
-  NSInteger numberOfRows =
-      [super tableView:tableView numberOfRowsInSection:section] +
-	[_invoiceFormFields count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [_invoiceFormFields count];
   return numberOfRows;
   // Return the number of rows in the section.
   // return invoiceFormFields.count;
@@ -409,16 +320,11 @@
       // add date label for date
       UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
       [dateLabel setText:dateFormatted];
-      [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-      [dateLabel setTintColor:[UIColor blackColor]];
       [cell addSubview:dateLabel];
 
       // add field label for date
       UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
       [fieldTitle setText:@"Date"];
-      [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
-      [fieldTitle setTintColor:[UIColor lightGrayColor]];
-
       [cell addSubview:fieldTitle];
 
     } else if ([adjustedIndexPath compare:self.secondDatePickerIndexPath] == NSOrderedSame) {
@@ -429,38 +335,26 @@
       // add date label for date
       UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
       [dateLabel setText:dateFormatted];
-      [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-      [dateLabel setTintColor:[UIColor blackColor]];
       [cell addSubview:dateLabel];
 
       // add field label for date
       UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
       [fieldTitle setText:@"Start Date"];
-      [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
-      [fieldTitle setTintColor:[UIColor lightGrayColor]];
-
       [cell addSubview:fieldTitle];
 
     } else if ([adjustedIndexPath compare:self.thirdDatePickerIndexPath] == NSOrderedSame) {
-
       NSDate *thirdDate = [self dateForIndexPath:self.thirdDatePickerIndexPath];
-
       NSString *dateFormatted = [NSDateFormatter localizedStringFromDate:thirdDate
                                          dateStyle:NSDateFormatterShortStyle
                                          timeStyle:NSDateFormatterNoStyle];
       // add date label for date
       UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
       [dateLabel setText:dateFormatted];
-      [dateLabel setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-      [dateLabel setTintColor:[UIColor blackColor]];
       [cell addSubview:dateLabel];
 
       // add field label for date
       UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
       [fieldTitle setText:@"End Date"];
-      [fieldTitle setFont:[UIFont fontWithName:@"Avenir Next" size:14]];
-      [fieldTitle setTintColor:[UIColor lightGrayColor]];
-
       [cell addSubview:fieldTitle];
 
     } else {
@@ -488,8 +382,6 @@
 			// set this to save userdata on textinputdidend event
 			[[cell textInput] setTag:[indexPath row]];
 			[cell setFieldName:[_invoiceFormFields objectAtIndex:[indexPath row]]];
-			[[cell textInput] setFont:[UIFont fontWithName:@"Avenir Next Medium" size:21]];
-			[[cell textInput] setTextColor:[UIColor blackColor]];
 
 			// set read only
 			if ([indexPath row] == 12 || [indexPath row] == 0) {
@@ -502,7 +394,6 @@
 			if (![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]) {
 				cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
 			}
-
 			return cell;
     }
   }
@@ -513,54 +404,11 @@
   return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath
-*)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath]
-withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the
-array, and add a new row to the table view
-    }
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath
-*)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath
-*)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
-- (CGFloat)tableView:(UITableView *)tableView
-    heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  CGFloat rowHeight =
-      [super tableView:tableView heightForRowAtIndexPath:indexPath];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  CGFloat rowHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
   if (rowHeight == 0) {
-    rowHeight = kTableRowHeight; // self.tableView.rowHeight;
+    rowHeight = kTableRowHeight;
   }
   return rowHeight;
 }
@@ -613,11 +461,9 @@ array, and add a new row to the table view
 
   // get client info
 	Client *selClient = _selectedProject.clients;
-
 	Profile* myProfile = (Profile*)[self MyProfile];
 	
   if (myProfile) {
-
     [self beginPDFPage];
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -671,6 +517,7 @@ array, and add a new row to the table view
                                  _pageSize.width / 3, 4)
              fontSize:24.0f];
 
+	//TODO
     ///////////////////////////client///////////////////
 
 //    CGRect lineRect = [self
