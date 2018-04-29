@@ -25,7 +25,6 @@
 	NSNumber* _invoiceNumberSelected;
 	AppDelegate* _app;
 	NSManagedObjectContext* _context;
-	NSFetchRequest* _fetchProfileRequest;
 	NSArray* _dataFields;
 }
 
@@ -44,7 +43,6 @@
 
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
-	_fetchProfileRequest = [[NSFetchRequest alloc] initWithEntityName:@"Profile"];
 	
   // set background image
   [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
@@ -987,7 +985,7 @@
 #pragma mark methods
 - (NSManagedObject *)MyProfile {
 	// Fetch data from persistent data store;
-	NSMutableArray* data = [[_context executeFetchRequest:_fetchProfileRequest error:nil] mutableCopy];
+	NSMutableArray* data = [Model dataForEntity:@"Profile"];
 	return data.count > 0 ? [data objectAtIndex:0] : nil;
 }
 

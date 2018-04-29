@@ -24,9 +24,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-
   [[self navigationItem] setTitle: NSLocalizedString(@"New Client",nil)];
 
 	//data field sequence must match form fields sequence
@@ -36,17 +33,12 @@
 	[self fetchData];
 
   // view has been touched, for dismiss keyboard
-  UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc]
-      initWithTarget:self
-              action:@selector(handleSingleTap:)];
+  UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
 
   [self.view addGestureRecognizer:singleFingerTap];
 
   // set background image
-  [[self view]
-      setBackgroundColor:[UIColor
-                             colorWithPatternImage:
-                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
+  [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
