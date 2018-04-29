@@ -9,6 +9,7 @@
 #import "ProfileTableViewController.h"
 #import "TextInputTableViewCell.h"
 #import "AppDelegate.h"
+#import "Model.h";
 
 @interface ProfileTableViewController () {
   NSArray* _formFields;
@@ -30,8 +31,6 @@
 	_dataFields = @[@"name",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email",@"contact"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
-	_fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Profile"];
-	
   [self fetchData];
 
   // view has been touched, for dismiss keyboard
@@ -50,7 +49,7 @@
 
 - (void)fetchData {
 	// Fetch data from persistent data store;;
-	NSMutableArray* data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	NSMutableArray* data = [Model dataForEntity:@"Profile"];
 	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
 	
 	_formFields = @[

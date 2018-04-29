@@ -13,11 +13,11 @@
 #import "AddClientTableViewController.h"
 #import "Client+CoreDataProperties.h"
 #import "Project+CoreDataProperties.h"
+#import "Model.h"
 
 @interface ClientsTableViewController (){
 	AppDelegate* _app;
 	NSManagedObjectContext* _context;
-	NSFetchRequest* _fetchRequest;
 	NSMutableArray* _data;
 }
 @end
@@ -46,7 +46,6 @@
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
-	_fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Client"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,7 +59,7 @@
 
 - (void)fetchData {
 	// Fetch data from persistent data store;
-	_data = [[_context executeFetchRequest:_fetchRequest error:nil] mutableCopy];
+	_data = [Model dataForEntity:@"Client"];
 	[[self tableView] reloadData];
 }
 
