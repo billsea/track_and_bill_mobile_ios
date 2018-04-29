@@ -47,10 +47,7 @@
 	_fetchProfileRequest = [[NSFetchRequest alloc] initWithEntityName:@"Profile"];
 	
   // set background image
-  [[self view]
-      setBackgroundColor:[UIColor
-                             colorWithPatternImage:
-                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
+  [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
 
   // add help navigation bar button
   self.previewButton = [[UIBarButtonItem alloc]
@@ -78,10 +75,7 @@
 	self.secondDatePickerIndexPath = [NSIndexPath indexPathForRow:4 inSection:0];
 	self.thirdDatePickerIndexPath = [NSIndexPath indexPathForRow:5 inSection:0];
 
-	self.datePickerPossibleIndexPaths = @[
-																				self.firstDatePickerIndexPath, self.secondDatePickerIndexPath,
-																				self.thirdDatePickerIndexPath
-																				];
+	self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath, self.secondDatePickerIndexPath, self.thirdDatePickerIndexPath];
 
 	//new invoice or edit
 	bool isEdit = (_selectedInvoice && _selectedInvoice.number);

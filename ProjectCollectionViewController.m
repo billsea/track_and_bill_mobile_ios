@@ -111,12 +111,14 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	NSString* cellTitle = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
 	
-	if([cellTitle isEqualToString: @"New Session"]){
+	if([cellTitle isEqualToString: NSLocalizedString(@"new_session", nil)]){
 		[self CreateSessionForProject];
-	} else if([cellTitle isEqualToString: @"Edit Sessions"]){
+	} else if([cellTitle isEqualToString: NSLocalizedString(@"edit_sessions", nil)]){
 		[self AllSessions];
-	} else if([cellTitle isEqualToString: @"Invoice"]){
+	} else if([cellTitle isEqualToString: NSLocalizedString(@"invoice", nil)]){
 		[self invoiceProject];
+	} else if([cellTitle isEqualToString: NSLocalizedString(@"export", nil)]){
+		//TODO
 	}
 }
 
