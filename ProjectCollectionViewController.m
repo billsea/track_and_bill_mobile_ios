@@ -62,7 +62,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 																					 animated:YES];
 			break;
 		case 2:
-			[_invoiceViewController setSelectedInvoice:nil];
 			_invoiceViewController.projectObjectId = _projectObjectId;
 			[self.navigationController pushViewController:_invoiceViewController
 																					 animated:YES];
@@ -162,7 +161,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 - (void)invoiceProject {
 	_invoiceViewController = [[InvoiceTableViewController alloc] init];
-	[_invoiceViewController setSelectedInvoice:nil];
 	[_invoiceViewController setSelectedProject:_project];
 	[self.navigationController pushViewController:_invoiceViewController
 																			 animated:YES];

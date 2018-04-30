@@ -10,14 +10,9 @@
 #import "Project+CoreDataClass.h"
 #import "ReaderViewController.h"
 #import "Invoice+CoreDataClass.h"
-#import "InlineDateAndNumberPickerViewController.h"
 
-@interface InvoiceTableViewController
-: InlineDateAndNumberPickerViewController <ReaderViewControllerDelegate,UITextFieldDelegate> {
-}
-
+@interface InvoiceTableViewController : UITableViewController <ReaderViewControllerDelegate,UITextFieldDelegate>
 @property(nonatomic) id projectObjectId;
-@property(nonatomic) Invoice *selectedInvoice;
 @property(nonatomic) Project *selectedProject;
 @property(nonatomic) NSMutableArray *userData;
 

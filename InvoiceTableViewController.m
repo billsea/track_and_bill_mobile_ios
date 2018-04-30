@@ -29,9 +29,7 @@
 }
 
 @property UIBarButtonItem *previewButton;
-@property(nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
-@property(nonatomic, strong) NSIndexPath *secondDatePickerIndexPath;
-@property(nonatomic, strong) NSIndexPath *thirdDatePickerIndexPath;
+
 @end
 
 @implementation InvoiceTableViewController
@@ -65,39 +63,13 @@
 }
 
 - (void)loadForm {
-	// input form text fields
-	_invoiceFormFields = [[NSMutableArray alloc] init];
-
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setDateFormat:@"MM/dd/yyyy"];
 
-	// initialize table view date picker rows
-	// Set indexPathForRow to the row number the date picker should be placed
-	self.firstDatePickerIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-	self.secondDatePickerIndexPath = [NSIndexPath indexPathForRow:5 inSection:0];
-	self.thirdDatePickerIndexPath = [NSIndexPath indexPathForRow:6 inSection:0];
-
-	self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath, self.secondDatePickerIndexPath, self.thirdDatePickerIndexPath];
-
 	//new invoice or edit
-	bool isEdit = (_selectedInvoice && _selectedInvoice.number);
+	bool isEdit = _selectedProject.invoices;
 
-	// set custom date picker
-	if(isEdit) {
-		[self setDate:_selectedInvoice.date
-		 forIndexPath:self.firstDatePickerIndexPath];
-		[self setDate:_selectedInvoice.date
-		 forIndexPath:self.secondDatePickerIndexPath];
-		[self setDate:_selectedInvoice.date
-		 forIndexPath:self.thirdDatePickerIndexPath];
-	} else {
-		[self setDate:[NSDate date] forIndexPath:self.firstDatePickerIndexPath];
-		[self setDate:_selectedProject.start
-		 forIndexPath:self.secondDatePickerIndexPath];
-		[self setDate:[NSDate date]
-		 forIndexPath:self.thirdDatePickerIndexPath];
-	}
-	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedInvoice andProject:_selectedProject andEdit:isEdit];
+	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedProject.invoices andProject:_selectedProject andEdit:isEdit];
 }
 
 - (NSMutableArray *)userData {
@@ -152,7 +124,8 @@
 
 - (void)createInvoice {
   // create the new invoice from form fields
-
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	
 	//add new invoice if one doesnt' exist already
 	if(!_selectedProject.invoices){
 		NSManagedObject* invoiceObject = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:_context];
@@ -162,31 +135,16 @@
   // invoice number is read only
 	[_selectedProject.invoices setNumber:(int)[[_invoiceFormFields objectAtIndex:0] objectForKey:@"FieldValue"]];
 	
-  // invoice date
-  NSDate *invoiceDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
+	// invoice date TODO: Use a date picker for dates
+  NSDate *invoiceDate = [df dateFromString:[[_invoiceFormFields objectAtIndex:1] objectForKey:@"FieldValue"]];
   [_selectedProject.invoices setDate:invoiceDate];
 
-  // approval
-  NSString *approvalName = [[_invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
-
-  if (approvalName && ![approvalName isEqualToString:@""]) {
-		[_selectedProject.invoices setApprovedby: approvalName];
-  } else {
-    [_selectedProject.invoices setApprovedby:@"-"];
-  }
-
 	//Mileage rate
-	[_selectedProject.invoices setMilage_rate:0.00f];
-
-  // notes
-  NSString *invNotes = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
-  if (invNotes && ![invNotes isEqualToString:@""]) {
-    [_selectedProject.invoices setNotes:invNotes];
-  }
-
+	NSString* sMileageRate = [[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
+	[_selectedProject.invoices setMilage_rate:sMileageRate.floatValue];
 
   // materials totals
-  NSString *materialsTotal = [[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
+  NSString *materialsTotal = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
 //  if (![self isNumeric:materialsTotal]) {
 //    [self showMessage:@"Materials total field entry is not a number"
 //            withTitle:@"Materials total"];
@@ -196,7 +154,7 @@
 //	}
 
   // terms
-  NSString *invTerms = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
+  NSString *invTerms = [[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
   [_selectedProject.invoices setTerms:invTerms];
 
   // deposit
@@ -211,7 +169,7 @@
 //	}
 
   // rate
-	NSString *invRate = [[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
+	NSString *invRate = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
 
 //  if (![self isNumeric:invRate]) {
 //    [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
@@ -221,8 +179,24 @@
 //	}
 
 	//Check number
-  NSString *invCheck =[[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+  NSString *invCheck =[[_invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
   [_selectedProject.invoices setCheck:invCheck];
+	
+	// approval
+	NSString *approvalName = [[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+	
+	if (approvalName && ![approvalName isEqualToString:@""]) {
+		[_selectedProject.invoices setApprovedby: approvalName];
+	} else {
+		[_selectedProject.invoices setApprovedby:@"-"];
+	}
+
+	// notes
+	NSString *invNotes = [[_invoiceFormFields objectAtIndex:16] objectForKey:@"FieldValue"];
+	if (invNotes && ![invNotes isEqualToString:@""]) {
+		[_selectedProject.invoices setNotes:invNotes];
+	}
+
 	
 	//save context in appDelegate
 	[_app saveContext];
@@ -255,123 +229,49 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section] + [_invoiceFormFields count];
-  return numberOfRows;
-  // Return the number of rows in the section.
-  // return invoiceFormFields.count;
+	return _invoiceFormFields.count;
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *CellIdentifier = @"Cell";
+	static NSString *cellIdentifier = @"TextInputTableViewCell";
+	TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+	
+	if (cell == nil) {
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+	}
 
-  UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-
-  if (cell == nil) {
-    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                    reuseIdentifier:CellIdentifier];
-    }
-
-    // clear cell subviews-clears old cells
-    if (cell != nil) {
-      NSArray *subviews = [cell subviews];
-      for (UIView *view in subviews) {
-        [view removeFromSuperview];
-      }
-    }
-
-    NSIndexPath *adjustedIndexPath = [self adjustedIndexPathForDatasourceAccess:indexPath];
-
-    if ([adjustedIndexPath compare:self.firstDatePickerIndexPath] == NSOrderedSame) {
-      NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
-      NSString *dateFormatted = [NSDateFormatter localizedStringFromDate:firstDate
-                                         dateStyle:NSDateFormatterShortStyle
-                                         timeStyle:NSDateFormatterNoStyle];
-
-      // add date label for date
-      UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
-      [dateLabel setText:dateFormatted];
-      [cell addSubview:dateLabel];
-
-      // add field label for date
-      UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
-      [fieldTitle setText:@"Date"];
-      [cell addSubview:fieldTitle];
-
-    } else if ([adjustedIndexPath compare:self.secondDatePickerIndexPath] == NSOrderedSame) {
-      NSDate *secondDate = [self dateForIndexPath:self.secondDatePickerIndexPath];
-      NSString *dateFormatted = [NSDateFormatter localizedStringFromDate:secondDate
-                                         dateStyle:NSDateFormatterShortStyle
-                                         timeStyle:NSDateFormatterNoStyle];
-      // add date label for date
-      UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
-      [dateLabel setText:dateFormatted];
-      [cell addSubview:dateLabel];
-
-      // add field label for date
-      UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
-      [fieldTitle setText:@"Start Date"];
-      [cell addSubview:fieldTitle];
-
-    } else if ([adjustedIndexPath compare:self.thirdDatePickerIndexPath] == NSOrderedSame) {
-      NSDate *thirdDate = [self dateForIndexPath:self.thirdDatePickerIndexPath];
-      NSString *dateFormatted = [NSDateFormatter localizedStringFromDate:thirdDate
-                                         dateStyle:NSDateFormatterShortStyle
-                                         timeStyle:NSDateFormatterNoStyle];
-      // add date label for date
-      UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 23, 304, 30)];
-      [dateLabel setText:dateFormatted];
-      [cell addSubview:dateLabel];
-
-      // add field label for date
-      UILabel *fieldTitle = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 200, 13)];
-      [fieldTitle setText:@"End Date"];
-      [cell addSubview:fieldTitle];
-
-    } else {
-			static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
-			TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
-			if (cell == nil) {
-				NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];
-				cell = [nib objectAtIndex:0];
+	//callback when text field is updated, and focus changed
+	cell.fieldUpdateCallback = ^(NSString * textInput, NSString * field) {
+		for(NSMutableDictionary* obj in _invoiceFormFields){
+			if([[obj valueForKey:@"FieldName"] isEqualToString:[field valueForKey:@"FieldName"]]){
+				[obj setObject:textInput forKey:@"FieldValue"];
 			}
+		}
+	};
 
-			//callback when text field is updated, and focus changed
-			cell.fieldUpdateCallback = ^(NSString * textInput, NSString * field) {
-				for(NSMutableDictionary* obj in _invoiceFormFields){
-					if([[obj valueForKey:@"FieldName"] isEqualToString:[field valueForKey:@"FieldName"]]){
-						[obj setObject:textInput forKey:@"FieldValue"];
-					}
-				}
-			};
+	// set placeholder value for new cell
+	[[cell textInput] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
+	[[cell labelCell] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
 
-			// set placeholder value for new cell
-			[[cell textInput] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-			[[cell labelCell] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
+	// set this to save userdata on textinputdidend event
+	[[cell textInput] setTag:[indexPath row]];
+	[cell setFieldName:[_invoiceFormFields objectAtIndex:[indexPath row]]];
 
-			// set this to save userdata on textinputdidend event
-			[[cell textInput] setTag:[indexPath row]];
-			[cell setFieldName:[_invoiceFormFields objectAtIndex:[indexPath row]]];
+//	// set read only
+//	if ([indexPath row] == 12 || [indexPath row] == 0) {
+//		[[cell textInput] setEnabled:FALSE]; // total hours
+//	}
 
-			// set read only
-			if ([indexPath row] == 12 || [indexPath row] == 0) {
-				[[cell textInput] setEnabled:FALSE]; // total hours
-			}
-
-			// check if user entered text into field, and load it.
-			//TOD0: text entered after load is disappearing on scroll only if
-			// another text field is selected.
-			if (![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]) {
-				cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
-			}
-			return cell;
-    }
-  }
+	// check if user entered text into field, and load it.
+	//TOD0: text entered after load is disappearing on scroll only if
+	// another text field is selected.
+	if (![[self.userData objectAtIndex:indexPath.row] isEqualToString:@""]) {
+		cell.textInput.text = [self.userData objectAtIndex:indexPath.row];
+	}
 
 	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [cell setBackgroundColor:[UIColor clearColor]];
@@ -390,7 +290,7 @@
 
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+	//TODO: Show date picker on date row select
 }
 
 #pragma mark pdf create methods
