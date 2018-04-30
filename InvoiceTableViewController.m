@@ -281,11 +281,7 @@
 
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  CGFloat rowHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
-  if (rowHeight == 0) {
-    rowHeight = kTableRowHeight;
-  }
-  return rowHeight;
+  return kTableRowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView
