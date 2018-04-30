@@ -45,7 +45,7 @@
         <attribute name="remoteid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="clients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="projects" inverseEntity="Client" syncable="YES"/>
-        <relationship name="invoices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invoice" inverseName="projects" inverseEntity="Invoice" syncable="YES"/>
+        <relationship name="invoices" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="projects" inverseEntity="Invoice" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="projects" inverseEntity="Session" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
@@ -65,7 +65,7 @@
         <element name="Client" positionX="-828" positionY="-396" width="128" height="210"/>
         <element name="Invoice" positionX="-821" positionY="-133" width="128" height="225"/>
         <element name="Profile" positionX="-828" positionY="-621" width="128" height="195"/>
-        <element name="Project" positionX="-630" positionY="-388" width="128" height="150"/>
+        <element name="Project" positionX="-630" positionY="-388" width="128" height="148"/>
         <element name="Session" positionX="-623" positionY="-151" width="128" height="210"/>
     </elements>
 </model>

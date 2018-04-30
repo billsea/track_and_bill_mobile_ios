@@ -162,86 +162,11 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 - (void)invoiceProject {
 	_invoiceViewController = [[InvoiceTableViewController alloc] init];
-
-	//TODO
-	// see if there is an exisiting invoice for this project
-//	for (Invoice *invoice in [appDelegate arrInvoices]) {
-//		if ((invoice.projectID == _selectedProject.projectID) &&
-//				invoice.invoiceNumber) {
-//			[_invoiceViewController setSelectedInvoice:invoice];
-//			break;
-//		}
-//	}
-	
-	
-
-	if (_project.invoices.count > 0) {
-		// alert - An invoice exists for this project. Edit existing or create new
-		// invoice?
-		if ([UIAlertController class]) {
-
-			UIAlertController *alert = [UIAlertController
-																	alertControllerWithTitle:@"Invoice Exists"
-																	message:
-																	@"Edit the existing invoice or create a new one?"
-																	preferredStyle:UIAlertControllerStyleAlert];
-
-			UIAlertAction *editInvoice = [UIAlertAction
-																		actionWithTitle:@"Edit"
-																		style:UIAlertActionStyleDefault
-																		handler:^(UIAlertAction *action) {
-																			[self.navigationController
-																			 pushViewController:_invoiceViewController
+	[_invoiceViewController setSelectedInvoice:nil];
+	[_invoiceViewController setSelectedProject:_project];
+	[self.navigationController pushViewController:_invoiceViewController
 																			 animated:YES];
-																			[alert dismissViewControllerAnimated:YES completion:nil];
-
-																		}];
-			UIAlertAction *newInvoice = [UIAlertAction
-																	 actionWithTitle:@"New"
-																	 style:UIAlertActionStyleDefault
-																	 handler:^(UIAlertAction *action) {
-																		 [_invoiceViewController setSelectedInvoice:nil];
-																		 [_invoiceViewController
-																			setSelectedProject:_project];
-
-																		 [self.navigationController
-																			pushViewController:_invoiceViewController
-																			animated:YES];
-
-																		 [alert dismissViewControllerAnimated:YES completion:nil];
-																	 }];
-			UIAlertAction *cancel = [UIAlertAction
-															 actionWithTitle:@"Cancel"
-															 style:UIAlertActionStyleDefault
-															 handler:^(UIAlertAction *action) {
-																 [alert dismissViewControllerAnimated:YES completion:nil];
-
-															 }];
-
-			[alert addAction:editInvoice];
-			[alert addAction:newInvoice];
-			[alert addAction:cancel];
-
-			[self presentViewController:alert animated:YES completion:nil];
-		} else {
-			// use UIAlertView
-			UIAlertView *dialog = [[UIAlertView alloc]
-														 initWithTitle:@"Invoice Exists"
-														 message:@"Edit the existing invoice or create a new one?"
-														 delegate:self
-														 cancelButtonTitle:@"Cancel"
-														 otherButtonTitles:@"Edit", @"New", nil];
-
-			dialog.alertViewStyle = UIAlertControllerStyleActionSheet;
-			[dialog show];
-		}
-	} else {
-		// no invoice exists for project, so create a new one
-		[_invoiceViewController setSelectedInvoice:nil];
-		[_invoiceViewController setSelectedProject:_project];
-		[self.navigationController pushViewController:_invoiceViewController
-																				 animated:YES];
-	}
+	
 }
 
 /*

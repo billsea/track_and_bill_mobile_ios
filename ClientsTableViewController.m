@@ -114,7 +114,7 @@
 		// Remove sessions and invoices for the client's projects
 		for(Project* p in client.projects){
 			[p removeSessions:p.sessions];
-			[p removeInvoices:p.invoices];
+			//[p removeInvoices:p.invoices];
 		}
 		
 		// Remove projects for the selected client

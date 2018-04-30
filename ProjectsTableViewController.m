@@ -157,7 +157,7 @@
 		
 		// Remove sessions and invoices
 		[project removeSessions:project.sessions];
-		[project removeInvoices:project.invoices];
+		//[project removeInvoices:project.invoices];
 		
 		// Remove projects for the selected client
 		[_client removeProjectsObject:project];

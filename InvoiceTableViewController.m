@@ -44,6 +44,10 @@
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
+	//temp
+	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
+	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
+	
   // set background image
   [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
 
@@ -70,8 +74,8 @@
 	// initialize table view date picker rows
 	// Set indexPathForRow to the row number the date picker should be placed
 	self.firstDatePickerIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-	self.secondDatePickerIndexPath = [NSIndexPath indexPathForRow:4 inSection:0];
-	self.thirdDatePickerIndexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+	self.secondDatePickerIndexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+	self.thirdDatePickerIndexPath = [NSIndexPath indexPathForRow:6 inSection:0];
 
 	self.datePickerPossibleIndexPaths = @[self.firstDatePickerIndexPath, self.secondDatePickerIndexPath, self.thirdDatePickerIndexPath];
 
@@ -148,63 +152,36 @@
 
 - (void)createInvoice {
   // create the new invoice from form fields
-	NSManagedObject* invoiceObject = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:_context];
 
-	Invoice* cInvoice = (Invoice*)invoiceObject;
-	
-//	// save form values
-//	for(int i = 0; i < _dataFields.count; i++){
-//		[invoiceObject setValue:[self valueForTextCellWithIndex:i] forKey:_dataFields[i]];
-//	}
-	
-	
-  // new invoice or update existing?
-  if (_selectedProject) {
-    // these fields are read only, users cannot change
-    //[cInvoice setProjectID:_selectedProject.projectID];
-    //[cInvoice setClientID:_selectedProject.clientID];
-  } else {
-
-   // [cInvoice setProjectID:_selectedInvoice.projectID];
-   // [cInvoice setClientID:_selectedInvoice.clientID];
-  }
-
-  //    //allow to update the invoice number
-  //    NSIndexPath *iPath = [NSIndexPath indexPathForRow:0 inSection:0] ;
-  //    NSString * invoiceNumber = [[[[[self tableView]
-  //    cellForRowAtIndexPath:iPath] subviews] objectAtIndex:0]
-  //    text];
-  //    if(!invoiceNumber)
-  //    {
-  //        invoiceNumber = [[invoiceFormFields objectAtIndex:0]
-  //        objectForKey:@"FieldValue"];
-  //    }
-  //    [cInvoice setInvoiceNumber:[NSNumber numberWithInt:[invoiceNumber
-  //    intValue]]];
+	//add new invoice if one doesnt' exist already
+	if(!_selectedProject.invoices){
+		NSManagedObject* invoiceObject = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:_context];
+		[_selectedProject setInvoices:(Invoice*)invoiceObject];
+	}
 
   // invoice number is read only
-	[cInvoice setNumber:_invoiceNumberSelected.intValue];
-
+	[_selectedProject.invoices setNumber:(int)[[_invoiceFormFields objectAtIndex:0] objectForKey:@"FieldValue"]];
+	
   // invoice date
   NSDate *invoiceDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
-  [cInvoice setDate:invoiceDate];
+  [_selectedProject.invoices setDate:invoiceDate];
 
   // approval
   NSString *approvalName = [[_invoiceFormFields objectAtIndex:6] objectForKey:@"FieldValue"];
 
   if (approvalName && ![approvalName isEqualToString:@""]) {
-		[cInvoice setApprovedby: approvalName];
+		[_selectedProject.invoices setApprovedby: approvalName];
   } else {
-    [cInvoice setApprovedby:@"-"];
+    [_selectedProject.invoices setApprovedby:@"-"];
   }
 
 	//Mileage rate
-	[cInvoice setMilage_rate:0.00f];
+	[_selectedProject.invoices setMilage_rate:0.00f];
 
   // notes
   NSString *invNotes = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
   if (invNotes && ![invNotes isEqualToString:@""]) {
-    [cInvoice setNotes:invNotes];
+    [_selectedProject.invoices setNotes:invNotes];
   }
 
 
@@ -215,12 +192,12 @@
 //            withTitle:@"Materials total"];
 //    return;
 //	} else {
-		[cInvoice setMaterials_cost:materialsTotal.floatValue];
+		[_selectedProject.invoices setMaterials_cost:materialsTotal.floatValue];
 //	}
 
   // terms
   NSString *invTerms = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
-  [cInvoice setTerms:invTerms];
+  [_selectedProject.invoices setTerms:invTerms];
 
   // deposit
   NSString *invDeposit = [[_invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
@@ -230,7 +207,7 @@
 //            withTitle:@"Deposit"];
 //    return;
 //	} else {
-		[cInvoice setDeposit:invDeposit.floatValue];
+		[_selectedProject.invoices setDeposit:invDeposit.floatValue];
 //	}
 
   // rate
@@ -240,18 +217,18 @@
 //    [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
 //    return;
 //	} else {
-		[cInvoice setRate:invRate.floatValue];
+		[_selectedProject.invoices setRate:invRate.floatValue];
 //	}
 
 	//Check number
   NSString *invCheck =[[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
-  [cInvoice setCheck:invCheck];
-
+  [_selectedProject.invoices setCheck:invCheck];
+	
 	//save context in appDelegate
 	[_app saveContext];
 
 	//create pdf
-	[self MakePDF:cInvoice];
+	[self MakePDF:_selectedProject.invoices];
 	
 }
 
@@ -449,9 +426,6 @@
 }
 
 - (void)MakePDF:(Invoice *)newInvoice {
-
-  AppDelegate *appDelegate =
-      (AppDelegate *)[UIApplication sharedApplication].delegate;
 
 	NSString *fileString = [_selectedProject.name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 	NSString *invoicefile = [NSString stringWithFormat:@"%@_%@.pdf", fileString, _selectedProject.name];
@@ -1006,8 +980,7 @@
 }
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
-  // [self dismissViewControllerAnimated:NO completion:nil];
-  // [self dismissModalViewControllerAnimated:YES];
+   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
