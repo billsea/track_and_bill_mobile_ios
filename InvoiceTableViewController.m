@@ -42,9 +42,9 @@
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
-	//temp
-	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
-	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
+//	//temp
+//	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
+//	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
 	
   // set background image
   [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
@@ -68,7 +68,7 @@
 
 	//new invoice or edit
 	bool isEdit = _selectedProject.invoices;
-
+	
 	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedProject.invoices andProject:_selectedProject andEdit:isEdit];
 }
 
@@ -81,41 +81,11 @@
   return _userData;
 }
 
-
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
   // CGPoint location = [recognizer locationInView:[recognizer.view superview]];
 
   [[self view] endEditing:YES];
 }
-
-//- (void)viewWillDisappear:(BOOL)animated {
-//  // [self saveInvoice];
-//}
-//
-//- (void)didReceiveMemoryWarning {
-//  [super didReceiveMemoryWarning];
-//  // Dispose of any resources that can be recreated.
-//}
-//
-//- (bool)removeExistingInvoice:(NSNumber *)projectId {
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  NSMutableArray *invoicesToRemove = [[NSMutableArray alloc] init];
-//
-//  // Remove existing invoice for this project
-//  for (Invoice *remInvoice in [appDelegate arrInvoices]) {
-//    if (remInvoice.projectID == projectId) {
-//      [invoicesToRemove addObject:remInvoice];
-//    }
-//  }
-//
-//  for (Invoice *t in invoicesToRemove) {
-//    [[appDelegate arrInvoices] removeObjectIdenticalTo:t];
-//  }
-//
-//  return TRUE;
-//}
 
 - (BOOL)isNumeric:(NSString *)inputString {
   NSScanner *scanner = [NSScanner scannerWithString:inputString];
@@ -197,13 +167,11 @@
 		[_selectedProject.invoices setNotes:invNotes];
 	}
 
-	
 	//save context in appDelegate
 	[_app saveContext];
 
 	//create pdf
 	[self MakePDF:_selectedProject.invoices];
-	
 }
 
 - (NSString*)inputForFieldName:(NSString*)name {
@@ -223,7 +191,6 @@
 
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
 }
@@ -231,7 +198,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return _invoiceFormFields.count;
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -290,7 +256,6 @@
 }
 
 #pragma mark pdf create methods
-
 - (void)OpenPDF {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
   NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -322,7 +287,6 @@
 }
 
 - (void)MakePDF:(Invoice *)newInvoice {
-
 	NSString *fileString = [_selectedProject.name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 	NSString *invoicefile = [NSString stringWithFormat:@"%@_%@.pdf", fileString, _selectedProject.name];
   [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@", fileString] Width:850 Height:1100];
@@ -735,17 +699,12 @@
 - (void)setupPDFDocumentNamed:(NSString *)name
                         Width:(float)width
                        Height:(float)height {
+	
   _pageSize = CGSizeMake(width, height);
-
   NSString *newPDFName = [NSString stringWithFormat:@"%@.pdf", name];
-
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,
-                                                       NSUserDomainMask, YES);
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
   NSString *documentsDirectory = [paths objectAtIndex:0];
-
-  NSString *pdfPath =
-      [documentsDirectory stringByAppendingPathComponent:newPDFName];
-
+  NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:newPDFName];
   UIGraphicsBeginPDFContextToFile(pdfPath, CGRectZero, nil);
 }
 
@@ -760,9 +719,7 @@
   [self OpenPDF];
 }
 
-- (CGRect)addText:(NSString *)text
-        withFrame:(CGRect)frame
-         fontSize:(float)fontSize {
+- (CGRect)addText:(NSString *)text withFrame:(CGRect)frame fontSize:(float)fontSize {
   // UIFont *font = [UIFont systemFontOfSize:fontSize];
   UIFont *font = [UIFont fontWithName:@"Avenir Next Medium" size:fontSize];
 
@@ -793,11 +750,11 @@
                                     stringSize.size.height);
 
   /// Make a copy of the default paragraph style
-  NSMutableParagraphStyle *paragraphStyle =
-      [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+  NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+	
   /// Set line break mode
-  paragraphStyle.lineBreakMode =
-      NSLineBreakByWordWrapping; // NSLineBreakByTruncatingTail;
+  paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping; // NSLineBreakByTruncatingTail;
+	
   /// Set text alignment
   paragraphStyle.alignment = NSTextAlignmentLeft;
 
@@ -869,8 +826,7 @@
     path = [documentDir objectAtIndex:0];
   }
 
-  NSLog(@"path....%@",
-        [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"]);
+  NSLog(@"path....%@", [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"]);
 
   return [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"];
 }
@@ -878,17 +834,5 @@
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little
-preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
