@@ -16,9 +16,12 @@
 #import "DateSelectViewController.h"
 
 #define kPadding 2
+#define kLogoPadding 8
 #define kHeaderPadding 5
 #define kMarginPadding 25
 #define kTableRowHeight 80
+#define kPdfWidth 850
+#define kPdfHeight 1100
 
 @interface InvoiceTableViewController () {
   CGSize _pageSize;
@@ -297,32 +300,22 @@
   NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:invoicefile];
 
   if ([[NSFileManager defaultManager] fileExistsAtPath:pdfPath]) {
-    ReaderDocument *document =
-        [ReaderDocument withDocumentFilePath:pdfPath password:nil];
+    ReaderDocument *document = [ReaderDocument withDocumentFilePath:pdfPath password:nil];
     if (document != nil) {
-      ReaderViewController *readerViewController =
-          [[ReaderViewController alloc] initWithReaderDocument:document];
+      ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
       readerViewController.delegate = self;
+      readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+      readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
 
-      readerViewController.modalTransitionStyle =
-          UIModalTransitionStyleCrossDissolve;
-      readerViewController.modalPresentationStyle =
-          UIModalPresentationFullScreen;
-
-      [self presentViewController:readerViewController
-                         animated:YES
-                       completion:nil];
-
-      // depricated
-      //[self presentModalViewController:readerViewController animated:YES];
+      [self presentViewController:readerViewController animated:YES completion:nil];
     }
   }
 }
 
 - (void)MakePDF:(Invoice *)newInvoice {
 	NSString *fileString = [_selectedProject.name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-	NSString *invoicefile = [NSString stringWithFormat:@"%@_%@.pdf", fileString, _selectedProject.name];
-  [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@", fileString] Width:850 Height:1100];
+	//NSString *invoicefile = [NSString stringWithFormat:@"%@_%@.pdf", fileString, _selectedProject.name];
+  [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@", fileString] Width:kPdfWidth Height:kPdfHeight];
 
   // get client info
 	Client *selClient = _selectedProject.clients;
@@ -336,366 +329,362 @@
 
     // Header
     // Logo image
-    //                UIImage *anImage = [UIImage imageNamed:@"bill-32.png"];
-    //                CGRect imageRect = [self addImage:anImage
-    //                                          atPoint:CGPointMake(kPadding,
-    //                                          kPadding)];
+    UIImage *logoImage = [UIImage imageNamed:@"tBill_appIcon_120.png"];
+    [self addImage:logoImage atPoint:CGPointMake(kPdfWidth - (logoImage.size.width + kLogoPadding), kLogoPadding)];
 
-    ///////////////////////////my info///////////////////
+///////////////////////////Profile info///////////////////
 
-    CGRect nameRect =
-        [self addText:myProfile.name
-            withFrame:CGRectMake(kMarginPadding, kPadding + 10,
-                                 _pageSize.width / 2, 4)
-             fontSize:32.0f];
-//    CGRect inoviceRect =
-//        [self addText:[NSString stringWithFormat:@"Invoice #%@",
-//                                                 newInvoice.invoiceNumber]
-//            withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10,
-//                                 _pageSize.width / 3, 4)
-//             fontSize:24.0f];
+	CGRect nameRect =
+			[self addText:myProfile.name
+					withFrame:CGRectMake(kMarginPadding, kPadding + 10,
+															 _pageSize.width / 2, 4)
+					 fontSize:32.0f];
+	CGRect inoviceRect =
+	[self addText:[NSString stringWithFormat:@"Invoice #%lld", _selectedProject.invoices.number]
+					withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10, _pageSize.width / 3, 4)
+					fontSize:24.0f];
 
-    CGRect addressRect =
-        [self addText:myProfile.address
-            withFrame:CGRectMake(kMarginPadding,
-                                 nameRect.origin.y + nameRect.size.height +
-                                     kPadding,
-                                 _pageSize.width - kHeaderPadding * 2, 4)
-             fontSize:24.0f];
+	CGRect addressRect =
+			[self addText:myProfile.address
+					withFrame:CGRectMake(kMarginPadding,
+															 nameRect.origin.y + nameRect.size.height +
+																	 kPadding,
+															 _pageSize.width - kHeaderPadding * 2, 4)
+					 fontSize:24.0f];
 
-    CGRect cityRect = [self
-          addText:[NSString stringWithFormat:@"%@, %@ %@",
-                                             myProfile.city,
-                                             myProfile.state,
-                                             myProfile.postalcode]
-        withFrame:CGRectMake(kMarginPadding,
-                             addressRect.origin.y + addressRect.size.height +
-                                 kPadding,
-                             _pageSize.width - kPadding, 4)
-         fontSize:24.0f];
+	CGRect cityRect = [self
+				addText:[NSString stringWithFormat:@"%@, %@ %@",
+																					 myProfile.city,
+																					 myProfile.state,
+																					 myProfile.postalcode]
+			withFrame:CGRectMake(kMarginPadding,
+													 addressRect.origin.y + addressRect.size.height +
+															 kPadding,
+													 _pageSize.width - kPadding, 4)
+			 fontSize:24.0f];
 
-    CGRect phoneRect =
-        [self addText:myProfile.phone
-            withFrame:CGRectMake(kMarginPadding,
-                                 cityRect.origin.y + cityRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 3, 4)
-             fontSize:24.0f];
+	CGRect phoneRect =
+			[self addText:myProfile.phone
+					withFrame:CGRectMake(kMarginPadding,
+															 cityRect.origin.y + cityRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 3, 4)
+					 fontSize:24.0f];
 
-	//TODO
-    ///////////////////////////client///////////////////
 
-    CGRect lineRect = [self
-        addLineWithFrame:CGRectMake(kMarginPadding,
-                                    phoneRect.origin.y + phoneRect.size.height +
-                                        kPadding,
-                                    _pageSize.width - (kMarginPadding * 2), 4)
-               withColor:[UIColor blackColor]];
+///////////////////////////client///////////////////
 
-    // project/client info
-    NSString *clientName =
-        [NSString stringWithFormat:@"Client: %@", selClient.name];
-    CGRect clientRect =
-        [self addText:clientName
-            withFrame:CGRectMake(kMarginPadding,
-                                 lineRect.origin.y + lineRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	CGRect lineRect = [self
+			addLineWithFrame:CGRectMake(kMarginPadding,
+																	phoneRect.origin.y + phoneRect.size.height +
+																			kPadding,
+																	_pageSize.width - (kMarginPadding * 2), 4)
+						 withColor:[UIColor blackColor]];
 
-    NSString *clientAddress =
-        [NSString stringWithFormat:@"Address: %@", selClient.address];
-    CGRect clientAddressRect =
-        [self addText:clientAddress
-            withFrame:CGRectMake(kMarginPadding,
-                                 clientRect.origin.y + clientRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	// project/client info
+	NSString *clientName =
+			[NSString stringWithFormat:@"Client: %@", selClient.name];
+	CGRect clientRect =
+			[self addText:clientName
+					withFrame:CGRectMake(kMarginPadding,
+															 lineRect.origin.y + lineRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *clientCity =
-        [NSString stringWithFormat:@"City: %@", [selClient city]];
-    CGRect clientCityRect =
-        [self addText:clientCity
-            withFrame:CGRectMake(kMarginPadding,
-                                 clientAddressRect.origin.y +
-                                     clientAddressRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *clientAddress =
+			[NSString stringWithFormat:@"Address: %@", selClient.address];
+	CGRect clientAddressRect =
+			[self addText:clientAddress
+					withFrame:CGRectMake(kMarginPadding,
+															 clientRect.origin.y + clientRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *clientState =
-        [NSString stringWithFormat:@"State: %@", selClient.state];
-    CGRect clientStateRect =
-        [self addText:clientState
-            withFrame:CGRectMake(kMarginPadding,
-                                 clientCityRect.origin.y +
-                                     clientCityRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *clientCity =
+			[NSString stringWithFormat:@"City: %@", [selClient city]];
+	CGRect clientCityRect =
+			[self addText:clientCity
+					withFrame:CGRectMake(kMarginPadding,
+															 clientAddressRect.origin.y +
+																	 clientAddressRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *clientZip =
-        [NSString stringWithFormat:@"Postal Code: %@", selClient.postalcode];
-    CGRect clientZipRect =
-        [self addText:clientZip
-            withFrame:CGRectMake(kMarginPadding,
-                                 clientStateRect.origin.y +
-                                     clientStateRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *clientState =
+			[NSString stringWithFormat:@"State: %@", selClient.state];
+	CGRect clientStateRect =
+			[self addText:clientState
+					withFrame:CGRectMake(kMarginPadding,
+															 clientCityRect.origin.y +
+																	 clientCityRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    // client column 2
-    NSString *projectName =
-        [NSString stringWithFormat:@"Project: %@", _selectedProject.name];
-    CGRect projectRect =
-        [self addText:projectName
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 clientRect.origin.y,
-                                 _pageSize.width - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *clientZip =
+			[NSString stringWithFormat:@"Postal Code: %@", selClient.postalcode];
+	CGRect clientZipRect =
+			[self addText:clientZip
+					withFrame:CGRectMake(kMarginPadding,
+															 clientStateRect.origin.y +
+																	 clientStateRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *startDate =
-        [NSString stringWithFormat:@"Start Date: %@",
-                                   [df stringFromDate:_selectedProject.start]];
-    CGRect startRect =
-        [self addText:startDate
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 projectRect.origin.y +
-                                     projectRect.size.height + kPadding,
-                                 _pageSize.width - kPadding * 2, 4)
-             fontSize:21.0f];
+	// client column 2
+	NSString *projectName =
+			[NSString stringWithFormat:@"Project: %@", _selectedProject.name];
+	CGRect projectRect =
+			[self addText:projectName
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 clientRect.origin.y,
+															 _pageSize.width - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *endDate =
-        [NSString stringWithFormat:@"End Date: %@",
-                                   [df stringFromDate:_selectedProject.end]];
-    CGRect endRect =
-        [self addText:endDate
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 startRect.origin.y + startRect.size.height +
-                                     kPadding,
-                                 _pageSize.width - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *startDate =
+			[NSString stringWithFormat:@"Start Date: %@",
+																 [df stringFromDate:_selectedProject.start]];
+	CGRect startRect =
+			[self addText:startDate
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 projectRect.origin.y +
+																	 projectRect.size.height + kPadding,
+															 _pageSize.width - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *terms =
-        [NSString stringWithFormat:@"Terms: %@",_selectedProject.invoices.terms];
-    CGRect termsRect = [self
-          addText:terms
-        withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                             endRect.origin.y + endRect.size.height + kPadding,
-                             _pageSize.width - kPadding * 2, 4)
-         fontSize:21.0f];
+	NSString *endDate =
+			[NSString stringWithFormat:@"End Date: %@",
+																 [df stringFromDate:_selectedProject.end]];
+	CGRect endRect =
+			[self addText:endDate
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 startRect.origin.y + startRect.size.height +
+																	 kPadding,
+															 _pageSize.width - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *approval = [NSString
-        stringWithFormat:@"Approved By: %@", _selectedProject.invoices.approvedby];
-    CGRect approvalRect =
-        [self addText:approval
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 termsRect.origin.y + termsRect.size.height +
-                                     kPadding,
-                                 _pageSize.width - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *terms =
+			[NSString stringWithFormat:@"Terms: %@",_selectedProject.invoices.terms];
+	CGRect termsRect = [self
+				addText:terms
+			withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+													 endRect.origin.y + endRect.size.height + kPadding,
+													 _pageSize.width - kPadding * 2, 4)
+			 fontSize:21.0f];
 
-    ///////////////////////////services///////////////////
+	NSString *approval = [NSString
+			stringWithFormat:@"Approved By: %@", _selectedProject.invoices.approvedby];
+	CGRect approvalRect =
+			[self addText:approval
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 termsRect.origin.y + termsRect.size.height +
+																	 kPadding,
+															 _pageSize.width - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    CGRect servicesLineRect = [self
-        addLineWithFrame:CGRectMake(kMarginPadding,
-                                    approvalRect.origin.y +
-                                        approvalRect.size.height + kPadding +
-                                        15,
-                                    _pageSize.width - (kMarginPadding * 2), 4)
-               withColor:[UIColor blackColor]];
+	///////////////////////////services///////////////////
 
-    NSString *serviceLabel = [NSString stringWithFormat:@"%@", @"Services:"];
-    CGRect serviceRect =
-        [self addText:serviceLabel
-            withFrame:CGRectMake(kMarginPadding,
-                                 servicesLineRect.origin.y +
-                                     servicesLineRect.size.height + kPadding,
-                                 _pageSize.width - kPadding * 2, 4)
-             fontSize:26.0f];
+	CGRect servicesLineRect = [self
+			addLineWithFrame:CGRectMake(kMarginPadding,
+																	approvalRect.origin.y +
+																			approvalRect.size.height + kPadding +
+																			15,
+																	_pageSize.width - (kMarginPadding * 2), 4)
+						 withColor:[UIColor blackColor]];
 
-    NSString *services =
-        [NSString stringWithFormat:@"%@", _selectedProject.invoices.notes];
-    CGRect servicesRect =
-        [self addText:services
-            withFrame:CGRectMake(kMarginPadding,
-                                 serviceRect.origin.y +
-                                     serviceRect.size.height + kPadding,
-                                 _pageSize.width - (kMarginPadding * 2), 130)
-             fontSize:18.0f];
+	NSString *serviceLabel = [NSString stringWithFormat:@"%@", @"Services:"];
+	CGRect serviceRect =
+			[self addText:serviceLabel
+					withFrame:CGRectMake(kMarginPadding,
+															 servicesLineRect.origin.y +
+																	 servicesLineRect.size.height + kPadding,
+															 _pageSize.width - kPadding * 2, 4)
+					 fontSize:26.0f];
 
-    ////////////Totals///////////////
+	NSString *services =
+			[NSString stringWithFormat:@"%@", _selectedProject.invoices.notes];
+	CGRect servicesRect =
+			[self addText:services
+					withFrame:CGRectMake(kMarginPadding,
+															 serviceRect.origin.y +
+																	 serviceRect.size.height + kPadding,
+															 _pageSize.width - (kMarginPadding * 2), 130)
+					 fontSize:18.0f];
 
-    CGRect totalsLineRect = [self
-        addLineWithFrame:CGRectMake(kMarginPadding,
-                                    servicesRect.origin.y +
-                                        servicesRect.size.height + kPadding +
-                                        15,
-                                    _pageSize.width - (kMarginPadding * 2), 4)
-               withColor:[UIColor blackColor]];
+	////////////Totals///////////////
 
-    CGRect doubleLineRect = [self
-        addLineWithFrame:CGRectMake(kMarginPadding,
-                                    totalsLineRect.origin.y +
-                                        totalsLineRect.size.height + kPadding,
-                                    _pageSize.width - (kMarginPadding * 2), 4)
-               withColor:[UIColor blackColor]];
+	CGRect totalsLineRect = [self
+			addLineWithFrame:CGRectMake(kMarginPadding,
+																	servicesRect.origin.y +
+																			servicesRect.size.height + kPadding +
+																			15,
+																	_pageSize.width - (kMarginPadding * 2), 4)
+						 withColor:[UIColor blackColor]];
 
-    NSString *materialsLabel = [NSString stringWithFormat:@"%@", @"Materials:"];
-    CGRect materialsLabelRect =
-        [self addText:materialsLabel
-            withFrame:CGRectMake(kMarginPadding,
-                                 doubleLineRect.origin.y +
-                                     doubleLineRect.size.height + kPadding + 10,
-                                 _pageSize.width - kPadding * 2, 4)
-             fontSize:26.0f];
+	CGRect doubleLineRect = [self
+			addLineWithFrame:CGRectMake(kMarginPadding,
+																	totalsLineRect.origin.y +
+																			totalsLineRect.size.height + kPadding,
+																	_pageSize.width - (kMarginPadding * 2), 4)
+						 withColor:[UIColor blackColor]];
 
-    NSString *materialsList =
-		[NSString stringWithFormat:@"%@",_selectedProject.invoices.materials];
-    CGRect materialsListRect = [self
-          addText:materialsList
-        withFrame:CGRectMake(kMarginPadding,
-                             materialsLabelRect.origin.y +
-                                 materialsLabelRect.size.height + kPadding,
-                             _pageSize.width / 2 - (kMarginPadding * 2), 100)
-         fontSize:18.0f];
+	NSString *materialsLabel = [NSString stringWithFormat:@"%@", @"Materials:"];
+	CGRect materialsLabelRect =
+			[self addText:materialsLabel
+					withFrame:CGRectMake(kMarginPadding,
+															 doubleLineRect.origin.y +
+																	 doubleLineRect.size.height + kPadding + 10,
+															 _pageSize.width - kPadding * 2, 4)
+					 fontSize:26.0f];
 
-    // break
-    CGRect breakRect =
-        [self addText:@""
-            withFrame:CGRectMake(kMarginPadding,
-                                 materialsListRect.origin.y +
-                                     materialsListRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *materialsList =
+	[NSString stringWithFormat:@"%@",_selectedProject.invoices.materials];
+	CGRect materialsListRect = [self
+				addText:materialsList
+			withFrame:CGRectMake(kMarginPadding,
+													 materialsLabelRect.origin.y +
+															 materialsLabelRect.size.height + kPadding,
+													 _pageSize.width / 2 - (kMarginPadding * 2), 100)
+			 fontSize:18.0f];
 
-    NSString *milage = [NSString
-												stringWithFormat:@"Milage: %f total miles", _selectedProject.invoices.mileage];
-    CGRect milageRect =
-        [self addText:milage
-            withFrame:CGRectMake(kMarginPadding,
-                                 breakRect.origin.y + breakRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	// break
+	CGRect breakRect =
+			[self addText:@""
+					withFrame:CGRectMake(kMarginPadding,
+															 materialsListRect.origin.y +
+																	 materialsListRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *milageRate =
-		[NSString stringWithFormat:@"Milage rate: %f", _selectedProject.invoices.milage_rate];
-    CGRect milageRateRect =
-        [self addText:milageRate
-            withFrame:CGRectMake(kMarginPadding,
-                                 milageRect.origin.y + milageRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *milage = [NSString
+											stringWithFormat:@"Milage: %f total miles", _selectedProject.invoices.mileage];
+	CGRect milageRect =
+			[self addText:milage
+					withFrame:CGRectMake(kMarginPadding,
+															 breakRect.origin.y + breakRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    // break
-    breakRect =
-        [self addText:@""
-            withFrame:CGRectMake(kMarginPadding,
-                                 milageRateRect.origin.y +
-                                     milageRateRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *milageRate =
+	[NSString stringWithFormat:@"Milage rate: %f", _selectedProject.invoices.milage_rate];
+	CGRect milageRateRect =
+			[self addText:milageRate
+					withFrame:CGRectMake(kMarginPadding,
+															 milageRect.origin.y + milageRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *checkNumber = [NSString
-        stringWithFormat:@"Paid Check #: %@", _selectedProject.invoices.check];
-    CGRect checkNumberRect =
-        [self addText:checkNumber
-            withFrame:CGRectMake(kMarginPadding,
-                                 breakRect.origin.y + breakRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:18.0f];
+	// break
+	breakRect =
+			[self addText:@""
+					withFrame:CGRectMake(kMarginPadding,
+															 milageRateRect.origin.y +
+																	 milageRateRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    // Totals column 2
+	NSString *checkNumber = [NSString
+			stringWithFormat:@"Paid Check #: %@", _selectedProject.invoices.check];
+	CGRect checkNumberRect =
+			[self addText:checkNumber
+					withFrame:CGRectMake(kMarginPadding,
+															 breakRect.origin.y + breakRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:18.0f];
 
-    NSString *tHours =
-        [NSString stringWithFormat:@"Hours: %@", _selectedProject.invoices.total_time];
-    CGRect hoursRect =
-        [self addText:tHours
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 totalsLineRect.origin.y +
-                                     totalsLineRect.size.height + kPadding + 10,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	// Totals column 2
 
-    NSString *tRate = [NSString
-        stringWithFormat:
-            @"Rate: %@",
-            [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.rate]]];
-    CGRect rateRect =
-        [self addText:tRate
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 hoursRect.origin.y + hoursRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *tHours =
+			[NSString stringWithFormat:@"Hours: %@", _selectedProject.invoices.total_time];
+	CGRect hoursRect =
+			[self addText:tHours
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 totalsLineRect.origin.y +
+																	 totalsLineRect.size.height + kPadding + 10,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *tSubtotal = [NSString
-        stringWithFormat:@"Sub-total: %@",
-                         [self
-                             formatNumber:[NSNumber
-                                              numberWithDouble:0.00]]];
-    CGRect subtotalRect =
-        [self addText:tSubtotal
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 rateRect.origin.y + rateRect.size.height +
-                                     kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *tRate = [NSString
+			stringWithFormat:
+					@"Rate: %@",
+					[self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.rate]]];
+	CGRect rateRect =
+			[self addText:tRate
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 hoursRect.origin.y + hoursRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *materialsTotal = [NSString
-        stringWithFormat:
-            @"Materials: %@",
-            [self
-                formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.materials_cost]]];
-    CGRect materialsRect =
-        [self addText:materialsTotal
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 subtotalRect.origin.y +
-                                     subtotalRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *tSubtotal = [NSString
+			stringWithFormat:@"Sub-total: %@",
+											 [self
+													 formatNumber:[NSNumber
+																						numberWithDouble:0.00]]];
+	CGRect subtotalRect =
+			[self addText:tSubtotal
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 rateRect.origin.y + rateRect.size.height +
+																	 kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    float transpoCost = (_selectedProject.invoices.mileage *
-                         _selectedProject.invoices.milage_rate);
-    NSString *milageTotal =
-        [NSString stringWithFormat:@"Milage Total: %.2f", transpoCost];
-    CGRect milageTotalRect =
-        [self addText:milageTotal
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 materialsRect.origin.y +
-                                     materialsRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	NSString *materialsTotal = [NSString
+			stringWithFormat:
+					@"Materials: %@",
+					[self
+							formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.materials_cost]]];
+	CGRect materialsRect =
+			[self addText:materialsTotal
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 subtotalRect.origin.y +
+																	 subtotalRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSString *deposit = [NSString
-        stringWithFormat:
-            @"Deposit: %@",
-            [self
-                formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.deposit]]];
-    CGRect depositRect =
-        [self addText:deposit
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 milageTotalRect.origin.y +
-                                     milageTotalRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:21.0f];
+	float transpoCost = (_selectedProject.invoices.mileage *
+											 _selectedProject.invoices.milage_rate);
+	NSString *milageTotal =
+			[NSString stringWithFormat:@"Milage Total: %.2f", transpoCost];
+	CGRect milageTotalRect =
+			[self addText:milageTotal
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 materialsRect.origin.y +
+																	 materialsRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    NSNumber *grandTotal =
-        [NSNumber numberWithFloat:(_selectedProject.invoices.total_due +
-                                   _selectedProject.invoices.materials_cost + transpoCost) -
-                                  _selectedProject.invoices.deposit];
-    CGRect totalDueRect =
-        [self addText:[NSString stringWithFormat:@"Total Due: %@",
-                                                 [self formatNumber:grandTotal]]
-            withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-                                 depositRect.origin.y +
-                                     depositRect.size.height + kPadding,
-                                 _pageSize.width / 2 - kPadding * 2, 4)
-             fontSize:28.0f];
+	NSString *deposit = [NSString
+			stringWithFormat:
+					@"Deposit: %@",
+					[self
+							formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.deposit]]];
+	CGRect depositRect =
+			[self addText:deposit
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 milageTotalRect.origin.y +
+																	 milageTotalRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:21.0f];
 
-    [self finishPDF];
+	NSNumber *grandTotal =
+			[NSNumber numberWithFloat:(_selectedProject.invoices.total_due +
+																 _selectedProject.invoices.materials_cost + transpoCost) -
+																_selectedProject.invoices.deposit];
+	CGRect totalDueRect =
+			[self addText:[NSString stringWithFormat:@"Total Due: %@",
+																							 [self formatNumber:grandTotal]]
+					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+															 depositRect.origin.y +
+																	 depositRect.size.height + kPadding,
+															 _pageSize.width / 2 - kPadding * 2, 4)
+					 fontSize:28.0f];
+
+	[self finishPDF];
   } else {
     [self showMessage:@"You must complete your personal profile before "
                       @"creating an invoice."
@@ -744,7 +733,6 @@
 
 - (void)finishPDF {
   UIGraphicsEndPDFContext();
-
   [self OpenPDF];
 }
 
@@ -826,16 +814,12 @@
 	CGContextDrawPath(currentContext, kCGPathFillStroke);
   CGContextClosePath(currentContext);
 
-
   return frame;
 }
 
-- (CGRect)addImage:(UIImage *)image atPoint:(CGPoint)point {
-  CGRect imageFrame =
-      CGRectMake(point.x, point.y, image.size.width, image.size.height);
+- (void)addImage:(UIImage *)image atPoint:(CGPoint)point {
+  CGRect imageFrame = CGRectMake(point.x, point.y, image.size.width, image.size.height);
   [image drawInRect:imageFrame];
-
-  return imageFrame;
 }
 
 #pragma mark methods
@@ -843,21 +827,6 @@
 	// Fetch data from persistent data store;
 	NSMutableArray* data = [Model dataForEntity:@"Profile"];
 	return data.count > 0 ? [data objectAtIndex:0] : nil;
-}
-
-- (NSString *)pathForDataFile {
-  // Accessible files are stored in the devices "Documents" directory
-  NSArray *documentDir = NSSearchPathForDirectoriesInDomains(
-      NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *path = nil;
-
-  if (documentDir) {
-    path = [documentDir objectAtIndex:0];
-  }
-
-  NSLog(@"path....%@", [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"]);
-
-  return [NSString stringWithFormat:@"%@/%@", path, @"profiles.tbd"];
 }
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
