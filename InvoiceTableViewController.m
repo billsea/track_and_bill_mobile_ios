@@ -114,6 +114,17 @@
 	return value;
 }
 
+- (float)TotalDue:(NSString*)hms{
+	float total = 0.0f;
+	float rate = _selectedProject.invoices.rate;
+	
+	NSArray *time = [hms componentsSeparatedByString:@":"];
+	total = ([time[0] floatValue] * rate) + ([time[1] floatValue] * rate/60) + ([time[2] floatValue] * (rate/60)/60);
+	
+	return total;
+}
+
+
 - (void)createInvoice {
   // create the new invoice from form fields
 	
@@ -129,7 +140,9 @@
 	[_selectedProject.invoices setStart:_selectedProject.start];
 	[_selectedProject.invoices setEnd:_selectedProject.end];
 	[_selectedProject.invoices setMaterials:[self valueForTextCellWithIndex:7]];
+	[_selectedProject.invoices setMaterials_cost:[self valueForTextCellWithIndex:8].floatValue];
 	[_selectedProject.invoices setMileage:[self valueForTextCellWithIndex:9].floatValue];
+	[_selectedProject.invoices setTotal_time:[self valueForTextCellWithIndex:6]];
 	
   // invoice number is read only
 	[_selectedProject.invoices setNumber:(int)[[self valueForTextCellWithIndex:0] intValue]];
@@ -145,6 +158,8 @@
 	//Mileage rate
 	NSString* sMileageRate = [self valueForTextCellWithIndex:10];
 	[_selectedProject.invoices setMilage_rate:sMileageRate.floatValue];
+	//Mileage cost
+	[_selectedProject.invoices setMaterials_cost:sMileageRate.floatValue * _selectedProject.invoices.mileage];
 
 	// rate
 	NSString *invRate = [self valueForTextCellWithIndex:11];
@@ -177,6 +192,8 @@
 		[_selectedProject.invoices setNotes:invNotes];
 	}
 
+	[_selectedProject.invoices setTotal_due:[self TotalDue:_selectedProject.invoices.total_time]];
+	
 	//save context in appDelegate
 	[_app saveContext];
 
@@ -548,7 +565,7 @@
 													 _pageSize.width / 2 - (kMarginPadding * 2), 100)
 			 fontSize:18.0f];
 
-	// break
+	// break line
 	CGRect breakRect =
 			[self addText:@""
 					withFrame:CGRectMake(kMarginPadding,
@@ -557,8 +574,7 @@
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
-	NSString *milage = [NSString
-											stringWithFormat:@"Milage: %f total miles", _selectedProject.invoices.mileage];
+		NSString *milage = [NSString stringWithFormat:@"Milage: %@ total miles", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.mileage]]];
 	CGRect milageRect =
 			[self addText:milage
 					withFrame:CGRectMake(kMarginPadding,
@@ -568,7 +584,7 @@
 					 fontSize:21.0f];
 
 	NSString *milageRate =
-	[NSString stringWithFormat:@"Milage rate: %f", _selectedProject.invoices.milage_rate];
+		[NSString stringWithFormat:@"Milage rate: %@", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.milage_rate]]];
 	CGRect milageRateRect =
 			[self addText:milageRate
 					withFrame:CGRectMake(kMarginPadding,
@@ -577,7 +593,7 @@
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
-	// break
+	// break line
 	breakRect =
 			[self addText:@""
 					withFrame:CGRectMake(kMarginPadding,
