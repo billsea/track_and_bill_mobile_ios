@@ -53,7 +53,7 @@
 //	//temp
 //	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
 //	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
-//
+
   // set background image
   [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
 
@@ -120,6 +120,12 @@
 		[_selectedProject setInvoices:(Invoice*)invoiceObject];
 	}
 
+	//Set project info in invoice, so invoice can be viewed if project is removed
+	[_selectedProject.invoices setClient_name:_selectedProject.clients.name];
+	[_selectedProject.invoices setProject_name:_selectedProject.name];
+	[_selectedProject.invoices setStart:_selectedProject.start];
+	[_selectedProject.invoices setEnd:_selectedProject.end];
+	
   // invoice number is read only
 	[_selectedProject.invoices setNumber:(int)[[self valueForTextCellWithIndex:0] intValue]];
 	
