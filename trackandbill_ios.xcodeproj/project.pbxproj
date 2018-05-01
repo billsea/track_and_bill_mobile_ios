@@ -25,6 +25,8 @@
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
 		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
+		A960805C2097EA7900A589A0 /* DateSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960805A2097EA7900A589A0 /* DateSelectViewController.m */; };
+		A960805D2097EA7900A589A0 /* DateSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A960805B2097EA7900A589A0 /* DateSelectViewController.xib */; };
 		A9729BB42068715900651DAB /* ProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9729BB22068715900651DAB /* ProjectCollectionViewController.m */; };
 		A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */; };
 		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
@@ -177,6 +179,9 @@
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
 		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
+		A96080592097EA7900A589A0 /* DateSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateSelectViewController.h; sourceTree = "<group>"; };
+		A960805A2097EA7900A589A0 /* DateSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateSelectViewController.m; sourceTree = "<group>"; };
+		A960805B2097EA7900A589A0 /* DateSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectViewController.xib; sourceTree = "<group>"; };
 		A9729BB12068715900651DAB /* ProjectCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectCollectionViewController.h; sourceTree = "<group>"; };
 		A9729BB22068715900651DAB /* ProjectCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectCollectionViewController.m; sourceTree = "<group>"; };
 		A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCollectionViewController.xib; sourceTree = "<group>"; };
@@ -636,6 +641,9 @@
 				A9CE75C82069D27D00CBD406 /* SessionDetailCollectionViewController.xib */,
 				A93829FE2093E3580086B2ED /* SessionInfoViewController.h */,
 				A93829FF2093E3580086B2ED /* SessionInfoViewController.m */,
+				A96080592097EA7900A589A0 /* DateSelectViewController.h */,
+				A960805A2097EA7900A589A0 /* DateSelectViewController.m */,
+				A960805B2097EA7900A589A0 /* DateSelectViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -733,6 +741,7 @@
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
 				A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */,
 				A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */,
+				A960805D2097EA7900A589A0 /* DateSelectViewController.xib in Resources */,
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9A2E68B1B14D60400A478AE /* Todo in Resources */,
 				A9AAEFE2207E8B7C006BF1C6 /* invoice-50.png in Resources */,
@@ -830,6 +839,7 @@
 				A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */,
 				A94AE5AF206B19A100B079B2 /* Model.m in Sources */,
 				A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */,
+				A960805C2097EA7900A589A0 /* DateSelectViewController.m in Sources */,
 				A9DC4CB41AEAFB8E00A00892 /* ReaderContentView.m in Sources */,
 				A9DC4CCE1AEAFB8E00A00892 /* ThumbsViewController.m in Sources */,
 				A9DC4CC51AEAFB8E00A00892 /* SessionsTableViewCell.m in Sources */,

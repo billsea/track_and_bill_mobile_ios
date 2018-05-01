@@ -14,6 +14,7 @@
 - (void)awakeFromNib {
 	[super awakeFromNib];
   self.textInput.delegate = self;
+	
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -33,6 +34,5 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
 	self.fieldUpdateCallback(textField.text,_fieldName);
 }
-
 
 @end

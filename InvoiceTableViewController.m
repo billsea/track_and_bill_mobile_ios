@@ -13,6 +13,7 @@
 #import "TextInputTableViewCell.h"
 #import "Client+CoreDataClass.h"
 #import "Model.h"
+#import "DateSelectViewController.h"
 
 #define kPadding 2
 #define kHeaderPadding 5
@@ -27,6 +28,7 @@
 	NSManagedObjectContext* _context;
 	NSArray* _dataFields;
 	NSDateFormatter* _df;
+	NSArray* _dateRows;
 }
 
 @property UIBarButtonItem *previewButton;
@@ -46,6 +48,8 @@
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
+	_dateRows = @[@1,@4,@5];
+	
 //	//temp
 //	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
 //	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
@@ -62,11 +66,11 @@
              action:@selector(exportInvoice:)];
   // self.addClientButton.tintColor = [UIColor blackColor];
   [[self navigationItem] setRightBarButtonItem:self.previewButton];
+	[self loadForm];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[self loadForm];
 }
 
 - (void)loadForm {
@@ -167,6 +171,8 @@
 
 	//create pdf
 	[self MakePDF:_selectedProject.invoices];
+	
+	[self loadForm];//reload form
 }
 
 - (NSString*)inputForFieldName:(NSString*)name {
@@ -198,7 +204,6 @@
 	self.userData[textField.tag] = textField.text;
 }
 
-
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -227,7 +232,7 @@
 			}
 		}
 	};
-
+	
 	// set placeholder value for new cell
 	[[cell textInput] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
 	[[cell labelCell] setText:[[_invoiceFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
@@ -236,10 +241,13 @@
 	[[cell textInput] setTag:[indexPath row]];
 	[cell setFieldName:[_invoiceFormFields objectAtIndex:[indexPath row]]];
 
-//	// set read only
-//	if ([indexPath row] == 12 || [indexPath row] == 0) {
-//		[[cell textInput] setEnabled:FALSE]; // total hours
-//	}
+	// set date input to read only
+	for(int i = 0; i<_dateRows.count;i++){
+		if(indexPath.row == [_dateRows[i] intValue]) {
+			[[cell textInput] setEnabled:FALSE];
+			break;
+		}
+	}
 
 	// check if user entered text into field, and load it.
 	//TOD0: text entered after load is disappearing on scroll only if
@@ -259,9 +267,20 @@
   return kTableRowHeight;
 }
 
-- (void)tableView:(UITableView *)tableView
-    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//TODO: Show date picker on date row select
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	//Show date picker on date row select
+	//TODO:start and completion dates must be saved in the project, not in invoice
+	for(int i = 0; i<_dateRows.count;i++){
+		if(indexPath.row == [_dateRows[i] intValue]) {
+			DateSelectViewController *dateSelectViewController = [[DateSelectViewController alloc] initWithNibName:@"DateSelectViewController" bundle:nil];
+			TextInputTableViewCell* textCell = (TextInputTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+			dateSelectViewController.dateSelectedCallback = ^(NSDate* selDate){
+				textCell.textInput.text = [_df stringFromDate:selDate];
+			};
+			[self.navigationController pushViewController:dateSelectViewController animated:YES];
+			break;
+		}
+	}
 }
 
 #pragma mark pdf create methods
