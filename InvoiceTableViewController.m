@@ -14,6 +14,7 @@
 #import "Client+CoreDataClass.h"
 #import "Model.h"
 #import "DateSelectViewController.h"
+#import "utility.h"
 
 #define kPadding 2
 #define kLogoPadding 8
@@ -32,6 +33,7 @@
 	NSArray* _dataFields;
 	NSDateFormatter* _df;
 	NSArray* _dateRows;
+	NSArray* _readOnlyRows;
 }
 
 @property UIBarButtonItem *previewButton;
@@ -52,7 +54,7 @@
 	_context = _app.persistentContainer.viewContext;
 	
 	_dateRows = @[@1,@4,@5];
-	
+	_readOnlyRows = @[@4,@5,@6];
 //	//temp
 //	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
 //	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
@@ -140,14 +142,13 @@
 	[_selectedProject.invoices setStart:_selectedProject.start];
 	[_selectedProject.invoices setEnd:_selectedProject.end];
 	[_selectedProject.invoices setMaterials:[self valueForTextCellWithIndex:7]];
-	[_selectedProject.invoices setMaterials_cost:[self valueForTextCellWithIndex:8].floatValue];
 	[_selectedProject.invoices setMileage:[self valueForTextCellWithIndex:9].floatValue];
 	[_selectedProject.invoices setTotal_time:[self valueForTextCellWithIndex:6]];
 	
   // invoice number is read only
 	[_selectedProject.invoices setNumber:(int)[[self valueForTextCellWithIndex:0] intValue]];
 	
-	// invoice date TODO: Use a date picker for dates
+	// invoice date
   NSDate *invoiceDate = [_df dateFromString:[self valueForTextCellWithIndex:1]];
   [_selectedProject.invoices setDate:invoiceDate];
 
@@ -158,8 +159,6 @@
 	//Mileage rate
 	NSString* sMileageRate = [self valueForTextCellWithIndex:10];
 	[_selectedProject.invoices setMilage_rate:sMileageRate.floatValue];
-	//Mileage cost
-	[_selectedProject.invoices setMaterials_cost:sMileageRate.floatValue * _selectedProject.invoices.mileage];
 
 	// rate
 	NSString *invRate = [self valueForTextCellWithIndex:11];
@@ -272,6 +271,14 @@
 	// set date input to read only
 	for(int i = 0; i<_dateRows.count;i++){
 		if(indexPath.row == [_dateRows[i] intValue]) {
+			[[cell textInput] setEnabled:FALSE];
+			break;
+		}
+	}
+	
+	//check if the text input is read only
+	for(int i = 0; i<_readOnlyRows.count;i++){
+		if(indexPath.row == [_readOnlyRows[i] intValue]) {
 			[[cell textInput] setEnabled:FALSE];
 			break;
 		}
@@ -636,13 +643,10 @@
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
-	NSString *tSubtotal = [NSString
-			stringWithFormat:@"Sub-total: %@",
-											 [self
-													 formatNumber:[NSNumber
-																						numberWithDouble:0.00]]];
-	CGRect subtotalRect =
-			[self addText:tSubtotal
+	NSString *tSubtotalHours = [NSString
+			stringWithFormat:@"Hours Total: %@", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due]]];
+	CGRect subtotalHoursRect =
+			[self addText:tSubtotalHours
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
 															 rateRect.origin.y + rateRect.size.height +
 																	 kPadding,
@@ -657,8 +661,8 @@
 	CGRect materialsRect =
 			[self addText:materialsTotal
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-															 subtotalRect.origin.y +
-																	 subtotalRect.size.height + kPadding,
+															 subtotalHoursRect.origin.y +
+																	 subtotalHoursRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
@@ -674,6 +678,19 @@
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
+		
+		
+		NSString *tSubtotal = [NSString
+													 stringWithFormat:@"Sub-total: %@", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due + transpoCost + _selectedProject.invoices.materials_cost]]];
+		CGRect subtotalRect =
+		[self addText:tSubtotal
+				withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
+														 milageTotalRect.origin.y + milageTotalRect.size.height +
+														 kPadding,
+														 _pageSize.width / 2 - kPadding * 2, 4)
+				 fontSize:21.0f];
+		
+		
 	NSString *deposit = [NSString
 			stringWithFormat:
 					@"Deposit: %@",
@@ -682,8 +699,8 @@
 	CGRect depositRect =
 			[self addText:deposit
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
-															 milageTotalRect.origin.y +
-																	 milageTotalRect.size.height + kPadding,
+															 subtotalRect.origin.y +
+																	 subtotalRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
@@ -702,9 +719,7 @@
 
 	[self finishPDF];
   } else {
-    [self showMessage:@"You must complete your personal profile before "
-                      @"creating an invoice."
-            withTitle:@"Missing Profile"];
+		[utility showAlertWithTitle:NSLocalizedString(@"profile_missing", nil) andMessage:NSLocalizedString(@"profile_alert", nil) andVC:self];
   }
 }
 
@@ -719,15 +734,6 @@
   NSString *numberString = [formatter stringFromNumber:number];
 
   return numberString;
-}
-
-// Show an alert message
-- (void)showMessage:(NSString *)text withTitle:(NSString *)title {
-  [[[UIAlertView alloc] initWithTitle:title
-                              message:text
-                             delegate:self
-                    cancelButtonTitle:@"OK"
-                    otherButtonTitles:nil] show];
 }
 
 - (void)setupPDFDocumentNamed:(NSString *)name
@@ -753,13 +759,7 @@
 }
 
 - (CGRect)addText:(NSString *)text withFrame:(CGRect)frame fontSize:(float)fontSize {
-  // UIFont *font = [UIFont systemFontOfSize:fontSize];
   UIFont *font = [UIFont fontWithName:@"Avenir Next Medium" size:fontSize];
-
-  //    CGSize stringSize = [text sizeWithFont:font
-  //    constrainedToSize:CGSizeMake(_pageSize.width - 2*20-2*20,
-  //    _pageSize.height - 2*20 - 2*20) lineBreakMode:UILineBreakModeWordWrap];
-
   CGRect stringSize =
       [text boundingRectWithSize:CGSizeMake(frame.size.width, frame.size.height)
                          options:NSStringDrawingUsesLineFragmentOrigin |
@@ -775,9 +775,6 @@
     textWidth = stringSize.size.width;
   if (textWidth > frame.size.width)
     textWidth = frame.size.width - frame.origin.x;
-
-  // CGRect renderingRect = CGRectMake(frame.origin.x, frame.origin.y,
-  // frame.size.width,frame.size.height);
 
   CGRect renderingRect = CGRectMake(frame.origin.x, frame.origin.y, textWidth,
                                     stringSize.size.height);
@@ -797,14 +794,6 @@
   };
 
   [text drawInRect:renderingRect withAttributes:attributes];
-
-  // depricated
-  //
-  //    [text drawInRect:renderingRect
-  //            withFont:font
-  //       lineBreakMode:UILineBreakModeWordWrap
-  //           alignment:UITextAlignmentLeft];
-
   frame = CGRectMake(frame.origin.x, frame.origin.y, textWidth,
                      stringSize.size.height);
 

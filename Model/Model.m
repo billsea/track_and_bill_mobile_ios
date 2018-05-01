@@ -58,6 +58,12 @@
 		}
 	}
 
+	
+	//get project end date
+	NSArray* allSessions = selectedProject.sessions.allObjects;
+	Session* lastSession = allSessions[allSessions.count-1];
+	selectedProject.end = lastSession.start;
+	
 	//0
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Number", @"FieldName", [NSString stringWithFormat:@"%lld", isEdit ? [selectedInvoice number] : [self createInvoiceNumber]],@"FieldValue", nil]];
 	//1
@@ -122,9 +128,9 @@
 }
 
 // create invoice number based on last invoice number
-+ (int)createInvoiceNumber {
-	int invNumber;
-	int tempNumber;
++ (long)createInvoiceNumber {
+	long invNumber;
+	long tempNumber;
 
 	NSMutableArray* invoices =  [self dataForEntity:@"Invoice"];
 
