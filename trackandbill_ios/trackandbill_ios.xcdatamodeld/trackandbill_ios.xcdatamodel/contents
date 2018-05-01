@@ -20,8 +20,10 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="deposit" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="materials" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="materials_cost" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="milage_rate" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mileage" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="project_name" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,6 +31,8 @@
         <attribute name="remoteid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="terms" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total_due" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="total_time" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="projects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="invoices" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
@@ -67,7 +71,7 @@
     </entity>
     <elements>
         <element name="Client" positionX="-828" positionY="-396" width="128" height="210"/>
-        <element name="Invoice" positionX="-821" positionY="-133" width="128" height="285"/>
+        <element name="Invoice" positionX="-821" positionY="-133" width="128" height="345"/>
         <element name="Profile" positionX="-828" positionY="-621" width="128" height="195"/>
         <element name="Project" positionX="-630" positionY="-388" width="128" height="148"/>
         <element name="Session" positionX="-623" positionY="-151" width="128" height="210"/>
