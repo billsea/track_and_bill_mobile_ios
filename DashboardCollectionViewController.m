@@ -11,6 +11,7 @@
 #import "ProfileTableViewController.h"
 #import "ClientInvoicesTableViewController.h"
 #import "DashboardCollectionViewCell.h"
+#import "StylesCollectionViewController.h"
 
 @interface DashboardCollectionViewController (){
 	NSMutableArray* _cellData;
@@ -28,7 +29,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	self.title = @"Dashboard";
 	
-	_cellImages = @[@"groups", @"invoice", @"administrator"];
+	_cellImages = @[@"groups", @"mirror", @"administrator"];
 	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
@@ -36,18 +37,18 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	NSMutableDictionary* clientsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:clientsVC, @"vc", @"Clients",@"title", nil];
 	
-	ClientInvoicesTableViewController* invoicesVC = [[ClientInvoicesTableViewController alloc]
-																					 initWithNibName:@"ClientInvoicesTableViewController"
+	StylesCollectionViewController* stylesVC = [[StylesCollectionViewController alloc]
+																					 initWithNibName:@"StylesCollectionViewController"
 																					 bundle:nil];
 	
-	NSMutableDictionary* invoicesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:invoicesVC, @"vc", @"Invoices",@"title", nil];
+	NSMutableDictionary* stylesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:stylesVC, @"vc", @"Styles",@"title", nil];
 	
 	ProfileTableViewController* profileVC = [[ProfileTableViewController alloc]
 																					 initWithNibName:@"SettingsTableViewController"
 																					 bundle:nil];
 	NSMutableDictionary* settingsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", @"Profile",@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, invoicesDict, settingsDict, nil];
+	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, settingsDict, nil];
 	
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;

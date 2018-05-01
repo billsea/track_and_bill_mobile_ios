@@ -45,6 +45,9 @@
 		A9AAEFE8207E8E5D006BF1C6 /* drafting_compass2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */; };
 		A9AAEFEA207E8E78006BF1C6 /* cars-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE9207E8E78006BF1C6 /* cars-50.png */; };
 		A9AAEFEC207E8F25006BF1C6 /* sellotape-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */; };
+		A9B535A52098C7C400EA543F /* StylesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */; };
+		A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */; };
+		A9B535A82098C94200EA543F /* mirror-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B535A72098C94200EA543F /* mirror-50.png */; };
 		A9BB79CA2095443700274218 /* cargo_ship-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BB79C92095443600274218 /* cargo_ship-50.png */; };
 		A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */; };
 		A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */; };
@@ -203,6 +206,10 @@
 		A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drafting_compass2-50.png"; sourceTree = "<group>"; };
 		A9AAEFE9207E8E78006BF1C6 /* cars-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cars-50.png"; sourceTree = "<group>"; };
 		A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sellotape-50.png"; sourceTree = "<group>"; };
+		A9B535A22098C7C400EA543F /* StylesCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StylesCollectionViewController.h; sourceTree = "<group>"; };
+		A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StylesCollectionViewController.m; sourceTree = "<group>"; };
+		A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StylesCollectionViewController.xib; sourceTree = "<group>"; };
+		A9B535A72098C94200EA543F /* mirror-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mirror-50.png"; sourceTree = "<group>"; };
 		A9BB79C92095443600274218 /* cargo_ship-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cargo_ship-50.png"; sourceTree = "<group>"; };
 		A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardCollectionViewController.h; sourceTree = "<group>"; };
 		A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardCollectionViewController.m; sourceTree = "<group>"; };
@@ -475,6 +482,7 @@
 		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
 			isa = PBXGroup;
 			children = (
+				A9B535A72098C94200EA543F /* mirror-50.png */,
 				A9BB79C92095443600274218 /* cargo_ship-50.png */,
 				A94D0B8120857C7A0052F7A5 /* pen-50.png */,
 				A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */,
@@ -644,6 +652,9 @@
 				A96080592097EA7900A589A0 /* DateSelectViewController.h */,
 				A960805A2097EA7900A589A0 /* DateSelectViewController.m */,
 				A960805B2097EA7900A589A0 /* DateSelectViewController.xib */,
+				A9B535A22098C7C400EA543F /* StylesCollectionViewController.h */,
+				A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */,
+				A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -755,6 +766,8 @@
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
+				A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */,
+				A9B535A82098C94200EA543F /* mirror-50.png in Resources */,
 				A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */,
 				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
 				A9AAEFEA207E8E78006BF1C6 /* cars-50.png in Resources */,
@@ -822,6 +835,7 @@
 				A9DC4CCD1AEAFB8E00A00892 /* ThumbsMainToolbar.m in Sources */,
 				A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */,
 				A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */,
+				A9B535A52098C7C400EA543F /* StylesCollectionViewController.m in Sources */,
 				A9DC4CBE1AEAFB8E00A00892 /* ReaderThumbView.m in Sources */,
 				A9DC4CCB1AEAFB8E00A00892 /* TextInputTableViewCell.m in Sources */,
 				A9DC4CC31AEAFB8E00A00892 /* SessionNotesViewController.m in Sources */,
