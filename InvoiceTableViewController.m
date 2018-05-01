@@ -26,6 +26,7 @@
 	AppDelegate* _app;
 	NSManagedObjectContext* _context;
 	NSArray* _dataFields;
+	NSDateFormatter* _df;
 }
 
 @property UIBarButtonItem *previewButton;
@@ -39,13 +40,16 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"invoice", nil)];
 
+	_df = [[NSDateFormatter alloc] init];
+	[_df setDateFormat:@"MM/dd/yyyy"];
+	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
 //	//temp
 //	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
 //	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
-	
+//
   // set background image
   [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
 
@@ -58,18 +62,18 @@
              action:@selector(exportInvoice:)];
   // self.addClientButton.tintColor = [UIColor blackColor];
   [[self navigationItem] setRightBarButtonItem:self.previewButton];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
 	[self loadForm];
 }
 
 - (void)loadForm {
-	NSDateFormatter *df = [[NSDateFormatter alloc] init];
-	[df setDateFormat:@"MM/dd/yyyy"];
-
 	//new invoice or edit
 	bool isEdit = _selectedProject.invoices;
-	
 	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedProject.invoices andProject:_selectedProject andEdit:isEdit];
+	[self.tableView reloadData];
 }
 
 - (NSMutableArray *)userData {
@@ -92,9 +96,19 @@
   return [scanner scanDouble:NULL] && [scanner isAtEnd];
 }
 
+- (NSString*)valueForTextCellWithIndex:(int)rowIndex {
+	UIView* cellContent = [[[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:0]] contentView];
+	NSString* value = [[[cellContent subviews] objectAtIndex:0] text];
+	
+	value = value && ![value isEqualToString:@""] ? value :
+	[self.userData objectAtIndex:rowIndex] && ![[self.userData objectAtIndex:rowIndex] isEqualToString:@""] ? [self.userData objectAtIndex:rowIndex] :
+	[[_invoiceFormFields objectAtIndex:rowIndex] valueForKey:@"FieldValue"] ;
+	
+	return value;
+}
+
 - (void)createInvoice {
   // create the new invoice from form fields
-	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	
 	//add new invoice if one doesnt' exist already
 	if(!_selectedProject.invoices){
@@ -103,57 +117,34 @@
 	}
 
   // invoice number is read only
-	[_selectedProject.invoices setNumber:(int)[[_invoiceFormFields objectAtIndex:0] objectForKey:@"FieldValue"]];
+	[_selectedProject.invoices setNumber:(int)[[self valueForTextCellWithIndex:0] intValue]];
 	
 	// invoice date TODO: Use a date picker for dates
-  NSDate *invoiceDate = [df dateFromString:[[_invoiceFormFields objectAtIndex:1] objectForKey:@"FieldValue"]];
+  NSDate *invoiceDate = [_df dateFromString:[self valueForTextCellWithIndex:1]];
   [_selectedProject.invoices setDate:invoiceDate];
 
+  // materials totals
+  NSString *materialsTotal = [self valueForTextCellWithIndex:8];
+	[_selectedProject.invoices setMaterials_cost:materialsTotal.floatValue];
+
 	//Mileage rate
-	NSString* sMileageRate = [[_invoiceFormFields objectAtIndex:10] objectForKey:@"FieldValue"];
+	NSString* sMileageRate = [self valueForTextCellWithIndex:10];
 	[_selectedProject.invoices setMilage_rate:sMileageRate.floatValue];
 
-  // materials totals
-  NSString *materialsTotal = [[_invoiceFormFields objectAtIndex:9] objectForKey:@"FieldValue"];
-//  if (![self isNumeric:materialsTotal]) {
-//    [self showMessage:@"Materials total field entry is not a number"
-//            withTitle:@"Materials total"];
-//    return;
-//	} else {
-		[_selectedProject.invoices setMaterials_cost:materialsTotal.floatValue];
-//	}
-
-  // terms
-  NSString *invTerms = [[_invoiceFormFields objectAtIndex:13] objectForKey:@"FieldValue"];
-  [_selectedProject.invoices setTerms:invTerms];
+	// rate
+	NSString *invRate = [self valueForTextCellWithIndex:11];
+	[_selectedProject.invoices setRate:invRate.floatValue];
 
   // deposit
-  NSString *invDeposit = [[_invoiceFormFields objectAtIndex:12] objectForKey:@"FieldValue"];
+  NSString *invDeposit = [self valueForTextCellWithIndex:12];
+	[_selectedProject.invoices setDeposit:invDeposit.floatValue];
 
-//  if (![self isNumeric:invDeposit]) {
-//    [self showMessage:@"Deposit field entry is not a number"
-//            withTitle:@"Deposit"];
-//    return;
-//	} else {
-		[_selectedProject.invoices setDeposit:invDeposit.floatValue];
-//	}
-
-  // rate
-	NSString *invRate = [[_invoiceFormFields objectAtIndex:11] objectForKey:@"FieldValue"];
-
-//  if (![self isNumeric:invRate]) {
-//    [self showMessage:@"Rate Field entry is not a number" withTitle:@"Rate"];
-//    return;
-//	} else {
-		[_selectedProject.invoices setRate:invRate.floatValue];
-//	}
-
-	//Check number
-  NSString *invCheck =[[_invoiceFormFields objectAtIndex:15] objectForKey:@"FieldValue"];
-  [_selectedProject.invoices setCheck:invCheck];
+	// terms
+	NSString *invTerms = [self valueForTextCellWithIndex:13];
+	[_selectedProject.invoices setTerms:invTerms];
 	
 	// approval
-	NSString *approvalName = [[_invoiceFormFields objectAtIndex:14] objectForKey:@"FieldValue"];
+	NSString *approvalName = [self valueForTextCellWithIndex:14];
 	
 	if (approvalName && ![approvalName isEqualToString:@""]) {
 		[_selectedProject.invoices setApprovedby: approvalName];
@@ -161,8 +152,12 @@
 		[_selectedProject.invoices setApprovedby:@"-"];
 	}
 
+	//Check number
+	NSString *invCheck =[self valueForTextCellWithIndex:15];
+	[_selectedProject.invoices setCheck:invCheck];
+	
 	// notes
-	NSString *invNotes = [[_invoiceFormFields objectAtIndex:16] objectForKey:@"FieldValue"];
+	NSString *invNotes = [self valueForTextCellWithIndex:16];
 	if (invNotes && ![invNotes isEqualToString:@""]) {
 		[_selectedProject.invoices setNotes:invNotes];
 	}
@@ -187,6 +182,20 @@
 
 - (IBAction)exportInvoice:(id)sender {
 	[self createInvoice];
+}
+
+#pragma mark text field delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	self.userData[textField.tag] = textField.text;
+	return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+	// save text input in user data. workaround for disappearing text entry issue
+	// on scroll
+	[textField resignFirstResponder];
+	self.userData[textField.tag] = textField.text;
 }
 
 

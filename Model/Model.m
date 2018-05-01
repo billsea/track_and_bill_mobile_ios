@@ -59,9 +59,9 @@
 	}
 
 	//0
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Number", @"FieldName", [NSString stringWithFormat:@"%d", isEdit ? selectedInvoice.number : [self createInvoiceNumber]],@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Number", @"FieldName", [NSString stringWithFormat:@"%d", isEdit ? [selectedInvoice number] : [self createInvoiceNumber]],@"FieldValue", nil]];
 	//1
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Date", @"FieldName", isEdit ? [df stringFromDate:selectedInvoice.date] : [df stringFromDate:[NSDate date]],@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Date", @"FieldName", [df stringFromDate:[NSDate date]],@"FieldValue", nil]];
 	//2
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Client Name", @"FieldName", selClient.name,@"FieldValue", nil]];
 	//3
