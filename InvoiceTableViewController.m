@@ -268,19 +268,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//Show date picker on date row select
-	//TODO:start and completion dates must be saved in the project, not in invoice
-	for(int i = 0; i<_dateRows.count;i++){
-		if(indexPath.row == [_dateRows[i] intValue]) {
+	//Show date picker on date row select...
+	//only invoice date is editable
+		if(indexPath.row == 1) {
 			DateSelectViewController *dateSelectViewController = [[DateSelectViewController alloc] initWithNibName:@"DateSelectViewController" bundle:nil];
 			TextInputTableViewCell* textCell = (TextInputTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
 			dateSelectViewController.dateSelectedCallback = ^(NSDate* selDate){
 				textCell.textInput.text = [_df stringFromDate:selDate];
 			};
 			[self.navigationController pushViewController:dateSelectViewController animated:YES];
-			break;
 		}
-	}
 }
 
 #pragma mark pdf create methods
