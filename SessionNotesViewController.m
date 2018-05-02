@@ -21,11 +21,6 @@
   // Set the title of the navigation item
   [[self navigationItem] setTitle:NSLocalizedString(@"session_notes", nil)];
 
-  // set background image
-  [[self view]
-      setBackgroundColor:[UIColor
-                             colorWithPatternImage:
-                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
 
   // set textview
   CGRect screenRect = [[UIScreen mainScreen] bounds];

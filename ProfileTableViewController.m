@@ -9,7 +9,7 @@
 #import "ProfileTableViewController.h"
 #import "TextInputTableViewCell.h"
 #import "AppDelegate.h"
-#import "Model.h";
+#import "Model.h"
 
 @interface ProfileTableViewController () {
   NSArray* _formFields;
@@ -38,12 +38,6 @@
               action:@selector(handleSingleTap:)];
 
   [self.view addGestureRecognizer:singleFingerTap];
-
-  // set background image
-  [[self view]
-      setBackgroundColor:[UIColor
-                             colorWithPatternImage:
-                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
 - (void)fetchData {

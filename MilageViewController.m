@@ -21,12 +21,6 @@
   // Set the title of the navigation item
   [[self navigationItem] setTitle:NSLocalizedString(@"miles_driven", nil)];
 
-  // set background image
-  [[self view]
-      setBackgroundColor:[UIColor
-                             colorWithPatternImage:
-                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
-
   _pickerData = [[NSMutableArray alloc] init];
 
   for (int i = 0; i < 3000; i++) {

@@ -26,11 +26,6 @@
 //  // Uncomment the following line to preserve selection between presentations.
 //  // self.clearsSelectionOnViewWillAppear = NO;
 //
-//  // set background image
-//  [[self view]
-//      setBackgroundColor:[UIColor
-//                             colorWithPatternImage:
-//                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
 //
 //  // Set the title of the navigation item
 //  [[self navigationItem] setTitle:[_selClient company]];

@@ -44,16 +44,8 @@
 													target:self
 													action:@selector(addProject:)];
 	
-	// set background image
-	[[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
-	
 	self.navigationItem.rightBarButtonItems = @[addClientButton, self.editButtonItem];
 
-  // set background image
-  [[self view]
-      setBackgroundColor:[UIColor
-                             colorWithPatternImage:
-                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -177,9 +177,6 @@ static NSString *NumberCellIdentifier = @"NumberCell";
     UIPickerView *numberPicker = [[UIPickerView alloc]init];
     self.numberPickerCellRowHeight = numberPicker.frame.size.height;
     
-    //set background image
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
-    
     //add values to picker
     self.pickerData = [[NSMutableArray alloc] init];
     

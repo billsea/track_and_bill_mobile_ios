@@ -17,27 +17,21 @@
 
 @implementation InvoicesTableViewController
 
-//TODO dATA
-//- (void)viewDidLoad {
-//  [super viewDidLoad];
-//
-//  // Set the title of the navigation item
-//  [[self navigationItem] setTitle:@"Invoices"];
-//
-//  // Uncomment the following line to preserve selection between presentations.
-//  // self.clearsSelectionOnViewWillAppear = NO;
-//
-//  // Uncomment the following line to display an Edit button in the navigation
-//  // bar for this view controller.
-//  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//
-//  // set background image
-//  [[self view]
-//      setBackgroundColor:[UIColor
-//                             colorWithPatternImage:
-//                                 [UIImage imageNamed:@"paper_texture_02.png"]]];
-//}
-//
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
+  // Set the title of the navigation item
+  [[self navigationItem] setTitle:NSLocalizedString(@"invoices", nil)];
+
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+
+  // Uncomment the following line to display an Edit button in the navigation
+  // bar for this view controller.
+  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+}
+
 //- (void)didReceiveMemoryWarning {
 //  [super didReceiveMemoryWarning];
 //  // Dispose of any resources that can be recreated.

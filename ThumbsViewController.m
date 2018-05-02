@@ -93,8 +93,6 @@
 	NSAssert(!(document == nil), @"ReaderDocument == nil");
 
     
-    //set background image
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 	//self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 
     

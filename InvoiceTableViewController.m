@@ -59,8 +59,6 @@
 //	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
 //	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
 
-  // set background image
-  [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
 
   // add help navigation bar button
   self.previewButton = [[UIBarButtonItem alloc]

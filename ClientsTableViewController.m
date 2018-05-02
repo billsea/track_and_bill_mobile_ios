@@ -39,8 +39,6 @@
              target:self
              action:@selector(addClient:)];
 
-  // set background image
-  [[self view] setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"paper_texture_02.png"]]];
 
 	self.navigationItem.rightBarButtonItems = @[self.addClientButton, self.editButtonItem];
 	

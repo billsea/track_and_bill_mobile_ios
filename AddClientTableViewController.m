@@ -37,8 +37,6 @@
 
   [self.view addGestureRecognizer:singleFingerTap];
 
-  // set background image
-  [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_texture_02.png"]]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
