@@ -9,7 +9,7 @@
 #import "DashboardCollectionViewController.h"
 #import "ClientsTableViewController.h"
 #import "ProfileTableViewController.h"
-#import "ClientInvoicesTableViewController.h"
+#import "InvoicesTableViewController.h"
 #import "DashboardCollectionViewCell.h"
 #import "StylesCollectionViewController.h"
 
@@ -27,32 +27,35 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.title = @"Dashboard";
+	self.title = NSLocalizedString(@"dashboard", nil);
 	
-	_cellImages = @[@"groups", @"mirror", @"administrator"];
+	_cellImages = @[@"groups", @"mirror", @"invoice", @"administrator"];
 	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
 															bundle:nil];
 	
-	NSMutableDictionary* clientsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:clientsVC, @"vc", @"Clients",@"title", nil];
+	NSMutableDictionary* clientsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:clientsVC, @"vc", NSLocalizedString(@"clients", nil),@"title", nil];
 	
 	StylesCollectionViewController* stylesVC = [[StylesCollectionViewController alloc]
 																					 initWithNibName:@"StylesCollectionViewController"
 																					 bundle:nil];
 	
-	NSMutableDictionary* stylesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:stylesVC, @"vc", @"Styles",@"title", nil];
+	NSMutableDictionary* stylesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:stylesVC, @"vc",NSLocalizedString(@"styles", nil),@"title", nil];
+	
+	InvoicesTableViewController* invoicesVC = [[InvoicesTableViewController alloc] initWithNibName:@"InvoicesTableViewController" bundle:nil];
+	
+	NSMutableDictionary* invoicesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:invoicesVC, @"vc", NSLocalizedString(@"invoices", nil),@"title", nil];
+	
 	
 	ProfileTableViewController* profileVC = [[ProfileTableViewController alloc]
 																					 initWithNibName:@"SettingsTableViewController"
 																					 bundle:nil];
-	NSMutableDictionary* settingsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", @"Profile",@"title", nil];
+	NSMutableDictionary* profileDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", NSLocalizedString(@"profile", nil),@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, settingsDict, nil];
+	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, invoicesDict, profileDict, nil];
 	
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
+
     // Register cell classes
     [self.collectionView registerClass:[DashboardCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	
