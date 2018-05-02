@@ -56,6 +56,8 @@
 		A9CE75C92069D27D00CBD406 /* SessionDetailCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CE75C72069D27D00CBD406 /* SessionDetailCollectionViewController.m */; };
 		A9CE75CA2069D27D00CBD406 /* SessionDetailCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CE75C82069D27D00CBD406 /* SessionDetailCollectionViewController.xib */; };
 		A9D7B7051B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */; };
+		A9D972A7209A2EBD00A69D47 /* InvoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D972A5209A2EBD00A69D47 /* InvoiceTableViewCell.m */; };
+		A9D972A8209A2EBD00A69D47 /* InvoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D972A6209A2EBD00A69D47 /* InvoiceTableViewCell.xib */; };
 		A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */; };
 		A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */; };
 		A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */; };
@@ -222,6 +224,9 @@
 		A9CE75C82069D27D00CBD406 /* SessionDetailCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionDetailCollectionViewController.xib; sourceTree = "<group>"; };
 		A9D7B7031B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineDateAndNumberPickerViewController.h; sourceTree = "<group>"; };
 		A9D7B7041B13ABFE00E48FBF /* InlineDateAndNumberPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineDateAndNumberPickerViewController.m; sourceTree = "<group>"; };
+		A9D972A4209A2EBD00A69D47 /* InvoiceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoiceTableViewCell.h; sourceTree = "<group>"; };
+		A9D972A5209A2EBD00A69D47 /* InvoiceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoiceTableViewCell.m; sourceTree = "<group>"; };
+		A9D972A6209A2EBD00A69D47 /* InvoiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceTableViewCell.xib; sourceTree = "<group>"; };
 		A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientTableViewController.h; sourceTree = "<group>"; };
 		A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientTableViewController.m; sourceTree = "<group>"; };
 		A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddClientTableViewController.xib; sourceTree = "<group>"; };
@@ -523,6 +528,9 @@
 				A9CB2A132065D9C300B9EA5A /* DashboardCollectionViewCell.h */,
 				A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */,
 				A9CB2A152065D9C300B9EA5A /* DashboardCollectionViewCell.xib */,
+				A9D972A4209A2EBD00A69D47 /* InvoiceTableViewCell.h */,
+				A9D972A5209A2EBD00A69D47 /* InvoiceTableViewCell.m */,
+				A9D972A6209A2EBD00A69D47 /* InvoiceTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -793,6 +801,7 @@
 				A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */,
 				A9DC4CA21AEAFB8E00A00892 /* ProjectsTableViewController.xib in Resources */,
 				A9BB79CA2095443700274218 /* cargo_ship-50.png in Resources */,
+				A9D972A8209A2EBD00A69D47 /* InvoiceTableViewCell.xib in Resources */,
 				A9DC4C921AEAFB8E00A00892 /* InvoicesTableViewController.xib in Resources */,
 				A9DC4C961AEAFB8E00A00892 /* MaterialsViewController.xib in Resources */,
 				A9AAEFE6207E8D36006BF1C6 /* running-50.png in Resources */,
@@ -845,6 +854,7 @@
 				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
 				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,
 				A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */,
+				A9D972A7209A2EBD00A69D47 /* InvoiceTableViewCell.m in Sources */,
 				A9DC4CBA1AEAFB8E00A00892 /* ReaderThumbQueue.m in Sources */,
 				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
 				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,

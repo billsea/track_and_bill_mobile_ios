@@ -8,11 +8,16 @@
 
 #import "InvoicesTableViewController.h"
 #import "AppDelegate.h"
-#import "ClientsTableViewCell.h"
-#import "Client+CoreDataClass.h"
-#import "ClientInvoicesTableViewController.h"
+#import "Model.h"
+#import "InvoiceTableViewCell.h"
+#import "Invoice+CoreDataClass.h";
 
-@interface InvoicesTableViewController ()
+@interface InvoicesTableViewController (){
+	AppDelegate* _app;
+	NSManagedObjectContext* _context;
+	NSMutableArray* _data;
+	NSDateFormatter* _df;
+}
 @end
 
 @implementation InvoicesTableViewController
@@ -22,67 +27,62 @@
 
   // Set the title of the navigation item
   [[self navigationItem] setTitle:NSLocalizedString(@"invoices", nil)];
-
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-
-  // Uncomment the following line to display an Edit button in the navigation
-  // bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+	
+	_df = [[NSDateFormatter alloc] init];
+	[_df setDateFormat:@"MM/dd/yyyy"];
+	
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	_context = _app.persistentContainer.viewContext;
 }
 
-//- (void)didReceiveMemoryWarning {
-//  [super didReceiveMemoryWarning];
-//  // Dispose of any resources that can be recreated.
-//}
-//
-//#pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//  // Return the number of sections.
-//  return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView
-//    numberOfRowsInSection:(NSInteger)section {
-//  // Return the number of rows in the section.
-//  // Return the number of rows in the section.
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  return [[appDelegate arrClients] count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView
-//         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  static NSString *simpleTableIdentifier = @"ClientsTableViewCell";
-//
-//  ClientsTableViewCell *cell = (ClientsTableViewCell *)[tableView
-//      dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//
-//  if (cell == nil) {
-//    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ClientsTableViewCell"
-//                                                 owner:self
-//                                               options:nil];
-//    cell = [nib objectAtIndex:0];
-//  }
-//
-//  Client *rClient =
-//      (Client *)[[appDelegate arrClients] objectAtIndex:[indexPath row]];
-//
-//  // set client id for table row
-//  [cell setTag:[[rClient clientID] integerValue]];
-//
-//  [[cell clientNameLabel] setText:[rClient company]];
-//
-//  return cell;
-//}
-//
+- (void)viewWillAppear:(BOOL)animated {
+	[self fetchData];
+}
+
+- (void)fetchData {
+	// Fetch data from persistent data store;
+	_data = [Model dataForEntity:@"Invoice"];
+	[[self tableView] reloadData];
+}
+
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  // Return the number of sections.
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+    numberOfRowsInSection:(NSInteger)section {
+
+  return _data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	static NSString *simpleTableIdentifier = @"InvoiceCell";
+	InvoiceTableViewCell *cell = (InvoiceTableViewCell *)[tableView
+																												dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+	
+	if (cell == nil) {
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"InvoiceTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+	}
+	
+	//NSManagedObject *dataObject = [_data objectAtIndex:indexPath.row];
+	Invoice* inv = (Invoice*)[_data objectAtIndex:indexPath.row];
+	[cell.invoiceNumber setText:[NSString stringWithFormat:@"#%lld", inv.number]];
+	[cell.invoiceDate setText:[_df stringFromDate:inv.date]];
+	
+	return cell;
+}
+
 ///*
 //// Override to support conditional editing of the table view.
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath
@@ -150,17 +150,6 @@
 //  [self.navigationController pushViewController:clientInvoicesController
 //                                       animated:YES];
 //}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little
-preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
 
