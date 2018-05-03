@@ -10,7 +10,9 @@
 #import "AppDelegate.h"
 #import "Model.h"
 #import "InvoiceTableViewCell.h"
-#import "Invoice+CoreDataClass.h";
+#import "Invoice+CoreDataClass.h"
+
+#define kTableRowHeight 80
 
 @interface InvoicesTableViewController (){
 	AppDelegate* _app;
@@ -63,6 +65,10 @@
   return _data.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return kTableRowHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -79,6 +85,8 @@
 	Invoice* inv = (Invoice*)[_data objectAtIndex:indexPath.row];
 	[cell.invoiceNumber setText:[NSString stringWithFormat:@"#%lld", inv.number]];
 	[cell.invoiceDate setText:[_df stringFromDate:inv.date]];
+	[cell.invoiceClient setText:inv.client_name];
+	[cell.invoiceProject setText:inv.project_name];
 	
 	return cell;
 }
