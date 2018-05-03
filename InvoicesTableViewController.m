@@ -113,6 +113,7 @@
 																 handler:^(UIAlertAction *action) {
 																	 //remove invoice
 																	 [_context deleteObject:[_data objectAtIndex:indexPath.row]];
+																	 [_app saveContext];
 																	 [self fetchData];
 																	 [alert dismissViewControllerAnimated:YES completion:nil];
 																 }];
