@@ -155,9 +155,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *simpleTableIdentifier = @"TextInputTableViewCell";
 	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-  TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView
-      dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+  TextInputTableViewCell *cell = (TextInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
   if (cell == nil) {
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextInputTableViewCell" owner:self options:nil];

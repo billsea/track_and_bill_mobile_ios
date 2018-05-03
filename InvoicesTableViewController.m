@@ -11,6 +11,7 @@
 #import "Model.h"
 #import "InvoiceTableViewCell.h"
 #import "Invoice+CoreDataClass.h"
+#import "InvoiceTableViewController.h"
 
 #define kTableRowHeight 80
 
@@ -55,13 +56,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  // Return the number of sections.
   return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
-    numberOfRowsInSection:(NSInteger)section {
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return _data.count;
 }
 
@@ -81,7 +79,6 @@
 		cell = [nib objectAtIndex:0];
 	}
 	
-	//NSManagedObject *dataObject = [_data objectAtIndex:indexPath.row];
 	Invoice* inv = (Invoice*)[_data objectAtIndex:indexPath.row];
 	[cell.invoiceNumber setText:[NSString stringWithFormat:@"#%lld", inv.number]];
 	[cell.invoiceDate setText:[_df stringFromDate:inv.date]];
@@ -91,73 +88,58 @@
 	return cell;
 }
 
-///*
-//// Override to support conditional editing of the table view.
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath
-//*)indexPath {
-//    // Return NO if you do not want the specified item to be editable.
-//    return YES;
-//}
-//*/
-//
-///*
-//// Override to support editing the table view.
-//- (void)tableView:(UITableView *)tableView
-//commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-//forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        // Delete the row from the data source
-//        [tableView deleteRowsAtIndexPaths:@[indexPath]
-//withRowAnimation:UITableViewRowAnimationFade];
-//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        // Create a new instance of the appropriate class, insert it into the
-//array, and add a new row to the table view
-//    }
-//}
-//*/
-//
-///*
-//// Override to support rearranging the table view.
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath
-//*)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-//}
-//*/
-//
-///*
-//// Override to support conditional rearranging of the table view.
-//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath
-//*)indexPath {
-//    // Return NO if you do not want the item to be re-orderable.
-//    return YES;
-//}
-//*/
-//
-//#pragma mark - Table view delegate
-//
-//// In a xib-based application, navigation from a table can be handled in
-//// -tableView:didSelectRowAtIndexPath:
-//- (void)tableView:(UITableView *)tableView
-//    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//  // Navigation logic may go here, for example:
-//  // Create the next view controller.
-//
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//
-//  ClientInvoicesTableViewController *clientInvoicesController =
-//      [[ClientInvoicesTableViewController alloc]
-//          initWithNibName:@"ClientInvoicesTableViewController"
-//                   bundle:nil];
-//
-//  // Pass the selected object to the new view controller.
-//  Client *selClient = [[appDelegate arrClients] objectAtIndex:indexPath.row];
-//
-//  [clientInvoicesController setSelClient:selClient];
-//
-//  // Push the view controller.
-//  [self.navigationController pushViewController:clientInvoicesController
-//                                       animated:YES];
-//}
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath
+*)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+			forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+
+				UIAlertController *alert = [UIAlertController
+																		alertControllerWithTitle:NSLocalizedString(@"really_delete_title", nil)
+																		message:NSLocalizedString(@"really_delete_message", nil)
+																		preferredStyle:UIAlertControllerStyleAlert];
+			
+				UIAlertAction *remove = [UIAlertAction
+																 actionWithTitle:NSLocalizedString(@"yes", nil)
+																 style:UIAlertActionStyleDefault
+																 handler:^(UIAlertAction *action) {
+																	 //remove invoice
+																	 [_context deleteObject:[_data objectAtIndex:indexPath.row]];
+																	 [self fetchData];
+																	 [alert dismissViewControllerAnimated:YES completion:nil];
+																 }];
+			
+				UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", nil)
+																												 style:UIAlertActionStyleDefault
+																											 handler:^(UIAlertAction *action) {
+																												 [alert dismissViewControllerAnimated:YES completion:nil];
+																												 //do nothing
+																											 }];
+			
+				[alert addAction:remove];
+				[alert addAction:cancel];
+				[self presentViewController:alert animated:YES completion:nil];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the
+    }
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	Invoice* inv = (Invoice*)[_data objectAtIndex:indexPath.row];
+	InvoiceTableViewController *invoiceVC = [[InvoiceTableViewController alloc] initWithNibName:@"InvoiceTableViewController" bundle:nil];
+	invoiceVC.selectedProject = inv.projects;
+  [self.navigationController pushViewController:invoiceVC animated:YES];
+}
 
 @end
 
