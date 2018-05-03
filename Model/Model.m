@@ -69,9 +69,9 @@
 	//1
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Date", @"FieldName", isEdit ? [df stringFromDate:[selectedInvoice date]] : [df stringFromDate:[NSDate date]],@"FieldValue", nil]];
 	//2
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Client Name", @"FieldName", selClient.name,@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Client Name", @"FieldName", isEdit ? selectedInvoice.client_name: selClient.name, @"FieldValue", nil]];
 	//3
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Project Name", @"FieldName",selectedProject.name, @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Project Name", @"FieldName", isEdit ? selectedInvoice.project_name : selectedProject.name, @"FieldValue", nil]];
 	//4
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Start Date", @"FieldName",[df stringFromDate:selectedProject.start], @"FieldValue", nil]];
 	//5

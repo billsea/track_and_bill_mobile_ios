@@ -135,8 +135,8 @@
 	}
 
 	//Set project info in invoice, so invoice can be viewed if project is removed
-	[_selectedProject.invoices setClient_name:_selectedProject.clients.name];
-	[_selectedProject.invoices setProject_name:_selectedProject.name];
+	[_selectedProject.invoices setClient_name:[self valueForTextCellWithIndex:2]];
+	[_selectedProject.invoices setProject_name:[self valueForTextCellWithIndex:3]];
 	[_selectedProject.invoices setStart:_selectedProject.start];
 	[_selectedProject.invoices setEnd:_selectedProject.end];
 	[_selectedProject.invoices setMaterials:[self valueForTextCellWithIndex:7]];
@@ -405,7 +405,7 @@
 
 	// project/client info
 	NSString *clientName =
-			[NSString stringWithFormat:@"Client: %@", selClient.name];
+			[NSString stringWithFormat:@"Client: %@", _selectedProject.invoices.client_name];
 	CGRect clientRect =
 			[self addText:clientName
 					withFrame:CGRectMake(kMarginPadding,
@@ -456,7 +456,7 @@
 
 	// client column 2
 	NSString *projectName =
-			[NSString stringWithFormat:@"Project: %@", _selectedProject.name];
+			[NSString stringWithFormat:@"Project: %@", _selectedProject.invoices.project_name];
 	CGRect projectRect =
 			[self addText:projectName
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
