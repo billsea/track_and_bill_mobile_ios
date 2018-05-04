@@ -1,0 +1,91 @@
+/* 
+  Localizable.strings
+  trackandbill_ios
+
+  Created by Loud on 5/4/18.
+  Copyright © 2018 loudsoftware. All rights reserved.
+*/
+
+/* format */
+"%d of %d" = "%1$d of %2$d";
+
+/* No comment provided by engineer. */
+"address" = "Address";
+
+/* No comment provided by engineer. */
+"city" = "City";
+
+/* No comment provided by engineer. */
+"client_name" = "Client Name";
+
+/* No comment provided by engineer. */
+"clients" = "Clients";
+
+/* No comment provided by engineer. */
+"contact_person" = "Contact Person";
+
+/* No comment provided by engineer. */
+"country" = "Country";
+
+/* button */
+"done" = "Done";
+
+/* No comment provided by engineer. */
+"email" = "Email";
+
+/* No comment provided by engineer. */
+"new" = "New";
+
+/* No comment provided by engineer. */
+"new_client" = "New Client";
+
+/* No comment provided by engineer. */
+"new_project" = "New Project";
+
+/* No comment provided by engineer. */
+"phone" = "Phone";
+
+/* No comment provided by engineer. */
+"postal_code" = "Postal Code";
+
+/* No comment provided by engineer. */
+"profile" = "Profile";
+
+/* No comment provided by engineer. */
+"project_name" = "Project Name";
+
+/* No comment provided by engineer. */
+"start_date" = "Start Date";
+
+/* No comment provided by engineer. */
+"state" = "State";
+
+/* No comment provided by engineer. */
+"name_company" = "Your Name or Company";
+
+"save_and_exit" = "Save & Exit";
+
+"miles_driven" = "Miles Driven";
+
+"session_notes" = "Session Notes";
+
+"materials" = "Materials";
+
+"invoice" = "Invoice";
+
+"new_session" = "New Session";
+
+"edit_sessions" = "Edit Sessions";
+
+"invoice" = "Invoice";
+
+"invoices" = "Invoices";
+
+"export" = "Export";
+
+"Date" = "Date";
+
+"profile_alert" = "You must complete your personal profile before creating an invoice.";
+
+"profile_missing" = "Missing Profile";
+
