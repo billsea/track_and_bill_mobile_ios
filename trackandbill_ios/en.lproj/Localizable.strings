@@ -9,6 +9,20 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
+
+//basic
+"ok" = "OK";
+
+"yes" = "Yes";
+
+"no" = "No";
+
+"cancel" = "Cancel";
+
+"add_notes" = "Add Notes";
+
+"styles" = "Styles";
+
 /* No comment provided by engineer. */
 "address" = "Address";
 
@@ -42,6 +56,8 @@
 /* No comment provided by engineer. */
 "new_project" = "New Project";
 
+"dashboard" = "Dashboard";
+
 /* No comment provided by engineer. */
 "phone" = "Phone";
 
@@ -57,6 +73,10 @@
 /* No comment provided by engineer. */
 "start_date" = "Start Date";
 
+"complete_date" = "Completion Date";
+
+"notes" = "Notes";
+
 /* No comment provided by engineer. */
 "state" = "State";
 
@@ -71,7 +91,25 @@
 
 "materials" = "Materials";
 
+"materials_cost" = "Materials Cost";
+
+"milage" = "Milage";
+
+"milage_rate" = "Milage Rate";
+
 "invoice" = "Invoice";
+
+"invoice_date" = "Invoice Date";
+
+"invoice_rate" = "Invoice Rate";
+
+"deposit" = "Deposit";
+
+"terms_of_payment" = "Terms";
+
+"approved_by" = "Approved By";
+
+"check_num" = "Check #";
 
 "new_session" = "New Session";
 
@@ -89,3 +127,12 @@
 
 "profile_missing" = "Missing Profile";
 
+"invoice_number" = "Invoice Number";
+
+"total_hours_mins_secs" = "Total Time";
+
+"start_stop_timer" = "Start - Stop Timer";
+
+"timer_running" = "Timer is Running";
+
+"stop_timer" = "Please stop timer before continuing.";

@@ -12,6 +12,8 @@
 /* No comment provided by engineer. */
 "address" = "Address";
 
+"add_notes" = "Add Notes";
+
 /* No comment provided by engineer. */
 "city" = "City";
 
@@ -20,6 +22,8 @@
 
 /* No comment provided by engineer. */
 "clients" = "Clients";
+
+"styles" = "Styles";
 
 /* No comment provided by engineer. */
 "contact_person" = "Contact Person";
@@ -42,8 +46,12 @@
 /* No comment provided by engineer. */
 "new_project" = "New Project";
 
+"dashboard" = "Dashboard";
+
 /* No comment provided by engineer. */
 "phone" = "Phone";
+
+"start_stop_timer" = "Start - Stop Timer";
 
 /* No comment provided by engineer. */
 "postal_code" = "Postal Code";
@@ -89,3 +97,6 @@
 
 "profile_missing" = "Missing Profile";
 
+"timer_running" = "Timer is Running";
+
+"stop_timer" = "Please stop timer before continuing.";

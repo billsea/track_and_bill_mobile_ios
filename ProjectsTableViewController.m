@@ -39,7 +39,7 @@
 	// add new navigation bar button
 	UIBarButtonItem* addClientButton = [[UIBarButtonItem alloc]
 													// initWithImage:[UIImage imageNamed:@"reload-50.png"]
-													initWithTitle: NSLocalizedString(@"New",nil)
+													initWithTitle: NSLocalizedString(@"new",nil)
 													style:UIBarButtonItemStylePlain
 													target:self
 													action:@selector(addProject:)];
@@ -183,15 +183,6 @@
 	
     [self.navigationController pushViewController:projectSelectCollectionVC animated:YES];
 
-}
-
-// Show an alert message
-- (void)showMessage:(NSString *)text withTitle:(NSString *)title {
-  [[[UIAlertView alloc] initWithTitle:title
-                              message:text
-                             delegate:self
-                    cancelButtonTitle:@"OK"
-                    otherButtonTitles:nil] show];
 }
 
 @end

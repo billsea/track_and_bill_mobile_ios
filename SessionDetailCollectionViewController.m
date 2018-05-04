@@ -47,7 +47,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	//TODO: Add these to cell data
 	//@"Save and Remove", @"Delete"
-	NSMutableDictionary* timerDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Start/Stop Timer",@"title", nil];
+	NSMutableDictionary* timerDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"start_stop_timer",nil),@"title", nil];
 
 	MilageViewController *milageVC = [[MilageViewController alloc]
 																		initWithNibName:@"MilageViewController"
@@ -58,10 +58,10 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	SessionNotesViewController* sessionNotesVC = [[SessionNotesViewController alloc]
 																								initWithNibName:@"SessionNotesViewController"
 																								bundle:nil];
-	NSMutableDictionary* sessionNotesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:sessionNotesVC, @"vc", @"Add Notes",@"title", nil];
+	NSMutableDictionary* sessionNotesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:sessionNotesVC, @"vc", NSLocalizedString(@"add_notes", nil),@"title", nil];
 
 	MaterialsViewController *materialsVC = [[MaterialsViewController alloc] initWithNibName:@"MaterialsViewController" bundle:nil];
-	NSMutableDictionary* materialsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:materialsVC, @"vc", @"Materials",@"title", nil];
+	NSMutableDictionary* materialsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:materialsVC, @"vc",NSLocalizedString(@"materials", nil),@"title", nil];
 
 	_cellData = @[timerDict, milageDict, sessionNotesDict, materialsDict];
 
@@ -86,7 +86,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 - (IBAction)backButtonHit:(id)sender{
 	//check timer
 	if (_timerOn) {
-		[utility showAlertWithTitle:@"Timer is Running" andMessage:@"Please stop timer before continuing." andVC:self];
+		[utility showAlertWithTitle:NSLocalizedString(@"timer_running", nil) andMessage:NSLocalizedString(@"stop_timer", nil) andVC:self];
 	} else {
 		//save timer ticks and exit
 		[self saveSession];
