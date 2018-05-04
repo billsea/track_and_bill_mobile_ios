@@ -164,10 +164,6 @@
                     style:UIAlertActionStyleDefault
                   handler:^(UIAlertAction *action) {
 
-										//TODO?
-                    //Session *thisSession = (Session *)[[_app currentSessions] objectAtIndex:[indexPath row]];
-                   // [thisSession stopTimer];
-
                     // save to stored projects
                     [[_app storedSessions] addObject:[[_app currentSessions]
                                       objectAtIndex:[indexPath row]]];

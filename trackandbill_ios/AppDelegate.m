@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Project+CoreDataClass.h"
-#import "Invoice+CoreDataClass.h"
 
 @interface AppDelegate ()
 
@@ -24,23 +22,9 @@
   NSLog(@"ios version: %@", version);
 
 	[self addStyle];
-	
-  [self RegisterForNotifications];
 
   _currentSessions = [[NSMutableArray alloc] init];
-  _clientProjects = [[NSMutableArray alloc] init];
-  _allProjects = [[NSMutableArray alloc] init];
   _storedSessions = [[NSMutableArray alloc] init];
-  _removedSession = [[Session alloc] init]; // session removed in session
-                                            // details
-  _arrInvoices = [[NSMutableArray alloc] init];
-	
-	//TODO DATA
-//
-//  [self loadClients];
-//  [self loadAllProjects];
-//  [self loadAllSessions];
-//  [self loadInvoices];
 
   // add tabbed main view
   [self createNavigationRootView];
@@ -61,8 +45,6 @@
   // Use this method to pause ongoing tasks, disable timers, and throttle down
   // OpenGL ES frame rates. Games should use this method to pause the game.
 
-  // save current date/time, as timer will stop
- // [self stopTimersAndStamp];//TODO DATA
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -71,11 +53,6 @@
   // application to its current state in case it is terminated later.
   // If your application supports background execution, this method is called
   // instead of applicationWillTerminate: when the user quits.
-
-  [self saveProjectsToDisk];
-  [self saveClientsToDisk];
-  [self saveSessionsToDisk];
-  [self saveInvoicesToDisk];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -93,18 +70,8 @@
   // we'll track the amount of seconds the app is in the background.
   // using _timeSave date, calculate the amount of time the app was inactive,
   // and add to current sessions
-  NSDate *restoreDate = [NSDate date];
-  NSTimeInterval secondsInBackground =
-      [restoreDate timeIntervalSinceDate:_timeSave];
 
-//TODO DATA
-//  for (Session *curSession in [self currentSessions]) {
-//    // only start active session
-//    if (curSession.sessionID == _activeSession.sessionID) {
-//      [curSession setTicks:curSession.ticks + secondsInBackground];
-//      [curSession startTimer];
-//    }
-//  }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -170,29 +137,6 @@
 	
 }
 
-#pragma mark - Notifications
-- (void)RegisterForNotifications {
-  //    [[NSNotificationCenter defaultCenter] addObserver:self
-  //                                             selector:@selector(authenticationSuccessHandler:)
-  //                                                 name:kAuthenticationSuccessNotification
-  //                                               object:nil];
-}
-
-//TODO dATA
-//#pragma mark timers
-//- (void)stopTimersAndStamp {
-//  // save current date/time, as timer will stop when app(device) enters
-//  // background
-//  _timeSave = [NSDate date];
-//
-//  // stop all timers
-//  for (Session *curSession in [self currentSessions]) {
-//    if (curSession.sessionID == _activeSession.sessionID) {
-//      [curSession stopTimer];
-//    }
-//  }
-//}
-
 #pragma mark Build Navigation
 - (BOOL)createNavigationRootView {
   // load dashboard
@@ -242,7 +186,6 @@
 }
 
 #pragma mark - Core Data Saving support
-
 - (void)saveContext {
 	NSManagedObjectContext *context = self.persistentContainer.viewContext;
 	NSError *error = nil;
@@ -252,151 +195,6 @@
 		NSLog(@"Unresolved error %@, %@", error, error.userInfo);
 		abort();
 	}
-}
-
-
-//TODO DATA Loading?
-//- (void)loadClients {
-//
-//  NSString *path = [self pathToDataFile:@"clients.tbd"];
-//  NSDictionary *rootObject;
-//  rootObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-//
-//  // add clients to array
-//  self.arrClients =
-//      [[NSMutableArray alloc] initWithArray:[rootObject valueForKey:@"client"]];
-//}
-//
-//- (void)loadAllProjects {
-//  NSString *path = [self pathToDataFile:@"projects.tbd"];
-//  NSDictionary *rootObject;
-//  rootObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-//
-//  // add clients to array
-//  self.allProjects = [[NSMutableArray alloc]
-//      initWithArray:[rootObject valueForKey:@"project"]];
-//}
-//
-//- (void)loadAllSessions {
-//  NSString *path = [self pathToDataFile:@"sessions.tbd"];
-//  NSDictionary *rootObject;
-//  rootObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-//
-//  // add sessions to array
-//  self.storedSessions = [[NSMutableArray alloc]
-//      initWithArray:[rootObject valueForKey:@"session"]];
-//
-//  NSLog(@"stored sessions:%@", [self storedSessions]);
-//}
-//
-//- (void)loadInvoices {
-//  NSString *path = [self pathToDataFile:@"invoices.tbd"];
-//  NSDictionary *rootObject;
-//  rootObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-//
-//  // add invoices to array
-//  self.arrInvoices = [[NSMutableArray alloc]
-//      initWithArray:[rootObject valueForKey:@"invoice"]];
-//
-//  NSLog(@"stored invoices:%@", [self arrInvoices]);
-//}
-//
-//#pragma mark save data
-//
-//- (NSString *)pathToDataFile:(NSString *)fileName {
-//  // Accessible files are stored in the devices "Documents" directory
-//  NSArray *documentDir = NSSearchPathForDirectoriesInDomains(
-//      NSDocumentDirectory, NSUserDomainMask, YES);
-//  NSString *path = nil;
-//
-//  if (documentDir) {
-//    path = [documentDir objectAtIndex:0];
-//  }
-//
-//  NSLog(@"path....%@", [NSString stringWithFormat:@"%@/%@", path, fileName]);
-//
-//  return [NSString stringWithFormat:@"%@/%@", path, fileName];
-//}
-//
-//- (void)saveClientsToDisk {
-//  NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-//  [rootObject setValue:[self arrClients] forKey:@"client"];
-//	[self archiveObjectWithFileName:@"clients.tbd" andRootObject:rootObject];
-//}
-//
-//- (void)saveInvoicesToDisk {
-//
-//  NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-//  [rootObject setValue:[self arrInvoices] forKey:@"invoice"];
-//	[self archiveObjectWithFileName:@"invoices.tbd" andRootObject:rootObject];
-//}
-//
-//- (void)saveProjectsToDisk {
-//
-//  NSMutableArray *storeProjects = [[NSMutableArray alloc] init];
-//
-//  // save only projects not the "add project" row
-//  for (Project *proj in [self allProjects]) {
-//    if (proj.clientID) {
-//      [storeProjects addObject:proj];
-//    }
-//  }
-//
-//  NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-//  [rootObject setValue:storeProjects forKey:@"project"];
-//	[self archiveObjectWithFileName:@"projects.tbd" andRootObject:rootObject];
-//}
-//
-//- (void)saveSessionsToDisk {
-//  NSMutableDictionary *rootObject = [NSMutableDictionary dictionary];
-//  [rootObject setValue:[self storedSessions] forKey:@"session"];
-//	[self archiveObjectWithFileName:@"sessions.tbd" andRootObject:rootObject];
-//}
-//
-//- (void)archiveObjectWithFileName:(NSString*)fileName andRootObject:(NSMutableDictionary*)rootObject {
-//	BOOL success =
-//	[NSKeyedArchiver archiveRootObject:rootObject
-//															toFile:[self pathToDataFile:fileName]];
-//
-//	assert(success);
-//}
-//
-//#pragma mark update lists
-//- (void)removeSessionsForProjectId:(NSNumber *)ProjectId {
-//  NSMutableArray *sessionsToRemove = [[NSMutableArray alloc] init];
-//
-//  for (Session *s in [self storedSessions]) {
-//    if (s.projectIDref == ProjectId) {
-//      [sessionsToRemove addObject:s];
-//    }
-//  }
-//
-//  for (Session *sr in sessionsToRemove) {
-//    [[self storedSessions] removeObjectIdenticalTo:sr];
-//  }
-//}
-//
-//- (void)removeInvoicesForProjectId:(NSNumber *)ProjectId {
-//  NSMutableArray *invoicesToRemove = [[NSMutableArray alloc] init];
-//
-//  for (Invoice *inv in [self arrInvoices]) {
-//    if (inv.projectID == ProjectId) {
-//      [invoicesToRemove addObject:inv];
-//    }
-//  }
-//
-//  for (Invoice *invRem in invoicesToRemove) {
-//    [[self arrInvoices] removeObjectIdenticalTo:invRem];
-//  }
-//}
-
-// Show an alert message
-- (void)showMessage:(NSString *)text withTitle:(NSString *)title {
-  [[[UIAlertView alloc] initWithTitle:title
-                              message:text
-                             delegate:self
-                    cancelButtonTitle:@"OK"
-                    otherButtonTitles:nil] show];
 }
 
 @end
