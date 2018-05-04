@@ -65,39 +65,39 @@
 	selectedProject.end = lastSession.start;
 	
 	//0
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Number", @"FieldName", [NSString stringWithFormat:@"%lld", isEdit ? [selectedInvoice number] : [self createInvoiceNumber]],@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"invoice_number", nil), @"FieldName", [NSString stringWithFormat:@"%lld", isEdit ? [selectedInvoice number] : [self createInvoiceNumber]],@"FieldValue", nil]];
 	//1
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Date", @"FieldName", isEdit ? [df stringFromDate:[selectedInvoice date]] : [df stringFromDate:[NSDate date]],@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"invoice_date", nil), @"FieldName", isEdit ? [df stringFromDate:[selectedInvoice date]] : [df stringFromDate:[NSDate date]],@"FieldValue", nil]];
 	//2
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Client Name", @"FieldName", isEdit ? selectedInvoice.client_name: selClient.name, @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"client_name", nil), @"FieldName", isEdit ? selectedInvoice.client_name: selClient.name, @"FieldValue", nil]];
 	//3
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Project Name", @"FieldName", isEdit ? selectedInvoice.project_name : selectedProject.name, @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"project_name", nil), @"FieldName", isEdit ? selectedInvoice.project_name : selectedProject.name, @"FieldValue", nil]];
 	//4
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Start Date", @"FieldName",[df stringFromDate:selectedProject.start], @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"start_date", nil), @"FieldName",[df stringFromDate:selectedProject.start], @"FieldValue", nil]];
 	//5
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Completion Date", @"FieldName", [df stringFromDate:selectedProject.end], @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"complete_date", nil), @"FieldName", [df stringFromDate:selectedProject.end], @"FieldValue", nil]];
 	//6
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Total Hours:Minutes:Seconds", @"FieldName",[NSString	stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]],@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"total_hours_mins_secs", nil), @"FieldName",[NSString	stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]],@"FieldValue", nil]];
 	//7
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Materials", @"FieldName", allMaterials ,@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"materials", nil), @"FieldName", allMaterials ,@"FieldValue", nil]];
 	//8
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Materials Total", @"FieldName", isEdit ? [NSString stringWithFormat:@"%.2f", selectedInvoice.materials_cost] : @"0",@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"materials_cost", nil), @"FieldName", isEdit ? [NSString stringWithFormat:@"%.2f", selectedInvoice.materials_cost] : @"0",@"FieldValue", nil]];
 	//9
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Milage", @"FieldName",  [NSString stringWithFormat:@"%@", miles], @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"milage", nil), @"FieldName",  [NSString stringWithFormat:@"%@", miles], @"FieldValue", nil]];
 	//10
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Milage Rate", @"FieldName", isEdit ? [NSString stringWithFormat:@"%f", selectedInvoice.milage_rate] : @"0",@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"milage_rate", nil), @"FieldName", isEdit ? [NSString stringWithFormat:@"%f", selectedInvoice.milage_rate] : @"0",@"FieldValue", nil]];
 	//11
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Invoice Rate", @"FieldName", isEdit ? [NSString stringWithFormat:@"%.2f", selectedInvoice.rate] : @"0",@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"invoice_rate", nil), @"FieldName", isEdit ? [NSString stringWithFormat:@"%.2f", selectedInvoice.rate] : @"0",@"FieldValue", nil]];
 	//12
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Deposit", @"FieldName", isEdit ? [NSString stringWithFormat:@"%.2f", selectedInvoice.deposit] : @"0",@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"deposit", nil), @"FieldName", isEdit ? [NSString stringWithFormat:@"%.2f", selectedInvoice.deposit] : @"0",@"FieldValue", nil]];
 	//13
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Terms", @"FieldName", isEdit ? selectedInvoice.terms : @"",@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"terms_of_payment", nil), @"FieldName", isEdit ? selectedInvoice.terms : @"",@"FieldValue", nil]];
 	//14
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Approved By", @"FieldName", selectedInvoice.approvedby ,@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"approved_by", nil), @"FieldName", selectedInvoice.approvedby ,@"FieldValue", nil]];
 	//15
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Check #", @"FieldName", isEdit ? selectedInvoice.check : @"",@"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"check_num", nil), @"FieldName", isEdit ? selectedInvoice.check : @"",@"FieldValue", nil]];
 	//16
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Notes", @"FieldName", isEdit ? selectedInvoice.notes : allNotes , @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"notes", nil), @"FieldName", isEdit ? selectedInvoice.notes : allNotes , @"FieldValue", nil]];
 
 	return invoiceFormFields;
 }

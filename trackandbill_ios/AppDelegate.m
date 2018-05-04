@@ -21,18 +21,13 @@
   NSString *version = [[UIDevice currentDevice] systemVersion];
   NSLog(@"ios version: %@", version);
 
-	[self addStyle];
-
   _currentSessions = [[NSMutableArray alloc] init];
   _storedSessions = [[NSMutableArray alloc] init];
+	
+	[self addStyle];
 
   // add tabbed main view
   [self createNavigationRootView];
-
-  // [[UINavigationBar appearance] setBackgroundImage:[UIImage new]
-  // forBarMetrics:UIBarMetricsDefault];
-  // [UINavigationBar appearance].shadowImage = [UIImage new];
-  // [UINavigationBar appearance].translucent = YES;
 
   return YES;
 }

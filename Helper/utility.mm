@@ -20,7 +20,7 @@
                   preferredStyle:UIAlertControllerStyleAlert];
 
     UIAlertAction *defaultAction =
-        [UIAlertAction actionWithTitle:@"OK"
+        [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil)
                                  style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action){
                                }];
