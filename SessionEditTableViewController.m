@@ -132,19 +132,6 @@
 //      setTxtNotes:[[[[[[[self tableView] cellForRowAtIndexPath:iPath]
 //                      contentView] subviews] objectAtIndex:0] textInput] text]];
 //}
-//
-//
-//// CAN'T USE TAPGESTURE WITH CUSTOM DATEPICKER TABLEVIEW CLASS
-//- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-//  // CGPoint location = [recognizer locationInView:[recognizer.view superview]];
-//
-//  [[self view] endEditing:YES];
-//}
-//
-//- (void)didReceiveMemoryWarning {
-//  [super didReceiveMemoryWarning];
-//  // Dispose of any resources that can be recreated.
-//}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -199,7 +186,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	//Show date picker on date row select
-	if(indexPath.row == 0) {
+	if([_dateRows containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
 		DateSelectViewController *dateSelectViewController = [[DateSelectViewController alloc] initWithNibName:@"DateSelectViewController" bundle:nil];
 		TextInputTableViewCell* textCell = (TextInputTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
 		dateSelectViewController.dateSelectedCallback = ^(NSDate* selDate){

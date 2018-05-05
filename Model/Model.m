@@ -75,9 +75,9 @@
 	//3
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"project_name", nil), @"FieldName", isEdit ? selectedInvoice.project_name : selectedProject.name, @"FieldValue", nil]];
 	//4
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"start_date", nil), @"FieldName",[df stringFromDate:selectedProject.start], @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"start_date", nil), @"FieldName",isEdit ? [df stringFromDate:selectedInvoice.start] : [df stringFromDate:selectedProject.start], @"FieldValue", nil]];
 	//5
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"complete_date", nil), @"FieldName", [df stringFromDate:selectedProject.end], @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"complete_date", nil), @"FieldName", isEdit ? [df stringFromDate:selectedInvoice.end] : [df stringFromDate:selectedProject.end], @"FieldValue", nil]];
 	//6
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"total_hours_mins_secs", nil), @"FieldName",[NSString	stringWithFormat:@"%@",[NSString stringWithFormat:@"%2@:%2@:%4@", hours, minutes, seconds]],@"FieldValue", nil]];
 	//7

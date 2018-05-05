@@ -22,6 +22,7 @@
 	Client* _client;
 	NSDateFormatter* _df;
 	bool _dateActive;
+	NSArray* _dateRows;
 }
 @property(nonatomic, strong) NSIndexPath *firstDatePickerIndexPath;
 @end
@@ -35,6 +36,8 @@
 
 	_df = [[NSDateFormatter alloc] init];
 	[_df setDateFormat:@"MM/dd/yyyy"];
+	
+	_dateRows = @[@1];
 	
 	//data field sequence must match form fields sequence
 	_client = (Client*)_clientObjectId;
@@ -167,7 +170,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	//Show date picker on date row select...
-	if(indexPath.row == 1) {
+	if([_dateRows containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
 		_dateActive = true;
 		DateSelectViewController *dateSelectViewController = [[DateSelectViewController alloc] initWithNibName:@"DateSelectViewController" bundle:nil];
 		TextInputTableViewCell* textCell = (TextInputTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];

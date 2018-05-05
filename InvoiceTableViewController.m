@@ -135,8 +135,8 @@
 	//Set project info in invoice, so invoice can be viewed if project is removed
 	[_selectedProject.invoices setClient_name:[self valueForTextCellWithIndex:2]];
 	[_selectedProject.invoices setProject_name:[self valueForTextCellWithIndex:3]];
-	[_selectedProject.invoices setStart:_selectedProject.start];
-	[_selectedProject.invoices setEnd:_selectedProject.end];
+	[_selectedProject.invoices setStart:[_df dateFromString:[self valueForTextCellWithIndex:4]]];
+	[_selectedProject.invoices setEnd:[_df dateFromString:[self valueForTextCellWithIndex:5]]];
 	[_selectedProject.invoices setMaterials:[self valueForTextCellWithIndex:7]];
 	[_selectedProject.invoices setMileage:[self valueForTextCellWithIndex:9].floatValue];
 	[_selectedProject.invoices setTotal_time:[self valueForTextCellWithIndex:6]];
@@ -301,7 +301,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	//Show date picker on date row select...
 	//only invoice date is editable
-		if(indexPath.row == 1) {
+		if([_dateRows containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
 			DateSelectViewController *dateSelectViewController = [[DateSelectViewController alloc] initWithNibName:@"DateSelectViewController" bundle:nil];
 			TextInputTableViewCell* textCell = (TextInputTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
 			dateSelectViewController.dateSelectedCallback = ^(NSDate* selDate){
@@ -464,7 +464,7 @@
 
 	NSString *startDate =
 			[NSString stringWithFormat:@"Start Date: %@",
-																 [df stringFromDate:_selectedProject.start]];
+																 [df stringFromDate:_selectedProject.invoices.start]];
 	CGRect startRect =
 			[self addText:startDate
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -475,7 +475,7 @@
 
 	NSString *endDate =
 			[NSString stringWithFormat:@"End Date: %@",
-																 [df stringFromDate:_selectedProject.end]];
+																 [df stringFromDate:_selectedProject.invoices.end]];
 	CGRect endRect =
 			[self addText:endDate
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
