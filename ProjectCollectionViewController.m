@@ -153,7 +153,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	 initWithNibName:@"AllSessionsTableViewController"
 	 bundle:nil];
 
-	allSessionsViewController.projectObjectId = _projectObjectId;
+	allSessionsViewController.selectedProject = _project;
 
 	[self.navigationController pushViewController:allSessionsViewController
 																			 animated:YES];

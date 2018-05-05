@@ -10,8 +10,7 @@
 #import "Session+CoreDataClass.h"
 #import "InlineDateAndNumberPickerViewController.h"
 
-@interface SessionEditTableViewController
-    : InlineDateAndNumberPickerViewController
+@interface SessionEditTableViewController : InlineDateAndNumberPickerViewController
 @property(nonatomic) Session *selectedSession;
 @end
 
