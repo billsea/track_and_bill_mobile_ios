@@ -17,6 +17,8 @@
   NSArray *_sessionFormFields;
 	NSDateFormatter* _df;
 	NSArray* _dateRows;
+	AppDelegate* _app;
+	bool _dateActive;
 }
 
 @end
@@ -28,11 +30,13 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"edit_session", nil)];
 
+	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
   _df = [[NSDateFormatter alloc] init];
   [_df setDateFormat:@"MM/dd/yyyy"];
 	
 	_dateRows = @[@0];
-
+	
   // input form text fields
   _sessionFormFields = [[NSMutableArray alloc] init];
   _sessionFormFields = @[
@@ -72,66 +76,42 @@
   ];
 }
 
-//- (void)viewWillDisappear:(BOOL)animated {
-//
-//  // must close date picker row to avoid crash
-//  [super hideExistingPicker];
-//
-//  // save all but client and project info
-//  NSIndexPath *iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-//
-//  NSDateFormatter *df = [[NSDateFormatter alloc] init];
-//  [df setDateFormat:@"MM/dd/yyyy"];
-//
-//  // date -
-//  NSDate *firstDate = [self dateForIndexPath:self.firstDatePickerIndexPath];
-//  [_selectedSession setSessionDate:firstDate];
-//
-//  // hours
-//  iPath = [NSIndexPath indexPathForRow:3 inSection:0];
-//  NSString *hours =
-//      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-//          objectAtIndex:0] textInput] text];
-//
-//  [_selectedSession
-//      setSessionHours:[NSNumber numberWithFloat:[hours floatValue]]];
-//
-//  // minutes
-//  iPath = [NSIndexPath indexPathForRow:4 inSection:0];
-//  NSString *minutes =
-//      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-//          objectAtIndex:0] textInput] text];
-//  [_selectedSession
-//      setSessionMinutes:[NSNumber numberWithFloat:[minutes floatValue]]];
-//
-//  // seconds
-//  iPath = [NSIndexPath indexPathForRow:5 inSection:0];
-//  NSString *seconds =
-//      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-//          objectAtIndex:0] textInput] text];
-//  [_selectedSession
-//      setSessionSeconds:[NSNumber numberWithFloat:[seconds floatValue]]];
-//
-//  // materials
-//  iPath = [NSIndexPath indexPathForRow:6 inSection:0];
-//  [_selectedSession
-//      setMaterials:[[[[[[[self tableView] cellForRowAtIndexPath:iPath]
-//                       contentView] subviews] objectAtIndex:0] textInput]
-//                       text]];
-//
-//  // milage
-//  iPath = [NSIndexPath indexPathForRow:7 inSection:0];
-//  NSString *milage =
-//      [[[[[[[self tableView] cellForRowAtIndexPath:iPath] contentView] subviews]
-//          objectAtIndex:0] textInput] text];
-//  [_selectedSession setMilage:[NSNumber numberWithFloat:[milage floatValue]]];
-//
-//  // notes
-//  iPath = [NSIndexPath indexPathForRow:8 inSection:0];
-//  [_selectedSession
-//      setTxtNotes:[[[[[[[self tableView] cellForRowAtIndexPath:iPath]
-//                      contentView] subviews] objectAtIndex:0] textInput] text]];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	_dateActive = false;
+}
+
+- (NSString*)valueForTextCellWithIndex:(int)rowIndex {
+	UIView* cellContent = [[[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:0]] contentView];
+	
+	NSString* value;
+	for(UIView* sv in cellContent.subviews){
+		if([sv isKindOfClass:[UITextField class]]){
+			UITextField* tc = (UITextField*)sv;
+			value = tc.text;
+			break;
+		}
+	}
+	return value;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	if(!_dateActive)
+		[self save];
+}
+
+- (void)save {
+	[_selectedSession setStart:[_df dateFromString:[self valueForTextCellWithIndex:0]]];
+	[_selectedSession setHours:[self valueForTextCellWithIndex:1].intValue];
+	[_selectedSession setMinutes:[self valueForTextCellWithIndex:2].intValue];
+	[_selectedSession setSeconds:[self valueForTextCellWithIndex:3].intValue];
+	[_selectedSession setMaterials:[self valueForTextCellWithIndex:4]];
+	[_selectedSession setMilage:[self valueForTextCellWithIndex:5].floatValue];
+	[_selectedSession setNotes:[self valueForTextCellWithIndex:6]];
+	
+	//save context in appDelegate
+	[_app saveContext];
+}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -192,6 +172,7 @@
 		dateSelectViewController.dateSelectedCallback = ^(NSDate* selDate){
 			textCell.textInput.text = [_df stringFromDate:selDate];
 		};
+		_dateActive = true;
 		[self.navigationController pushViewController:dateSelectViewController animated:YES];
 	}
 }
