@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Session+CoreDataClass.h"
-#import "InlineDateAndNumberPickerViewController.h"
 
-@interface SessionEditTableViewController : InlineDateAndNumberPickerViewController
+@interface SessionEditTableViewController : UITableViewController
 @property(nonatomic) Session *selectedSession;
 @end
 
