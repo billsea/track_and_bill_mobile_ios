@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ProjectsTableViewCell.m \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/TrackandBill_PrefixHeader.pch \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ProjectsTableViewCell.h
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ProjectsTableViewCell.m \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/TrackandBill_PrefixHeader.pch \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ProjectsTableViewCell.h

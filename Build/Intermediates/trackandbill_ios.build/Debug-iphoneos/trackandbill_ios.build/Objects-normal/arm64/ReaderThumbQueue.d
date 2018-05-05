@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderThumbQueue.m \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/TrackandBill_PrefixHeader.pch \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderThumbQueue.h
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ReaderThumbQueue.m \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/TrackandBill_PrefixHeader.pch \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ReaderThumbQueue.h

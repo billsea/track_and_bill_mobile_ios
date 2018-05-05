@@ -1,25 +1,16 @@
 dependencies: \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ProjectsTableViewController.m \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/TrackandBill_PrefixHeader.pch \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ProjectsTableViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/client.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/project.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ProjectsTableViewCell.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/SessionsTableViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/AddProjectTableViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/InlineDateAndNumberPickerViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/InvoiceTableViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderDocument.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderContentView.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderThumbView.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderMainToolbar.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/UIXToolbarView.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderMainPagebar.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ThumbsViewController.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ThumbsMainToolbar.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ReaderThumbsView.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Invoice.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/Session.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/trackandbill_ios/AppDelegate.h \
-  /Users/Bill/Documents/iOS_Projects/trackandbill_ios/ProjectSelectTableViewController.h
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ProjectsTableViewController.m \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/TrackandBill_PrefixHeader.pch \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ProjectsTableViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ProjectsTableViewCell.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Project+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Project+CoreDataProperties.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/AddProjectTableViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/trackandbill_ios/AppDelegate.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataProperties.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/DashboardCollectionViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/ProjectCollectionViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Client+CoreDataProperties.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Client+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Helper/utility.h
