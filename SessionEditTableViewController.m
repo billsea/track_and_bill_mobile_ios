@@ -9,12 +9,14 @@
 #import "SessionEditTableViewController.h"
 #import "TextInputTableViewCell.h"
 #import "AppDelegate.h"
+#import "DateSelectViewController.h"
 
 #define kTableRowHeight 80
 
 @interface SessionEditTableViewController () {
   NSArray *_sessionFormFields;
 	NSDateFormatter* _df;
+	NSArray* _dateRows;
 }
 
 @end
@@ -28,6 +30,8 @@
 
   _df = [[NSDateFormatter alloc] init];
   [_df setDateFormat:@"MM/dd/yyyy"];
+	
+	_dateRows = @[@0];
 
   // input form text fields
   _sessionFormFields = [[NSMutableArray alloc] init];
@@ -174,11 +178,18 @@
 			}
 		}
 	};
+	
+	// set date input to read only
+	for(int i = 0; i<_dateRows.count;i++){
+		if(indexPath.row == [_dateRows[i] intValue]) {
+			[[cell textInput] setEnabled:FALSE];
+			break;
+		}
+	}
 
 	[[cell labelCell] setText:[[_sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldName"]];
 	[[cell textInput] setText:[[_sessionFormFields objectAtIndex:[indexPath row]] valueForKey:@"FieldValue"]];
-	[[cell textInput] setBorderStyle:UITextBorderStyleNone];
-
+	
   return cell;
 }
 
@@ -186,9 +197,16 @@
   return kTableRowHeight;
 }
 
-//- (void)tableView:(UITableView *)tableView
-//    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//  [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	//Show date picker on date row select
+	if(indexPath.row == 0) {
+		DateSelectViewController *dateSelectViewController = [[DateSelectViewController alloc] initWithNibName:@"DateSelectViewController" bundle:nil];
+		TextInputTableViewCell* textCell = (TextInputTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+		dateSelectViewController.dateSelectedCallback = ^(NSDate* selDate){
+			textCell.textInput.text = [_df stringFromDate:selDate];
+		};
+		[self.navigationController pushViewController:dateSelectViewController animated:YES];
+	}
+}
 
 @end
