@@ -93,8 +93,6 @@
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-  // CGPoint location = [recognizer locationInView:[recognizer.view superview]];
-
   [[self view] endEditing:YES];
 }
 

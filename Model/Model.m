@@ -61,8 +61,10 @@
 	
 	//get project end date
 	NSArray* allSessions = selectedProject.sessions.allObjects;
-	Session* lastSession = allSessions[allSessions.count-1];
-	selectedProject.end = lastSession.start;
+	if(allSessions.count > 0) {
+		Session* lastSession = allSessions[allSessions.count-1];
+		selectedProject.end = lastSession.start;
+	}
 	
 	//0
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"invoice_number", nil), @"FieldName", [NSString stringWithFormat:@"%lld", isEdit ? [selectedInvoice number] : [self createInvoiceNumber]],@"FieldValue", nil]];

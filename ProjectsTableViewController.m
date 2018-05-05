@@ -159,8 +159,7 @@
 		
 		[_app saveContext];
 		
-		[tableView deleteRowsAtIndexPaths:@[ indexPath ]
-										 withRowAnimation:UITableViewRowAnimationFade];
+		[self fetchData];
 
   } else if (editingStyle == UITableViewCellEditingStyleInsert) {
   }
