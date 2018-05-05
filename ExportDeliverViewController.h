@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Project+CoreDataClass.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ExportDeliverViewController : UIViewController
+@interface ExportDeliverViewController : UIViewController <MFMailComposeViewControllerDelegate> {
+
+}
+- (IBAction)emailCSV:(id)sender;
 @property(nonatomic) Project *selectedProject;
 @end

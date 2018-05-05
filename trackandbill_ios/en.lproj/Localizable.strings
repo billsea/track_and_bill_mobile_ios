@@ -148,3 +148,7 @@
 "stop_timer" = "Please stop timer before continuing.";
 
 "csv_file" = "Comma Separated Values File (CSV)";
+
+"email_csv" = "Email CSV File";
+
+"csv_export_attach" = "CSV_Sessions.csv";
