@@ -146,3 +146,5 @@
 "timer_running" = "Timer is Running";
 
 "stop_timer" = "Please stop timer before continuing.";
+
+"csv_file" = "Comma Separated Values File (CSV)";

@@ -29,7 +29,7 @@
   [super viewDidLoad];
 
   // Set the title of the navigation item
-  [[self navigationItem] setTitle: NSLocalizedString(@"Clients",nil)];
+  [[self navigationItem] setTitle: NSLocalizedString(@"clients",nil)];
 
   // add new navigation bar button
   self.addClientButton = [[UIBarButtonItem alloc]

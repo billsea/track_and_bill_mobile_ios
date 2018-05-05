@@ -22,6 +22,10 @@
 		A94AE5AF206B19A100B079B2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A94AE5AE206B19A100B079B2 /* Model.m */; };
 		A94D0B80208576490052F7A5 /* surgical_scissors-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */; };
 		A94D0B8220857C7A0052F7A5 /* pen-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B8120857C7A0052F7A5 /* pen-50.png */; };
+		A959F417209E2B8600B63DDC /* ExportSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */; };
+		A959F418209E2B8600B63DDC /* ExportSelectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */; };
+		A959F41C209E2BAB00B63DDC /* ExportDeliverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A959F41A209E2BAB00B63DDC /* ExportDeliverViewController.m */; };
+		A959F41D209E2BAB00B63DDC /* ExportDeliverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A959F41B209E2BAB00B63DDC /* ExportDeliverViewController.xib */; };
 		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
 		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
@@ -182,6 +186,12 @@
 		A94AE5AE206B19A100B079B2 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surgical_scissors-50.png"; sourceTree = "<group>"; };
 		A94D0B8120857C7A0052F7A5 /* pen-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pen-50.png"; sourceTree = "<group>"; };
+		A959F414209E2B8600B63DDC /* ExportSelectTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExportSelectTableViewController.h; sourceTree = "<group>"; };
+		A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExportSelectTableViewController.m; sourceTree = "<group>"; };
+		A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportSelectTableViewController.xib; sourceTree = "<group>"; };
+		A959F419209E2BAB00B63DDC /* ExportDeliverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExportDeliverViewController.h; sourceTree = "<group>"; };
+		A959F41A209E2BAB00B63DDC /* ExportDeliverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExportDeliverViewController.m; sourceTree = "<group>"; };
+		A959F41B209E2BAB00B63DDC /* ExportDeliverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportDeliverViewController.xib; sourceTree = "<group>"; };
 		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
 		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
 		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
@@ -696,6 +706,12 @@
 				A9B535A22098C7C400EA543F /* StylesCollectionViewController.h */,
 				A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */,
 				A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */,
+				A959F414209E2B8600B63DDC /* ExportSelectTableViewController.h */,
+				A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */,
+				A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */,
+				A959F419209E2BAB00B63DDC /* ExportDeliverViewController.h */,
+				A959F41A209E2BAB00B63DDC /* ExportDeliverViewController.m */,
+				A959F41B209E2BAB00B63DDC /* ExportDeliverViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -856,6 +872,8 @@
 				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
 				A91501861B094A58009AB281 /* left2-25.png in Resources */,
 				A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */,
+				A959F418209E2B8600B63DDC /* ExportSelectTableViewController.xib in Resources */,
+				A959F41D209E2BAB00B63DDC /* ExportDeliverViewController.xib in Resources */,
 				A9AAEFE8207E8E5D006BF1C6 /* drafting_compass2-50.png in Resources */,
 				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
@@ -903,6 +921,7 @@
 				A9DC4CB61AEAFB8E00A00892 /* ReaderMainPagebar.m in Sources */,
 				A9DC4CB11AEAFB8E00A00892 /* ReaderConstants.m in Sources */,
 				A9DC4CBD1AEAFB8E00A00892 /* ReaderThumbsView.m in Sources */,
+				A959F41C209E2BAB00B63DDC /* ExportDeliverViewController.m in Sources */,
 				A93829FC2093CEE20086B2ED /* utility.mm in Sources */,
 				A9DC4CCF1AEAFB8E00A00892 /* UIXToolbarView.m in Sources */,
 				A94AE5AF206B19A100B079B2 /* Model.m in Sources */,
@@ -924,6 +943,7 @@
 				A9DC4C8C1AEAFB8E00A00892 /* ClientsTableViewController.m in Sources */,
 				A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */,
 				A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */,
+				A959F417209E2B8600B63DDC /* ExportSelectTableViewController.m in Sources */,
 				A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */,
 				A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */,
 				A9CE75C92069D27D00CBD406 /* SessionDetailCollectionViewController.m in Sources */,

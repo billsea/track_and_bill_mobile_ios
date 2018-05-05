@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "ProjectsTableViewController.h"
 #import "utility.h"
+#import "ExportSelectTableViewController.h"
 
 @interface ProjectCollectionViewController (){
 	NSMutableArray* _cellData;
@@ -117,7 +118,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	} else if([cellTitle isEqualToString: NSLocalizedString(@"invoice", nil)]){
 		[self invoiceProject];
 	} else if([cellTitle isEqualToString: NSLocalizedString(@"export", nil)]){
-		//TODO
+		[self exportProject];
 	}
 }
 
@@ -162,6 +163,16 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_invoiceViewController = [[InvoiceTableViewController alloc] init];
 	[_invoiceViewController setSelectedProject:_project];
 	[self.navigationController pushViewController:_invoiceViewController
+																			 animated:YES];
+}
+
+- (void)exportProject {
+	ExportSelectTableViewController* exportSelectVC = [[ExportSelectTableViewController alloc] initWithNibName:@"ExportSelectTableViewController"
+	 bundle:nil];
+	
+	[exportSelectVC setSelectedProject:_project];
+	
+	[self.navigationController pushViewController:exportSelectVC
 																			 animated:YES];
 	
 }
