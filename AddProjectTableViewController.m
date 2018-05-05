@@ -109,7 +109,6 @@
 			break;
 		} 
 	}
-	
 	return value;
 }
 

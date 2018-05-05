@@ -81,7 +81,6 @@
 	sessionObject = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:_context];
 	
 	Session* newSession = (Session*)sessionObject;
-	newSession.sessiondate = [NSDate date];
 	newSession.start = [NSDate date];
 	[_project addSessionsObject:newSession];
 
