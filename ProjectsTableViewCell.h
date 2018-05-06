@@ -10,4 +10,5 @@
 
 @interface ProjectsTableViewCell : UITableViewCell
 @property(weak, nonatomic) IBOutlet UILabel *projectNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *projectTimeLabel;
 @end

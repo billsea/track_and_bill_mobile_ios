@@ -14,6 +14,7 @@
 #import "ProjectCollectionViewController.h"
 #import "Client+CoreDataProperties.h"
 #import "utility.h"
+#import "ProjectsTableViewCell.h"
 
 @interface ProjectsTableViewController (){
 	Client* _client;
@@ -98,38 +99,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  CGRect screenRect = [[UIScreen mainScreen] bounds];
-  CGFloat screenWidth = screenRect.size.width;
-
-  static NSString *CellIdentifier = @"ProjectCell";
-  UITableViewCell *cell =
-      [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  if (cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:CellIdentifier];
-  }
-
-  [cell setBackgroundColor:[UIColor clearColor]];
-  cell.accessoryView = nil;
+	static NSString *simpleTableIdentifier = @"ProjectTableViewCell";
+	ProjectsTableViewCell *cell = (ProjectsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+	
+	if (cell == nil) {
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProjectsTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+	}
 
 	Project* rProject = [_clientProjects objectAtIndex:indexPath.row];
+	cell.projectNameLabel.text = rProject.name;
+	cell.projectTimeLabel.text = [self totalTimeForProject:rProject];
 	
-  UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 11, cell.frame.size.width - 100, 21)];
-  [cellLabel setText:rProject.name];
-
-	UILabel *btnTimer = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 90, 8, 100, 30)];
-	[btnTimer setText:[self totalTimeForProject:rProject]];
-
-  // clear cell subviews-clears old cells
-  if (cell != nil) {
-    NSArray *subviews = [cell.contentView subviews];
-    for (UIView *view in subviews) {
-      [view removeFromSuperview];
-    }
-  }
-  [[cell contentView] addSubview:btnTimer];
-  [[cell contentView] addSubview:cellLabel];
-
   return cell;
 }
 

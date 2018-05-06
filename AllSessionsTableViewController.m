@@ -9,6 +9,7 @@
 #import "AllSessionsTableViewController.h"
 #import "Session+CoreDataClass.h"
 #import "SessionEditTableViewController.h"
+#import "SessionsTableViewCell.h"
 
 @interface AllSessionsTableViewController (){
 	NSArray* _data;
@@ -30,6 +31,21 @@
 	[self.tableView reloadData];
 }
 
+- (NSString *)totalTimeForSession:(Session *)s {
+	int ticks = 0;
+
+	ticks = ticks + s.hours * 3600;
+	ticks = ticks + s.minutes * 60;
+	ticks = ticks + s.seconds;
+
+	double seconds = fmod(ticks, 60.0);
+	double minutes = fmod(trunc(ticks / 60.0), 60.0);
+	double hours = trunc(ticks / 3600.0);
+	
+	return [NSString
+					stringWithFormat:@"%02.0f:%02.0f:%02.0f", hours, minutes, seconds];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -43,20 +59,17 @@
   NSDateFormatter *df = [[NSDateFormatter alloc] init];
   [df setDateFormat:@"MM/dd/yyyy"];
 
-  static NSString *CellIdentifier = @"SessionCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  if (cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:CellIdentifier];
-  }
-
-  [cell setBackgroundColor:[UIColor clearColor]];
+	static NSString *simpleTableIdentifier = @"SessionTableViewCell";
+	SessionsTableViewCell *cell = (SessionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+	
+	if (cell == nil) {
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SessionsTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+	}
+	
 	Session *rSession = (Session*)_data[indexPath.row];
-
-  UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 11, cell.frame.size.width - 100, 21)];
-  [cellLabel setText:[df stringFromDate:rSession.start]];
-
-  [[cell contentView] addSubview:cellLabel];
+	cell.sessionNameLabel.text = [df stringFromDate:rSession.start];
+	cell.sessionTimeLabel.text = [self totalTimeForSession:rSession];
 
   return cell;
 }

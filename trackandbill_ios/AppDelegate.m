@@ -117,7 +117,6 @@
 	
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
-	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
 	 setFont:[UIFont fontWithName:selectedFontName size:16.0]];
 	
@@ -129,7 +128,7 @@
 	 setFont:[UIFont fontWithName:selectedFontName size:21.0]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
 	 setTextColor:navBarBgColor];
-	
+
 }
 
 #pragma mark Build Navigation

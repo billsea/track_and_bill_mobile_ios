@@ -10,5 +10,6 @@
 
 @interface SessionsTableViewCell : UITableViewCell
 @property(weak, nonatomic) IBOutlet UILabel *sessionNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sessionTimeLabel;
 
 @end

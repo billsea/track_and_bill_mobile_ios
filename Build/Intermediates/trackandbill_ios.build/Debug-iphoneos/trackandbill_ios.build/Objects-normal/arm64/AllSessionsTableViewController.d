@@ -6,4 +6,5 @@ dependencies: \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Project+CoreDataProperties.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataClass.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataProperties.h \
-  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/SessionEditTableViewController.h
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/SessionEditTableViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/SessionsTableViewCell.h
