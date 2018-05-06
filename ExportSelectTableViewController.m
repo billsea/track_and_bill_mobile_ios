@@ -7,10 +7,13 @@
 //
 
 #import "ExportSelectTableViewController.h"
-#import "ExportDeliverViewController.h"
+#import "Session+CoreDataClass.h"
+
+#define kTableRowHeight 80
 
 @interface ExportSelectTableViewController (){
 	NSMutableArray* _cellData;
+	NSString* _csv;
 }
 
 @end
@@ -56,25 +59,66 @@
 	return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	CGFloat rowHeight = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+	if (rowHeight == 0) {
+		rowHeight = kTableRowHeight; // self.tableView.rowHeight;
+	}
+	return rowHeight;
+}
+
+- (void)createAndSendCSVfile {
+	NSString *separator = @", ";
+	_csv = [NSString stringWithFormat:@"Date,Hours,Minutes,Seconds,Milage,Materials,Notes\n"];
+	
+	for (Session *s in _selectedProject.sessions) {
+		_csv = [NSString stringWithFormat:@"%@%@%@%hd%@%hd%@%hd%@%hd%@%@%@%@\n", _csv, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,s.milage,separator,s.materials,separator,s.notes];
+	}
+	
+	[self emailCSV];
+}
+
+- (void)emailCSV {
+	
+	if (![MFMailComposeViewController canSendMail]) {
+		NSLog(@"Mail services are not available.");
+		return;
+	}
+	
+	MFMailComposeViewController* composeVC = [[MFMailComposeViewController alloc] init];
+	composeVC.mailComposeDelegate = self;
+	
+	//convert string to data for attachment
+	NSData* fileAttachmentData = [_csv dataUsingEncoding:NSUTF8StringEncoding];
+	
+	// Configure the fields of the interface.
+	[composeVC setToRecipients:@[@""]];
+	[composeVC setSubject:NSLocalizedString(@"csv_email_subject", nil)];
+	[composeVC setMessageBody:NSLocalizedString(@"csv_email_body", nil) isHTML:NO];
+	[composeVC addAttachmentData:fileAttachmentData mimeType:@"text/csv" fileName:NSLocalizedString(@"csv_export_attach", nil)];
+	
+	[self presentViewController:composeVC animated:YES completion:nil];
+}
+
+#pragma mark - mail compose delegate
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+				 didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+	if (result)
+		NSLog(@"Result : %ld",(long)result);
+	
+	if (error)
+		NSLog(@"Error : %@",error);
+	
+	[controller	dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if(indexPath.row == 0) {
-		   ExportDeliverViewController *exportDeliver = [[ExportDeliverViewController alloc] initWithNibName:@"ExportDeliverViewController" bundle:nil];
-		[exportDeliver setSelectedProject:_selectedProject];
-		  [self.navigationController pushViewController:exportDeliver animated:YES];
+		[self createAndSendCSVfile];
 	}
-	
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

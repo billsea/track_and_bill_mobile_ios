@@ -152,3 +152,7 @@
 "email_csv" = "Email CSV File";
 
 "csv_export_attach" = "CSV_Sessions.csv";
+
+"csv_email_subject" = "Sessions CSV Export";
+
+"csv_email_body" = "Sessions CSV export file is attached.";

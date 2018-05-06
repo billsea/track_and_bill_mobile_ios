@@ -59,7 +59,7 @@
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"city"] : @""
 										},
 									@{
-										@"FieldName" :  NSLocalizedString(@"ctate",nil),
+										@"FieldName" :  NSLocalizedString(@"state",nil),
 										@"FieldValue" : dataObject ? [dataObject valueForKey:@"state"] : @""
 										},
 									@{
