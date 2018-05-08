@@ -10,76 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InvoiceTableViewController.m"
-            timestampString = "547243338.219378"
+            timestampString = "547499442.274793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "-createInvoice"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Model/Model.m"
-            timestampString = "547243338.219458"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "+loadInvoicesWithSelected:andProject:andEdit:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[Model loadInvoicesWithSelected:andProject:andEdit:]"
-                  moduleName = "trackandbill_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Model/Model.m"
-                  timestampString = "547258271.120967"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "856">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[Model loadInvoicesWithSelected:andProject:andEdit:]"
-                  moduleName = "trackandbill_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Model/Model.m"
-                  timestampString = "547258271.122319"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "872">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Model/Model.m"
-            timestampString = "547243338.2195131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "+loadInvoicesWithSelected:andProject:andEdit:"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "-loadLogo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InvoiceTableViewController.m"
-            timestampString = "547243338.219563"
+            timestampString = "547499442.275557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-createInvoice"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SessionEditTableViewController.m"
-            timestampString = "547243338.219619"
+            filePath = "InvoiceTableViewController.m"
+            timestampString = "547499442.27591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-save"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SessionEditTableViewController.m"
-            timestampString = "547243338.219671"
+            filePath = "InvoiceTableViewController.m"
+            timestampString = "547499442.276112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-valueForTextCellWithIndex:"
+            startingLineNumber = "854"
+            endingLineNumber = "854"
+            landmarkName = "-MyProfile"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

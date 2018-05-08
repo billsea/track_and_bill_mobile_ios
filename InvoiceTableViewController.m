@@ -15,6 +15,7 @@
 #import "Model.h"
 #import "DateSelectViewController.h"
 #import "utility.h"
+#import <Photos/Photos.h>
 
 #define kPadding 2
 #define kLogoPadding 8
@@ -34,6 +35,8 @@
 	NSDateFormatter* _df;
 	NSArray* _dateRows;
 	NSArray* _readOnlyRows;
+	UIImage* _logo_image;
+	Profile* _myProfile;
 }
 
 @property UIBarButtonItem *previewButton;
@@ -53,12 +56,10 @@
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
+	_myProfile = (Profile*)[self MyProfile];
+	
 	_dateRows = @[@1,@4,@5];
 	_readOnlyRows = @[@4,@5,@6];
-//	//temp
-//	NSMutableArray* data = [Model dataForEntity:@"Invoice"];
-//	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
-
 
   // add help navigation bar button
   self.previewButton = [[UIBarButtonItem alloc]
@@ -74,6 +75,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	if(_myProfile)
+	  [self loadLogo];
 }
 
 - (void)loadForm {
@@ -332,6 +335,28 @@
   }
 }
 
+- (void)loadLogo {
+	// Logo image
+	NSURL *asssetURL = [NSURL URLWithString:[_myProfile logo_url]];
+	
+	if(asssetURL) {
+		PHImageManager *manager = [PHImageManager defaultManager];
+		NSArray* imageURLS = @[asssetURL];
+		PHFetchResult* fRes = [PHAsset fetchAssetsWithALAssetURLs:imageURLS options:nil];
+		
+		for(PHAsset* fass in fRes){
+			[manager requestImageForAsset:fass
+												 targetSize:PHImageManagerMaximumSize
+												contentMode:PHImageContentModeDefault
+														options:nil
+											resultHandler:^void(UIImage *image, NSDictionary *info) {
+												//[info valueForKey:@"PHImageFileURLKey"]
+												_logo_image = image;
+											}];
+		}
+	}
+}
+
 - (void)MakePDF:(Invoice *)newInvoice {
 	NSString *fileString = [_selectedProject.name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 	//NSString *invoicefile = [NSString stringWithFormat:@"%@_%@.pdf", fileString, _selectedProject.name];
@@ -339,9 +364,8 @@
 
   // get client info
 	Client *selClient = _selectedProject.clients;
-	Profile* myProfile = (Profile*)[self MyProfile];
 	
-  if (myProfile) {
+  if (_myProfile) {
     [self beginPDFPage];
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -349,13 +373,13 @@
 
     // Header
     // Logo image
-    UIImage *logoImage = [UIImage imageNamed:@"tBill_appIcon_120.png"];
-    [self addImage:logoImage atPoint:CGPointMake(kPdfWidth - (logoImage.size.width + kLogoPadding), kLogoPadding)];
+		[self addImage:_logo_image atPoint:CGPointMake(kPdfWidth - (_logo_image.size.width + kLogoPadding), kLogoPadding)];
 
+		
 ///////////////////////////Profile info///////////////////
 
 	CGRect nameRect =
-			[self addText:myProfile.name
+			[self addText:_myProfile.name
 					withFrame:CGRectMake(kMarginPadding, kPadding + 10,
 															 _pageSize.width / 2, 4)
 					 fontSize:32.0f];
@@ -365,7 +389,7 @@
 					fontSize:24.0f];
 
 	CGRect addressRect =
-			[self addText:myProfile.address
+			[self addText:_myProfile.address
 					withFrame:CGRectMake(kMarginPadding,
 															 nameRect.origin.y + nameRect.size.height +
 																	 kPadding,
@@ -374,9 +398,9 @@
 
 	CGRect cityRect = [self
 				addText:[NSString stringWithFormat:@"%@, %@ %@",
-																					 myProfile.city,
-																					 myProfile.state,
-																					 myProfile.postalcode]
+																					 _myProfile.city,
+																					 _myProfile.state,
+																					 _myProfile.postalcode]
 			withFrame:CGRectMake(kMarginPadding,
 													 addressRect.origin.y + addressRect.size.height +
 															 kPadding,
@@ -384,7 +408,7 @@
 			 fontSize:24.0f];
 
 	CGRect phoneRect =
-			[self addText:myProfile.phone
+			[self addText:_myProfile.phone
 					withFrame:CGRectMake(kMarginPadding,
 															 cityRect.origin.y + cityRect.size.height +
 																	 kPadding,

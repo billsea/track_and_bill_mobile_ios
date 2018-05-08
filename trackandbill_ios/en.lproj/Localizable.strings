@@ -156,3 +156,7 @@
 "csv_email_subject" = "Sessions CSV Export";
 
 "csv_email_body" = "Sessions CSV export file is attached.";
+
+"style_profile_alert" = "You must complete your profile before adding style";
+
+"logo" = "Invoice Logo";

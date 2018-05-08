@@ -41,6 +41,7 @@
         <attribute name="contact" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postalcode" optional="YES" attributeType="String" syncable="YES"/>
@@ -71,7 +72,7 @@
     <elements>
         <element name="Client" positionX="-828" positionY="-396" width="128" height="210"/>
         <element name="Invoice" positionX="-821" positionY="-133" width="128" height="345"/>
-        <element name="Profile" positionX="-828" positionY="-621" width="128" height="195"/>
+        <element name="Profile" positionX="-828" positionY="-621" width="128" height="210"/>
         <element name="Project" positionX="-630" positionY="-388" width="128" height="148"/>
         <element name="Session" positionX="-623" positionY="-151" width="128" height="195"/>
     </elements>

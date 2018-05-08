@@ -33,6 +33,8 @@
 		A9729BB42068715900651DAB /* ProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9729BB22068715900651DAB /* ProjectCollectionViewController.m */; };
 		A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */; };
 		A97544DC209CCCA40048387A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97544DE209CCCA40048387A /* Localizable.strings */; };
+		A98F3CA220A219AD007A32F2 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98F3CA120A219AD007A32F2 /* Photos.framework */; };
+		A98F3CA420A22D4F007A32F2 /* xlarge_icons-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */; };
 		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
 		A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */; };
 		A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */; };
@@ -229,6 +231,8 @@
 		A97544FA209CD1860048387A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		A97544FB209CD1860048387A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A97544FC209CD1860048387A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A98F3CA120A219AD007A32F2 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xlarge_icons-50.png"; sourceTree = "<group>"; };
 		A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllSessionsTableViewController.h; sourceTree = "<group>"; };
 		A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllSessionsTableViewController.m; sourceTree = "<group>"; };
 		A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllSessionsTableViewController.xib; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A98F3CA220A219AD007A32F2 /* Photos.framework in Frameworks */,
 				A959F420209E37C200B63DDC /* MessageUI.framework in Frameworks */,
 				A9FDC2391B0FDA8200112426 /* UIKit.framework in Frameworks */,
 				A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */,
@@ -496,6 +501,7 @@
 		A959F41E209E37C100B63DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A98F3CA120A219AD007A32F2 /* Photos.framework */,
 				A959F41F209E37C200B63DDC /* MessageUI.framework */,
 			);
 			name = Frameworks;
@@ -537,6 +543,7 @@
 		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
 			isa = PBXGroup;
 			children = (
+				A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */,
 				A9B535A72098C94200EA543F /* mirror-50.png */,
 				A9BB79C92095443600274218 /* cargo_ship-50.png */,
 				A94D0B8120857C7A0052F7A5 /* pen-50.png */,
@@ -857,6 +864,7 @@
 				A9AAEFE4207E8C14006BF1C6 /* administrator-50.png in Resources */,
 				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
 				A97544DC209CCCA40048387A /* Localizable.strings in Resources */,
+				A98F3CA420A22D4F007A32F2 /* xlarge_icons-50.png in Resources */,
 				A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */,
 				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
 				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,

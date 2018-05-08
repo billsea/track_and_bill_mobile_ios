@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StylesCollectionViewController : UICollectionViewController
+@interface StylesCollectionViewController : UICollectionViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @end
