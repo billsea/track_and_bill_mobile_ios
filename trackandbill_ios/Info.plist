@@ -55,5 +55,9 @@
 		<string>en</string>
 		<string>de</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>I need a location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>I need a location</string>
 </dict>
 </plist>

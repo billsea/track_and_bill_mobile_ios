@@ -123,7 +123,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		YhmZ25zTcgPApGlk7SxlrY1eVL0=
+		nb+qLtiDAe1fZE0mjXGV6YhhVlc=
 		</data>
 		<key>InvoiceTableViewCell.nib</key>
 		<data>
@@ -144,10 +144,6 @@
 		<key>MaterialsViewController.nib</key>
 		<data>
 		GXAefqsM7Be0LGTbVU9NHbaiKyg=
-		</data>
-		<key>MilageViewController.nib</key>
-		<data>
-		+3td+3Mb5/rSukKb5O63MKFBk7g=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -171,7 +167,7 @@
 		</data>
 		<key>PlugIns/trackandbill_iosTests.xctest/trackandbill_iosTests</key>
 		<data>
-		epN0eFNRaDwWy3BGQHnoZ2uqd8A=
+		uxlvfZG19dbg2ymGPwoP2ca08Qc=
 		</data>
 		<key>ProfileTableViewController.nib</key>
 		<data>
@@ -312,6 +308,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>ar.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>back-25.png</key>
 		<data>
 		iXS4muo/a0QKt7mgQt3EskFLfiU=
@@ -351,6 +356,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>de.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>drafting_compass2-50.png</key>
 		<data>
 		ta9/oKvUy3ZZRL0cfIhpU8pRcIY=
@@ -363,7 +377,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			usbz7xrr7XWvnMlvT/tFHw3do+c=
+			MlsC9mJKAzYbnif5uoMZaQtnBWI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>en.lproj/MilageViewController.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0Vnyi9yaTMxXrOwpNMJMNVvM3gc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -395,6 +418,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>es.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>fr.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -418,6 +450,15 @@
 			<key>hash</key>
 			<data>
 			rcg7GeeTSRscbqD9i0bNnzLlkvw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>fr.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -461,6 +502,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>it.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>ja.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -488,6 +538,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>ja.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>ko.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -511,6 +570,15 @@
 			<key>hash</key>
 			<data>
 			rcg7GeeTSRscbqD9i0bNnzLlkvw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ko.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -566,6 +634,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>ru.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>running-50.png</key>
 		<data>
 		cCjhgmrtLi7GGT10O7gzUwxIQVE=
@@ -608,15 +685,19 @@
 		</data>
 		<key>trackandbill_ios.momd/VersionInfo.plist</key>
 		<data>
-		q9yzm86aqvXmYEu/et7+as6r+lA=
+		i/lHgSF2Zo2GHly5FKxcV2XsJao=
 		</data>
 		<key>trackandbill_ios.momd/trackandbill_ios.mom</key>
 		<data>
-		mXmwcF9rEXPjIfP71w7NrbntD+Y=
+		GupSWKDuQoQYhiYLT8y1TC1Mams=
 		</data>
 		<key>trackandbill_ios.momd/trackandbill_ios.omo</key>
 		<data>
-		WDej6dFqn9qqQePfJZWZOEkaZEs=
+		LG1EyHBwc6uvx5IPqQ9pvhvGiHs=
+		</data>
+		<key>xlarge_icons-50.png</key>
+		<data>
+		TqIUT1jpCV/bUlbFphnKNCAjcxI=
 		</data>
 		<key>zh-Hans.lproj/LaunchScreen.strings</key>
 		<dict>
@@ -645,6 +726,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>zh-Hans.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>zh-Hant.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -668,6 +758,15 @@
 			<key>hash</key>
 			<data>
 			rcg7GeeTSRscbqD9i0bNnzLlkvw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hant.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1040,17 +1139,6 @@
 			+MyWZaXgfnxkeXMFww0gkVxsZQLQ/q/2uCvWk8pzIGU=
 			</data>
 		</dict>
-		<key>MilageViewController.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+3td+3Mb5/rSukKb5O63MKFBk7g=
-			</data>
-			<key>hash2</key>
-			<data>
-			wDtmq+Gjydot0fU/Pp2bYZkOo0b/4B6SXhJKGPjRRrw=
-			</data>
-		</dict>
 		<key>PlugIns/trackandbill_iosTests.xctest.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -1099,11 +1187,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			epN0eFNRaDwWy3BGQHnoZ2uqd8A=
+			uxlvfZG19dbg2ymGPwoP2ca08Qc=
 			</data>
 			<key>hash2</key>
 			<data>
-			slqPsrBtlV0jwL/XwWNPd8umRUP8YVNg9jAaitGB7zw=
+			dxcJdTbhohkxcfeznhHTmIAdsToRAZPjikoAF3AwnZQ=
 			</data>
 		</dict>
 		<key>ProfileTableViewController.nib</key>
@@ -1453,6 +1541,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>ar.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>back-25.png</key>
 		<dict>
 			<key>hash</key>
@@ -1525,6 +1626,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>de.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>drafting_compass2-50.png</key>
 		<dict>
 			<key>hash</key>
@@ -1551,11 +1665,24 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			usbz7xrr7XWvnMlvT/tFHw3do+c=
+			MlsC9mJKAzYbnif5uoMZaQtnBWI=
 			</data>
 			<key>hash2</key>
 			<data>
-			sSwkSIZbZMF1aTLrUrIlxKyEoeY4FtbMcGssdwne1HA=
+			RPi0Cc19q1O2l96CEkjdMvcVvIL10Y/YhbrAMi0pzUA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>en.lproj/MilageViewController.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0Vnyi9yaTMxXrOwpNMJMNVvM3gc=
+			</data>
+			<key>hash2</key>
+			<data>
+			BYRiQOFjf/7R7Rp5m7nOw2LNB4RQx3pviPfGUgRR3TU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1599,6 +1726,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>es.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>fr.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1634,6 +1774,19 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>fr.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1710,6 +1863,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>it.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>ja.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1749,6 +1915,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>ja.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>ko.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1784,6 +1963,19 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ko.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1889,6 +2081,19 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ru.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2007,33 +2212,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			q9yzm86aqvXmYEu/et7+as6r+lA=
+			i/lHgSF2Zo2GHly5FKxcV2XsJao=
 			</data>
 			<key>hash2</key>
 			<data>
-			HWJ8A7IolSYpZRVKkm28VIl1F6i5cRXj/oq3a5Xff44=
+			pakuIpwA6F5QLFX9lW4oFXqAvjJEFQih/FwWxK8jpcU=
 			</data>
 		</dict>
 		<key>trackandbill_ios.momd/trackandbill_ios.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mXmwcF9rEXPjIfP71w7NrbntD+Y=
+			GupSWKDuQoQYhiYLT8y1TC1Mams=
 			</data>
 			<key>hash2</key>
 			<data>
-			eZ9Lxbek3Qr3SxxhEQ64GCw+0aTkIVkQ8e+6s8C9Fzc=
+			s5IEr7mSNPoibGhGas5YFNhLv7n4JMZweep3DoclgM8=
 			</data>
 		</dict>
 		<key>trackandbill_ios.momd/trackandbill_ios.omo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WDej6dFqn9qqQePfJZWZOEkaZEs=
+			LG1EyHBwc6uvx5IPqQ9pvhvGiHs=
 			</data>
 			<key>hash2</key>
 			<data>
-			0YelE1gp9SG0bUWO8otbgeXeY3+9OOQWKPMJlTiHa4c=
+			UZH6mAUxhnjmhbshb7mePQ60W+E6rcB4fKkYbn9a0D4=
+			</data>
+		</dict>
+		<key>xlarge_icons-50.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TqIUT1jpCV/bUlbFphnKNCAjcxI=
+			</data>
+			<key>hash2</key>
+			<data>
+			Cgw2jd+NaZKl0Dt/mv+2XdFpk+xeWXNKfXJjbP0yXK8=
 			</data>
 		</dict>
 		<key>zh-Hans.lproj/LaunchScreen.strings</key>
@@ -2075,6 +2291,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>zh-Hans.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>zh-Hant.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -2110,6 +2339,19 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hant.lproj/MilageViewController.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>

@@ -52,7 +52,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	MilageViewController *milageVC = [[MilageViewController alloc]
 																		initWithNibName:@"MilageViewController"
 																		bundle:nil];
-	NSMutableDictionary* milageDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:milageVC, @"vc", @"Log Milage",@"title", nil];
+	NSMutableDictionary* milageDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:milageVC, @"vc", NSLocalizedString(@"milage_tracking",nil),@"title", nil];
 
 
 	SessionNotesViewController* sessionNotesVC = [[SessionNotesViewController alloc]

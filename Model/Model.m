@@ -110,7 +110,7 @@
 										andSeconds:(NSNumber **)seconds
 										andMiles:(NSNumber **)miles{
 
-	int ml = 0;
+	float ml = 0.0f;
 	int ticks = 0;
 	for (Session *s in selectedProject.sessions) {
 			ticks = ticks + s.hours * 3600;
@@ -126,7 +126,7 @@
 	*hours = [NSNumber numberWithDouble:h];
 	*minutes = [NSNumber numberWithDouble:m];
 	*seconds = [NSNumber numberWithDouble:sec];
-	*miles = [NSNumber numberWithInt:ml];
+	*miles = [NSNumber numberWithFloat:ml];
 }
 
 // create invoice number based on last invoice number

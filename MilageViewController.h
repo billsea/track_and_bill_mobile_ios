@@ -12,5 +12,8 @@
 
 @interface MilageViewController
     : SessionInfoViewController <UIPickerViewDataSource, UIPickerViewDelegate>
-@property(nonatomic) NSMutableArray *pickerData;
+@property (weak, nonatomic) IBOutlet UISwitch *trackMilageSwitch;
+@property (weak, nonatomic) IBOutlet UIPickerView *milagePicker;
+- (IBAction)trackMilage:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 @end

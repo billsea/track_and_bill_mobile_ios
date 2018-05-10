@@ -95,7 +95,9 @@
 
 "save_and_exit" = "Save & Exit";
 
-"miles_driven" = "Miles Driven";
+"milage_tracking" = "Milage Tracking";
+
+"track_milage" = "Start Tracking Milage";
 
 "session_notes" = "Session Notes";
 
