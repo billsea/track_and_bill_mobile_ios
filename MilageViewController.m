@@ -24,9 +24,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view from its nib.
 
-  // Set the title of the navigation item
   [[self navigationItem] setTitle:NSLocalizedString(@"milage_tracking", nil)];
 
   _pickerDataMiles = [[NSMutableArray alloc] init];
@@ -45,9 +43,6 @@
 	_formatter = [[NSNumberFormatter alloc] init];
 	[_formatter setMaximumFractionDigits:1];
 	[_formatter setRoundingMode: NSNumberFormatterRoundUp];
-	
-	//temp
-	_totalMeters = 4000;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,9 +50,13 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-  // save miles and tenths picker selection
+	[self save];
+}
+
+- (void)save {
+	// save miles and tenths picker selection
 	float totalMilage = [[_pickerDataMiles objectAtIndex:[_milagePicker selectedRowInComponent:0]] floatValue] + ([[_pickerDataMiles objectAtIndex:[_milagePicker selectedRowInComponent:1]] floatValue]/10);
-  [self.selectedSession setMilage:totalMilage];
+	[self.selectedSession setMilage:totalMilage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,44 +106,47 @@
 	NSString* stringTenths = [[_formatter stringFromNumber:[NSNumber numberWithFloat:milesTenths]] stringByReplacingOccurrencesOfString:@"." withString:@""];
 	_tempLabel.text = [NSString stringWithFormat:@"%f",totalMiles];
 	
-	//TODO: Update picker values
+	//Update picker components
+	[_milagePicker selectRow:milesTrunc inComponent:0 animated:YES];
+	[_milagePicker selectRow:stringTenths.intValue inComponent:1 animated:YES];
 }
 
 #pragma mark Location methods
-- (void)getLocation {
+- (void)startTracking {
 	// init location manager
-	_locationManager = [CLLocationManager new];
-	_locationManager.delegate = self;
-	_locationManager.distanceFilter = kCLDistanceFilterNone;//50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
-	_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-	
-	if ([_locationManager
-			 respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-		[_locationManager requestWhenInUseAuthorization];
+	if(!_locationManager){
+		_locationManager = [CLLocationManager new];
+		_locationManager.delegate = self;
+		_locationManager.distanceFilter = kCLDistanceFilterNone;//50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
+		_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+		
+		if ([_locationManager
+				 respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+			[_locationManager requestWhenInUseAuthorization];
+		}
 	}
 	[_locationManager startMonitoringSignificantLocationChanges];
 	[_locationManager startUpdatingLocation];
 }
 
 - (IBAction)trackMilage:(id)sender {
-	//TODO: stopUpdatingLocation on toggle off
-	[self getLocation];
+	UISwitch* trackSwitch = sender;
+	if(trackSwitch.on){
+		[self startTracking];
+	} else {
+		[_locationManager stopUpdatingLocation];
+		[_locationManager stopMonitoringSignificantLocationChanges];
+	}
 }
 
 #pragma mark CLLocation delegate methods
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-	
 	CLLocationDistance meters = [manager.location distanceFromLocation:_lastLocation];
-	//if(meters >= 50){
-		_totalMeters = _totalMeters + meters;
+	_totalMeters = _totalMeters + meters;
 		
-		[self updatePickerView];
-	//}
-	
+	[self updatePickerView];
+
 	_lastLocation = manager.location;
-	
-//	[self forecastRequestWithLat:_locationManager.location.coordinate.latitude
-//												andLon:_locationManager.location.coordinate.longitude];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
