@@ -15,6 +15,7 @@
 	CLLocationManager* _locationManager;
 	CLLocation* _lastLocation;
 	CLLocationDistance _totalMeters;
+	NSNumberFormatter * _formatter;
 }
 
 @end
@@ -40,6 +41,13 @@
 	}
 	
 	_milagePicker.delegate = self;
+	
+	_formatter = [[NSNumberFormatter alloc] init];
+	[_formatter setMaximumFractionDigits:1];
+	[_formatter setRoundingMode: NSNumberFormatterRoundUp];
+	
+	//temp
+	_totalMeters = 4000;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,12 +97,25 @@
 	
 }
 
+-(void)updatePickerView {
+	//meters to miles
+	float totalMiles = _totalMeters * 0.0006213712;
+	float totalKilometers = _totalMeters/1000;
+	
+	int milesTrunc = (int)totalMiles;
+	float milesTenths = totalMiles - milesTrunc;
+	NSString* stringTenths = [[_formatter stringFromNumber:[NSNumber numberWithFloat:milesTenths]] stringByReplacingOccurrencesOfString:@"." withString:@""];
+	_tempLabel.text = [NSString stringWithFormat:@"%f",totalMiles];
+	
+	//TODO: Update picker values
+}
+
 #pragma mark Location methods
 - (void)getLocation {
 	// init location manager
 	_locationManager = [CLLocationManager new];
 	_locationManager.delegate = self;
-	_locationManager.distanceFilter = 50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
+	_locationManager.distanceFilter = kCLDistanceFilterNone;//50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
 	_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	
 	if ([_locationManager
@@ -106,6 +127,7 @@
 }
 
 - (IBAction)trackMilage:(id)sender {
+	//TODO: stopUpdatingLocation on toggle off
 	[self getLocation];
 }
 
@@ -113,11 +135,11 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
 	
 	CLLocationDistance meters = [manager.location distanceFromLocation:_lastLocation];
-	if(meters >= 50){
+	//if(meters >= 50){
 		_totalMeters = _totalMeters + meters;
 		
-		_tempLabel.text = [NSString stringWithFormat:@"%f",_totalMeters];
-	}
+		[self updatePickerView];
+	//}
 	
 	_lastLocation = manager.location;
 	
