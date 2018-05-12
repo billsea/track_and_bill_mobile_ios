@@ -10,12 +10,12 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface MilageViewController ()<CLLocationManagerDelegate>{
-	NSMutableArray* _pickerDataMiles;
+	NSMutableArray* _pickerDataWhole;
 	NSMutableArray* _pickerDataTenths;
 	CLLocationManager* _locationManager;
 	CLLocation* _lastLocation;
 	CLLocationDistance _totalMeters;
-	NSNumberFormatter * _formatter;
+	NSNumberFormatter * _formatterTenths;
 }
 
 @end
@@ -27,11 +27,11 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"milage_tracking", nil)];
 
-  _pickerDataMiles = [[NSMutableArray alloc] init];
+  _pickerDataWhole = [[NSMutableArray alloc] init];
   _pickerDataTenths = [[NSMutableArray alloc] init];
 	
   for (int i = 0; i < 3000; i++) {
-    [_pickerDataMiles addObject:[NSNumber numberWithInt:i]];
+    [_pickerDataWhole addObject:[NSNumber numberWithInt:i]];
   }
 	
 	for (int i = 0; i < 10; i++) {
@@ -40,9 +40,9 @@
 	
 	_milagePicker.delegate = self;
 	
-	_formatter = [[NSNumberFormatter alloc] init];
-	[_formatter setMaximumFractionDigits:1];
-	[_formatter setRoundingMode: NSNumberFormatterRoundUp];
+	_formatterTenths = [[NSNumberFormatter alloc] init];
+	[_formatterTenths setMaximumFractionDigits:1];
+	[_formatterTenths setRoundingMode: NSNumberFormatterRoundDown];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,7 +55,7 @@
 
 - (void)save {
 	// save miles and tenths picker selection
-	float totalMilage = [[_pickerDataMiles objectAtIndex:[_milagePicker selectedRowInComponent:0]] floatValue] + ([[_pickerDataMiles objectAtIndex:[_milagePicker selectedRowInComponent:1]] floatValue]/10);
+	float totalMilage = [[_pickerDataWhole objectAtIndex:[_milagePicker selectedRowInComponent:0]] floatValue] + ([[_pickerDataWhole objectAtIndex:[_milagePicker selectedRowInComponent:1]] floatValue]/10);
 	[self.selectedSession setMilage:totalMilage];
 }
 
@@ -78,7 +78,7 @@
 			return _pickerDataTenths.count;
 			break;
 		default:
-			return _pickerDataMiles.count;
+			return _pickerDataWhole.count;
 	}
 }
 
@@ -91,24 +91,35 @@
 			return [NSString stringWithFormat:@"%@",_pickerDataTenths[row]];
 			break;
 		default:
-			return [NSString stringWithFormat:@"%@",_pickerDataMiles[row]];
+			return [NSString stringWithFormat:@"%@",_pickerDataWhole[row]];
 	}
 	
 }
 
--(void)updatePickerView {
+-(void)updatePickerViewWithMetric:(bool)isMetric {
 	//meters to miles
-	float totalMiles = _totalMeters * 0.0006213712;
-	float totalKilometers = _totalMeters/1000;
+	float totalDistance = 0;
+	int distanceTrunc = 0;
 	
-	int milesTrunc = (int)totalMiles;
-	float milesTenths = totalMiles - milesTrunc;
-	NSString* stringTenths = [[_formatter stringFromNumber:[NSNumber numberWithFloat:milesTenths]] stringByReplacingOccurrencesOfString:@"." withString:@""];
-	_tempLabel.text = [NSString stringWithFormat:@"%f",totalMiles];
-	
-	//Update picker components
-	[_milagePicker selectRow:milesTrunc inComponent:0 animated:YES];
-	[_milagePicker selectRow:stringTenths.intValue inComponent:1 animated:YES];
+	if(_totalMeters > 0) {
+		if(isMetric){
+			totalDistance = _totalMeters/1000;//Kilometers
+		}else{
+			totalDistance = _totalMeters * 0.0006213712;//miles
+		}
+		
+		if(totalDistance >=1){
+			distanceTrunc = (int)totalDistance;
+		}
+		
+		float Tenths = totalDistance - distanceTrunc;
+		NSString* stringTenths = [[_formatterTenths stringFromNumber:[NSNumber numberWithFloat:Tenths]] stringByReplacingOccurrencesOfString:@"." withString:@""];
+		_tempLabel.text = [NSString stringWithFormat:@"%f",totalDistance];
+
+		//Update picker components
+		[_milagePicker selectRow:distanceTrunc inComponent:0 animated:YES];
+		[_milagePicker selectRow:stringTenths.intValue inComponent:1 animated:YES];
+	}
 }
 
 #pragma mark Location methods
@@ -117,9 +128,9 @@
 	if(!_locationManager){
 		_locationManager = [CLLocationManager new];
 		_locationManager.delegate = self;
-		_locationManager.distanceFilter = kCLDistanceFilterNone;//50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
+		_locationManager.distanceFilter = 50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
 		_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-		
+	
 		if ([_locationManager
 				 respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
 			[_locationManager requestWhenInUseAuthorization];
@@ -144,7 +155,7 @@
 	CLLocationDistance meters = [manager.location distanceFromLocation:_lastLocation];
 	_totalMeters = _totalMeters + meters;
 		
-	[self updatePickerView];
+	[self updatePickerViewWithMetric:NO];
 
 	_lastLocation = manager.location;
 }
