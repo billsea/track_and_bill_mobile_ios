@@ -46,11 +46,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [_milagePicker selectRow:self.selectedSession.milage inComponent:0 animated:NO];
+	//reset meter counter if milage tracking is running
+	if(!_trackMilageSwitch.on)
+		_totalMeters = 0;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[self save];
+	if(!_trackMilageSwitch.on)
+		[self save];
 }
 
 - (void)save {

@@ -149,6 +149,10 @@
 
 "stop_timer" = "Please stop timer before continuing.";
 
+"milage_running" = "Milage tracking is running";
+
+"stop_milage" = "Please stop milage tracking before continuing.";
+
 "csv_file" = "Comma Separated Values File (CSV)";
 
 "email_csv" = "Email CSV File";

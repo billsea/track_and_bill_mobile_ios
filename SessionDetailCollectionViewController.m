@@ -24,6 +24,7 @@
 	NSArray* _cellImages;
 	bool _timerOn;
 	NSTimer* _sessionTimer;
+	MilageViewController* _milageVC;
 }
 @end
 
@@ -49,10 +50,10 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	//@"Save and Remove", @"Delete"
 	NSMutableDictionary* timerDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"start_stop_timer",nil),@"title", nil];
 
-	MilageViewController *milageVC = [[MilageViewController alloc]
+	_milageVC = [[MilageViewController alloc]
 																		initWithNibName:@"MilageViewController"
 																		bundle:nil];
-	NSMutableDictionary* milageDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:milageVC, @"vc", NSLocalizedString(@"milage_tracking",nil),@"title", nil];
+	NSMutableDictionary* milageDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:_milageVC, @"vc", NSLocalizedString(@"milage_tracking",nil),@"title", nil];
 
 
 	SessionNotesViewController* sessionNotesVC = [[SessionNotesViewController alloc]
@@ -84,7 +85,13 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 }
 
 - (IBAction)backButtonHit:(id)sender{
-	//check timer
+	//Check if milage tracking is running
+	if(_milageVC.trackMilageSwitch && _milageVC.trackMilageSwitch.on){
+		[utility showAlertWithTitle:NSLocalizedString(@"milage_running", nil) andMessage:NSLocalizedString(@"stop_milage", nil) andVC:self];
+		return;
+	}
+	
+	//check timer is running
 	if (_timerOn) {
 		[utility showAlertWithTitle:NSLocalizedString(@"timer_running", nil) andMessage:NSLocalizedString(@"stop_timer", nil) andVC:self];
 	} else {
