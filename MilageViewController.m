@@ -130,6 +130,7 @@
 		_locationManager.delegate = self;
 		_locationManager.distanceFilter = 50.0;//kCLDistanceFilterNone;//100.0;//meters - using 1/10 of a kilometer
 		_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+		_locationManager.allowsBackgroundLocationUpdates = YES;
 	
 		if ([_locationManager
 				 respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
