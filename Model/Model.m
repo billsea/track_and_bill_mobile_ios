@@ -116,7 +116,7 @@
 			ticks = ticks + s.hours * 3600;
 			ticks = ticks + s.minutes * 60;
 			ticks = ticks + s.seconds;
-			ml = ml + s.milage;
+			ml = ml + [s milage];
 	}
 
 	double sec = fmod(ticks, 60.0);

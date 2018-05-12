@@ -72,7 +72,7 @@
 	_csv = [NSString stringWithFormat:@"Date,Hours,Minutes,Seconds,Milage,Materials,Notes\n"];
 	
 	for (Session *s in _selectedProject.sessions) {
-		_csv = [NSString stringWithFormat:@"%@%@%@%hd%@%hd%@%hd%@%hd%@%@%@%@\n", _csv, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,s.milage,separator,s.materials,separator,s.notes];
+		_csv = [NSString stringWithFormat:@"%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
 	}
 	
 	[self emailCSV];

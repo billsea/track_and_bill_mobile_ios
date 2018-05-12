@@ -65,7 +65,7 @@
     },
     @{
       @"FieldName" : NSLocalizedString(@"milage", nil),
-			@"FieldValue" : [NSString stringWithFormat:@"%hd", _selectedSession.milage]
+			@"FieldValue" : [NSString stringWithFormat:@"%f", [_selectedSession milage]]
     },
     @{
       @"FieldName" : NSLocalizedString(@"notes", nil),

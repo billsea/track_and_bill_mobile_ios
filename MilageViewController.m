@@ -158,7 +158,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
 	CLLocationDistance meters = [manager.location distanceFromLocation:_lastLocation];
 	_totalMeters = _totalMeters + meters;
-		
+	
+	//TODO: set metric or imperial
 	[self updatePickerViewWithMetric:NO];
 
 	_lastLocation = manager.location;
