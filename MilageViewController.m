@@ -8,6 +8,8 @@
 
 #import "MilageViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "Profile+CoreDataClass.h"
+#import "Model.h"
 
 @interface MilageViewController ()<CLLocationManagerDelegate>{
 	NSMutableArray* _pickerDataWhole;
@@ -16,6 +18,8 @@
 	CLLocation* _lastLocation;
 	CLLocationDistance _totalMeters;
 	NSNumberFormatter * _formatterTenths;
+	BOOL _useMetric;
+	Profile* _myProfile;
 }
 
 @end
@@ -27,6 +31,12 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"milage_tracking", nil)];
 
+	_myProfile = (Profile*)[self MyProfile];
+	_useMetric = [_myProfile use_metric] ? [_myProfile use_metric] : NO;
+	_metricSwitch.on = _useMetric;
+	
+	[self updateUI];
+	
   _pickerDataWhole = [[NSMutableArray alloc] init];
   _pickerDataTenths = [[NSMutableArray alloc] init];
 	
@@ -67,6 +77,14 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (void)updateUI {
+	_milesKmLabel.text = NSLocalizedString(_useMetric ? @"km_col" : @"miles_col", nil);
+	_trackLabel.text = NSLocalizedString(@"track_milage", nil);
+	_metricLabel.text = NSLocalizedString(@"use_metric", nil);
+	_metricLabel.text = NSLocalizedString(@"use_metric", nil);
+	_tenthsLabel.text = NSLocalizedString(@"tenths", nil);
+	
+}
 #pragma mark picker view delegate methods
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -99,13 +117,13 @@
 	
 }
 
--(void)updatePickerViewWithMetric:(bool)isMetric {
+-(void)updatePickerView{
 	//meters to miles
 	float totalDistance = 0;
 	int distanceTrunc = 0;
 	
 	if(_totalMeters > 0) {
-		if(isMetric){
+		if(_useMetric){
 			totalDistance = _totalMeters/1000;//Kilometers
 		}else{
 			totalDistance = _totalMeters * 0.0006213712;//miles
@@ -148,10 +166,25 @@
 	UISwitch* trackSwitch = sender;
 	if(trackSwitch.on){
 		[self startTracking];
+		[_milagePicker setUserInteractionEnabled:NO];
 	} else {
 		[_locationManager stopUpdatingLocation];
 		[_locationManager stopMonitoringSignificantLocationChanges];
+		[_milagePicker setUserInteractionEnabled:YES];
 	}
+}
+
+- (IBAction)toggleMetricSwitch:(id)sender {
+	UISwitch* metricSwitch = sender;
+	_useMetric = metricSwitch.on;
+	[_myProfile setUse_metric:_useMetric];
+	[self updateUI];
+}
+
+- (NSManagedObject *)MyProfile {
+	// Fetch data from persistent data store;
+	NSMutableArray* data = [Model dataForEntity:@"Profile"];
+	return data.count > 0 ? [data objectAtIndex:0] : nil;
 }
 
 #pragma mark CLLocation delegate methods
@@ -160,7 +193,7 @@
 	_totalMeters = _totalMeters + meters;
 	
 	//TODO: set metric or imperial
-	[self updatePickerViewWithMetric:NO];
+	[self updatePickerView];
 
 	_lastLocation = manager.location;
 }
@@ -180,4 +213,5 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 			break;
 	}
 }
+
 @end

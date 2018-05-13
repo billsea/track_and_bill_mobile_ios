@@ -16,4 +16,10 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *milagePicker;
 - (IBAction)trackMilage:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *metricLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trackLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *metricSwitch;
+- (IBAction)toggleMetricSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *milesKmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tenthsLabel;
 @end

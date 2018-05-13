@@ -153,6 +153,14 @@
 
 "stop_milage" = "Please stop milage tracking before continuing.";
 
+"use_metric" = "Use Metric";
+
+"miles_col" = "Miles";
+
+"km_col" = "Kilometers";
+
+"tenths" = "Tenths";
+
 "csv_file" = "Comma Separated Values File (CSV)";
 
 "email_csv" = "Email CSV File";
