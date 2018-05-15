@@ -377,44 +377,33 @@
 
 		
 ///////////////////////////Profile info///////////////////
+if(_myProfile.show_invoice_header){
+		CGRect nameRect = [self addText:_myProfile.name withFrame:CGRectMake(kMarginPadding, kPadding + 10,
+																 _pageSize.width / 2, 4)
+						 fontSize:32.0f];
+		CGRect inoviceRect =
+		[self addText:[NSString stringWithFormat:@"Invoice #%lld", _selectedProject.invoices.number]
+						withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10, _pageSize.width / 3, 4)
+						fontSize:24.0f];
 
-	CGRect nameRect =
-			[self addText:_myProfile.name
-					withFrame:CGRectMake(kMarginPadding, kPadding + 10,
-															 _pageSize.width / 2, 4)
-					 fontSize:32.0f];
-	CGRect inoviceRect =
-	[self addText:[NSString stringWithFormat:@"Invoice #%lld", _selectedProject.invoices.number]
-					withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10, _pageSize.width / 3, 4)
-					fontSize:24.0f];
+		CGRect addressRect =
+				[self addText:_myProfile.address
+						withFrame:CGRectMake(kMarginPadding, nameRect.origin.y + nameRect.size.height +
+																		 kPadding,
+																 _pageSize.width - kHeaderPadding * 2, 4)
+						 fontSize:24.0f];
 
-	CGRect addressRect =
-			[self addText:_myProfile.address
-					withFrame:CGRectMake(kMarginPadding,
-															 nameRect.origin.y + nameRect.size.height +
-																	 kPadding,
-															 _pageSize.width - kHeaderPadding * 2, 4)
-					 fontSize:24.0f];
+		CGRect cityRect = [self addText:[NSString stringWithFormat:@"%@, %@ %@",
+																						 _myProfile.city,
+																						 _myProfile.state,
+																						 _myProfile.postalcode]
+				withFrame:CGRectMake(kMarginPadding, addressRect.origin.y + addressRect.size.height + kPadding,
+														 _pageSize.width - kPadding, 4)
+				 fontSize:24.0f];
 
-	CGRect cityRect = [self
-				addText:[NSString stringWithFormat:@"%@, %@ %@",
-																					 _myProfile.city,
-																					 _myProfile.state,
-																					 _myProfile.postalcode]
-			withFrame:CGRectMake(kMarginPadding,
-													 addressRect.origin.y + addressRect.size.height +
-															 kPadding,
-													 _pageSize.width - kPadding, 4)
-			 fontSize:24.0f];
-
-	CGRect phoneRect =
-			[self addText:_myProfile.phone
-					withFrame:CGRectMake(kMarginPadding,
-															 cityRect.origin.y + cityRect.size.height +
-																	 kPadding,
-															 _pageSize.width / 3, 4)
-					 fontSize:24.0f];
-
+		CGRect phoneRect =
+				[self addText:_myProfile.phone withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width / 3, 4) fontSize:24.0f];
+}
 
 ///////////////////////////client///////////////////
 

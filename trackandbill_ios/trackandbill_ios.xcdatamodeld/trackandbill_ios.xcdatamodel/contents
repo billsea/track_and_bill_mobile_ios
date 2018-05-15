@@ -46,8 +46,9 @@
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postalcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remoteid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="show_invoice_header" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="use_metric" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="use_metric" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
         <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -73,7 +74,7 @@
     <elements>
         <element name="Client" positionX="-828" positionY="-396" width="128" height="210"/>
         <element name="Invoice" positionX="-821" positionY="-133" width="128" height="345"/>
-        <element name="Profile" positionX="-828" positionY="-621" width="128" height="225"/>
+        <element name="Profile" positionX="-828" positionY="-621" width="128" height="240"/>
         <element name="Project" positionX="-630" positionY="-388" width="128" height="148"/>
         <element name="Session" positionX="-623" positionY="-151" width="128" height="195"/>
     </elements>
