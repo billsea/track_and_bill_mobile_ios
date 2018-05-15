@@ -62,7 +62,7 @@
 	_dateActive = false;
 }
 - (void)viewWillDisappear:(BOOL)animated {
-	if(!_dateActive)
+	if(!_dateActive && ![[self valueForTextCellWithIndex:0] isEqualToString:@""])
 			[self save];
 }
 
