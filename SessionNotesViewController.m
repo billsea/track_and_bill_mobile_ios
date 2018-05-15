@@ -33,12 +33,16 @@
   [_notesTextView setTextColor:[UIColor blackColor]];
   [_notesTextView setBackgroundColor:[UIColor clearColor]];
   [[self view] addSubview:_notesTextView];
+	
+	[_notesTextView becomeFirstResponder];
 
   // view has been touched, for dismiss keyboard
   UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc]
       initWithTarget:self
               action:@selector(handleSingleTap:)];
   [self.view addGestureRecognizer:singleFingerTap];
+	
+	
 }
 - (void)viewWillAppear:(BOOL)animated {
 	[_notesTextView setText:self.selectedSession.notes];

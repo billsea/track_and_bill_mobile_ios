@@ -37,6 +37,8 @@
       initWithTarget:self
               action:@selector(handleSingleTap:)];
   [self.view addGestureRecognizer:singleFingerTap];
+	
+	[_textView becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
