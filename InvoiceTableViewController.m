@@ -18,13 +18,13 @@
 #import <Photos/Photos.h>
 
 #define kPadding 2
-#define kLogoPadding 0
 #define kHeaderPadding 5
-#define kMarginPadding 25
+#define kMarginPadding 85
 #define kTableRowHeight 80
 #define kPdfWidth 850
 #define kPdfHeight 1100
-#define kEmptyHeaderHeight 170
+#define kEmptyHeaderHeight 175
+#define kTopMargin 65
 
 @interface InvoiceTableViewController () {
   CGSize _pageSize;
@@ -64,12 +64,10 @@
 
   // add help navigation bar button
   self.previewButton = [[UIBarButtonItem alloc]
-      // initWithImage:[UIImage imageNamed:@"reload-50.png"]
       initWithTitle:@"Save & Export"
               style:UIBarButtonItemStylePlain
              target:self
              action:@selector(exportInvoice:)];
-  // self.addClientButton.tintColor = [UIColor blackColor];
   [[self navigationItem] setRightBarButtonItem:self.previewButton];
 	[self loadForm];
 }
@@ -360,7 +358,6 @@
 
 - (void)MakePDF:(Invoice *)newInvoice {
 	NSString *fileString = [_selectedProject.name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-	//NSString *invoicefile = [NSString stringWithFormat:@"%@_%@.pdf", fileString, _selectedProject.name];
   [self setupPDFDocumentNamed:[NSString stringWithFormat:@"%@", fileString] Width:kPdfWidth Height:kPdfHeight];
 
   // get client info
@@ -374,34 +371,29 @@
 
     // Header
     // Logo image
-		[self addImage:_logo_image atPoint:CGPointMake(kPdfWidth - (_logo_image.size.width + kLogoPadding), kLogoPadding)];
+		[self addImage:_logo_image atPoint:CGPointMake(0, 0)];
 
 		CGRect beginRect;
 		CGRect phoneRect;
 ///////////////////////////Profile info///////////////////
 if(_myProfile.show_invoice_header){
-	beginRect = CGRectMake(kMarginPadding, kPadding + 10, _pageSize.width / 2, 4);
+	beginRect = CGRectMake(kMarginPadding, kTopMargin, _pageSize.width / 2, 4);
 	
 	CGRect nameRect = [self addText:_myProfile.name withFrame:beginRect
 					 fontSize:32.0f];
-	CGRect inoviceRect = [self addText:[NSString stringWithFormat:@"Invoice #%lld", _selectedProject.invoices.number]
+	CGRect invoiceRect = [self addText:[NSString stringWithFormat:@"Invoice #%lld", _selectedProject.invoices.number]
 					withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10, _pageSize.width / 3, 4)
 					fontSize:24.0f];
-
 	CGRect addressRect = [self addText:_myProfile.address
 					withFrame:CGRectMake(kMarginPadding, nameRect.origin.y + nameRect.size.height +
 																	 kPadding,
-															 _pageSize.width - kHeaderPadding * 2, 4)
-					 fontSize:24.0f];
-
-	CGRect cityRect = [self addText:[NSString stringWithFormat:@"%@, %@ %@",
+															 _pageSize.width - kHeaderPadding * 2, 4) fontSize:24.0f];
+  CGRect cityRect = [self addText:[NSString stringWithFormat:@"%@, %@ %@",
 																					 _myProfile.city,
 																					 _myProfile.state,
 																					 _myProfile.postalcode]
 			withFrame:CGRectMake(kMarginPadding, addressRect.origin.y + addressRect.size.height + kPadding,
-													 _pageSize.width - kPadding, 4)
-			 fontSize:24.0f];
-
+													 _pageSize.width - kPadding, 4) fontSize:24.0f];
 	phoneRect = [self addText:_myProfile.phone withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width / 3, 4) fontSize:24.0f];
 } else {
 	phoneRect = CGRectMake(kMarginPadding, kEmptyHeaderHeight, _pageSize.width / 2, 4);
@@ -747,10 +739,7 @@ if(_myProfile.show_invoice_header){
   return numberString;
 }
 
-- (void)setupPDFDocumentNamed:(NSString *)name
-                        Width:(float)width
-                       Height:(float)height {
-	
+- (void)setupPDFDocumentNamed:(NSString *)name Width:(float)width Height:(float)height {
   _pageSize = CGSizeMake(width, height);
   NSString *newPDFName = [NSString stringWithFormat:@"%@.pdf", name];
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -760,8 +749,7 @@ if(_myProfile.show_invoice_header){
 }
 
 - (void)beginPDFPage {
-  UIGraphicsBeginPDFPageWithInfo(
-      CGRectMake(0, 0, _pageSize.width, _pageSize.height), nil);
+  UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, _pageSize.width, _pageSize.height), nil);
 }
 
 - (void)finishPDF {
@@ -770,7 +758,7 @@ if(_myProfile.show_invoice_header){
 }
 
 - (CGRect)addText:(NSString *)text withFrame:(CGRect)frame fontSize:(float)fontSize {
-  UIFont *font = [UIFont fontWithName:@"Avenir Next Medium" size:fontSize];
+  UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:fontSize];
   CGRect stringSize =
       [text boundingRectWithSize:CGSizeMake(frame.size.width, frame.size.height)
                          options:NSStringDrawingUsesLineFragmentOrigin |
@@ -784,19 +772,19 @@ if(_myProfile.show_invoice_header){
 
   if (textWidth < stringSize.size.width)
     textWidth = stringSize.size.width;
+	
   if (textWidth > frame.size.width)
     textWidth = frame.size.width - frame.origin.x;
 
-  CGRect renderingRect = CGRectMake(frame.origin.x, frame.origin.y, textWidth,
-                                    stringSize.size.height);
+  CGRect renderingRect = CGRectMake(frame.origin.x, frame.origin.y, textWidth, stringSize.size.height);
 
-  /// Make a copy of the default paragraph style
+  // Make a copy of the default paragraph style
   NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	
-  /// Set line break mode
-  paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping; // NSLineBreakByTruncatingTail;
+  // Set line break mode
+  paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
 	
-  /// Set text alignment
+  // Set text alignment
   paragraphStyle.alignment = NSTextAlignmentLeft;
 
   NSDictionary *attributes = @{
@@ -834,7 +822,7 @@ if(_myProfile.show_invoice_header){
 }
 
 - (void)addImage:(UIImage *)image atPoint:(CGPoint)point {
-  CGRect imageFrame = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+  CGRect imageFrame = CGRectMake(point.x, point.y, kPdfWidth, kPdfHeight);
   [image drawInRect:imageFrame];
 }
 
