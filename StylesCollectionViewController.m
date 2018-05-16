@@ -12,6 +12,7 @@
 #import "Model.h"
 #import "utility.h"
 #import "AppDelegate.h"
+#import "InvoiceStyleTableViewController.h"
 
 @interface StylesCollectionViewController (){
 	NSMutableArray* _cellData;
@@ -34,7 +35,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_myProfile = (Profile*)[self MyProfile];
 	
-	_cellImages = @[@"xlarge_icons"];
+	_cellImages = @[@"xlarge_icons",@"invoice"];
 
 	StylesCollectionViewController* stylesVC = [[StylesCollectionViewController alloc]
 																						initWithNibName:@"StylesCollectionViewController"
@@ -42,11 +43,21 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 	NSMutableDictionary* stylesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:stylesVC, @"vc",NSLocalizedString(@"logo", nil),@"title", nil];
 
-	_cellData = [[NSMutableArray alloc] initWithObjects:stylesDict, nil];
+	InvoiceStyleTableViewController* invoiceStyleVC = [[InvoiceStyleTableViewController alloc]
+																							initWithNibName:@"InvoiceStyleTableViewController"
+																							bundle:nil];
+	NSMutableDictionary* invoiceDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:invoiceStyleVC, @"vc",NSLocalizedString(@"invoice_style", nil),@"title", nil];
+	
+	_cellData = [[NSMutableArray alloc] initWithObjects:stylesDict,invoiceDict, nil];
 
 	// Register cell classes
 	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[_app saveContext];
 }
 
 - (NSManagedObject *)MyProfile {
@@ -69,10 +80,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	NSURL *picURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
 	NSString *stringUrl = picURL.absoluteString;
-
 	[_myProfile setLogo_url:stringUrl];
-	[_app saveContext];
-	
 	[picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -122,6 +130,10 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	if([cellTitle isEqualToString: NSLocalizedString(@"logo", nil)]){
 		[self showPhotoLibrary];
+	} else if([cellTitle isEqualToString: NSLocalizedString(@"invoice_style", nil)]){
+		InvoiceStyleTableViewController* invoiceStyleVC = [[_cellData objectAtIndex:1] valueForKey:@"vc"];
+		invoiceStyleVC.currentProfile = _myProfile;
+		[self.navigationController pushViewController:invoiceStyleVC animated:YES];
 	}
 }
 

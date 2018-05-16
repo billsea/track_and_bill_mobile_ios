@@ -21,4 +21,7 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)switchToggled:(id)sender {
+	self.switchUpdateCallback(_rowSwitch.on);
+}
 @end

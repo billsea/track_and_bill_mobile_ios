@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SwitchTableViewCell : UITableViewCell
+@property(nonatomic) void (^switchUpdateCallback)(BOOL);
+@property (weak, nonatomic) IBOutlet UILabel *switchLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *rowSwitch;
+- (IBAction)switchToggled:(id)sender;
 
 @end

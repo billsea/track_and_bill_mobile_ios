@@ -141,6 +141,10 @@
 
 "invoice_number" = "Invoice Number";
 
+"show_invoice_header" = "Show Invoice Header";
+
+"invoice_style" = "Invoice Style";
+
 "total_hours_mins_secs" = "Total Time";
 
 "start_stop_timer" = "Start - Stop Timer";
@@ -173,4 +177,4 @@
 
 "style_profile_alert" = "You must complete your profile before adding style";
 
-"logo" = "Invoice Logo";
+"logo" = "Invoice Image";
