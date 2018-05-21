@@ -121,28 +121,41 @@
 
 
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView
-    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-     forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
-    // Delete the row from the data source
-		Project* project = (Project*)[_clientProjects objectAtIndex:indexPath.row];
+		UIAlertController *alert = [UIAlertController
+																alertControllerWithTitle:NSLocalizedString(@"really_delete_title", nil)
+																message:NSLocalizedString(@"really_delete_message", nil)
+																preferredStyle:UIAlertControllerStyleAlert];
 		
-		// Remove sessions and invoices
-		[project removeSessions:project.sessions];
-		//[project removeInvoices:project.invoices];
+		UIAlertAction *remove = [UIAlertAction
+														 actionWithTitle:NSLocalizedString(@"yes", nil)
+														 style:UIAlertActionStyleDefault
+														 handler:^(UIAlertAction *action) {
+															 // Delete the row from the data source
+															 Project* project = (Project*)[_clientProjects objectAtIndex:indexPath.row];
+															 // Remove sessions
+															 [project removeSessions:project.sessions];
+															 // Remove projects for the selected client
+															 [_client removeProjectsObject:project];
+															 // Delete the row from the table
+															 [_context deleteObject:[_clientProjects objectAtIndex:indexPath.row]];
+															 [_app saveContext];
+															 [self fetchData];
+														 }];
 		
-		// Remove projects for the selected client
-		[_client removeProjectsObject:project];
+		UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", nil)
+																										 style:UIAlertActionStyleDefault
+																									 handler:^(UIAlertAction *action) {
+																										 [alert dismissViewControllerAnimated:YES completion:nil];
+																										 //do nothing
+																									 }];
 		
-		// Delete the row from the table
-		[_context deleteObject:[_clientProjects objectAtIndex:indexPath.row]];
-		
-		[_app saveContext];
-		
-		[self fetchData];
-
+		[alert addAction:remove];
+		[alert addAction:cancel];
+		[self presentViewController:alert animated:YES completion:nil];
   } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+		
   }
 }
 

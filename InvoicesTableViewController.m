@@ -101,7 +101,6 @@
 			forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-
 				UIAlertController *alert = [UIAlertController
 																		alertControllerWithTitle:NSLocalizedString(@"really_delete_title", nil)
 																		message:NSLocalizedString(@"really_delete_message", nil)

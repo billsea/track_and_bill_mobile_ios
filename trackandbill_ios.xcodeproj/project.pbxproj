@@ -137,8 +137,6 @@
 		A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */; };
 		A9DF54951B0E6A1D009A9922 /* DateInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */; };
 		A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */; };
-		A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */; };
-		A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */; };
 		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
 		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
 		A9F56FAA20A4AD07006626D7 /* MilageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F56FAC20A4AD07006626D7 /* MilageViewController.xib */; };
@@ -388,9 +386,6 @@
 		A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateInputTableViewCell.h; sourceTree = "<group>"; };
 		A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateInputTableViewCell.m; sourceTree = "<group>"; };
 		A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateInputTableViewCell.xib; sourceTree = "<group>"; };
-		A9E04B1C1AF6A01400342210 /* ClientInvoicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientInvoicesTableViewController.h; sourceTree = "<group>"; };
-		A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientInvoicesTableViewController.m; sourceTree = "<group>"; };
-		A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientInvoicesTableViewController.xib; sourceTree = "<group>"; };
 		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
 		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
 		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
@@ -690,9 +685,6 @@
 				A9DC4C211AEAFB8E00A00892 /* InvoiceTableViewController.h */,
 				A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */,
 				A9DC4C231AEAFB8E00A00892 /* InvoiceTableViewController.xib */,
-				A9E04B1C1AF6A01400342210 /* ClientInvoicesTableViewController.h */,
-				A9E04B1D1AF6A01400342210 /* ClientInvoicesTableViewController.m */,
-				A9E04B1E1AF6A01400342210 /* ClientInvoicesTableViewController.xib */,
 				A9DC4C241AEAFB8E00A00892 /* MaterialsViewController.h */,
 				A9DC4C251AEAFB8E00A00892 /* MaterialsViewController.m */,
 				A9DC4C261AEAFB8E00A00892 /* MaterialsViewController.xib */,
@@ -886,7 +878,6 @@
 				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
 				A97544DC209CCCA40048387A /* Localizable.strings in Resources */,
 				A98F3CA420A22D4F007A32F2 /* xlarge_icons-50.png in Resources */,
-				A9E04B201AF6A01400342210 /* ClientInvoicesTableViewController.xib in Resources */,
 				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
 				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
 				A9DC4CA81AEAFB8E00A00892 /* Reader-Email@2x.png in Resources */,
@@ -946,7 +937,6 @@
 				A9DC4CB21AEAFB8E00A00892 /* ReaderContentPage.m in Sources */,
 				A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */,
 				A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */,
-				A9E04B1F1AF6A01400342210 /* ClientInvoicesTableViewController.m in Sources */,
 				A9DC4CC71AEAFB8E00A00892 /* SessionsTableViewController.m in Sources */,
 				A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */,
 				A9D972A7209A2EBD00A69D47 /* InvoiceTableViewCell.m in Sources */,

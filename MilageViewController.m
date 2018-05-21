@@ -192,7 +192,6 @@
 	CLLocationDistance meters = [manager.location distanceFromLocation:_lastLocation];
 	_totalMeters = _totalMeters + meters;
 	
-	//TODO: set metric or imperial
 	[self updatePickerView];
 
 	_lastLocation = manager.location;

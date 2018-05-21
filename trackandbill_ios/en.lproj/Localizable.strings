@@ -178,3 +178,7 @@
 "style_profile_alert" = "You must complete your profile before adding style";
 
 "logo" = "Invoice Image";
+
+"really_delete_title" = "Really Delete?";
+
+"really_delete_message" = "Are you sure you would like to delete?";
