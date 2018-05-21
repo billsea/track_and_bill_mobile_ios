@@ -21,9 +21,6 @@
   NSString *version = [[UIDevice currentDevice] systemVersion];
   NSLog(@"ios version: %@", version);
 
-  _currentSessions = [[NSMutableArray alloc] init];
-  _storedSessions = [[NSMutableArray alloc] init];
-	
 	[self addStyle];
 
   // add tabbed main view
@@ -39,7 +36,9 @@
   // and it begins the transition to the background state.
   // Use this method to pause ongoing tasks, disable timers, and throttle down
   // OpenGL ES frame rates. Games should use this method to pause the game.
-
+	
+	//save current date/time, as timer will stop
+	[self stopTimersAndStamp];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -66,7 +65,8 @@
   // using _timeSave date, calculate the amount of time the app was inactive,
   // and add to current sessions
 
-
+	NSDate * restoreDate = [NSDate date];
+	_secondsInBackground = [restoreDate timeIntervalSinceDate:_timeSave];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -74,6 +74,15 @@
   // appropriate. See also applicationDidEnterBackground:.
   // Saves changes in the application's managed object context before the
   // application terminates.
+}
+
+#pragma mark timers
+-(void)stopTimersAndStamp
+{
+	//save current date/time, as timer will stop when app(device) enters background
+	_timeSave = [NSDate date];
+	
+	//Stop timer?
 }
 
 #pragma mark Style

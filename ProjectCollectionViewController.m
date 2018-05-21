@@ -130,9 +130,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	newSession.start = [NSDate date];
 	[_project addSessionsObject:newSession];
 	
-	//keep track of current sessions
-	[_app.currentSessions addObject:newSession];
-	
 	// Session detail
 	SessionDetailCollectionViewController *sessionDetailCollectionViewController =
 	[[SessionDetailCollectionViewController alloc]

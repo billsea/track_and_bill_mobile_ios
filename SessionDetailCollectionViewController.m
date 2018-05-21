@@ -130,6 +130,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		_sessionTimer = [NSTimer scheduledTimerWithTimeInterval:1
 																										 target:self selector:@selector(updateTicks:) userInfo:nil
 																										repeats:YES];
+		
 	} else {
 		[_sessionTimer invalidate];
 	}
