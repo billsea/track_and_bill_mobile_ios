@@ -113,8 +113,9 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 }
 
 - (IBAction)updateTicks:(id)sender {
-	_ticks++;
-
+	NSTimeInterval secondsInBackground = [[NSDate date] timeIntervalSinceDate:_app.sessionStartTime];
+	_ticks = secondsInBackground;
+	
 	//update session timer label
 	DashboardCollectionViewCell* timerCell = (DashboardCollectionViewCell*)self.collectionView.visibleCells.firstObject;
 	NSArray* hms = [utility hoursMinutesAndSecondsFromTicks:_ticks];
@@ -127,10 +128,12 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_timerOn = timerSwitch.on;
 	
 	if(_timerOn){
+		_app.sessionStartTime = [NSDate dateWithTimeIntervalSinceNow:-(_ticks)];
+		
+
 		_sessionTimer = [NSTimer scheduledTimerWithTimeInterval:1
 																										 target:self selector:@selector(updateTicks:) userInfo:nil
 																										repeats:YES];
-		
 	} else {
 		[_sessionTimer invalidate];
 	}

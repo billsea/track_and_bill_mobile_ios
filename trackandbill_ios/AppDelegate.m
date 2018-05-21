@@ -25,7 +25,7 @@
 
   // add tabbed main view
   [self createNavigationRootView];
-
+	
   return YES;
 }
 
@@ -36,9 +36,6 @@
   // and it begins the transition to the background state.
   // Use this method to pause ongoing tasks, disable timers, and throttle down
   // OpenGL ES frame rates. Games should use this method to pause the game.
-	
-	//save current date/time, as timer will stop
-	[self stopTimersAndStamp];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -64,9 +61,6 @@
   // we'll track the amount of seconds the app is in the background.
   // using _timeSave date, calculate the amount of time the app was inactive,
   // and add to current sessions
-
-	NSDate * restoreDate = [NSDate date];
-	_secondsInBackground = [restoreDate timeIntervalSinceDate:_timeSave];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -76,14 +70,6 @@
   // application terminates.
 }
 
-#pragma mark timers
--(void)stopTimersAndStamp
-{
-	//save current date/time, as timer will stop when app(device) enters background
-	_timeSave = [NSDate date];
-	
-	//Stop timer?
-}
 
 #pragma mark Style
 - (void)addStyle {

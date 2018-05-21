@@ -19,8 +19,7 @@
 @property(readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property(readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property(nonatomic)DashboardCollectionViewController* dashboardViewController;
-@property(nonatomic) NSDate *timeSave;
-@property(nonatomic) NSTimeInterval secondsInBackground;
+@property(nonatomic) NSDate *sessionStartTime;
 - (void)saveContext;
 @end
 
