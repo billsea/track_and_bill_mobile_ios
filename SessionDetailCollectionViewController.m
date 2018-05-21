@@ -25,6 +25,7 @@
 	bool _timerOn;
 	NSTimer* _sessionTimer;
 	MilageViewController* _milageVC;
+	NSNumberFormatter *formatter;
 }
 @end
 
@@ -37,6 +38,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:_selectedProject.name];
+	
+	formatter = [[NSNumberFormatter alloc] init];
 	
 	//Add project start date with first session date
 	if(!_selectedProject.start)
@@ -111,6 +114,12 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 - (IBAction)updateTicks:(id)sender {
 	_ticks++;
+
+	//update session timer label
+	DashboardCollectionViewCell* timerCell = (DashboardCollectionViewCell*)self.collectionView.visibleCells.firstObject;
+	NSArray* hms = [utility hoursMinutesAndSecondsFromTicks:_ticks];
+	formatter.minimumIntegerDigits = 2;
+	timerCell.timeLabel.text = [NSString stringWithFormat:@"%@:%@:%@",[formatter stringFromNumber:hms[0]], [formatter stringFromNumber:hms[1]], [formatter stringFromNumber:hms[2]]];
 }
 
 - (IBAction)timerToggle:(id)sender {
@@ -151,6 +160,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		[cell.timerSwitch addTarget:self
 								action:@selector(timerToggle:)
 			forControlEvents:UIControlEventValueChanged];
+		
+		cell.timeLabel.hidden = NO;
 		cell.cellImage.hidden = YES;
 	}
 

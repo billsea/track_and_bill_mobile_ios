@@ -31,9 +31,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nqC-CK-RJ2">
-                        <rect key="frame" x="37" y="32" width="49" height="31"/>
+                        <rect key="frame" x="37" y="39" width="49" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </switch>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt5-7x-ic7">
+                        <rect key="frame" x="9" y="9" width="103" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,6 +48,7 @@
             <connections>
                 <outlet property="cellImage" destination="1tP-bi-NdB" id="3xz-FM-Jtm"/>
                 <outlet property="dashboardLabel" destination="nIQ-w6-4he" id="Btq-F3-kl9"/>
+                <outlet property="timeLabel" destination="Tt5-7x-ic7" id="Dn1-Lt-iat"/>
                 <outlet property="timerSwitch" destination="nqC-CK-RJ2" id="FLq-Aa-ww7"/>
             </connections>
         </collectionViewCell>

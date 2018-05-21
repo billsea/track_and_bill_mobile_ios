@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dashboardLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UISwitch *timerSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 
 @end
