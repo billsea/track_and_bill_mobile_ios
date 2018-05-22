@@ -30,6 +30,10 @@
 		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
 		A960805C2097EA7900A589A0 /* DateSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960805A2097EA7900A589A0 /* DateSelectViewController.m */; };
 		A960805D2097EA7900A589A0 /* DateSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A960805B2097EA7900A589A0 /* DateSelectViewController.xib */; };
+		A97299CE20B49846001975D7 /* faq-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A97299CD20B49846001975D7 /* faq-50.png */; };
+		A97299D020B4989E001975D7 /* help-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A97299CF20B4989E001975D7 /* help-50.png */; };
+		A97299D420B4996F001975D7 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97299D220B4996F001975D7 /* HelpViewController.m */; };
+		A97299D520B4996F001975D7 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97299D320B4996F001975D7 /* HelpViewController.xib */; };
 		A9729BB42068715900651DAB /* ProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9729BB22068715900651DAB /* ProjectCollectionViewController.m */; };
 		A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */; };
 		A97544DC209CCCA40048387A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97544DE209CCCA40048387A /* Localizable.strings */; };
@@ -199,6 +203,11 @@
 		A96080592097EA7900A589A0 /* DateSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateSelectViewController.h; sourceTree = "<group>"; };
 		A960805A2097EA7900A589A0 /* DateSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateSelectViewController.m; sourceTree = "<group>"; };
 		A960805B2097EA7900A589A0 /* DateSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectViewController.xib; sourceTree = "<group>"; };
+		A97299CD20B49846001975D7 /* faq-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faq-50.png"; sourceTree = "<group>"; };
+		A97299CF20B4989E001975D7 /* help-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-50.png"; sourceTree = "<group>"; };
+		A97299D120B4996F001975D7 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		A97299D220B4996F001975D7 /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		A97299D320B4996F001975D7 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		A9729BB12068715900651DAB /* ProjectCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectCollectionViewController.h; sourceTree = "<group>"; };
 		A9729BB22068715900651DAB /* ProjectCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectCollectionViewController.m; sourceTree = "<group>"; };
 		A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCollectionViewController.xib; sourceTree = "<group>"; };
@@ -547,6 +556,8 @@
 		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
 			isa = PBXGroup;
 			children = (
+				A97299CD20B49846001975D7 /* faq-50.png */,
+				A97299CF20B4989E001975D7 /* help-50.png */,
 				A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */,
 				A9B535A72098C94200EA543F /* mirror-50.png */,
 				A9BB79C92095443600274218 /* cargo_ship-50.png */,
@@ -727,6 +738,9 @@
 				A959F414209E2B8600B63DDC /* ExportSelectTableViewController.h */,
 				A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */,
 				A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */,
+				A97299D120B4996F001975D7 /* HelpViewController.h */,
+				A97299D220B4996F001975D7 /* HelpViewController.m */,
+				A97299D320B4996F001975D7 /* HelpViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -829,6 +843,7 @@
 				A9DF54901B0E57A4009A9922 /* tBill_appIcon_120.png in Resources */,
 				A9AAEFDC207E8958006BF1C6 /* stopwatch-50.png in Resources */,
 				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
+				A97299D520B4996F001975D7 /* HelpViewController.xib in Resources */,
 				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
 				A9CE75CA2069D27D00CBD406 /* SessionDetailCollectionViewController.xib in Resources */,
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
@@ -845,10 +860,12 @@
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
 				A94D0B80208576490052F7A5 /* surgical_scissors-50.png in Resources */,
 				A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */,
+				A97299CE20B49846001975D7 /* faq-50.png in Resources */,
 				A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
+				A97299D020B4989E001975D7 /* help-50.png in Resources */,
 				A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */,
 				A9B535A82098C94200EA543F /* mirror-50.png in Resources */,
 				A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */,
@@ -955,6 +972,7 @@
 				A9DC4C8C1AEAFB8E00A00892 /* ClientsTableViewController.m in Sources */,
 				A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */,
 				A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */,
+				A97299D420B4996F001975D7 /* HelpViewController.m in Sources */,
 				A959F417209E2B8600B63DDC /* ExportSelectTableViewController.m in Sources */,
 				A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */,
 				A99EABCC20ABC95800D7AC44 /* InvoiceStyleTableViewController.m in Sources */,

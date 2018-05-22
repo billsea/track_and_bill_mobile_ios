@@ -83,6 +83,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	 forControlEvents:UIControlEventTouchUpInside];
 	UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]
 																 initWithCustomView:exitButton];
+	
 	self.navigationItem.leftBarButtonItem = buttonItem;
 	
 }

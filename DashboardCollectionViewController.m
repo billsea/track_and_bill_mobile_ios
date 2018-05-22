@@ -12,6 +12,7 @@
 #import "InvoicesTableViewController.h"
 #import "DashboardCollectionViewCell.h"
 #import "StylesCollectionViewController.h"
+#import "HelpViewController.h"
 
 @interface DashboardCollectionViewController (){
 	NSMutableArray* _cellData;
@@ -29,7 +30,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	self.title = NSLocalizedString(@"dashboard", nil);
 	
-	_cellImages = @[@"groups", @"mirror", @"invoice", @"administrator"];
+	_cellImages = @[@"groups", @"mirror", @"invoice", @"administrator",@"help"];
 	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
@@ -53,7 +54,15 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 																					 bundle:nil];
 	NSMutableDictionary* profileDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", NSLocalizedString(@"profile", nil),@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, invoicesDict, profileDict, nil];
+	
+	
+	HelpViewController* helpVC = [[HelpViewController alloc]
+																					 initWithNibName:@"HelpViewController"
+																					 bundle:nil];
+	NSMutableDictionary* helpDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:helpVC, @"vc", NSLocalizedString(@"help", nil),@"title", nil];
+	
+	
+	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, invoicesDict, profileDict, helpDict, nil];
 	
 
     // Register cell classes
@@ -120,34 +129,5 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	[[self navigationController] pushViewController:[[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"] animated:YES];
 }
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
