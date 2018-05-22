@@ -135,7 +135,7 @@
 
 "Date" = "Date";
 
-"profile_alert" = "You must complete your personal profile before creating an invoice.";
+"profile_alert" = "You must complete your profile, or turn off \"Show Invoice Header\" in Style settings, before creating an invoice.";
 
 "profile_missing" = "Missing Profile";
 
@@ -182,4 +182,6 @@
 "really_delete_title" = "Really Delete?";
 
 "really_delete_message" = "Are you sure you would like to delete?";
+
+"help" = "Help";
 

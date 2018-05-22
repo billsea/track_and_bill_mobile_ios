@@ -363,7 +363,7 @@
   // get client info
 	Client *selClient = _selectedProject.clients;
 	
-  if (_myProfile) {
+  if ((_myProfile && ![_myProfile.name isEqualToString:@""]) || !_myProfile.show_invoice_header) {
     [self beginPDFPage];
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

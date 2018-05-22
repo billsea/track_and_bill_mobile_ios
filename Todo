@@ -1,25 +1,17 @@
 
-////Bugs////////////
-- Form input validation(sessionEditTableView, InvoiceTableView)
-    - In custom view which includes a date picker, for date, and picker view for number input
-        - Number picker is currently displaying only single digits
-            - need to have the picker show two components(i.e. hours, or dollars and cents)
-        - Add number picker to invoice view.
+//Bugs
+Do some Unit tests
 
-- Create invoice form is not preserving field values on scroll.
-- PDF Exporter view "Done" button is not working. could be because of some cleanup work.
+//Features
+Add Translation to localized files
+Startup graphic
+- App Icon
+	- Use simple graphic
+- Add NUI to app, and work with styling
+- Collection view icons(enhance)
 
-////Enhancements ///////
-	- Change project table to collection view, and anywhere else where there's a finite number of cells
-	- If no profile exists when creating invoice, user should be taken to the profile settings view, in addition to displaying alert.
-	- App Icon
-		- Use simple clock or gear with dollar sign in middle
-	- Add NUI to app, and work with styling
-	- Project create should include button to start a session.
-	- On first launch, prompt to complete settings profile
-	- Update model classes...Maybe try NSManagedObject with core data?
+- Complete website help
 
-////Advertisements //////
-	- Implement AdMob(with pm_sales account!)
-	- Add banner to each view
-	- Add full view interstitial when user creates an invoice.
+//Ads
+- Implement AdMob(with pm_sales account!)
+- Add full view interstitial when user creates an invoice.
