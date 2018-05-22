@@ -26,6 +26,11 @@
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:animated];
+	[self loadData];
+}
+
 - (void)loadData{
 	_data = _selectedProject.sessions.allObjects;
 	[self.tableView reloadData];
