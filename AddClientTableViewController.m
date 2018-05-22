@@ -40,7 +40,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-  [self save];
+	if(![[self valueForTextCellWithIndex:0] isEqualToString:@""])
+		[self save];
 }
 
 - (void)fetchData {
@@ -123,19 +124,6 @@
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
   [[self view] endEditing:YES];
 }
-
-//- (NSNumber *)createClientID {
-//  AppDelegate *appDelegate =
-//      (AppDelegate *)[UIApplication sharedApplication].delegate;
-//  NSNumber *newId = [[NSNumber alloc] initWithLong:0];
-//
-//  if ([[appDelegate arrClients] count] > 0) {
-//    Client *lastClient = (Client *)[[appDelegate arrClients]
-//        objectAtIndex:[[appDelegate arrClients] count] - 1];
-//    newId = [NSNumber numberWithLong:lastClient.clientID.longValue + 1];
-//  }
-//  return newId;
-//}
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
