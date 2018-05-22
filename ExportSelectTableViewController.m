@@ -69,10 +69,13 @@
 
 - (void)createAndSendCSVfile {
 	NSString *separator = @", ";
-	_csv = [NSString stringWithFormat:@"Date,Hours,Minutes,Seconds,Milage,Materials,Notes\n"];
 	
+	//Header
+	_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@\n",  NSLocalizedString(@"project_name", nil), separator, NSLocalizedString(@"date", nil), separator, NSLocalizedString(@"hours", nil), separator, NSLocalizedString(@"minutes", nil), separator, NSLocalizedString(@"seconds", nil),separator,NSLocalizedString(@"milage", nil),separator,NSLocalizedString(@"materials", nil),separator,NSLocalizedString(@"notes", nil)];
+	
+	//Rows
 	for (Session *s in _selectedProject.sessions) {
-		_csv = [NSString stringWithFormat:@"%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
+		_csv = [NSString stringWithFormat:@"%@%@%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, _selectedProject.name, separator, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
 	}
 	
 	[self emailCSV];
