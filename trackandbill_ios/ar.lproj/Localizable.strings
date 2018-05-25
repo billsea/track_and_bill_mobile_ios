@@ -9,94 +9,170 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
-/* No comment provided by engineer. */
-"address" = "Address";
+"ok" = "OK";
+
+"yes" = "Yes";
+
+"no" = "No";
+
+"cancel" = "Cancel";
 
 "add_notes" = "Add Notes";
 
-/* No comment provided by engineer. */
-"city" = "City";
-
-/* No comment provided by engineer. */
-"client_name" = "Client Name";
-
-/* No comment provided by engineer. */
-"clients" = "Clients";
-
 "styles" = "Styles";
 
-/* No comment provided by engineer. */
+"address" = "Address";
+
+"city" = "City";
+
+"client_name" = "Client Name";
+
+"clients" = "Clients";
+
 "contact_person" = "Contact Person";
 
-/* No comment provided by engineer. */
 "country" = "Country";
 
-/* button */
 "done" = "Done";
 
-/* No comment provided by engineer. */
 "email" = "Email";
 
-/* No comment provided by engineer. */
 "new" = "New";
 
-/* No comment provided by engineer. */
 "new_client" = "New Client";
 
-/* No comment provided by engineer. */
 "new_project" = "New Project";
 
 "dashboard" = "Dashboard";
 
-/* No comment provided by engineer. */
+"edit_session" = "Edit Session";
+
 "phone" = "Phone";
 
-"start_stop_timer" = "Start - Stop Timer";
-
-/* No comment provided by engineer. */
 "postal_code" = "Postal Code";
 
-/* No comment provided by engineer. */
 "profile" = "Profile";
 
-/* No comment provided by engineer. */
 "project_name" = "Project Name";
 
-/* No comment provided by engineer. */
+"date" = "Date";
+
+"hours" = "Hours";
+
+"minutes" = "Minutes";
+
+"seconds" = "Seconds";
+
 "start_date" = "Start Date";
 
-/* No comment provided by engineer. */
+"complete_date" = "Completion Date";
+
+"notes" = "Notes";
+
 "state" = "State";
 
-/* No comment provided by engineer. */
 "name_company" = "Your Name or Company";
 
 "save_and_exit" = "Save & Exit";
 
-"miles_driven" = "Miles Driven";
+"milage_tracking" = "Milage Tracking";
+
+"track_milage" = "Start Tracking Milage";
 
 "session_notes" = "Session Notes";
 
 "materials" = "Materials";
 
+"materials_cost" = "Materials Cost";
+
+"milage" = "Milage";
+
+"milage_rate" = "Milage Rate";
+
 "invoice" = "Invoice";
+
+"invoice_date" = "Invoice Date";
+
+"invoice_rate" = "Invoice Rate";
+
+"deposit" = "Deposit";
+
+"terms_of_payment" = "Terms";
+
+"approved_by" = "Approved By";
+
+"check_num" = "Check #";
 
 "new_session" = "New Session";
 
 "edit_sessions" = "Edit Sessions";
 
-"invoice" = "Invoice";
-
 "invoices" = "Invoices";
 
 "export" = "Export";
 
-"Date" = "Date";
-
-"profile_alert" = "You must complete your personal profile before creating an invoice.";
+"profile_alert" = "You must complete your profile, or turn off \"Show Invoice Header\" in Style settings, before creating an invoice.";
 
 "profile_missing" = "Missing Profile";
+
+"invoice_number" = "Invoice Number";
+
+"show_invoice_header" = "Show Invoice Header";
+
+"invoice_style" = "Invoice Style";
+
+"total_hours_mins_secs" = "Total Time";
+
+"start_stop_timer" = "Start - Stop Timer";
 
 "timer_running" = "Timer is Running";
 
 "stop_timer" = "Please stop timer before continuing.";
+
+"milage_running" = "Milage tracking is running";
+
+"stop_milage" = "Please stop milage tracking before continuing.";
+
+"use_metric" = "Use Metric";
+
+"miles_col" = "Miles";
+
+"save_export" = "Save & Export";
+
+"km_col" = "Kilometers";
+
+"tenths" = "Tenths";
+
+"csv_file" = "Comma Separated Values File (CSV)";
+
+"email_csv" = "Email CSV File";
+
+"csv_export_attach" = "CSV_Sessions.csv";
+
+"csv_email_subject" = "Sessions CSV Export";
+
+"csv_email_body" = "Sessions CSV export file is attached.";
+
+"style_profile_alert" = "You must complete your profile before adding style";
+
+"logo" = "Invoice Image";
+
+"really_delete_title" = "Really Delete?";
+
+"really_delete_message" = "Are you sure you would like to delete?";
+
+"help" = "Help";
+
+"total_due" = "Total Due";
+
+"sub_total" = "Sub Total";
+
+"milage_total" = "Total Milage";
+
+"total_hours" = "Total Hours";
+
+"services" = "Services";
+
+"end_date" = "End Date";
+
+"save_export" = "Save & Print";
