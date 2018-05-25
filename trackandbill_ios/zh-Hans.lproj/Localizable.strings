@@ -9,170 +9,170 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
-"ok" = "OK";
+"ok" = "确定";
 
-"yes" = "Yes";
+"yes" = "是的";
 
-"no" = "No";
+"no" = "无";
 
-"cancel" = "Cancel";
+"cancel" = "取消";
 
-"add_notes" = "Add Notes";
+"add_notes" = "添加注释";
 
-"styles" = "Styles";
+"styles" = "样式。";
 
-"address" = "Address";
+"address" = "地址。";
 
-"city" = "City";
+"city" = "市";
 
-"client_name" = "Client Name";
+"client_name" = "客户机名称。";
 
-"clients" = "Clients";
+"clients" = "客户机";
 
-"contact_person" = "Contact Person";
+"contact_person" = "联络人";
 
-"country" = "Country";
+"country" = "国家/地区";
 
-"done" = "Done";
+"done" = "做";
 
-"email" = "Email";
+"email" = "电子邮件";
 
-"new" = "New";
+"new" = "新";
 
-"new_client" = "New Client";
+"new_client" = "新的客户机";
 
-"new_project" = "New Project";
+"new_project" = "新的项目。";
 
-"dashboard" = "Dashboard";
+"dashboard" = "仪表板";
 
-"edit_session" = "Edit Session";
+"edit_session" = "编辑会议";
 
-"phone" = "Phone";
+"phone" = "电话";
 
-"postal_code" = "Postal Code";
+"postal_code" = "邮政编码";
 
-"profile" = "Profile";
+"profile" = "配置文件";
 
-"project_name" = "Project Name";
+"project_name" = "项目名称";
 
-"date" = "Date";
+"date" = "日期";
 
-"hours" = "Hours";
+"hours" = "小时";
 
-"minutes" = "Minutes";
+"minutes" = "分钟";
 
-"seconds" = "Seconds";
+"seconds" = "秒";
 
-"start_date" = "Start Date";
+"start_date" = "开始日期";
 
-"complete_date" = "Completion Date";
+"complete_date" = "完成日期";
 
-"notes" = "Notes";
+"notes" = "注释";
 
-"state" = "State";
+"state" = "国家";
 
-"name_company" = "Your Name or Company";
+"name_company" = "您的姓名或公司。";
 
-"save_and_exit" = "Save & Exit";
+"save_and_exit" = "保存并退出";
 
-"milage_tracking" = "Milage Tracking";
+"milage_tracking" = "旅行的跟踪";
 
-"track_milage" = "Start Tracking Milage";
+"track_milage" = "开始跟踪的旅行";
 
-"session_notes" = "Session Notes";
+"session_notes" = "会话注释";
 
-"materials" = "Materials";
+"materials" = "材料。";
 
-"materials_cost" = "Materials Cost";
+"materials_cost" = "物料成本";
 
-"milage" = "Milage";
+"milage" = "差旅费";
 
-"milage_rate" = "Milage Rate";
+"milage_rate" = "旅费";
 
-"invoice" = "Invoice";
+"invoice" = "发票";
 
-"invoice_date" = "Invoice Date";
+"invoice_date" = "发票日期。";
 
-"invoice_rate" = "Invoice Rate";
+"invoice_rate" = "发票的速率";
 
-"deposit" = "Deposit";
+"deposit" = "存款";
 
-"terms_of_payment" = "Terms";
+"terms_of_payment" = "条款";
 
-"approved_by" = "Approved By";
+"approved_by" = "批准的";
 
-"check_num" = "Check #";
+"check_num" = "检查#";
 
-"new_session" = "New Session";
+"new_session" = "新的会话";
 
-"edit_sessions" = "Edit Sessions";
+"edit_sessions" = "编辑会议";
 
-"invoices" = "Invoices";
+"invoices" = "发票。";
 
-"export" = "Export";
+"export" = "导出";
 
-"profile_alert" = "You must complete your profile, or turn off \"Show Invoice Header\" in Style settings, before creating an invoice.";
+"profile_alert" = "您必须完成您的配置文件，或者关闭 - 显示发票标题 - 在样式的设置，然后再创建一张发票。";
 
-"profile_missing" = "Missing Profile";
+"profile_missing" = "缺少的配置文件";
 
-"invoice_number" = "Invoice Number";
+"invoice_number" = "发票编号";
 
-"show_invoice_header" = "Show Invoice Header";
+"show_invoice_header" = "显示发票标题";
 
-"invoice_style" = "Invoice Style";
+"invoice_style" = "发票样式";
 
-"total_hours_mins_secs" = "Total Time";
+"total_hours_mins_secs" = "总时间。";
 
-"start_stop_timer" = "Start - Stop Timer";
+"start_stop_timer" = "开始-停止计时器";
 
-"timer_running" = "Timer is Running";
+"timer_running" = "计时器正在运行";
 
-"stop_timer" = "Please stop timer before continuing.";
+"stop_timer" = "在继续之前，请先停止计时器。";
 
-"milage_running" = "Milage tracking is running";
+"milage_running" = "旅行跟踪正在运行";
 
-"stop_milage" = "Please stop milage tracking before continuing.";
+"stop_milage" = "请停止旅行的跟踪，然后再继续。";
 
-"use_metric" = "Use Metric";
+"use_metric" = "使用度量";
 
-"miles_col" = "Miles";
+"miles_col" = "英里";
 
-"save_export" = "Save & Export";
+"save_export" = "保存并导出";
 
-"km_col" = "Kilometers";
+"km_col" = "公里";
 
-"tenths" = "Tenths";
+"tenths" = "0.1";
 
-"csv_file" = "Comma Separated Values File (CSV)";
+"csv_file" = "逗号分隔的值文件 - CSV 格式";
 
-"email_csv" = "Email CSV File";
+"email_csv" = "CSV 文件的电子邮件";
 
-"csv_export_attach" = "CSV_Sessions.csv";
+"csv_export_attach" = "tb_export.csv";
 
-"csv_email_subject" = "Sessions CSV Export";
+"csv_email_subject" = "会话的 CSV 导出";
 
-"csv_email_body" = "Sessions CSV export file is attached.";
+"csv_email_body" = "会话的 CSV 导出文件附后。";
 
-"style_profile_alert" = "You must complete your profile before adding style";
+"style_profile_alert" = "您必须完成您的配置文件中，然后再添加样式";
 
-"logo" = "Invoice Image";
+"logo" = "发票图像";
 
-"really_delete_title" = "Really Delete?";
+"really_delete_title" = "真的要删除吗";
 
-"really_delete_message" = "Are you sure you would like to delete?";
+"really_delete_message" = "您确定要删除吗";
 
-"help" = "Help";
+"help" = "帮助";
 
-"total_due" = "Total Due";
+"total_due" = "总到期";
 
-"sub_total" = "Sub Total";
+"sub_total" = "小计";
 
-"milage_total" = "Total Milage";
+"milage_total" = "总行程";
 
-"total_hours" = "Total Hours";
+"total_hours" = "总小时数";
 
-"services" = "Services";
+"services" = "服务。";
 
-"end_date" = "End Date";
+"end_date" = "结束日期";
 
-"save_export" = "Save & Print";
+"save_export" = "保存和打印";
