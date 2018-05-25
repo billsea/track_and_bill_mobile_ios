@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  [[self navigationItem] setTitle: NSLocalizedString(@"New Client",nil)];
+  [[self navigationItem] setTitle: NSLocalizedString(@"new_client",nil)];
 
 	//data field sequence must match form fields sequence
 	_dataFields = @[@"name",@"contact",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email"];

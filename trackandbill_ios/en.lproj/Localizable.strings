@@ -9,8 +9,6 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
-
-//basic
 "ok" = "OK";
 
 "yes" = "Yes";
@@ -23,53 +21,38 @@
 
 "styles" = "Styles";
 
-/* No comment provided by engineer. */
 "address" = "Address";
 
-/* No comment provided by engineer. */
 "city" = "City";
 
-/* No comment provided by engineer. */
 "client_name" = "Client Name";
 
-/* No comment provided by engineer. */
 "clients" = "Clients";
 
-/* No comment provided by engineer. */
 "contact_person" = "Contact Person";
 
-/* No comment provided by engineer. */
 "country" = "Country";
 
-/* button */
 "done" = "Done";
 
-/* No comment provided by engineer. */
 "email" = "Email";
 
-/* No comment provided by engineer. */
 "new" = "New";
 
-/* No comment provided by engineer. */
 "new_client" = "New Client";
 
-/* No comment provided by engineer. */
 "new_project" = "New Project";
 
 "dashboard" = "Dashboard";
 
 "edit_session" = "Edit Session";
 
-/* No comment provided by engineer. */
 "phone" = "Phone";
 
-/* No comment provided by engineer. */
 "postal_code" = "Postal Code";
 
-/* No comment provided by engineer. */
 "profile" = "Profile";
 
-/* No comment provided by engineer. */
 "project_name" = "Project Name";
 
 "date" = "Date";
@@ -80,17 +63,14 @@
 
 "seconds" = "Seconds";
 
-/* No comment provided by engineer. */
 "start_date" = "Start Date";
 
 "complete_date" = "Completion Date";
 
 "notes" = "Notes";
 
-/* No comment provided by engineer. */
 "state" = "State";
 
-/* No comment provided by engineer. */
 "name_company" = "Your Name or Company";
 
 "save_and_exit" = "Save & Exit";
@@ -127,13 +107,9 @@
 
 "edit_sessions" = "Edit Sessions";
 
-"invoice" = "Invoice";
-
 "invoices" = "Invoices";
 
 "export" = "Export";
-
-"Date" = "Date";
 
 "profile_alert" = "You must complete your profile, or turn off \"Show Invoice Header\" in Style settings, before creating an invoice.";
 
@@ -161,6 +137,8 @@
 
 "miles_col" = "Miles";
 
+"save_export" = "Save & Export";
+
 "km_col" = "Kilometers";
 
 "tenths" = "Tenths";
@@ -184,4 +162,20 @@
 "really_delete_message" = "Are you sure you would like to delete?";
 
 "help" = "Help";
+
+"total_due" = "Total Due";
+
+"sub_total" = "Sub Total";
+
+"milage_total" = "Total Milage";
+
+"total_hours" = "Total Hours";
+
+"services" = "Services";
+
+"end_date" = "End Date";
+
+"save_export" = "Save & Print";
+
+
 

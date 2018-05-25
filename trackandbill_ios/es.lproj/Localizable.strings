@@ -1,91 +1,178 @@
-/* 
-  Localizable.strings
-  trackandbill_ios
-
-  Created by Loud on 5/4/18.
-  Copyright © 2018 loudsoftware. All rights reserved.
-*/
+/*
+ Localizable.strings
+ trackandbill_ios
+ 
+ Created by Loud on 5/4/18.
+ Copyright © 2018 loudsoftware. All rights reserved.
+ */
 
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
-/* No comment provided by engineer. */
-"address" = "Address";
+"ok" = "OK";
 
-/* No comment provided by engineer. */
-"city" = "City";
+"yes" = "Sí";
 
-/* No comment provided by engineer. */
-"client_name" = "Client Name";
+"no" = "No";
 
-/* No comment provided by engineer. */
-"clients" = "Clients";
+"cancel" = "Cancelar";
 
-/* No comment provided by engineer. */
-"contact_person" = "Contact Person";
+"add_notes" = "Agregar notas";
 
-/* No comment provided by engineer. */
-"country" = "Country";
+"styles" = "Estilos";
 
-/* button */
-"done" = "Done";
+"address" = "Dirección";
 
-/* No comment provided by engineer. */
-"email" = "Email";
+"city" = "Ciudad";
 
-/* No comment provided by engineer. */
-"new" = "New";
+"client_name" = "Nombre de cliente";
 
-/* No comment provided by engineer. */
-"new_client" = "New Client";
+"clients" = "Clientes";
 
-/* No comment provided by engineer. */
-"new_project" = "New Project";
+"contact_person" = "Persona de contacto";
 
-/* No comment provided by engineer. */
-"phone" = "Phone";
+"country" = "País";
 
-/* No comment provided by engineer. */
-"postal_code" = "Postal Code";
+"done" = "Hecho";
 
-/* No comment provided by engineer. */
-"profile" = "Profile";
+"email" = "Correo electrónico";
 
-/* No comment provided by engineer. */
-"project_name" = "Project Name";
+"new" = "Nuevo";
 
-/* No comment provided by engineer. */
-"start_date" = "Start Date";
+"new_client" = "Nuevo cliente";
 
-/* No comment provided by engineer. */
-"state" = "State";
+"new_project" = "Nuevo proyecto";
 
-/* No comment provided by engineer. */
-"name_company" = "Your Name or Company";
+"dashboard" = "Dashboard";
 
-"save_and_exit" = "Save & Exit";
+"edit_session" = "Editar sesiones";
 
-"miles_driven" = "Miles Driven";
+"phone" = "teléfono";
 
-"session_notes" = "Session Notes";
+"postal_code" = "Código Postal";
 
-"materials" = "Materials";
+"profile" = "Perfil";
 
-"invoice" = "Invoice";
+"project_name" = "Nombre del proyecto";
 
-"new_session" = "New Session";
+"date" = "Fecha";
 
-"edit_sessions" = "Edit Sessions";
+"hours" = "Horas";
 
-"invoice" = "Invoice";
+"minutes" = "Minutos";
 
-"invoices" = "Invoices";
+"seconds" = "Segundos";
 
-"export" = "Export";
+"start_date" = "Fecha de inicio";
 
-"Date" = "Date";
+"complete_date" = "Fecha de finalización";
 
-"profile_alert" = "You must complete your personal profile before creating an invoice.";
+"notes" = "Notas";
 
-"profile_missing" = "Missing Profile";
+"state" = "Estado";
 
+"name_company" = "Tu Nombre o Empresa";
+
+"save_and_exit" = "Guardar y Salir";
+
+"milage_tracking" = "Millaje Seguimiento";
+
+"track_milage" = "Iniciar el seguimiento de millaje";
+
+"session_notes" = "Notas de sesiones";
+
+"materials" = "Materiales";
+
+"materials_cost" = "El costo de los materiales";
+
+"milage" = "Millaje";
+
+"milage_rate" = "Tarifa de Millaje";
+
+"invoice" = "Factura";
+
+"invoice_date" = "Fecha de factura";
+
+"invoice_rate" = "tarifa de facturación";
+
+"deposit" = "Depósito";
+
+"terms_of_payment" = "Términos";
+
+"approved_by" = "Aprobado por";
+
+"check_num" = "Verificar #";
+
+"new_session" = "Nueva sesión";
+
+"edit_sessions" = "Editar sesiones";
+
+"invoices" = "Facturas";
+
+"export" = "Exportación";
+
+"profile_alert" = "Debe completar su perfil, o bien desactivar \"Mostrar encabezado de factura\" de cabecera de factura en ajustes de estilo, antes de crear una factura.";
+
+"profile_missing" = "Falta de perfil";
+
+"invoice_number" = "Número de factura";
+
+"show_invoice_header" = "Mostrar encabezado de factura";
+
+"invoice_style" = "Estilo de factura";
+
+"total_hours_mins_secs" = "Tiempo Total";
+
+"start_stop_timer" = "Temporizador de parada - inicio";
+
+"timer_running" = "Temporizador está en marcha";
+
+"stop_timer" = "Detenga el temporizador antes de continuar.";
+
+"milage_running" = "Millaje seguimiento está corriendo";
+
+"stop_milage" = "Por favor deje de millaje en el seguimiento antes de continuar.";
+
+"use_metric"  = "Utilice métricas";
+
+"miles_col" = "millas";
+
+"km_col" = "kilómetros";
+
+"tenths" = "décimas";
+
+"csv_file" = "Archivo de valores separados por comas (CSV)";
+
+"email_csv" = "Correo electrónico de archivo CSV";
+
+"csv_export_attach" = "CSV_Sesiones.csv";
+
+"csv_email_subject" = "Sesiones de exportación CSV";
+
+"csv_email_body" = "Sesiones se adjunta el archivo de exportación CSV.";
+
+"style_profile_alert" = "Debe completar su perfil antes de agregar estilo";
+
+"logo" = "Imagen de factura";
+
+"really_delete_title" = "Realmente eliminar?";
+
+"really_delete_message" = "Está seguro que desea eliminar?";
+
+"help" = "Ayuda";
+
+"Save_export" = "Guardar y exportar";
+
+"total_due" = "Total a pagar";
+
+"sub_total" = "Subtotal";
+
+"milage_total" = "Total de millaje";
+
+"total_hours" = "Total de horas";
+
+"services" = "Servicios";
+
+"end_date" = "Fecha Final";
+
+"save_export" = "Guardar e imprimir";

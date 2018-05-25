@@ -55,6 +55,8 @@
 																	reuseIdentifier:CellIdentifier];
 	}
 
+	cell.textLabel.numberOfLines = 2;
+	[cell.textLabel setFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
 	cell.textLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
 	return cell;
 }

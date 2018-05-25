@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 	
-  [[self navigationItem] setTitle: NSLocalizedString(@"Profile",nil)];
+  [[self navigationItem] setTitle: NSLocalizedString(@"profile",nil)];
 
 	_dataFields = @[@"name",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email",@"contact"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];

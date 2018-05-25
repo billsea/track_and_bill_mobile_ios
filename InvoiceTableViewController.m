@@ -64,7 +64,7 @@
 
   // add help navigation bar button
   self.previewButton = [[UIBarButtonItem alloc]
-      initWithTitle:@"Save & Export"
+      initWithTitle:NSLocalizedString(@"save_export", nil)
               style:UIBarButtonItemStylePlain
              target:self
              action:@selector(exportInvoice:)];
@@ -381,7 +381,7 @@ if(_myProfile.show_invoice_header){
 	
 	CGRect nameRect = [self addText:_myProfile.name withFrame:beginRect
 					 fontSize:32.0f];
-	CGRect invoiceRect = [self addText:[NSString stringWithFormat:@"Invoice #%lld", _selectedProject.invoices.number]
+	CGRect invoiceRect = [self addText:[NSString stringWithFormat:@"%@ #%lld", NSLocalizedString(@"invoice", nil), _selectedProject.invoices.number]
 					withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10, _pageSize.width / 3, 4)
 					fontSize:24.0f];
 	CGRect addressRect = [self addText:_myProfile.address
@@ -410,7 +410,7 @@ if(_myProfile.show_invoice_header){
 
 	// project/client info
 	NSString *clientName =
-			[NSString stringWithFormat:@"Client: %@", _selectedProject.invoices.client_name];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"client_name", nil), _selectedProject.invoices.client_name];
 	CGRect clientRect =
 			[self addText:clientName
 					withFrame:CGRectMake(kMarginPadding,
@@ -420,7 +420,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *clientAddress =
-			[NSString stringWithFormat:@"Address: %@", selClient.address];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"address", nil), selClient.address];
 	CGRect clientAddressRect =
 			[self addText:clientAddress
 					withFrame:CGRectMake(kMarginPadding,
@@ -430,7 +430,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *clientCity =
-			[NSString stringWithFormat:@"City: %@", [selClient city]];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"city", nil), [selClient city]];
 	CGRect clientCityRect =
 			[self addText:clientCity
 					withFrame:CGRectMake(kMarginPadding,
@@ -440,7 +440,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *clientState =
-			[NSString stringWithFormat:@"State: %@", selClient.state];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"state", nil), selClient.state];
 	CGRect clientStateRect =
 			[self addText:clientState
 					withFrame:CGRectMake(kMarginPadding,
@@ -450,7 +450,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *clientZip =
-			[NSString stringWithFormat:@"Postal Code: %@", selClient.postalcode];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"postal_code", nil), selClient.postalcode];
 	CGRect clientZipRect =
 			[self addText:clientZip
 					withFrame:CGRectMake(kMarginPadding,
@@ -461,7 +461,7 @@ if(_myProfile.show_invoice_header){
 
 	// client column 2
 	NSString *projectName =
-			[NSString stringWithFormat:@"Project: %@", _selectedProject.invoices.project_name];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"project_name", nil), _selectedProject.invoices.project_name];
 	CGRect projectRect =
 			[self addText:projectName
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -470,7 +470,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *startDate =
-			[NSString stringWithFormat:@"Start Date: %@",
+			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"start_date", nil),
 																 [df stringFromDate:_selectedProject.invoices.start]];
 	CGRect startRect =
 			[self addText:startDate
@@ -481,7 +481,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *endDate =
-			[NSString stringWithFormat:@"End Date: %@",
+			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"end_date", nil),
 																 [df stringFromDate:_selectedProject.invoices.end]];
 	CGRect endRect =
 			[self addText:endDate
@@ -492,7 +492,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *terms =
-			[NSString stringWithFormat:@"Terms: %@",_selectedProject.invoices.terms];
+			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"terms_of_payment", nil), _selectedProject.invoices.terms];
 	CGRect termsRect = [self
 				addText:terms
 			withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -501,7 +501,7 @@ if(_myProfile.show_invoice_header){
 			 fontSize:21.0f];
 
 	NSString *approval = [NSString
-			stringWithFormat:@"Approved By: %@", _selectedProject.invoices.approvedby];
+			stringWithFormat:@"%@: %@", NSLocalizedString(@"approved_by", nil), _selectedProject.invoices.approvedby];
 	CGRect approvalRect =
 			[self addText:approval
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -520,7 +520,7 @@ if(_myProfile.show_invoice_header){
 																	_pageSize.width - (kMarginPadding * 2), 4)
 						 withColor:[UIColor blackColor]];
 
-	NSString *serviceLabel = [NSString stringWithFormat:@"%@", @"Services:"];
+		NSString *serviceLabel = [NSString stringWithFormat:@"%@:", NSLocalizedString(@"services", nil)];
 	CGRect serviceRect =
 			[self addText:serviceLabel
 					withFrame:CGRectMake(kMarginPadding,
@@ -556,7 +556,7 @@ if(_myProfile.show_invoice_header){
 																	_pageSize.width - (kMarginPadding * 2), 4)
 						 withColor:[UIColor blackColor]];
 
-	NSString *materialsLabel = [NSString stringWithFormat:@"%@", @"Materials:"];
+		NSString *materialsLabel = [NSString stringWithFormat:@"%@:",NSLocalizedString(@"materials", nil)];
 	CGRect materialsLabelRect =
 			[self addText:materialsLabel
 					withFrame:CGRectMake(kMarginPadding,
@@ -584,7 +584,7 @@ if(_myProfile.show_invoice_header){
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
-		NSString *milage = [NSString stringWithFormat:@"Milage: %@ total miles", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.mileage]]];
+		NSString *milage = [NSString stringWithFormat:@"%@: %@ %@",NSLocalizedString(@"milage", nil), [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.mileage]],NSLocalizedString(@"total_miles", nil)];
 	CGRect milageRect =
 			[self addText:milage
 					withFrame:CGRectMake(kMarginPadding,
@@ -594,7 +594,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *milageRate =
-		[NSString stringWithFormat:@"Milage rate: %@", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.milage_rate]]];
+		[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"milage_rate", nil), [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.milage_rate]]];
 	CGRect milageRateRect =
 			[self addText:milageRate
 					withFrame:CGRectMake(kMarginPadding,
@@ -613,7 +613,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *checkNumber = [NSString
-			stringWithFormat:@"Paid Check #: %@", _selectedProject.invoices.check];
+			stringWithFormat:@"%@: %@", NSLocalizedString(@"check_num", nil),_selectedProject.invoices.check];
 	CGRect checkNumberRect =
 			[self addText:checkNumber
 					withFrame:CGRectMake(kMarginPadding,
@@ -625,7 +625,7 @@ if(_myProfile.show_invoice_header){
 	// Totals column 2
 
 	NSString *tHours =
-			[NSString stringWithFormat:@"Hours: %@", _selectedProject.invoices.total_time];
+			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"hours", nil),_selectedProject.invoices.total_time];
 	CGRect hoursRect =
 			[self addText:tHours
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -634,9 +634,7 @@ if(_myProfile.show_invoice_header){
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
-	NSString *tRate = [NSString
-			stringWithFormat:
-					@"Rate: %@",
+	NSString *tRate = [NSString stringWithFormat: @"%@: %@", NSLocalizedString(@"invoice_rate", nil),
 					[self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.rate]]];
 	CGRect rateRect =
 			[self addText:tRate
@@ -647,7 +645,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *tSubtotalHours = [NSString
-			stringWithFormat:@"Hours Total: %@", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due]]];
+			stringWithFormat:@"%@: %@", NSLocalizedString(@"total_hours", nil),[self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due]]];
 	CGRect subtotalHoursRect =
 			[self addText:tSubtotalHours
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -656,10 +654,7 @@ if(_myProfile.show_invoice_header){
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:21.0f];
 
-	NSString *materialsTotal = [NSString
-			stringWithFormat:
-					@"Materials: %@",
-					[self
+	NSString *materialsTotal = [NSString stringWithFormat: @"%@: %@", NSLocalizedString(@"materials", nil),[self
 							formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.materials_cost]]];
 	CGRect materialsRect =
 			[self addText:materialsTotal
@@ -672,7 +667,7 @@ if(_myProfile.show_invoice_header){
 	float transpoCost = (_selectedProject.invoices.mileage *
 											 _selectedProject.invoices.milage_rate);
 	NSString *milageTotal =
-			[NSString stringWithFormat:@"Milage Total: %.2f", transpoCost];
+			[NSString stringWithFormat:@"%@: %.2f", NSLocalizedString(@"milage_total", nil),transpoCost];
 	CGRect milageTotalRect =
 			[self addText:milageTotal
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -684,7 +679,7 @@ if(_myProfile.show_invoice_header){
 		
 		
 		NSString *tSubtotal = [NSString
-													 stringWithFormat:@"Sub-total: %@", [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due + transpoCost + _selectedProject.invoices.materials_cost]]];
+													 stringWithFormat:@"%@: %@", NSLocalizedString(@"sub_total", nil), [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due + transpoCost + _selectedProject.invoices.materials_cost]]];
 		CGRect subtotalRect =
 		[self addText:tSubtotal
 				withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
@@ -696,7 +691,7 @@ if(_myProfile.show_invoice_header){
 		
 	NSString *deposit = [NSString
 			stringWithFormat:
-					@"Deposit: %@",
+					@"%@: %@",NSLocalizedString(@"deposit", nil),
 					[self
 							formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.deposit]]];
 	CGRect depositRect =
@@ -712,7 +707,7 @@ if(_myProfile.show_invoice_header){
 																 _selectedProject.invoices.materials_cost + transpoCost) -
 																_selectedProject.invoices.deposit];
 	CGRect totalDueRect =
-			[self addText:[NSString stringWithFormat:@"Total Due: %@",
+			[self addText:[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"total_due", nil),
 																							 [self formatNumber:grandTotal]]
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
 															 depositRect.origin.y +
