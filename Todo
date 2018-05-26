@@ -14,7 +14,7 @@ Startup graphic
 
 - Complete website help
 - Add Rollbar(done)
-- Add Metrics
+- Add Metrics(Added firebase and sdk. collecting only basic metrics)
 
 
 //Ads

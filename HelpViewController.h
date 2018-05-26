@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HelpViewController : UIViewController
+@interface HelpViewController : UIViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *helpWebView;
-
+@property(nonatomic) UIActivityIndicatorView* activityView;
 @end
