@@ -1,0 +1,12 @@
+PODS:
+  - Rollbar (0.2.0)
+
+DEPENDENCIES:
+  - Rollbar (~> 0.2)
+
+SPEC CHECKSUMS:
+  Rollbar: 7f9f6faab9138cbb1b152f0a500e68f0469554ef
+
+PODFILE CHECKSUM: 12ed7faa7a418d08b21c3a9b453168d64db78b01
+
+COCOAPODS: 1.3.1

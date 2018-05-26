@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07AE78EA2133E7555F45C2D1843BC38E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92885B1914DB641E83AE437F90DF942F /* Foundation.framework */; };
+		088D9EEBF7645C773D211D41C6FE50DD /* RollbarConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 076ABC70B901A45D5B5AAE285D2DC0EF /* RollbarConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B113E738B0E96DA5CF3196BB5F5E7E2 /* RollbarReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C338322FD6D560CF56B7780BC814655 /* RollbarReachability.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0C2C2842874D24A249C8994635F31EBD /* RollbarThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D4FA44484817B6FC8E72FC04B7872 /* RollbarThread.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0EE0C0E3C5A23ACAEB10DCB8A789A34D /* RollbarFileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 648478FA98F17759840B982F194347B9 /* RollbarFileReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FFDCFD479808C52D3D6710731F2968F /* RollbarThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 835252992E987C2532084FC5DEDE21C3 /* RollbarThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1567B09BDE40F8D43186697142907B2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D923F5C1052B50CA1883CA42419E48AC /* UIKit.framework */; };
+		5967C48F68E14C49A37D50260A8BCFAA /* RollbarConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E671897D60091570DC0AB8794F53323 /* RollbarConfiguration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		62C90BE6F6381CDE7EA5E88A12DDE1F1 /* Rollbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 64434790357206209BE0254D2923D9B9 /* Rollbar-dummy.m */; };
+		74FF65962EFC2B04950EA1368573B15E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA159B0CC73805F995F435D691595B2 /* SystemConfiguration.framework */; };
+		799EEA7290D6CAE42A41ABA4F973E4F0 /* RollbarNotifier.h in Headers */ = {isa = PBXBuildFile; fileRef = C79A2ED9E93B32FFFE43DC529E3AEBC1 /* RollbarNotifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85136C7E66093F130947AA2CF4E3FC0E /* RollbarFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1575D901F674D4E950F70080A6C0AE /* RollbarFileReader.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		989CD37605046AB5EB2A7677F29F3224 /* RollbarNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 6992F5E630B54245D1947AB6DA7DEE0C /* RollbarNotifier.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9956C4FBE88588F21F8277283A3B2F51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92885B1914DB641E83AE437F90DF942F /* Foundation.framework */; };
+		9C0CB408DE9DF2D68E7BA17F63702674 /* Pods-trackandbill_ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D35D31B53373DE22227E4162F6369A /* Pods-trackandbill_ios-dummy.m */; };
+		A462783269269EFEF61C053EFFFB96AE /* Rollbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 435FAB39710CB85F624D3A968D98D9DB /* Rollbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7FA321922E758D8ECCEE4D099C7F7B9 /* RollbarReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = EB0CC73B788CDF9AAAA7DF3C0E85E2BA /* RollbarReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E427B3AFFA4EA6ECFDA09DCAEA756B79 /* RollbarLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 667BB11C1EFA68CE99C240C2E2FF0E42 /* RollbarLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEBDCCCF30B9662C0DC8B9E93CF79C78 /* RollbarLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF200B2F1593458C24F21DBBBEA9E98 /* RollbarLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F02903BE59EB2CA01CDCC784098DD7C3 /* Rollbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F56F0A2F207434D21E9F7F43664060 /* Rollbar.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3A7CF86FC8080D0740332E948BF01B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E209402172D6629582C3D33CA8CFB0C7;
+			remoteInfo = Rollbar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		076ABC70B901A45D5B5AAE285D2DC0EF /* RollbarConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RollbarConfiguration.h; path = Rollbar/RollbarConfiguration.h; sourceTree = "<group>"; };
+		0A319828F9CB0128DEB6EB96FDB76A3B /* libPods-trackandbill_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-trackandbill_ios.a"; path = "libPods-trackandbill_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CA159B0CC73805F995F435D691595B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		24AB8AB8D8F6BB3491E94AAE8C977899 /* Rollbar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Rollbar.xcconfig; sourceTree = "<group>"; };
+		250E66130BF4DB56D75BEA6DF31FCD3C /* Pods-trackandbill_ios-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-trackandbill_ios-frameworks.sh"; sourceTree = "<group>"; };
+		2C18B536EFCC765D93526AB79845A1F6 /* libRollbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRollbar.a; path = libRollbar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B976F5AD086E97CCCC554BA1ADD025A /* Rollbar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Rollbar-prefix.pch"; sourceTree = "<group>"; };
+		3C338322FD6D560CF56B7780BC814655 /* RollbarReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RollbarReachability.m; path = Rollbar/RollbarReachability.m; sourceTree = "<group>"; };
+		435FAB39710CB85F624D3A968D98D9DB /* Rollbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Rollbar.h; path = Rollbar/Rollbar.h; sourceTree = "<group>"; };
+		62F82F05BD121DE051A2978BF0864865 /* Pods-trackandbill_ios-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-trackandbill_ios-resources.sh"; sourceTree = "<group>"; };
+		64434790357206209BE0254D2923D9B9 /* Rollbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Rollbar-dummy.m"; sourceTree = "<group>"; };
+		644C43A7F12A9BE5D62466D51E1E3D4E /* Pods-trackandbill_ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-trackandbill_ios-acknowledgements.markdown"; sourceTree = "<group>"; };
+		648478FA98F17759840B982F194347B9 /* RollbarFileReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RollbarFileReader.h; path = Rollbar/RollbarFileReader.h; sourceTree = "<group>"; };
+		667BB11C1EFA68CE99C240C2E2FF0E42 /* RollbarLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RollbarLogger.h; path = Rollbar/RollbarLogger.h; sourceTree = "<group>"; };
+		667D4FA44484817B6FC8E72FC04B7872 /* RollbarThread.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RollbarThread.m; path = Rollbar/RollbarThread.m; sourceTree = "<group>"; };
+		6992F5E630B54245D1947AB6DA7DEE0C /* RollbarNotifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RollbarNotifier.m; path = Rollbar/RollbarNotifier.m; sourceTree = "<group>"; };
+		7E671897D60091570DC0AB8794F53323 /* RollbarConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RollbarConfiguration.m; path = Rollbar/RollbarConfiguration.m; sourceTree = "<group>"; };
+		835252992E987C2532084FC5DEDE21C3 /* RollbarThread.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RollbarThread.h; path = Rollbar/RollbarThread.h; sourceTree = "<group>"; };
+		8FF200B2F1593458C24F21DBBBEA9E98 /* RollbarLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RollbarLogger.m; path = Rollbar/RollbarLogger.m; sourceTree = "<group>"; };
+		91D35D31B53373DE22227E4162F6369A /* Pods-trackandbill_ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-trackandbill_ios-dummy.m"; sourceTree = "<group>"; };
+		92885B1914DB641E83AE437F90DF942F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1768927358448A31A6523EED88F465F /* Pods-trackandbill_ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-trackandbill_ios-acknowledgements.plist"; sourceTree = "<group>"; };
+		B80D852EDF1B3171E291C76E33563C83 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CrashReporter.framework; path = Vendor/CrashReporter.framework; sourceTree = "<group>"; };
+		BC4E474D3B00B33EDF9ECE510C79306F /* Pods-trackandbill_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-trackandbill_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		C79A2ED9E93B32FFFE43DC529E3AEBC1 /* RollbarNotifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RollbarNotifier.h; path = Rollbar/RollbarNotifier.h; sourceTree = "<group>"; };
+		D4F56F0A2F207434D21E9F7F43664060 /* Rollbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Rollbar.m; path = Rollbar/Rollbar.m; sourceTree = "<group>"; };
+		D923F5C1052B50CA1883CA42419E48AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		DA1575D901F674D4E950F70080A6C0AE /* RollbarFileReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RollbarFileReader.m; path = Rollbar/RollbarFileReader.m; sourceTree = "<group>"; };
+		EB0CC73B788CDF9AAAA7DF3C0E85E2BA /* RollbarReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RollbarReachability.h; path = Rollbar/RollbarReachability.h; sourceTree = "<group>"; };
+		F83C2B0A1088AB1438E03D76B8D80B96 /* Pods-trackandbill_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-trackandbill_ios.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0437501FF5119B5974571CDC05E909F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9956C4FBE88588F21F8277283A3B2F51 /* Foundation.framework in Frameworks */,
+				74FF65962EFC2B04950EA1368573B15E /* SystemConfiguration.framework in Frameworks */,
+				1567B09BDE40F8D43186697142907B2F /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13EDCF0319CFF879B0A8AC85709132A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07AE78EA2133E7555F45C2D1843BC38E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CC70DAEB2DC573D6994EDA71F1ECB78 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		404DDF3778116AE4A8823209EDC0898B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				24AB8AB8D8F6BB3491E94AAE8C977899 /* Rollbar.xcconfig */,
+				64434790357206209BE0254D2923D9B9 /* Rollbar-dummy.m */,
+				3B976F5AD086E97CCCC554BA1ADD025A /* Rollbar-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Rollbar";
+			sourceTree = "<group>";
+		};
+		4AD268DDCAA188CD2A697A597875C850 /* Rollbar */ = {
+			isa = PBXGroup;
+			children = (
+				435FAB39710CB85F624D3A968D98D9DB /* Rollbar.h */,
+				D4F56F0A2F207434D21E9F7F43664060 /* Rollbar.m */,
+				076ABC70B901A45D5B5AAE285D2DC0EF /* RollbarConfiguration.h */,
+				7E671897D60091570DC0AB8794F53323 /* RollbarConfiguration.m */,
+				648478FA98F17759840B982F194347B9 /* RollbarFileReader.h */,
+				DA1575D901F674D4E950F70080A6C0AE /* RollbarFileReader.m */,
+				667BB11C1EFA68CE99C240C2E2FF0E42 /* RollbarLogger.h */,
+				8FF200B2F1593458C24F21DBBBEA9E98 /* RollbarLogger.m */,
+				C79A2ED9E93B32FFFE43DC529E3AEBC1 /* RollbarNotifier.h */,
+				6992F5E630B54245D1947AB6DA7DEE0C /* RollbarNotifier.m */,
+				EB0CC73B788CDF9AAAA7DF3C0E85E2BA /* RollbarReachability.h */,
+				3C338322FD6D560CF56B7780BC814655 /* RollbarReachability.m */,
+				835252992E987C2532084FC5DEDE21C3 /* RollbarThread.h */,
+				667D4FA44484817B6FC8E72FC04B7872 /* RollbarThread.m */,
+				A54E2021E9D8E0363DCC0BA6EC15EB52 /* Frameworks */,
+				404DDF3778116AE4A8823209EDC0898B /* Support Files */,
+			);
+			name = Rollbar;
+			path = Rollbar;
+			sourceTree = "<group>";
+		};
+		73771FD1C45A2973CB03157E8C49F2AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AD268DDCAA188CD2A697A597875C850 /* Rollbar */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7CC70DAEB2DC573D6994EDA71F1ECB78 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				92885B1914DB641E83AE437F90DF942F /* Foundation.framework */,
+				0CA159B0CC73805F995F435D691595B2 /* SystemConfiguration.framework */,
+				D923F5C1052B50CA1883CA42419E48AC /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				73771FD1C45A2973CB03157E8C49F2AD /* Pods */,
+				BC73F36C854810B19F29D937352B0062 /* Products */,
+				DB5CAFA58D5F0EA8DAB8C75A3031B369 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A54E2021E9D8E0363DCC0BA6EC15EB52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B80D852EDF1B3171E291C76E33563C83 /* CrashReporter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD7FBA0A91D8445EDA04316C90E58020 /* Pods-trackandbill_ios */ = {
+			isa = PBXGroup;
+			children = (
+				644C43A7F12A9BE5D62466D51E1E3D4E /* Pods-trackandbill_ios-acknowledgements.markdown */,
+				A1768927358448A31A6523EED88F465F /* Pods-trackandbill_ios-acknowledgements.plist */,
+				91D35D31B53373DE22227E4162F6369A /* Pods-trackandbill_ios-dummy.m */,
+				250E66130BF4DB56D75BEA6DF31FCD3C /* Pods-trackandbill_ios-frameworks.sh */,
+				62F82F05BD121DE051A2978BF0864865 /* Pods-trackandbill_ios-resources.sh */,
+				BC4E474D3B00B33EDF9ECE510C79306F /* Pods-trackandbill_ios.debug.xcconfig */,
+				F83C2B0A1088AB1438E03D76B8D80B96 /* Pods-trackandbill_ios.release.xcconfig */,
+			);
+			name = "Pods-trackandbill_ios";
+			path = "Target Support Files/Pods-trackandbill_ios";
+			sourceTree = "<group>";
+		};
+		BC73F36C854810B19F29D937352B0062 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A319828F9CB0128DEB6EB96FDB76A3B /* libPods-trackandbill_ios.a */,
+				2C18B536EFCC765D93526AB79845A1F6 /* libRollbar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB5CAFA58D5F0EA8DAB8C75A3031B369 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD7FBA0A91D8445EDA04316C90E58020 /* Pods-trackandbill_ios */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3CF685E5243D1C817558B60249A26B34 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A462783269269EFEF61C053EFFFB96AE /* Rollbar.h in Headers */,
+				088D9EEBF7645C773D211D41C6FE50DD /* RollbarConfiguration.h in Headers */,
+				0EE0C0E3C5A23ACAEB10DCB8A789A34D /* RollbarFileReader.h in Headers */,
+				E427B3AFFA4EA6ECFDA09DCAEA756B79 /* RollbarLogger.h in Headers */,
+				799EEA7290D6CAE42A41ABA4F973E4F0 /* RollbarNotifier.h in Headers */,
+				D7FA321922E758D8ECCEE4D099C7F7B9 /* RollbarReachability.h in Headers */,
+				0FFDCFD479808C52D3D6710731F2968F /* RollbarThread.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		66CF27E8FEC811EC548E7DF3D1009681 /* Pods-trackandbill_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F262C68FEC7961AF0F2CF8B1F0932EB0 /* Build configuration list for PBXNativeTarget "Pods-trackandbill_ios" */;
+			buildPhases = (
+				FBB28F4DDF1D563EE4B9CEF792D81C10 /* Sources */,
+				13EDCF0319CFF879B0A8AC85709132A2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E02BF50A22442CA43CAD77592C853060 /* PBXTargetDependency */,
+			);
+			name = "Pods-trackandbill_ios";
+			productName = "Pods-trackandbill_ios";
+			productReference = 0A319828F9CB0128DEB6EB96FDB76A3B /* libPods-trackandbill_ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E209402172D6629582C3D33CA8CFB0C7 /* Rollbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A604A1EDAB6EB817A90ECCC53226F925 /* Build configuration list for PBXNativeTarget "Rollbar" */;
+			buildPhases = (
+				3764F19DC7619457F930B8BDEE39C62B /* Sources */,
+				0437501FF5119B5974571CDC05E909F8 /* Frameworks */,
+				3CF685E5243D1C817558B60249A26B34 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rollbar;
+			productName = Rollbar;
+			productReference = 2C18B536EFCC765D93526AB79845A1F6 /* libRollbar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = BC73F36C854810B19F29D937352B0062 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66CF27E8FEC811EC548E7DF3D1009681 /* Pods-trackandbill_ios */,
+				E209402172D6629582C3D33CA8CFB0C7 /* Rollbar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3764F19DC7619457F930B8BDEE39C62B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62C90BE6F6381CDE7EA5E88A12DDE1F1 /* Rollbar-dummy.m in Sources */,
+				F02903BE59EB2CA01CDCC784098DD7C3 /* Rollbar.m in Sources */,
+				5967C48F68E14C49A37D50260A8BCFAA /* RollbarConfiguration.m in Sources */,
+				85136C7E66093F130947AA2CF4E3FC0E /* RollbarFileReader.m in Sources */,
+				EEBDCCCF30B9662C0DC8B9E93CF79C78 /* RollbarLogger.m in Sources */,
+				989CD37605046AB5EB2A7677F29F3224 /* RollbarNotifier.m in Sources */,
+				0B113E738B0E96DA5CF3196BB5F5E7E2 /* RollbarReachability.m in Sources */,
+				0C2C2842874D24A249C8994635F31EBD /* RollbarThread.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB28F4DDF1D563EE4B9CEF792D81C10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C0CB408DE9DF2D68E7BA17F63702674 /* Pods-trackandbill_ios-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E02BF50A22442CA43CAD77592C853060 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Rollbar;
+			target = E209402172D6629582C3D33CA8CFB0C7 /* Rollbar */;
+			targetProxy = F3A7CF86FC8080D0740332E948BF01B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6940724187A545BFA876A1FCA694D323 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24AB8AB8D8F6BB3491E94AAE8C977899 /* Rollbar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Rollbar/Rollbar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A64B024471284B66123E56300921239 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24AB8AB8D8F6BB3491E94AAE8C977899 /* Rollbar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Rollbar/Rollbar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		70284902724E5F0CB1E02AB73A2E2CBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7065A1A6D2426EE87898A48004571CF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4E474D3B00B33EDF9ECE510C79306F /* Pods-trackandbill_ios.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A235DB64BBBD83C7DF02320F8935CE48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F83C2B0A1088AB1438E03D76B8D80B96 /* Pods-trackandbill_ios.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE0BB8F8454BEC8B7BE5A19FE8D3F2CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE0BB8F8454BEC8B7BE5A19FE8D3F2CD /* Debug */,
+				70284902724E5F0CB1E02AB73A2E2CBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A604A1EDAB6EB817A90ECCC53226F925 /* Build configuration list for PBXNativeTarget "Rollbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6940724187A545BFA876A1FCA694D323 /* Debug */,
+				6A64B024471284B66123E56300921239 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F262C68FEC7961AF0F2CF8B1F0932EB0 /* Build configuration list for PBXNativeTarget "Pods-trackandbill_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7065A1A6D2426EE87898A48004571CF1 /* Debug */,
+				A235DB64BBBD83C7DF02320F8935CE48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

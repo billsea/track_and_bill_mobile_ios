@@ -4,6 +4,8 @@ Do some Unit tests
 
 //Features
 Add Translation to localized files
+	 - chinese and spanish done
+
 Startup graphic
 - App Icon
 	- Use simple graphic
@@ -11,7 +13,7 @@ Startup graphic
 - Collection view icons(enhance)
 
 - Complete website help
-- Add Rollbar
+- Add Rollbar(done)
 - Add Metrics
 
 

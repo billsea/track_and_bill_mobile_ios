@@ -1,0 +1,5 @@
+platform :ios
+
+target 'trackandbill_ios' do
+  pod "Rollbar", "~> 0.2"
+end

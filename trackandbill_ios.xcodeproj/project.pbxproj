@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		885A4686FE8ED3C99B810BDD /* libPods-trackandbill_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC4A2FE81D148041718D25D /* libPods-trackandbill_ios.a */; };
 		A91501841B0949AD009AB281 /* left2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501831B0949AD009AB281 /* left2-32.png */; };
 		A91501861B094A58009AB281 /* left2-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501851B094A58009AB281 /* left2-25.png */; };
 		A91501881B094A97009AB281 /* left-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501871B094A97009AB281 /* left-25.png */; };
@@ -170,6 +171,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00ACF90AF1E85EA32D6E9EBE /* Pods-trackandbill_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackandbill_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios.release.xcconfig"; sourceTree = "<group>"; };
+		183AEC7303B4D5A7392B50E1 /* Pods-trackandbill_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackandbill_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A91501831B0949AD009AB281 /* left2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-32.png"; sourceTree = "<group>"; };
 		A91501851B094A58009AB281 /* left2-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-25.png"; sourceTree = "<group>"; };
 		A91501871B094A97009AB281 /* left-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-25.png"; sourceTree = "<group>"; };
@@ -397,6 +400,7 @@
 		A9FDC2351B0FD9F900112426 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9FDC2371B0FDA1F00112426 /* TrackandBill_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrackandBill_PrefixHeader.pch; path = ../TrackandBill_PrefixHeader.pch; sourceTree = "<group>"; };
 		A9FDC2381B0FDA8200112426 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BCC4A2FE81D148041718D25D /* libPods-trackandbill_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-trackandbill_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +413,7 @@
 				A959F420209E37C200B63DDC /* MessageUI.framework in Frameworks */,
 				A9FDC2391B0FDA8200112426 /* UIKit.framework in Frameworks */,
 				A9FDC2361B0FD9F900112426 /* Foundation.framework in Frameworks */,
+				885A4686FE8ED3C99B810BDD /* libPods-trackandbill_ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +427,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EF4AD4B852E59EF26783267 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				183AEC7303B4D5A7392B50E1 /* Pods-trackandbill_ios.debug.xcconfig */,
+				00ACF90AF1E85EA32D6E9EBE /* Pods-trackandbill_ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A9167E1F1AEAC10D0071B992 = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +451,7 @@
 				A9167E471AEAC10E0071B992 /* trackandbill_iosTests */,
 				A9167E291AEAC10D0071B992 /* Products */,
 				A959F41E209E37C100B63DDC /* Frameworks */,
+				3EF4AD4B852E59EF26783267 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -516,6 +531,7 @@
 				A9F56FC120A4BC27006626D7 /* CoreLocation.framework */,
 				A98F3CA120A219AD007A32F2 /* Photos.framework */,
 				A959F41F209E37C200B63DDC /* MessageUI.framework */,
+				BCC4A2FE81D148041718D25D /* libPods-trackandbill_ios.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -752,10 +768,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9167E4E1AEAC10E0071B992 /* Build configuration list for PBXNativeTarget "trackandbill_ios" */;
 			buildPhases = (
+				22B67AEC4EC07F2A7C83356F /* [CP] Check Pods Manifest.lock */,
 				A9167E241AEAC10D0071B992 /* Sources */,
 				A9167E251AEAC10D0071B992 /* Frameworks */,
 				A9167E261AEAC10D0071B992 /* Resources */,
 				A9DC4C001AEAC7B900A00892 /* CopyFiles */,
+				A9852927CA66B2E7A7B3ABB4 /* [CP] Embed Pods Frameworks */,
+				41988D68405F3FB5DF0A278C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -927,6 +946,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22B67AEC4EC07F2A7C83356F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-trackandbill_ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41988D68405F3FB5DF0A278C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9852927CA66B2E7A7B3ABB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9167E241AEAC10D0071B992 /* Sources */ = {
@@ -1182,6 +1252,7 @@
 		};
 		A9167E4F1AEAC10E0071B992 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 183AEC7303B4D5A7392B50E1 /* Pods-trackandbill_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1206,6 +1277,7 @@
 		};
 		A9167E501AEAC10E0071B992 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00ACF90AF1E85EA32D6E9EBE /* Pods-trackandbill_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

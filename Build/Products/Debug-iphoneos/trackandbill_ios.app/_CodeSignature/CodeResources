@@ -6,15 +6,15 @@
 	<dict>
 		<key>AddClientTableViewController.nib</key>
 		<data>
-		mKzL0MHEPt1OnMsvrOsGyEsGjO4=
+		Rw+JE7phUOfNKMc2A0baWd0/y2s=
 		</data>
 		<key>AddProjectTableViewController.nib</key>
 		<data>
-		hPS5hbtJPc4p/wnR6lRsnBZSfDE=
+		WMGOcbv4dkF1C1yfjgG5gZliaXQ=
 		</data>
 		<key>AllSessionsTableViewController.nib</key>
 		<data>
-		v5qdi7QWecaOeF0dVbphjuUtSuw=
+		PhJJymd34nXDtIUg+kzoVH8M5dc=
 		</data>
 		<key>AppIcon-260x60@2x.png</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		wYmRO/5GsiLz3h8OvdSxWSJgF1E=
+		9oFEctoU9ptkeokuLG4OD9lpPec=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		aqoRWLyH9hWWxpPDPXrjQ+f6Z/8=
+		yy7F3wfE689bjKZxtXb0wv0eXWw=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -38,51 +38,51 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-vXZ-lx-hvc.nib</key>
 		<data>
-		nqN8Lz2g1XLkKgwVHuWG1J8WbyI=
+		mPu4fEBy9oVnbn8zPNaJUys9nZc=
 		</data>
 		<key>Base.lproj/Main.storyboardc/vXZ-lx-hvc-view-kh9-bI-dsS.nib</key>
 		<data>
-		T0Kmsxc2/elj4ywBvKsnKGMTnOs=
+		xuwXvSn+Qq6L3ObXOgFT8M4eOLs=
 		</data>
-		<key>ClientInvoicesTableViewController.nib</key>
+		<key>Base.lproj/MilageViewController.nib</key>
 		<data>
-		qwkD9nN42z2vl+8rm/41xJU3OHQ=
+		u1/thUc3pC+FIe9TMsQHOTijSj8=
 		</data>
 		<key>ClientsTableViewCell.nib</key>
 		<data>
-		3/tL4T4TfD23FOnF1NjMNQzmFjc=
+		SYB9aLP3vw8uEEEnZk8xhmNtteI=
 		</data>
 		<key>ClientsTableViewController.nib</key>
 		<data>
-		ey87t2UJeMcVOlMpa0ZX3vniBnU=
+		46Pd8nrucEhosxQ4xTWKv4qwpjQ=
 		</data>
 		<key>DashboardCollectionViewCell.nib</key>
 		<data>
-		6sKzrki2//ueozwKfJGe6k2FGI0=
+		BNoSq89FyJYQ1ToQl0m4F75DHCU=
 		</data>
 		<key>DashboardCollectionViewController.nib</key>
 		<data>
-		UEYuDVWsnOv/2AXmbOjgwBLQs0E=
+		xbpwV+c6bkNQzhnBF++4w+kUURA=
 		</data>
 		<key>DateInputTableViewCell.nib</key>
 		<data>
-		NIjeADoeT9D6v3loXNTiOiElpUM=
+		s8oMoESs9zSz7uV7TWTMfrZTJaw=
 		</data>
 		<key>DateSelectViewController.nib</key>
 		<data>
-		5wiErmmKq93q/VK/Owjp7wTjppo=
+		rCWl6KaAJF/QCpqBk06TYokYJE0=
 		</data>
 		<key>ExportSelectTableViewController.nib</key>
 		<data>
-		CoFDwszxMFL9H2hq7NnO8h41t9g=
+		gqepIMIYJac3V6IxqOXYVXtp1RA=
 		</data>
 		<key>FormButtonTableViewCell.nib</key>
 		<data>
-		NCisGINH2umyyNeTNmcSaNVmGR8=
+		nwwdjwDIjrxSThG8N9RlA5ZUc10=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
-		jH0xGIJkQB8bq3XelVill8d0BTQ=
+		lLEzUSZuW/AEo03zFgsoRAc5NRY=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/Info.plist</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<data>
-		3AljIXzMzm1nXdQR79uBbIR+DqE=
+		2/rwqK3X19PD0GLwJFYYu5COedk=
 		</data>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -121,29 +121,37 @@
 		<data>
 		yS7onk1xOi9/i9Bb0xTNIwoOPXs=
 		</data>
+		<key>HelpViewController.nib</key>
+		<data>
+		qq7tyNGZzF0TneTj2bwM99sYtBU=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		nb+qLtiDAe1fZE0mjXGV6YhhVlc=
+		ZDLmnTYIRBn2swFSlKrqqFL/UNc=
+		</data>
+		<key>InvoiceStyleTableViewController.nib</key>
+		<data>
+		oTeyWS/L2AK9AD2SAyAgYjf21oY=
 		</data>
 		<key>InvoiceTableViewCell.nib</key>
 		<data>
-		nwZwGKuLfQVMIpA/YYVux/HMR9s=
+		hNfOAqSDbWMAbaBnujEMVMLIN18=
 		</data>
 		<key>InvoiceTableViewController.nib</key>
 		<data>
-		HFK4iXn6yajvuHG6zZ7gOJj59FA=
+		mh6rkrE2PMlHME1CqzK2yMZgHn8=
 		</data>
 		<key>InvoicesTableViewController.nib</key>
 		<data>
-		+u3YlJByxOMMoo5KuKlj/fBmwn8=
+		wQd+DVKihUoLgF5wXdndADymMss=
 		</data>
-		<key>LaunchImage-2-700-568h@2x.png</key>
+		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
-		up90bRhWvsYY7Z4hGsv3P8WpTNQ=
+		teHkglaZ8r1Tn9B+qYKyFJjo9O8=
 		</data>
 		<key>MaterialsViewController.nib</key>
 		<data>
-		GXAefqsM7Be0LGTbVU9NHbaiKyg=
+		Bl6nYdrlNYJ6B6PO8BTm1jtPp68=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -155,7 +163,7 @@
 		</data>
 		<key>PlugIns/trackandbill_iosTests.xctest.dSYM/Contents/Resources/DWARF/trackandbill_iosTests</key>
 		<data>
-		mVmDpUM/8qte72T/UwTwGLRcvj0=
+		ZvfkjJMNMxhbZz2fHHHJuHvNjSI=
 		</data>
 		<key>PlugIns/trackandbill_iosTests.xctest/Info.plist</key>
 		<data>
@@ -167,23 +175,23 @@
 		</data>
 		<key>PlugIns/trackandbill_iosTests.xctest/trackandbill_iosTests</key>
 		<data>
-		xgwa/QguALN/yD5R1tXs5gLlxgs=
+		+qkOvx/4SmkF0KUWxlqtna+nTXE=
 		</data>
 		<key>ProfileTableViewController.nib</key>
 		<data>
-		QjYY6x/aCa426DuKMfWmQTm1FRo=
+		bTLecHjWrRGi1Re+oaEK56habRg=
 		</data>
 		<key>ProjectCollectionViewController.nib</key>
 		<data>
-		4gXkSHIZMLK03bb2r4nAVlw470Y=
+		tWLrIGNOYMVFS3dA0w5/Nl5asHI=
 		</data>
 		<key>ProjectsTableViewCell.nib</key>
 		<data>
-		tEyXxxrO3/1pGRVS4k3NNe32MSQ=
+		BrXw+krD/vqQOeI3cewM7Kf10Ig=
 		</data>
 		<key>ProjectsTableViewController.nib</key>
 		<data>
-		vYFFtEkW2nhDLV3LafyXKutMgFM=
+		XD6ggxOfhmN06ifNI0vjoRLXHNk=
 		</data>
 		<key>Reader-Button-H.png</key>
 		<data>
@@ -243,39 +251,39 @@
 		</data>
 		<key>SessionDetailCollectionViewController.nib</key>
 		<data>
-		hZ/gocuCTdI75fe65uU/CAxB7VQ=
+		CbPHjhUH2ba0VpdnHseeHfJ+X7o=
 		</data>
 		<key>SessionEditTableViewController.nib</key>
 		<data>
-		LjitLitiqXHzGX1hUt+AI/gXaWA=
+		B4PkWCGSie+DAQgXRV9xigE3bVE=
 		</data>
 		<key>SessionNotesViewController.nib</key>
 		<data>
-		/neY/cJnsG5u6atr1KClpmn7QkI=
+		QwZt/taK9t1np7JP/bS9n1xlvws=
 		</data>
 		<key>SessionsTableViewCell.nib</key>
 		<data>
-		xEobjnuW30AaLLcuu5E40rfVfT4=
-		</data>
-		<key>SessionsTableViewController.nib</key>
-		<data>
-		5CKQfY41/aFagH5Zulyzdn5cGa4=
+		qo/CNUOof1eeal9ZuarXmrOL5Ds=
 		</data>
 		<key>SettingsTableViewController.nib</key>
 		<data>
-		+7gwTmsZwnG21iTYxqgxYVNcbPc=
+		9atDUMFAQjPB0ZHYAdfjasv0fhk=
 		</data>
 		<key>StylesCollectionViewController.nib</key>
 		<data>
-		C/iYg5QaV+eYIKtcFYqD+g87BxE=
+		eCGBNUibQNEhZzYeR67liD9Q2V4=
+		</data>
+		<key>SwitchTableViewCell.nib</key>
+		<data>
+		L8BOpKGyGfOGUYqzg/kEVv0w6i4=
 		</data>
 		<key>TextInputTableViewCell.nib</key>
 		<data>
-		Pw0Egh7OyveWvv9j363GesmC4ys=
+		zrzASJMY16FO0o2TMqpxKA80YyI=
 		</data>
 		<key>Todo</key>
 		<data>
-		pHlHI+LIpNke2AEmAvVINFX6pI4=
+		jmAXA2PDKVZ6thNgPevqaoA+y+8=
 		</data>
 		<key>administrator-50.png</key>
 		<data>
@@ -304,15 +312,6 @@
 			<key>hash</key>
 			<data>
 			rcg7GeeTSRscbqD9i0bNnzLlkvw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ar.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -356,37 +355,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>de.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>drafting_compass2-50.png</key>
 		<data>
 		ta9/oKvUy3ZZRL0cfIhpU8pRcIY=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		KLtlyUZ9tcQTOMgNoxm9cMGJwIU=
+		oCN8uoi6z/307MnEDvoiUhO8I4c=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MlsC9mJKAzYbnif5uoMZaQtnBWI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>en.lproj/MilageViewController.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			53yrc20m0SQ2ptPkdvb0RYCU9QM=
+			I9hnnEBsfgvOTVKK0l1sXVp/9yM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -418,15 +399,10 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>es.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>faq-50.png</key>
+		<data>
+		lg9oCDxfQpPBMo0yVnLMSeVtNWA=
+		</data>
 		<key>fr.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -454,15 +430,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>fr.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>group-32.png</key>
 		<data>
 		dAthr1jGOwqt6n9Hd1FhAkF2ytU=
@@ -470,6 +437,10 @@
 		<key>groups-50.png</key>
 		<data>
 		13ZkIH/LqA5ZWn96zPaViCsNf/Y=
+		</data>
+		<key>help-50.png</key>
+		<data>
+		iVcgqdNBpTLtfH7srqhve7HW/sA=
 		</data>
 		<key>invoice-50.png</key>
 		<data>
@@ -502,15 +473,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>it.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>ja.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -538,15 +500,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>ja.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>ko.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -570,15 +523,6 @@
 			<key>hash</key>
 			<data>
 			rcg7GeeTSRscbqD9i0bNnzLlkvw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ko.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -634,15 +578,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>ru.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>running-50.png</key>
 		<data>
 		cCjhgmrtLi7GGT10O7gzUwxIQVE=
@@ -685,15 +620,15 @@
 		</data>
 		<key>trackandbill_ios.momd/VersionInfo.plist</key>
 		<data>
-		i/lHgSF2Zo2GHly5FKxcV2XsJao=
+		ibN576mj+cbiu+FqH7kR/lIT9Wk=
 		</data>
 		<key>trackandbill_ios.momd/trackandbill_ios.mom</key>
 		<data>
-		GupSWKDuQoQYhiYLT8y1TC1Mams=
+		znJZai4O/RAQRlnJqtqOl4vOHPo=
 		</data>
 		<key>trackandbill_ios.momd/trackandbill_ios.omo</key>
 		<data>
-		LG1EyHBwc6uvx5IPqQ9pvhvGiHs=
+		G3I3CVYf49dhS4koD6ie0Bn0hso=
 		</data>
 		<key>xlarge_icons-50.png</key>
 		<data>
@@ -726,15 +661,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>zh-Hans.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>zh-Hant.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -762,15 +688,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>zh-Hant.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -778,33 +695,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mKzL0MHEPt1OnMsvrOsGyEsGjO4=
+			Rw+JE7phUOfNKMc2A0baWd0/y2s=
 			</data>
 			<key>hash2</key>
 			<data>
-			B5q2fkFWAu5b+mJuUUkZiEbYJCcqOEHxgSpog0mpjIk=
+			+wKUjQnBc2m2xZJczvf+SphQ088StQwk2rVtJ01XjgA=
 			</data>
 		</dict>
 		<key>AddProjectTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hPS5hbtJPc4p/wnR6lRsnBZSfDE=
+			WMGOcbv4dkF1C1yfjgG5gZliaXQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			98bWLHxS2+bFi9Kb3DFxCtnL/pRO+ITcXDfdgmlDCTw=
+			R/vk1h0nguZ1UWhT53S/4PQZ/c4hMmalbfFpYSEPPVY=
 			</data>
 		</dict>
 		<key>AllSessionsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v5qdi7QWecaOeF0dVbphjuUtSuw=
+			PhJJymd34nXDtIUg+kzoVH8M5dc=
 			</data>
 			<key>hash2</key>
 			<data>
-			XQTYaYFp0DElvahL7i0DbI7ap2iHpdA3j4xDq2E6gjk=
+			H0Aimp6qlmQPZVCB4pA7FmFnZN/VrfSn71bBwafXz9M=
 			</data>
 		</dict>
 		<key>AppIcon-260x60@2x.png</key>
@@ -833,22 +750,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wYmRO/5GsiLz3h8OvdSxWSJgF1E=
+			9oFEctoU9ptkeokuLG4OD9lpPec=
 			</data>
 			<key>hash2</key>
 			<data>
-			QXr2gyrXauwRY6i5vmV2JWgIp3U+L4vR0pZ+urTlRvs=
+			kPRvcz6FueNMnFZi0PZ4zigpb/m2ckYNYxyJSMAWfZ0=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aqoRWLyH9hWWxpPDPXrjQ+f6Z/8=
+			yy7F3wfE689bjKZxtXb0wv0eXWw=
 			</data>
 			<key>hash2</key>
 			<data>
-			+HDTOey3rxNR3rB+vptgkN/a6p/Zqs1wod8W2Z2YUc0=
+			UHXoHIgQD/H7NvP0l4GBDwdmxPyWTGTrb5lRr99KHk8=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -866,132 +783,132 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nqN8Lz2g1XLkKgwVHuWG1J8WbyI=
+			mPu4fEBy9oVnbn8zPNaJUys9nZc=
 			</data>
 			<key>hash2</key>
 			<data>
-			7Ec2WHVVsgocAETI5FW2CpB8ISi3IwtNfb2Wiwq1qzI=
+			iJrHtHDDI9RoJdDSy2q4X4qBswqGXXqn3l/ACB11uAQ=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/vXZ-lx-hvc-view-kh9-bI-dsS.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T0Kmsxc2/elj4ywBvKsnKGMTnOs=
+			xuwXvSn+Qq6L3ObXOgFT8M4eOLs=
 			</data>
 			<key>hash2</key>
 			<data>
-			Abj0sJgqZHJ1XIM8InkbgLa7vZKrbw9eVbzrvDOaGDs=
+			+HH+WkVWCqYQoKyER9rpWdwS6QSnCMPGhtmCtPI5lJ4=
 			</data>
 		</dict>
-		<key>ClientInvoicesTableViewController.nib</key>
+		<key>Base.lproj/MilageViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qwkD9nN42z2vl+8rm/41xJU3OHQ=
+			u1/thUc3pC+FIe9TMsQHOTijSj8=
 			</data>
 			<key>hash2</key>
 			<data>
-			En132nbTYdosT20V251bs1WNeO7o1/cQxaNS61EJNnM=
+			iBSnPW0MY5jVxudHdsNRwpaENzkh2KC/HnnXJ8e+4ps=
 			</data>
 		</dict>
 		<key>ClientsTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3/tL4T4TfD23FOnF1NjMNQzmFjc=
+			SYB9aLP3vw8uEEEnZk8xhmNtteI=
 			</data>
 			<key>hash2</key>
 			<data>
-			37n3ZhRPyqRni8LobkblG7DYDnnKtmyzirFJWqhSJyY=
+			TZoHhbP0exUWs1AKB7sSxBysUXJt4i8VqY8jQJD5VI8=
 			</data>
 		</dict>
 		<key>ClientsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ey87t2UJeMcVOlMpa0ZX3vniBnU=
+			46Pd8nrucEhosxQ4xTWKv4qwpjQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			0sfFZ8vlQAwspj5nHvekIazXNXCRakqUapVTt6IRTx0=
+			SS+LwujAfkc6PMZ1RdGOtPNNVivBWpszWAKftoZFpkc=
 			</data>
 		</dict>
 		<key>DashboardCollectionViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6sKzrki2//ueozwKfJGe6k2FGI0=
+			BNoSq89FyJYQ1ToQl0m4F75DHCU=
 			</data>
 			<key>hash2</key>
 			<data>
-			hUayI3Lz553oTnAr1mRaYoI2ScjDye4Fq2KTxtou+7g=
+			X1xB5iCXqS6Mharns2QJuCLxkYDaDcUQPZ+EIGfAxwI=
 			</data>
 		</dict>
 		<key>DashboardCollectionViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UEYuDVWsnOv/2AXmbOjgwBLQs0E=
+			xbpwV+c6bkNQzhnBF++4w+kUURA=
 			</data>
 			<key>hash2</key>
 			<data>
-			fJscCCdk5CYh9qSceDyezGCsxw5ynbzVTOciC3tN4Ic=
+			0v28mfxddz+QNmMsBGwqDYYYw8F7tD9MRirvqReGC3A=
 			</data>
 		</dict>
 		<key>DateInputTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NIjeADoeT9D6v3loXNTiOiElpUM=
+			s8oMoESs9zSz7uV7TWTMfrZTJaw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pNa6rw6S1nCtohG9/qJhBrh4FAcrTLjdzmghavJkdxs=
+			zgrnSFMlXLxf9Fohi7Yu0Sk7OcVTFGomqqHJ9GCw2CY=
 			</data>
 		</dict>
 		<key>DateSelectViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5wiErmmKq93q/VK/Owjp7wTjppo=
+			rCWl6KaAJF/QCpqBk06TYokYJE0=
 			</data>
 			<key>hash2</key>
 			<data>
-			LwDEz+QB/cQpwCpPYitquw/2OxdB9Y08q5laJpSq0So=
+			UlISTy5JBrzNlHobhm3UbwphdiYFEQzSBGHJo7mK4xo=
 			</data>
 		</dict>
 		<key>ExportSelectTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CoFDwszxMFL9H2hq7NnO8h41t9g=
+			gqepIMIYJac3V6IxqOXYVXtp1RA=
 			</data>
 			<key>hash2</key>
 			<data>
-			VyPhZeaUNw9JBLB+OLHJn4tafN2QQaIICBrZiM0czpw=
+			gwS9oKY8iUJBGrJFKluvfyDM/KMsIS+Nm5jH9xL0Oqo=
 			</data>
 		</dict>
 		<key>FormButtonTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NCisGINH2umyyNeTNmcSaNVmGR8=
+			nwwdjwDIjrxSThG8N9RlA5ZUc10=
 			</data>
 			<key>hash2</key>
 			<data>
-			MRem7PuFN+9ABfLrIn6TqVj9ppJiaWWfJoLkmrP57TM=
+			qnFEVftsaKsboJ6lChF05K0p9imdLeFy+K/Cz69lYHU=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jH0xGIJkQB8bq3XelVill8d0BTQ=
+			lLEzUSZuW/AEo03zFgsoRAc5NRY=
 			</data>
 			<key>hash2</key>
 			<data>
-			l3BOtCjU4/IS8u6AnQ0RV3HXhOQwVXEijVNWd+kCV2s=
+			hN03lJOZPXoG3zd8Du+mv6CnLnotQdEaiehpn+Ec3dI=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/Info.plist</key>
@@ -1042,11 +959,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3AljIXzMzm1nXdQR79uBbIR+DqE=
+			2/rwqK3X19PD0GLwJFYYu5COedk=
 			</data>
 			<key>hash2</key>
 			<data>
-			WF7XMidmMUAQjw5q3qmiL50Y1k7CdA/PBJnFD8L2pgU=
+			DYFc6r1GyWy9Y9NHqP87vZYoy5Gr3iPK7P4Y7vLakJo=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
@@ -1084,59 +1001,81 @@
 			MeR4wgvXjVoyLxdu2L3OkhsFyO60WDdOcvLm9kAN19I=
 			</data>
 		</dict>
+		<key>HelpViewController.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qq7tyNGZzF0TneTj2bwM99sYtBU=
+			</data>
+			<key>hash2</key>
+			<data>
+			x4026A+w+i08WX/NierMAJzFsJTBhD5QPehLbQ20AoA=
+			</data>
+		</dict>
+		<key>InvoiceStyleTableViewController.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oTeyWS/L2AK9AD2SAyAgYjf21oY=
+			</data>
+			<key>hash2</key>
+			<data>
+			a0TfhAeXSCJn1SIY/TBJwX1Bi8HSG/wccS17ERoCpok=
+			</data>
+		</dict>
 		<key>InvoiceTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nwZwGKuLfQVMIpA/YYVux/HMR9s=
+			hNfOAqSDbWMAbaBnujEMVMLIN18=
 			</data>
 			<key>hash2</key>
 			<data>
-			qnf9AZ2FNTTz7to3BU6Csx4yKHrdauyaGpsGkTwBSpY=
+			VmyD0NEaS5eQv0xC7/Q4J64IDIyjmnqjMd1+JlSn9KI=
 			</data>
 		</dict>
 		<key>InvoiceTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HFK4iXn6yajvuHG6zZ7gOJj59FA=
+			mh6rkrE2PMlHME1CqzK2yMZgHn8=
 			</data>
 			<key>hash2</key>
 			<data>
-			GbOKZoZA/3pWsavhFUhH/bv6SHeS4p/xga2eYjW7x+k=
+			RkUrcCY4Y9FjBDULf65NP9Y3cKexnwfm5dI3Lz18WC0=
 			</data>
 		</dict>
 		<key>InvoicesTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+u3YlJByxOMMoo5KuKlj/fBmwn8=
+			wQd+DVKihUoLgF5wXdndADymMss=
 			</data>
 			<key>hash2</key>
 			<data>
-			uH+vsUIg6rFjC46vM8xwCXiMoXCMvJvJUHkhsqlGI1g=
+			cF2lgKLs3lDdzXrQiRDRu0A1h6hnVjNTTAi4O331M48=
 			</data>
 		</dict>
-		<key>LaunchImage-2-700-568h@2x.png</key>
+		<key>LaunchImage-700-568h@2x.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			up90bRhWvsYY7Z4hGsv3P8WpTNQ=
+			teHkglaZ8r1Tn9B+qYKyFJjo9O8=
 			</data>
 			<key>hash2</key>
 			<data>
-			NK/ojCgJIQFE9ucCsGqS8YLWOtlw5GP8Q92SMTOlhnI=
+			VZFDtM326fqk/5Si2cgeWm2aqfe46LJnQqhHidc6X8o=
 			</data>
 		</dict>
 		<key>MaterialsViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GXAefqsM7Be0LGTbVU9NHbaiKyg=
+			Bl6nYdrlNYJ6B6PO8BTm1jtPp68=
 			</data>
 			<key>hash2</key>
 			<data>
-			+MyWZaXgfnxkeXMFww0gkVxsZQLQ/q/2uCvWk8pzIGU=
+			FuXSCWxv7OrHSyhXQ0YEGmp019wM8eerz6ASW9k7UHo=
 			</data>
 		</dict>
 		<key>PlugIns/trackandbill_iosTests.xctest.dSYM/Contents/Info.plist</key>
@@ -1154,11 +1093,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mVmDpUM/8qte72T/UwTwGLRcvj0=
+			ZvfkjJMNMxhbZz2fHHHJuHvNjSI=
 			</data>
 			<key>hash2</key>
 			<data>
-			U2tSgG/MZp9plCN9WtRIgG1+RjZ5WdwIk9PXt6v56eM=
+			eSy6DqIcB7L/Npf7di5fmlLlF/fuLnPRHnCZ2P/C9Z0=
 			</data>
 		</dict>
 		<key>PlugIns/trackandbill_iosTests.xctest/Info.plist</key>
@@ -1187,55 +1126,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xgwa/QguALN/yD5R1tXs5gLlxgs=
+			+qkOvx/4SmkF0KUWxlqtna+nTXE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qgNUnfZvW9RhtM6uAln3SdAEpeJ4ya9QRJsWNX0EWWg=
+			AXwla5nwYdqn1WZtgDE41oqUzgTdLYtdJSH0wkJExX4=
 			</data>
 		</dict>
 		<key>ProfileTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QjYY6x/aCa426DuKMfWmQTm1FRo=
+			bTLecHjWrRGi1Re+oaEK56habRg=
 			</data>
 			<key>hash2</key>
 			<data>
-			VLNRF3ETmpdnDO9429/QDV1ARyj+pPDMDfY23kpL/yU=
+			MoybJX+tWp3aWUuUbAzE6xGapc3SPXjz0JYvGInSQMY=
 			</data>
 		</dict>
 		<key>ProjectCollectionViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4gXkSHIZMLK03bb2r4nAVlw470Y=
+			tWLrIGNOYMVFS3dA0w5/Nl5asHI=
 			</data>
 			<key>hash2</key>
 			<data>
-			WpS0FcKvmug4xY01iYyHiu15U6GGv7KlUc/YDxMFaY4=
+			LLaaqglFJmkVaLDNtnyJKqZrwebio5h9qJcYa1H4bqo=
 			</data>
 		</dict>
 		<key>ProjectsTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tEyXxxrO3/1pGRVS4k3NNe32MSQ=
+			BrXw+krD/vqQOeI3cewM7Kf10Ig=
 			</data>
 			<key>hash2</key>
 			<data>
-			3hKcJF8LuO5ZYlvp3VQRMNaurXI4Dl06krfif/ucW4k=
+			E0JhLnlac6I0Z0NnGyY1dpz647NjIBLmte9N0JD8MaI=
 			</data>
 		</dict>
 		<key>ProjectsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vYFFtEkW2nhDLV3LafyXKutMgFM=
+			XD6ggxOfhmN06ifNI0vjoRLXHNk=
 			</data>
 			<key>hash2</key>
 			<data>
-			DEGMjTJ5FLEK86uHvTqMYrVUGuZhgMDbdW2ud5kXYRI=
+			RRLRQ6pJ8af31phT4eI3tbzpKkK2GS0uhzPVyAGrcbE=
 			</data>
 		</dict>
 		<key>Reader-Button-H.png</key>
@@ -1396,99 +1335,99 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hZ/gocuCTdI75fe65uU/CAxB7VQ=
+			CbPHjhUH2ba0VpdnHseeHfJ+X7o=
 			</data>
 			<key>hash2</key>
 			<data>
-			3xfnndCKoAZxv0DpX6n8qkrYT7cGOEDq+SjFQVnffoM=
+			rRlEZDoKLNFkP2HrTFrGodMdAdhzEHOqU3bNVc73ljQ=
 			</data>
 		</dict>
 		<key>SessionEditTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LjitLitiqXHzGX1hUt+AI/gXaWA=
+			B4PkWCGSie+DAQgXRV9xigE3bVE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qTMbOD5nOumDFUrEbeUHRdMUz23n7/YOXBrBfFXdwY8=
+			JOYBpbFn4ybwQNxIN2FUoLWQ7tDK/FCqbq59iianb3U=
 			</data>
 		</dict>
 		<key>SessionNotesViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/neY/cJnsG5u6atr1KClpmn7QkI=
+			QwZt/taK9t1np7JP/bS9n1xlvws=
 			</data>
 			<key>hash2</key>
 			<data>
-			EhtahaeHs+ZdPy7za+l5ffpwFft9AJrhQw9INgD5k9c=
+			1izj/vi4TPHoMX5EWys3CAg/HsxuzUameqoFe486CCM=
 			</data>
 		</dict>
 		<key>SessionsTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xEobjnuW30AaLLcuu5E40rfVfT4=
+			qo/CNUOof1eeal9ZuarXmrOL5Ds=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q26ZmL1EUCOl4tJIHkcv5L6GKm0yp+f2hKjY9kLHLy0=
-			</data>
-		</dict>
-		<key>SessionsTableViewController.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			5CKQfY41/aFagH5Zulyzdn5cGa4=
-			</data>
-			<key>hash2</key>
-			<data>
-			CitUbgNtd0CEO+xKDJdKq5LBaOWK3uGqGlCwFKA9OfA=
+			FXjuOm2YZOPO6QxE6atAuCTYpDzSnusQmqdXrLxVwQs=
 			</data>
 		</dict>
 		<key>SettingsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+7gwTmsZwnG21iTYxqgxYVNcbPc=
+			9atDUMFAQjPB0ZHYAdfjasv0fhk=
 			</data>
 			<key>hash2</key>
 			<data>
-			vpmxyUwQk2jJZEXDxSits6kyRWSGIjNJ7E6nyCZHDqE=
+			UTrXzHfwmFPhRS+FmFguDSf+8XLzCIWmndsMZztdwfo=
 			</data>
 		</dict>
 		<key>StylesCollectionViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			C/iYg5QaV+eYIKtcFYqD+g87BxE=
+			eCGBNUibQNEhZzYeR67liD9Q2V4=
 			</data>
 			<key>hash2</key>
 			<data>
-			YaEwmaBXESftAQr86CtrfCxU4GTMAh+Igod/Hlxhl7k=
+			3eoQXkQQhbL//zi/3gNYBrfgj/8cPY/HpEUKbMoP42I=
+			</data>
+		</dict>
+		<key>SwitchTableViewCell.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			L8BOpKGyGfOGUYqzg/kEVv0w6i4=
+			</data>
+			<key>hash2</key>
+			<data>
+			iC6QgnEc0p+ObeSHWzP3lcIw0tPHfc0NEOxM4yMAPyY=
 			</data>
 		</dict>
 		<key>TextInputTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Pw0Egh7OyveWvv9j363GesmC4ys=
+			zrzASJMY16FO0o2TMqpxKA80YyI=
 			</data>
 			<key>hash2</key>
 			<data>
-			A1U9xSsW720ptA+4aGaow1InQeDw1bvomhinUUy8lZw=
+			KaPfkiFrXqCpINwi69ul2A8spmuk3wAU51QAYX0d43M=
 			</data>
 		</dict>
 		<key>Todo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pHlHI+LIpNke2AEmAvVINFX6pI4=
+			jmAXA2PDKVZ6thNgPevqaoA+y+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Xn5hDdbkoQi4w2eqa9U0kxPXznTATAWcnFmS0NP/vrg=
+			mYR0N70taI9UrpfmPy83S2PLCMo8d7XLzxwQHF+EERk=
 			</data>
 		</dict>
 		<key>administrator-50.png</key>
@@ -1537,19 +1476,6 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ar.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1626,19 +1552,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>de.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>drafting_compass2-50.png</key>
 		<dict>
 			<key>hash</key>
@@ -1654,35 +1567,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KLtlyUZ9tcQTOMgNoxm9cMGJwIU=
+			oCN8uoi6z/307MnEDvoiUhO8I4c=
 			</data>
 			<key>hash2</key>
 			<data>
-			MRbDSrnm0+yMi57Bm9tGkY+tn/quzlQL5+q5ag7OT5E=
+			5x8uQHkM9OqpBc2+zlDBFb4m6//lXJyBXq6pFV3wY1s=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MlsC9mJKAzYbnif5uoMZaQtnBWI=
+			I9hnnEBsfgvOTVKK0l1sXVp/9yM=
 			</data>
 			<key>hash2</key>
 			<data>
-			RPi0Cc19q1O2l96CEkjdMvcVvIL10Y/YhbrAMi0pzUA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>en.lproj/MilageViewController.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			53yrc20m0SQ2ptPkdvb0RYCU9QM=
-			</data>
-			<key>hash2</key>
-			<data>
-			A2r5mjyR50oNTojgy3MwBsDcP5tTwBaVmcrJ6zQV/z8=
+			bOnvt3eRJ5UzBx+4XPsdf92lmrGYjykMFKQyRr4k748=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1726,18 +1626,16 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>es.lproj/MilageViewController.strings</key>
+		<key>faq-50.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
+			lg9oCDxfQpPBMo0yVnLMSeVtNWA=
 			</data>
 			<key>hash2</key>
 			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
+			SCocPk9GBqoCsJ2BRguamwVRfMw8RMotcYXNOg09gE0=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>fr.lproj/LaunchScreen.strings</key>
 		<dict>
@@ -1778,19 +1676,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>fr.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>group-32.png</key>
 		<dict>
 			<key>hash</key>
@@ -1811,6 +1696,17 @@
 			<key>hash2</key>
 			<data>
 			+PmO4ZgKWAWElWd6C9djj+3Rd5X2Suu0Awul95+xEwU=
+			</data>
+		</dict>
+		<key>help-50.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			iVcgqdNBpTLtfH7srqhve7HW/sA=
+			</data>
+			<key>hash2</key>
+			<data>
+			m5oDEc85KMEX5Eqrf+dPu7viGzzntDV+iBKa9uxWWh0=
 			</data>
 		</dict>
 		<key>invoice-50.png</key>
@@ -1863,19 +1759,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>it.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>ja.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1915,19 +1798,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>ja.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>ko.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1963,19 +1833,6 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ko.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2081,19 +1938,6 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ru.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2212,33 +2056,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i/lHgSF2Zo2GHly5FKxcV2XsJao=
+			ibN576mj+cbiu+FqH7kR/lIT9Wk=
 			</data>
 			<key>hash2</key>
 			<data>
-			pakuIpwA6F5QLFX9lW4oFXqAvjJEFQih/FwWxK8jpcU=
+			9EaQaRZcz6KlqK6kDGuOYixehSzyH1qUI2taU7sGGAE=
 			</data>
 		</dict>
 		<key>trackandbill_ios.momd/trackandbill_ios.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GupSWKDuQoQYhiYLT8y1TC1Mams=
+			znJZai4O/RAQRlnJqtqOl4vOHPo=
 			</data>
 			<key>hash2</key>
 			<data>
-			s5IEr7mSNPoibGhGas5YFNhLv7n4JMZweep3DoclgM8=
+			0YcR/sgUVKoU7QNv7kBXmWG6ea3XrP34RCdxmWu4RmM=
 			</data>
 		</dict>
 		<key>trackandbill_ios.momd/trackandbill_ios.omo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LG1EyHBwc6uvx5IPqQ9pvhvGiHs=
+			G3I3CVYf49dhS4koD6ie0Bn0hso=
 			</data>
 			<key>hash2</key>
 			<data>
-			UZH6mAUxhnjmhbshb7mePQ60W+E6rcB4fKkYbn9a0D4=
+			eQa4ys1fELk+sNBMBXCxYfRwj6vanUTQzK1awWNy/2Y=
 			</data>
 		</dict>
 		<key>xlarge_icons-50.png</key>
@@ -2291,19 +2135,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>zh-Hans.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>zh-Hant.lproj/LaunchScreen.strings</key>
 		<dict>
 			<key>hash</key>
@@ -2339,19 +2170,6 @@
 			<key>hash2</key>
 			<data>
 			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>zh-Hant.lproj/MilageViewController.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			87qP1RitiGD1ABnD0KQrX+YaZMY=
-			</data>
-			<key>hash2</key>
-			<data>
-			UK/N43Q7lamff25uzpvnWpZb3ssOf2pYs0B813v/lKI=
 			</data>
 			<key>optional</key>
 			<true/>

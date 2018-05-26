@@ -4,4 +4,11 @@ dependencies: \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/MilageViewController.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataClass.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataProperties.h \
-  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/SessionInfoViewController.h
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/SessionInfoViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Profile+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Profile+CoreDataProperties.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Model/Model.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Invoice+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Invoice+CoreDataProperties.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Project+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Project+CoreDataProperties.h

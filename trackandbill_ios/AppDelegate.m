@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Rollbar/Rollbar.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
+	
+	//Add Rollbar for crash reports
+	[Rollbar initWithAccessToken:@"7263d6d351a949939314e5bf8373f4c1"];
+
   // check ios version
   NSString *version = [[UIDevice currentDevice] systemVersion];
   NSLog(@"ios version: %@", version);
