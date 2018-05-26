@@ -13,6 +13,7 @@
 #import "DashboardCollectionViewCell.h"
 #import "StylesCollectionViewController.h"
 #import "HelpViewController.h"
+#import <FirebaseAnalytics/FIRAnalytics.h>
 
 @interface DashboardCollectionViewController (){
 	NSMutableArray* _cellData;
@@ -128,6 +129,14 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	[[self navigationController] pushViewController:[[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"] animated:YES];
+	
+	//test log event - log image name for selection
+	[FIRAnalytics logEventWithName:kFIREventSelectContent
+											parameters:@{
+																	 kFIRParameterItemID:[NSString stringWithFormat:@"dashboard_select-%@", [_cellImages objectAtIndex:indexPath.row]],
+																	 kFIRParameterItemName:[_cellImages objectAtIndex:indexPath.row],
+																	 kFIRParameterContentType:@"text"
+																	 }];
 }
 
 @end

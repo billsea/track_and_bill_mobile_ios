@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E209402172D6629582C3D33CA8CFB0C7'
-               BlueprintName = 'Rollbar'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libRollbar.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E478D79FB0B201374BD4F9C2A19EE900"
+               BlueprintName = "Rollbar"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libRollbar.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Rollbar/Rollbar.h>
+@import Firebase;
 
 @interface AppDelegate ()
 
@@ -22,6 +23,12 @@
 	//Add Rollbar for crash reports
 	[Rollbar initWithAccessToken:@"7263d6d351a949939314e5bf8373f4c1"];
 
+	//Firebase = for Google Analytics tracking
+	[FIRApp configure];
+	
+	//Language property - just for usage example - THIS IS Collected automatically
+	[FIRAnalytics setUserPropertyString:[[NSLocale preferredLanguages] firstObject] forName:@"user_language"];
+	
   // check ios version
   NSString *version = [[UIDevice currentDevice] systemVersion];
   NSLog(@"ios version: %@", version);

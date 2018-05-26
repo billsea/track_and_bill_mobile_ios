@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '66CF27E8FEC811EC548E7DF3D1009681'
-               BlueprintName = 'Pods-trackandbill_ios'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-trackandbill_ios.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FBD74E2682C736878136311FFF4AB419"
+               BlueprintName = "Pods-trackandbill_ios"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libPods-trackandbill_ios.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

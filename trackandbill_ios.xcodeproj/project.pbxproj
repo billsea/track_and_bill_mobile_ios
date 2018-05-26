@@ -63,6 +63,7 @@
 		A9B535A52098C7C400EA543F /* StylesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */; };
 		A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */; };
 		A9B535A82098C94200EA543F /* mirror-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B535A72098C94200EA543F /* mirror-50.png */; };
+		A9BAE4F820B9DE7B00C0D858 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9BAE4F720B9DE7B00C0D858 /* GoogleService-Info.plist */; };
 		A9BB79CA2095443700274218 /* cargo_ship-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BB79C92095443600274218 /* cargo_ship-50.png */; };
 		A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */; };
 		A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */; };
@@ -275,6 +276,7 @@
 		A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StylesCollectionViewController.m; sourceTree = "<group>"; };
 		A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StylesCollectionViewController.xib; sourceTree = "<group>"; };
 		A9B535A72098C94200EA543F /* mirror-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mirror-50.png"; sourceTree = "<group>"; };
+		A9BAE4F720B9DE7B00C0D858 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9BB79C92095443600274218 /* cargo_ship-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cargo_ship-50.png"; sourceTree = "<group>"; };
 		A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardCollectionViewController.h; sourceTree = "<group>"; };
 		A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardCollectionViewController.m; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 		A9167E2A1AEAC10D0071B992 /* trackandbill_ios */ = {
 			isa = PBXGroup;
 			children = (
+				A9BAE4F720B9DE7B00C0D858 /* GoogleService-Info.plist */,
 				A9DC4CD51AEAFDA100A00892 /* AppDelegate.h */,
 				A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */,
 				A9167E381AEAC10E0071B992 /* Main.storyboard */,
@@ -773,8 +776,6 @@
 				A9167E251AEAC10D0071B992 /* Frameworks */,
 				A9167E261AEAC10D0071B992 /* Resources */,
 				A9DC4C001AEAC7B900A00892 /* CopyFiles */,
-				A9852927CA66B2E7A7B3ABB4 /* [CP] Embed Pods Frameworks */,
-				41988D68405F3FB5DF0A278C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -900,6 +901,7 @@
 				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,
 				A9F56FAA20A4AD07006626D7 /* MilageViewController.xib in Resources */,
 				A91501881B094A97009AB281 /* left-25.png in Resources */,
+				A9BAE4F820B9DE7B00C0D858 /* GoogleService-Info.plist in Resources */,
 				A91501841B0949AD009AB281 /* left2-32.png in Resources */,
 				A9AAEFE4207E8C14006BF1C6 /* administrator-50.png in Resources */,
 				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
@@ -964,36 +966,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		41988D68405F3FB5DF0A278C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9852927CA66B2E7A7B3ABB4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
