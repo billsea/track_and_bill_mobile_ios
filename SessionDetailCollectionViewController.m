@@ -46,7 +46,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		_selectedProject.start = [NSDate date];
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	_cellImages = @[@"timer", @"cars", @"pen", @"sellotape"];
+	_cellImages = @[@"empty", @"milage_track", @"notes", @"materials"];
 	_timerOn = NO;
 	
 	//TODO: Add these to cell data
@@ -77,7 +77,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	//Override back button
 	UIButton* exitButton = [[UIButton alloc] initWithFrame:CGRectMake(-10, 0, 40, 80)];
 	[exitButton setTitle:NSLocalizedString(@"save_and_exit", nil) forState:UIControlStateNormal];
-	[exitButton setImage:[[UIImage imageNamed:@"back-25.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+	[exitButton setImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
 	[exitButton.imageView setTintColor:[UIColor whiteColor]];
 	[exitButton addTarget:self action:@selector(backButtonHit:)
 	 forControlEvents:UIControlEventTouchUpInside];
@@ -157,7 +157,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 	// Configure the cell
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", _cellImages[indexPath.row]]];
 	
 	//Timer cell
 	if([indexPath row] == 0) {

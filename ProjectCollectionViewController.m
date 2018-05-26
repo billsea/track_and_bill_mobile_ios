@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[[self navigationItem] setTitle:_project.name];
 	
 	_project = (Project*)_projectObjectId;
-	_cellImages = @[@"stopwatch", @"surgical_scissors",@"invoice", @"cargo_ship"];
+	_cellImages = @[@"new_session", @"edit_session",@"invoice", @"export"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
@@ -88,7 +88,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 	// Configure the cell
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", _cellImages[indexPath.row]]];
 	return cell;
 }
 

@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		885A4686FE8ED3C99B810BDD /* libPods-trackandbill_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC4A2FE81D148041718D25D /* libPods-trackandbill_ios.a */; };
-		A91501841B0949AD009AB281 /* left2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501831B0949AD009AB281 /* left2-32.png */; };
-		A91501861B094A58009AB281 /* left2-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501851B094A58009AB281 /* left2-25.png */; };
-		A91501881B094A97009AB281 /* left-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501871B094A97009AB281 /* left-25.png */; };
-		A915018A1B094ADD009AB281 /* back-25.png in Resources */ = {isa = PBXBuildFile; fileRef = A91501891B094ADD009AB281 /* back-25.png */; };
 		A9167E2E1AEAC10D0071B992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E2D1AEAC10D0071B992 /* main.m */; };
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
 		A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9167E381AEAC10E0071B992 /* Main.storyboard */; };
@@ -21,29 +17,19 @@
 		A93829FC2093CEE20086B2ED /* utility.mm in Sources */ = {isa = PBXBuildFile; fileRef = A93829FA2093CEE20086B2ED /* utility.mm */; };
 		A9382A002093E3580086B2ED /* SessionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A93829FF2093E3580086B2ED /* SessionInfoViewController.m */; };
 		A94AE5AF206B19A100B079B2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A94AE5AE206B19A100B079B2 /* Model.m */; };
-		A94D0B80208576490052F7A5 /* surgical_scissors-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */; };
-		A94D0B8220857C7A0052F7A5 /* pen-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A94D0B8120857C7A0052F7A5 /* pen-50.png */; };
 		A959F417209E2B8600B63DDC /* ExportSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */; };
 		A959F418209E2B8600B63DDC /* ExportSelectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */; };
 		A959F420209E37C200B63DDC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A959F41F209E37C200B63DDC /* MessageUI.framework */; };
-		A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF41B08609A0009CD99 /* paper_texture_02.png */; };
-		A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF61B086C350009CD99 /* settings_filled-32.png */; };
-		A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F9FF81B086C750009CD99 /* settings3-32.png */; };
 		A960805C2097EA7900A589A0 /* DateSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960805A2097EA7900A589A0 /* DateSelectViewController.m */; };
 		A960805D2097EA7900A589A0 /* DateSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A960805B2097EA7900A589A0 /* DateSelectViewController.xib */; };
-		A97299CE20B49846001975D7 /* faq-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A97299CD20B49846001975D7 /* faq-50.png */; };
-		A97299D020B4989E001975D7 /* help-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A97299CF20B4989E001975D7 /* help-50.png */; };
 		A97299D420B4996F001975D7 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97299D220B4996F001975D7 /* HelpViewController.m */; };
 		A97299D520B4996F001975D7 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97299D320B4996F001975D7 /* HelpViewController.xib */; };
 		A9729BB42068715900651DAB /* ProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9729BB22068715900651DAB /* ProjectCollectionViewController.m */; };
 		A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */; };
 		A97544DC209CCCA40048387A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97544DE209CCCA40048387A /* Localizable.strings */; };
 		A98F3CA220A219AD007A32F2 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98F3CA120A219AD007A32F2 /* Photos.framework */; };
-		A98F3CA420A22D4F007A32F2 /* xlarge_icons-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */; };
 		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
 		A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */; };
-		A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */; };
-		A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8F1AF7F56A00A4CC9D /* group-32.png */; };
 		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
 		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
 		A99EABCC20ABC95800D7AC44 /* InvoiceStyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EABCA20ABC95800D7AC44 /* InvoiceStyleTableViewController.m */; };
@@ -51,20 +37,9 @@
 		A99EABD120ABCC8800D7AC44 /* SwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EABCF20ABCC8800D7AC44 /* SwitchTableViewCell.m */; };
 		A99EABD220ABCC8800D7AC44 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99EABD020ABCC8800D7AC44 /* SwitchTableViewCell.xib */; };
 		A9A2E68B1B14D60400A478AE /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = A9A2E68A1B14D60400A478AE /* Todo */; };
-		A9AAEFDC207E8958006BF1C6 /* stopwatch-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */; };
-		A9AAEFDE207E8965006BF1C6 /* timer-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFDD207E8965006BF1C6 /* timer-50.png */; };
-		A9AAEFE0207E8B45006BF1C6 /* groups-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFDF207E8B45006BF1C6 /* groups-50.png */; };
-		A9AAEFE2207E8B7C006BF1C6 /* invoice-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE1207E8B7C006BF1C6 /* invoice-50.png */; };
-		A9AAEFE4207E8C14006BF1C6 /* administrator-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE3207E8C14006BF1C6 /* administrator-50.png */; };
-		A9AAEFE6207E8D36006BF1C6 /* running-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE5207E8D36006BF1C6 /* running-50.png */; };
-		A9AAEFE8207E8E5D006BF1C6 /* drafting_compass2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */; };
-		A9AAEFEA207E8E78006BF1C6 /* cars-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFE9207E8E78006BF1C6 /* cars-50.png */; };
-		A9AAEFEC207E8F25006BF1C6 /* sellotape-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */; };
 		A9B535A52098C7C400EA543F /* StylesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */; };
 		A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */; };
-		A9B535A82098C94200EA543F /* mirror-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B535A72098C94200EA543F /* mirror-50.png */; };
 		A9BAE4F820B9DE7B00C0D858 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9BAE4F720B9DE7B00C0D858 /* GoogleService-Info.plist */; };
-		A9BB79CA2095443700274218 /* cargo_ship-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BB79C92095443600274218 /* cargo_ship-50.png */; };
 		A9CB2A0B2065C90E00B9EA5A /* DashboardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */; };
 		A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */; };
 		A9CB2A162065D9C300B9EA5A /* DashboardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */; };
@@ -174,10 +149,6 @@
 /* Begin PBXFileReference section */
 		00ACF90AF1E85EA32D6E9EBE /* Pods-trackandbill_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackandbill_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios.release.xcconfig"; sourceTree = "<group>"; };
 		183AEC7303B4D5A7392B50E1 /* Pods-trackandbill_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackandbill_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios.debug.xcconfig"; sourceTree = "<group>"; };
-		A91501831B0949AD009AB281 /* left2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-32.png"; sourceTree = "<group>"; };
-		A91501851B094A58009AB281 /* left2-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-25.png"; sourceTree = "<group>"; };
-		A91501871B094A97009AB281 /* left-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-25.png"; sourceTree = "<group>"; };
-		A91501891B094ADD009AB281 /* back-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-25.png"; sourceTree = "<group>"; };
 		A9167E281AEAC10D0071B992 /* trackandbill_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackandbill_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E2C1AEAC10D0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E2D1AEAC10D0071B992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -195,20 +166,13 @@
 		A93829FF2093E3580086B2ED /* SessionInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SessionInfoViewController.m; sourceTree = "<group>"; };
 		A94AE5AD206B19A100B079B2 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		A94AE5AE206B19A100B079B2 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surgical_scissors-50.png"; sourceTree = "<group>"; };
-		A94D0B8120857C7A0052F7A5 /* pen-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pen-50.png"; sourceTree = "<group>"; };
 		A959F414209E2B8600B63DDC /* ExportSelectTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExportSelectTableViewController.h; sourceTree = "<group>"; };
 		A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExportSelectTableViewController.m; sourceTree = "<group>"; };
 		A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportSelectTableViewController.xib; sourceTree = "<group>"; };
 		A959F41F209E37C200B63DDC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		A95F9FF41B08609A0009CD99 /* paper_texture_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_texture_02.png; sourceTree = "<group>"; };
-		A95F9FF61B086C350009CD99 /* settings_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-32.png"; sourceTree = "<group>"; };
-		A95F9FF81B086C750009CD99 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
 		A96080592097EA7900A589A0 /* DateSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateSelectViewController.h; sourceTree = "<group>"; };
 		A960805A2097EA7900A589A0 /* DateSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateSelectViewController.m; sourceTree = "<group>"; };
 		A960805B2097EA7900A589A0 /* DateSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectViewController.xib; sourceTree = "<group>"; };
-		A97299CD20B49846001975D7 /* faq-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faq-50.png"; sourceTree = "<group>"; };
-		A97299CF20B4989E001975D7 /* help-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-50.png"; sourceTree = "<group>"; };
 		A97299D120B4996F001975D7 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		A97299D220B4996F001975D7 /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		A97299D320B4996F001975D7 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
@@ -247,12 +211,9 @@
 		A97544FB209CD1860048387A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A97544FC209CD1860048387A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A98F3CA120A219AD007A32F2 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xlarge_icons-50.png"; sourceTree = "<group>"; };
 		A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllSessionsTableViewController.h; sourceTree = "<group>"; };
 		A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllSessionsTableViewController.m; sourceTree = "<group>"; };
 		A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllSessionsTableViewController.xib; sourceTree = "<group>"; };
-		A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_wrench-32.png"; sourceTree = "<group>"; };
-		A9976D8F1AF7F56A00A4CC9D /* group-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group-32.png"; sourceTree = "<group>"; };
 		A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
@@ -263,21 +224,10 @@
 		A99EABCF20ABCC8800D7AC44 /* SwitchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchTableViewCell.m; sourceTree = "<group>"; };
 		A99EABD020ABCC8800D7AC44 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		A9A2E68A1B14D60400A478AE /* Todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
-		A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stopwatch-50.png"; sourceTree = "<group>"; };
-		A9AAEFDD207E8965006BF1C6 /* timer-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer-50.png"; sourceTree = "<group>"; };
-		A9AAEFDF207E8B45006BF1C6 /* groups-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groups-50.png"; sourceTree = "<group>"; };
-		A9AAEFE1207E8B7C006BF1C6 /* invoice-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invoice-50.png"; sourceTree = "<group>"; };
-		A9AAEFE3207E8C14006BF1C6 /* administrator-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "administrator-50.png"; sourceTree = "<group>"; };
-		A9AAEFE5207E8D36006BF1C6 /* running-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "running-50.png"; sourceTree = "<group>"; };
-		A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drafting_compass2-50.png"; sourceTree = "<group>"; };
-		A9AAEFE9207E8E78006BF1C6 /* cars-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cars-50.png"; sourceTree = "<group>"; };
-		A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sellotape-50.png"; sourceTree = "<group>"; };
 		A9B535A22098C7C400EA543F /* StylesCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StylesCollectionViewController.h; sourceTree = "<group>"; };
 		A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StylesCollectionViewController.m; sourceTree = "<group>"; };
 		A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StylesCollectionViewController.xib; sourceTree = "<group>"; };
-		A9B535A72098C94200EA543F /* mirror-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mirror-50.png"; sourceTree = "<group>"; };
 		A9BAE4F720B9DE7B00C0D858 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A9BB79C92095443600274218 /* cargo_ship-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cargo_ship-50.png"; sourceTree = "<group>"; };
 		A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardCollectionViewController.h; sourceTree = "<group>"; };
 		A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardCollectionViewController.m; sourceTree = "<group>"; };
 		A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewController.xib; sourceTree = "<group>"; };
@@ -542,18 +492,8 @@
 		A95F9FF31B0860760009CD99 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				A9AAEFDA207E893C006BF1C6 /* CollectionItems */,
 				A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */,
 				A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */,
-				A91501891B094ADD009AB281 /* back-25.png */,
-				A91501871B094A97009AB281 /* left-25.png */,
-				A91501851B094A58009AB281 /* left2-25.png */,
-				A91501831B0949AD009AB281 /* left2-32.png */,
-				A95F9FF81B086C750009CD99 /* settings3-32.png */,
-				A95F9FF61B086C350009CD99 /* settings_filled-32.png */,
-				A95F9FF41B08609A0009CD99 /* paper_texture_02.png */,
-				A9976D8F1AF7F56A00A4CC9D /* group-32.png */,
-				A9976D8D1AF7F53600A4CC9D /* settings_wrench-32.png */,
 				A9DC4C3A1AEAFB8E00A00892 /* Reader-Button-H.png */,
 				A9DC4C3B1AEAFB8E00A00892 /* Reader-Button-H@2x.png */,
 				A9DC4C3C1AEAFB8E00A00892 /* Reader-Button-N.png */,
@@ -570,29 +510,6 @@
 				A9DC4C471AEAFB8E00A00892 /* Reader-Thumbs@2x.png */,
 			);
 			name = images;
-			sourceTree = "<group>";
-		};
-		A9AAEFDA207E893C006BF1C6 /* CollectionItems */ = {
-			isa = PBXGroup;
-			children = (
-				A97299CD20B49846001975D7 /* faq-50.png */,
-				A97299CF20B4989E001975D7 /* help-50.png */,
-				A98F3CA320A22D4E007A32F2 /* xlarge_icons-50.png */,
-				A9B535A72098C94200EA543F /* mirror-50.png */,
-				A9BB79C92095443600274218 /* cargo_ship-50.png */,
-				A94D0B8120857C7A0052F7A5 /* pen-50.png */,
-				A9AAEFDB207E8958006BF1C6 /* stopwatch-50.png */,
-				A94D0B7F208576490052F7A5 /* surgical_scissors-50.png */,
-				A9AAEFDD207E8965006BF1C6 /* timer-50.png */,
-				A9AAEFDF207E8B45006BF1C6 /* groups-50.png */,
-				A9AAEFE1207E8B7C006BF1C6 /* invoice-50.png */,
-				A9AAEFE3207E8C14006BF1C6 /* administrator-50.png */,
-				A9AAEFE5207E8D36006BF1C6 /* running-50.png */,
-				A9AAEFE7207E8E5D006BF1C6 /* drafting_compass2-50.png */,
-				A9AAEFE9207E8E78006BF1C6 /* cars-50.png */,
-				A9AAEFEB207E8F25006BF1C6 /* sellotape-50.png */,
-			);
-			name = CollectionItems;
 			sourceTree = "<group>";
 		};
 		A9CB2A0D2065C95000B9EA5A /* Cells */ = {
@@ -861,7 +778,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9DF54901B0E57A4009A9922 /* tBill_appIcon_120.png in Resources */,
-				A9AAEFDC207E8958006BF1C6 /* stopwatch-50.png in Resources */,
 				A9DC4C811AEAFB8E00A00892 /* AddClientTableViewController.xib in Resources */,
 				A97299D520B4996F001975D7 /* HelpViewController.xib in Resources */,
 				A9DC4CA61AEAFB8E00A00892 /* Reader-Button-N@2x.png in Resources */,
@@ -869,73 +785,49 @@
 				A9DC4CA41AEAFB8E00A00892 /* Reader-Button-H@2x.png in Resources */,
 				A99EABD220ABCC8800D7AC44 /* SwitchTableViewCell.xib in Resources */,
 				A9729BB52068715900651DAB /* ProjectCollectionViewController.xib in Resources */,
-				A95F9FF51B08609A0009CD99 /* paper_texture_02.png in Resources */,
 				A960805D2097EA7900A589A0 /* DateSelectViewController.xib in Resources */,
 				A9DC4C941AEAFB8E00A00892 /* InvoiceTableViewController.xib in Resources */,
 				A9A2E68B1B14D60400A478AE /* Todo in Resources */,
-				A9AAEFE2207E8B7C006BF1C6 /* invoice-50.png in Resources */,
-				A9AAEFDE207E8965006BF1C6 /* timer-50.png in Resources */,
 				A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */,
-				A9AAEFEC207E8F25006BF1C6 /* sellotape-50.png in Resources */,
 				A9DC4CAC1AEAFB8E00A00892 /* Reader-Mark-Y@2x.png in Resources */,
-				A94D0B80208576490052F7A5 /* surgical_scissors-50.png in Resources */,
 				A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */,
-				A97299CE20B49846001975D7 /* faq-50.png in Resources */,
-				A9976D901AF7F56A00A4CC9D /* group-32.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
-				A97299D020B4989E001975D7 /* help-50.png in Resources */,
 				A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */,
-				A9B535A82098C94200EA543F /* mirror-50.png in Resources */,
-				A95F9FF71B086C350009CD99 /* settings_filled-32.png in Resources */,
 				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
-				A9AAEFEA207E8E78006BF1C6 /* cars-50.png in Resources */,
 				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
 				A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */,
 				A9DC4CA01AEAFB8E00A00892 /* ProjectsTableViewCell.xib in Resources */,
 				A9DC4CA31AEAFB8E00A00892 /* Reader-Button-H.png in Resources */,
-				A95F9FF91B086C750009CD99 /* settings3-32.png in Resources */,
-				A9AAEFE0207E8B45006BF1C6 /* groups-50.png in Resources */,
 				A9167E3F1AEAC10E0071B992 /* LaunchScreen.xib in Resources */,
 				A9DC4CA71AEAFB8E00A00892 /* Reader-Email.png in Resources */,
 				A9F56FAA20A4AD07006626D7 /* MilageViewController.xib in Resources */,
-				A91501881B094A97009AB281 /* left-25.png in Resources */,
 				A9BAE4F820B9DE7B00C0D858 /* GoogleService-Info.plist in Resources */,
-				A91501841B0949AD009AB281 /* left2-32.png in Resources */,
-				A9AAEFE4207E8C14006BF1C6 /* administrator-50.png in Resources */,
 				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
 				A97544DC209CCCA40048387A /* Localizable.strings in Resources */,
-				A98F3CA420A22D4F007A32F2 /* xlarge_icons-50.png in Resources */,
 				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
 				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
 				A9DC4CA81AEAFB8E00A00892 /* Reader-Email@2x.png in Resources */,
 				A9DC4CAD1AEAFB8E00A00892 /* Reader-Print.png in Resources */,
 				A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */,
 				A9DC4CA21AEAFB8E00A00892 /* ProjectsTableViewController.xib in Resources */,
-				A9BB79CA2095443700274218 /* cargo_ship-50.png in Resources */,
 				A9D972A8209A2EBD00A69D47 /* InvoiceTableViewCell.xib in Resources */,
 				A9DC4C921AEAFB8E00A00892 /* InvoicesTableViewController.xib in Resources */,
 				A9DC4C961AEAFB8E00A00892 /* MaterialsViewController.xib in Resources */,
-				A9AAEFE6207E8D36006BF1C6 /* running-50.png in Resources */,
 				A9DC4C9B1AEAFB8E00A00892 /* ProfileTableViewController.xib in Resources */,
 				A9DC4CC41AEAFB8E00A00892 /* SessionNotesViewController.xib in Resources */,
 				A9DC4CC61AEAFB8E00A00892 /* SessionsTableViewCell.xib in Resources */,
-				A915018A1B094ADD009AB281 /* back-25.png in Resources */,
 				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
-				A91501861B094A58009AB281 /* left2-25.png in Resources */,
 				A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */,
 				A959F418209E2B8600B63DDC /* ExportSelectTableViewController.xib in Resources */,
-				A9AAEFE8207E8E5D006BF1C6 /* drafting_compass2-50.png in Resources */,
 				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
 				A9DC4CAF1AEAFB8E00A00892 /* Reader-Thumbs.png in Resources */,
 				A99EABCD20ABC95800D7AC44 /* InvoiceStyleTableViewController.xib in Resources */,
 				A9DC4CAE1AEAFB8E00A00892 /* Reader-Print@2x.png in Resources */,
-				A94D0B8220857C7A0052F7A5 /* pen-50.png in Resources */,
 				A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */,
 				A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */,
-				A9976D8E1AF7F53600A4CC9D /* settings_wrench-32.png in Resources */,
 				A9CB2A172065D9C300B9EA5A /* DashboardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

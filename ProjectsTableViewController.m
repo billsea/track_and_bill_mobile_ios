@@ -39,7 +39,6 @@
 
 	// add new navigation bar button
 	UIBarButtonItem* addClientButton = [[UIBarButtonItem alloc]
-													// initWithImage:[UIImage imageNamed:@"reload-50.png"]
 													initWithTitle: NSLocalizedString(@"new",nil)
 													style:UIBarButtonItemStylePlain
 													target:self

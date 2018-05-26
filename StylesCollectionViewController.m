@@ -35,7 +35,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_myProfile = (Profile*)[self MyProfile];
 	
-	_cellImages = @[@"xlarge_icons",@"invoice"];
+	_cellImages = @[@"invoice_image",@"invoice_style"];
 
 	StylesCollectionViewController* stylesVC = [[StylesCollectionViewController alloc]
 																						initWithNibName:@"StylesCollectionViewController"
@@ -104,7 +104,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	// Configure the cell
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", _cellImages[indexPath.row]]];
 	return cell;
 }
 

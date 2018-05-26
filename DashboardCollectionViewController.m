@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	self.title = NSLocalizedString(@"dashboard", nil);
 	
-	_cellImages = @[@"groups", @"mirror", @"invoice", @"administrator",@"help"];
+	_cellImages = @[@"clients", @"styles", @"invoices", @"profile",@"help"];
 	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
@@ -106,7 +106,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	DashboardCollectionViewCell* cell = (DashboardCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 	
 	cell.dashboardLabel.text = [[_cellData objectAtIndex:indexPath.row] objectForKey:@"title"];
-	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-50.png", _cellImages[indexPath.row]]];
+	cell.cellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", _cellImages[indexPath.row]]];
 	
 	return cell;
 }
