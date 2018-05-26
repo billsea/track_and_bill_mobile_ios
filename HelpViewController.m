@@ -24,11 +24,14 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
+	
 	//show spinner
-	_activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	_activityView.center = CGPointMake(_helpWebView.frame.size.width/ 2.0, _helpWebView.frame.size.height/ 2.0);
-	[_activityView startAnimating];
-	[self.view addSubview:_activityView];
+	if(_helpWebView.loading){
+		_activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		_activityView.center = CGPointMake(_helpWebView.frame.size.width/ 2.0, _helpWebView.frame.size.height/ 2.0);
+		[_activityView startAnimating];
+		[self.view addSubview:_activityView];
+	}
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +40,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-	_activityView.hidden = YES;
+	[_activityView removeFromSuperview];
 }
 
 /*
