@@ -9,6 +9,8 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
+"credits" = "Créditos";
+
 "ok" = "OK";
 
 "yes" = "Sí";

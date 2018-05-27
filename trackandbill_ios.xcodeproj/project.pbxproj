@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		885A4686FE8ED3C99B810BDD /* libPods-trackandbill_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC4A2FE81D148041718D25D /* libPods-trackandbill_ios.a */; };
+		A90415D220BB6D20004D4508 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90415D020BB6D20004D4508 /* CreditsViewController.m */; };
+		A90415D320BB6D20004D4508 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90415D120BB6D20004D4508 /* CreditsViewController.xib */; };
 		A9167E2E1AEAC10D0071B992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E2D1AEAC10D0071B992 /* main.m */; };
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
 		A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9167E381AEAC10E0071B992 /* Main.storyboard */; };
@@ -149,6 +151,9 @@
 /* Begin PBXFileReference section */
 		00ACF90AF1E85EA32D6E9EBE /* Pods-trackandbill_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackandbill_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios.release.xcconfig"; sourceTree = "<group>"; };
 		183AEC7303B4D5A7392B50E1 /* Pods-trackandbill_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trackandbill_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trackandbill_ios/Pods-trackandbill_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A90415CF20BB6D20004D4508 /* CreditsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		A90415D020BB6D20004D4508 /* CreditsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		A90415D120BB6D20004D4508 /* CreditsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditsViewController.xib; sourceTree = "<group>"; };
 		A9167E281AEAC10D0071B992 /* trackandbill_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackandbill_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E2C1AEAC10D0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E2D1AEAC10D0071B992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -677,6 +682,9 @@
 				A97299D120B4996F001975D7 /* HelpViewController.h */,
 				A97299D220B4996F001975D7 /* HelpViewController.m */,
 				A97299D320B4996F001975D7 /* HelpViewController.xib */,
+				A90415CF20BB6D20004D4508 /* CreditsViewController.h */,
+				A90415D020BB6D20004D4508 /* CreditsViewController.m */,
+				A90415D120BB6D20004D4508 /* CreditsViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -795,6 +803,7 @@
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
 				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
 				A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */,
+				A90415D320BB6D20004D4508 /* CreditsViewController.xib in Resources */,
 				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
 				A9DC4CAB1AEAFB8E00A00892 /* Reader-Mark-Y.png in Resources */,
 				A9DC4CCC1AEAFB8E00A00892 /* TextInputTableViewCell.xib in Resources */,
@@ -906,6 +915,7 @@
 				A9DC4C8C1AEAFB8E00A00892 /* ClientsTableViewController.m in Sources */,
 				A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */,
 				A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */,
+				A90415D220BB6D20004D4508 /* CreditsViewController.m in Sources */,
 				A97299D420B4996F001975D7 /* HelpViewController.m in Sources */,
 				A959F417209E2B8600B63DDC /* ExportSelectTableViewController.m in Sources */,
 				A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */,

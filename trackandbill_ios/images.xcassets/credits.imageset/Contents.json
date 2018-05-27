@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "professional-profile-with-image.png",
+      "filename" : "theatre-curtains.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "professional-profile-with-image@2x.png",
+      "filename" : "theatre-curtains@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "professional-profile-with-image@3x.png",
+      "filename" : "theatre-curtains@3x.png",
       "scale" : "3x"
     }
   ],

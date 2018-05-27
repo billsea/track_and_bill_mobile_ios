@@ -13,6 +13,7 @@
 #import "DashboardCollectionViewCell.h"
 #import "StylesCollectionViewController.h"
 #import "HelpViewController.h"
+#import "CreditsViewController.h"
 #import <FirebaseAnalytics/FIRAnalytics.h>
 
 @interface DashboardCollectionViewController (){
@@ -31,7 +32,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	self.title = NSLocalizedString(@"dashboard", nil);
 	
-	_cellImages = @[@"clients", @"styles", @"invoices", @"profile",@"help"];
+	_cellImages = @[@"clients", @"styles", @"invoices", @"profile",@"help", @"credits"];
 	
 	ClientsTableViewController* clientsVC = [[ClientsTableViewController alloc]
 															initWithNibName:@"ClientsTableViewController"
@@ -63,7 +64,13 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	NSMutableDictionary* helpDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:helpVC, @"vc", NSLocalizedString(@"help", nil),@"title", nil];
 	
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, invoicesDict, profileDict, helpDict, nil];
+	CreditsViewController* creditsVC = [[CreditsViewController alloc]
+																initWithNibName:@"CreditsViewController"
+																bundle:nil];
+	NSMutableDictionary* creditsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:creditsVC, @"vc", NSLocalizedString(@"credits", nil),@"title", nil];
+	
+	
+	_cellData = [[NSMutableArray alloc] initWithObjects:clientsDict, stylesDict, invoicesDict, profileDict, helpDict, creditsDict, nil];
 	
 
     // Register cell classes
