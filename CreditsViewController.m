@@ -8,7 +8,9 @@
 
 #import "CreditsViewController.h"
 
-@interface CreditsViewController ()
+@interface CreditsViewController (){
+	bool _didLoad;
+}
 
 @end
 
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	_creditsWebView.delegate = self;
+	_didLoad = false;
 	NSURLRequest* req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://loudsoftware.com/trackandbill_ios/credits.html"]];
 	[_creditsWebView loadRequest:req];
 }
@@ -25,7 +28,7 @@
 		[super viewDidAppear:animated];
 		
 		//show spinner
-		if(_creditsWebView.loading){
+		if(!_didLoad){
 			_activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 			_activityView.center = CGPointMake(_creditsWebView.frame.size.width/ 2.0, _creditsWebView.frame.size.height/ 2.0);
 			[_activityView startAnimating];
@@ -39,6 +42,7 @@
 }
 	
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+	_didLoad = true;
 	[_activityView removeFromSuperview];
 }
 

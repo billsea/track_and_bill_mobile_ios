@@ -8,7 +8,9 @@
 
 #import "HelpViewController.h"
 
-@interface HelpViewController ()
+@interface HelpViewController (){
+	bool _didLoad;
+}
 
 @end
 
@@ -17,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	_helpWebView.delegate = self;
-	
+	_didLoad = false;
 	NSURLRequest* req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://loudsoftware.com/?page_id=506"]];
 	[_helpWebView loadRequest:req];
 }
@@ -26,7 +28,7 @@
 	[super viewDidAppear:animated];
 	
 	//show spinner
-	if(_helpWebView.loading){
+	if(!_didLoad){
 		_activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 		_activityView.center = CGPointMake(_helpWebView.frame.size.width/ 2.0, _helpWebView.frame.size.height/ 2.0);
 		[_activityView startAnimating];
@@ -40,6 +42,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+	_didLoad = true;
 	[_activityView removeFromSuperview];
 }
 
