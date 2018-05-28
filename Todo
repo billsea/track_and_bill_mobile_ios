@@ -6,16 +6,11 @@ Do some Unit tests
 Add Translation to localized files
 	 - chinese and spanish done
 
-Startup graphic
-- App Icon
-	- Use simple graphic
-- Add NUI to app, and work with styling
-- Collection view icons(enhance)
-
+- App Icon update
 - Complete website help
-- Add Rollbar(done)
-- Add Metrics(Added firebase and sdk. collecting only basic metrics)
 
+//next version
+- Add NUI to app, and work with styling
 
 //Ads
 - Implement AdMob(with pm_sales account!)
