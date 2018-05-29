@@ -11,4 +11,6 @@
 
 #define TextColorMain [UIColor darkGrayColor]
 #define NavBarImage @"navbar_bg"
+#define MainFontName @"HelveticaNeue"
+
 #endif /* Global_h */

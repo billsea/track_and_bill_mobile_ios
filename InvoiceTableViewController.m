@@ -755,7 +755,7 @@ if(_myProfile.show_invoice_header){
 }
 
 - (CGRect)addText:(NSString *)text withFrame:(CGRect)frame fontSize:(float)fontSize {
-  UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:fontSize];
+  UIFont *font = [UIFont fontWithName:MainFontName size:fontSize];
   CGRect stringSize =
       [text boundingRectWithSize:CGSizeMake(frame.size.width, frame.size.height)
                          options:NSStringDrawingUsesLineFragmentOrigin |

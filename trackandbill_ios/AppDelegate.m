@@ -85,7 +85,6 @@
 
 #pragma mark Style
 - (void)addStyle {
-	NSString* selectedFontName = @"HelveticaNeue";
 	
 	// navigation bar style
 	NSShadow *shadow = [[NSShadow alloc] init];
@@ -97,7 +96,7 @@
 	 setTitleTextAttributes:@{
 														NSForegroundColorAttributeName : [UIColor whiteColor],
 														NSShadowAttributeName : shadow,
-														NSFontAttributeName : [UIFont fontWithName:selectedFontName size:18.0]
+														NSFontAttributeName : [UIFont fontWithName:MainFontName size:18.0]
 														}
 	 forState:UIControlStateNormal];
 	
@@ -111,7 +110,7 @@
 																								 alpha:1.0],
 		NSForegroundColorAttributeName,
 		shadow, NSShadowAttributeName,
-		[UIFont fontWithName:selectedFontName size:24.0], NSFontAttributeName, nil]];
+		[UIFont fontWithName:MainFontName size:24.0], NSFontAttributeName, nil]];
 	
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	
@@ -122,14 +121,14 @@
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setFont:[UIFont fontWithName:selectedFontName size:18.0]];
+	 setFont:[UIFont fontWithName:MainFontName size:18.0]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
 	 setTextColor:TextColorMain];
 	
 	NSArray* styleClassesTable = @[[UITableView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
-	 setFont:[UIFont fontWithName:selectedFontName size:21.0]];
+	 setFont:[UIFont fontWithName:MainFontName size:21.0]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
 	 setTextColor:TextColorMain];
 
