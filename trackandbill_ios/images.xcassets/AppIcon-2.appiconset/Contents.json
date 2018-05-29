@@ -33,19 +33,19 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "TrackAndBill_Icon5_120.png",
+      "filename" : "TrackAndBill_Icon_Sel_120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "TrackAndBill_Icon5_180.png",
+      "filename" : "TrackAndBill_Icon_Sel_180.png",
       "scale" : "3x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "TrackAndBill_Icon5_1024.png",
+      "filename" : "TrackAndBill_Icon_Sel_1024.png",
       "scale" : "1x"
     }
   ],
