@@ -31,7 +31,7 @@
   // Set the title of the navigation item
   [[self navigationItem] setTitle:NSLocalizedString(@"invoices", nil)];
 
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_df = [[NSDateFormatter alloc] init];
 	[_df setDateFormat:@"MM/dd/yyyy"];

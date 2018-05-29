@@ -84,7 +84,7 @@
 		CGFloat leftButtonX = BUTTON_X; // Left button start X position
         
     AppDelegate* app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-		[self setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+		[self setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 		
 
 #if (READER_STANDALONE == FALSE) // Option

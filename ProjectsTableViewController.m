@@ -37,7 +37,7 @@
   // Set the title of the navigation item
   [[self navigationItem] setTitle:_client.name];
 
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	// add new navigation bar button
 	UIBarButtonItem* addClientButton = [[UIBarButtonItem alloc]

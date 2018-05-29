@@ -115,9 +115,6 @@
 	
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	
-	// set navigation bar background color
-	UIColor* textColor = [UIColor darkGrayColor];
-	
 	//NOTE: Can's set global appearance for nav bar because uiimagepicker controller crashes
 	//need to set bg color in each VC
 	//[[UINavigationBar appearance] setBarTintColor:_navBarBgColor];
@@ -128,13 +125,13 @@
 	 setFont:[UIFont fontWithName:selectedFontName size:18.0]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setTextColor:textColor];
+	 setTextColor:TextColorMain];
 	
 	NSArray* styleClassesTable = @[[UITableView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
 	 setFont:[UIFont fontWithName:selectedFontName size:21.0]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
-	 setTextColor:textColor];
+	 setTextColor:TextColorMain];
 
 }
 

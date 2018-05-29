@@ -25,7 +25,7 @@
 	_data = _selectedProject.sessions.allObjects;
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 }
 

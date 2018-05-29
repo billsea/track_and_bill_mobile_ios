@@ -32,7 +32,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     
 	self.title = NSLocalizedString(@"styles", nil);
 
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_myProfile = (Profile*)[self MyProfile];

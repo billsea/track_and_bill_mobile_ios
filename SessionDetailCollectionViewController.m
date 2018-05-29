@@ -39,7 +39,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:_selectedProject.name];
 	
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	formatter = [[NSNumberFormatter alloc] init];
 	

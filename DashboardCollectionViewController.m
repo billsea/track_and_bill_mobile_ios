@@ -32,7 +32,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	self.title = NSLocalizedString(@"dashboard", nil);
 	
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_cellImages = @[@"clients", @"styles", @"invoices", @"profile",@"help", @"credits"];
 	

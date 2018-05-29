@@ -67,7 +67,7 @@
 		CGFloat viewWidth = self.bounds.size.width;
 		
     AppDelegate* app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-		[self setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+		[self setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 
 		UIImage *imageH = [UIImage imageNamed:@"Reader-Button-H.png"];
 		UIImage *imageN = [UIImage imageNamed:@"Reader-Button-N.png"];

@@ -27,7 +27,7 @@
 	
   [[self navigationItem] setTitle: NSLocalizedString(@"profile",nil)];
 
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_dataFields = @[@"name",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email",@"contact"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];

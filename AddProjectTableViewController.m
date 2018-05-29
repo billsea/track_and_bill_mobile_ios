@@ -34,7 +34,7 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"new_project",nil)];
 
-	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_df = [[NSDateFormatter alloc] init];
 	[_df setDateFormat:@"MM/dd/yyyy"];
