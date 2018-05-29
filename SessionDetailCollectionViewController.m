@@ -130,11 +130,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	if(_timerOn){
 		_app.sessionStartTime = [NSDate dateWithTimeIntervalSinceNow:-(_ticks)];
-		
-
-		_sessionTimer = [NSTimer scheduledTimerWithTimeInterval:1
-																										 target:self selector:@selector(updateTicks:) userInfo:nil
-																										repeats:YES];
+		_sessionTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateTicks:) userInfo:nil repeats:YES];
 	} else {
 		[_sessionTimer invalidate];
 	}
