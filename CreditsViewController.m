@@ -18,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	_creditsWebView.delegate = self;
 	_didLoad = false;
 	NSURLRequest* req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://loudsoftware.com/trackandbill_ios/credits.html"]];

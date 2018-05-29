@@ -30,6 +30,9 @@
 	_dataFields = @[@"name",@"contact",@"address",@"city",@"state",@"country",@"postalcode",@"phone",@"email"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
+	
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	[self fetchData];
 
   // view has been touched, for dismiss keyboard

@@ -20,6 +20,8 @@
   // Set the title of the navigation item
   [[self navigationItem] setTitle:NSLocalizedString(@"materials", nil)];
 
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
   // set textview
   CGRect screenRect = [[UIScreen mainScreen] bounds];
 

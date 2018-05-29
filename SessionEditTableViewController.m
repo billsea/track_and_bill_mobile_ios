@@ -30,6 +30,8 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"edit_session", nil)];
 
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
   _df = [[NSDateFormatter alloc] init];

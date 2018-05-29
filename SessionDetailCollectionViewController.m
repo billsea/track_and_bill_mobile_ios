@@ -39,6 +39,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:_selectedProject.name];
 	
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	formatter = [[NSNumberFormatter alloc] init];
 	
 	//Add project start date with first session date

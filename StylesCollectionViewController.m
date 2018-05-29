@@ -32,6 +32,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     
 	self.title = NSLocalizedString(@"styles", nil);
 
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_myProfile = (Profile*)[self MyProfile];
 	
@@ -68,13 +70,15 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 -(void)showPhotoLibrary{
 	if(_myProfile){
+
 		UIImagePickerController * picker = [[UIImagePickerController alloc] init];
 		picker.delegate = self;
 		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
 		[self.navigationController showViewController:picker sender:self];
-		} else {
+	} else {
 		 [utility showAlertWithTitle:NSLocalizedString(@"profile_missing", nil) andMessage:NSLocalizedString(@"style_profile_alert", nil) andVC:self];
-	  }
+	}
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

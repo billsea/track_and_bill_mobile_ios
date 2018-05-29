@@ -31,6 +31,8 @@
 
   [[self navigationItem] setTitle:NSLocalizedString(@"milage_tracking", nil)];
 
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	_myProfile = (Profile*)[self MyProfile];
 	_useMetric = [_myProfile use_metric] ? [_myProfile use_metric] : NO;
 	_metricSwitch.on = _useMetric;

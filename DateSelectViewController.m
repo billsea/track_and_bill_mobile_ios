@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	[_datePicker setDatePickerMode:UIDatePickerModeDate];
 }
 

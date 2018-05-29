@@ -41,6 +41,8 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	[[self navigationItem] setTitle:_project.name];
 	
+	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]]];
+	
 	//Cell item data
 	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"new_session", nil),@"title", nil];
 	NSMutableDictionary* allSessionsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"edit_sessions", nil),@"title", nil];

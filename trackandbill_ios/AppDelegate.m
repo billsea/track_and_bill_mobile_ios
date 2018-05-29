@@ -116,12 +116,11 @@
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	
 	// set navigation bar background color
-	_navBarBgColor = [[UIColor alloc]
-												 initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]];
-	
 	UIColor* textColor = [UIColor darkGrayColor];
 	
-	[[UINavigationBar appearance] setBarTintColor:_navBarBgColor];
+	//NOTE: Can's set global appearance for nav bar because uiimagepicker controller crashes
+	//need to set bg color in each VC
+	//[[UINavigationBar appearance] setBarTintColor:_navBarBgColor];
 	
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];

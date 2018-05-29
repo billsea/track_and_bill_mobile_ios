@@ -20,7 +20,7 @@
 @property(readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property(nonatomic)DashboardCollectionViewController* dashboardViewController;
 @property(nonatomic) NSDate *sessionStartTime;
-@property(nonatomic)UIColor *navBarBgColor;
+
 - (void)saveContext;
 @end
 
