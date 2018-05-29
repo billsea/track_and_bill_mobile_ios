@@ -25,6 +25,7 @@
 
 #import "ReaderConstants.h"
 #import "ThumbsMainToolbar.h"
+#import "AppDelegate.h"
 
 @implementation ThumbsMainToolbar
 
@@ -64,10 +65,9 @@
 	if ((self = [super initWithFrame:frame]))
 	{
 		CGFloat viewWidth = self.bounds.size.width;
-        
-        UIColor * navBarBgColor = [UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];//[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
-        
-        [self setBackgroundColor:navBarBgColor];
+		
+    AppDelegate* app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+		[self setBackgroundColor:app.navBarBgColor];
 
 		UIImage *imageH = [UIImage imageNamed:@"Reader-Button-H.png"];
 		UIImage *imageN = [UIImage imageNamed:@"Reader-Button-N.png"];

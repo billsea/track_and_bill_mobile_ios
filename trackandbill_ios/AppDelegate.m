@@ -111,30 +111,31 @@
 																								 alpha:1.0],
 		NSForegroundColorAttributeName,
 		shadow, NSShadowAttributeName,
-		[UIFont fontWithName:selectedFontName
-										size:21.0],
-		NSFontAttributeName, nil]];
+		[UIFont fontWithName:selectedFontName size:24.0], NSFontAttributeName, nil]];
 	
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	
 	// set navigation bar background color
-	UIColor *navBarBgColor =
-	[UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];
-	[[UINavigationBar appearance] setBarTintColor:navBarBgColor];
+	_navBarBgColor = [[UIColor alloc]
+												 initWithPatternImage:[UIImage imageNamed:@"navbar_bg"]];
+	
+	UIColor* textColor = [UIColor darkGrayColor];
+	
+	[[UINavigationBar appearance] setBarTintColor:_navBarBgColor];
 	
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setFont:[UIFont fontWithName:selectedFontName size:16.0]];
+	 setFont:[UIFont fontWithName:selectedFontName size:18.0]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setTextColor:navBarBgColor];
+	 setTextColor:textColor];
 	
 	NSArray* styleClassesTable = @[[UITableView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
 	 setFont:[UIFont fontWithName:selectedFontName size:21.0]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
-	 setTextColor:navBarBgColor];
+	 setTextColor:textColor];
 
 }
 

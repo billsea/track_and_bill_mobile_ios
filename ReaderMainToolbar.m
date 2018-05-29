@@ -26,7 +26,7 @@
 #import "ReaderConstants.h"
 #import "ReaderMainToolbar.h"
 #import "ReaderDocument.h"
-
+#import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 
 @implementation ReaderMainToolbar
@@ -83,9 +83,8 @@
 
 		CGFloat leftButtonX = BUTTON_X; // Left button start X position
         
-        UIColor * navBarBgColor = [UIColor colorWithRed:0.22 green:0.41 blue:0.60 alpha:1.0];//[UIColor colorWithRed:0.37 green:0.64 blue:0.25 alpha:1.0];
-        
-        [self setBackgroundColor:navBarBgColor];
+    AppDelegate* app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+		[self setBackgroundColor:app.navBarBgColor];
         
         
 

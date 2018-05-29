@@ -33,13 +33,13 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-	[[self navigationItem] setTitle:_project.name];
 	
 	_project = (Project*)_projectObjectId;
 	_cellImages = @[@"new_session", @"edit_session",@"invoice", @"export"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
+	
+	[[self navigationItem] setTitle:_project.name];
 	
 	//Cell item data
 	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"new_session", nil),@"title", nil];
