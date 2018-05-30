@@ -21,7 +21,7 @@
 
 "add_notes" = "اضافة ملاحظات";
 
-"styles" = "الاساليب";
+"styles" = "مظهر";
 
 "address" = "العنوان";
 
@@ -45,9 +45,9 @@
 
 "new_project" = "مشروع جديد";
 
-"dashboard" = "التابلوه";
+"dashboard" = "الادوات";
 
-"edit_session" = "تحرير الدورة";
+"edit_session" = "تعديل مهمة";
 
 "phone" = "الهاتف";
 
@@ -75,7 +75,7 @@
 
 "name_company" = "اسمك او اسم الشركة";
 
-"save_and_exit" = "حفظ وخروج";
+"save_and_exit" = "حفظ ومتابعة";
 
 "milage_tracking" = "وتتبع السفر";
 
@@ -91,11 +91,11 @@
 
 "milage_rate" = "سعر السفر";
 
-"invoice" = "الفاتورة";
+"invoice" = "قائمة التكاليف";
 
-"invoice_date" = "تاريخ الفاتورة";
+"invoice_date" = "تاريخ قائمة التكاليف";
 
-"invoice_rate" = "معدل الفاتورة";
+"invoice_rate" = "الاجور";
 
 "deposit" = "الدفع";
 
@@ -125,17 +125,17 @@
 
 "total_hours_mins_secs" = "اجمالى الوقت";
 
-"start_stop_timer" = "لبدء او ايقاف مؤقت";
+"start_stop_timer" = "لبدء او ايقاف الساعة";
 
 "timer_running" = "وينشط موقت";
 
 "stop_timer" = "يرجى ايقاف الموقت قبل المتابعة.";
 
-"milage_running" = "تنشيط تتبع السفر";
+"milage_running" = "سجل السفر نشطا";
 
 "stop_milage" = "من فضلك توقف عن السفر تتبع قبل المتابعة.";
 
-"use_metric" = "استخدم المقياس";
+"use_metric" = "كم";
 
 "miles_col" = "مسافة الرحلة";
 
@@ -143,7 +143,7 @@
 
 "km_col" = "كم";
 
-"tenths" = "الاعشار";
+"tenths" = "1/10";
 
 "csv_file" = "القيم التى تفصل الفواصل فيما بينها الملف (CSV)";
 
