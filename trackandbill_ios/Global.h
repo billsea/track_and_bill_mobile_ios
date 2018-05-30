@@ -12,5 +12,5 @@
 #define TextColorMain [UIColor darkGrayColor]
 #define NavBarImage @"navbar_bg"
 #define MainFontName @"HelveticaNeue"
-
+#define BasicNavBarColor [UIColor colorWithRed:58.0/255 green:151.0/255 blue:10.0/255 alpha:1.0]
 #endif /* Global_h */

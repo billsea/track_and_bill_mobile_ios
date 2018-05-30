@@ -112,11 +112,13 @@
 		shadow, NSShadowAttributeName,
 		[UIFont fontWithName:MainFontName size:24.0], NSFontAttributeName, nil]];
 	
+	//Nav bar text
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	
-	//NOTE: Can's set global appearance for nav bar because uiimagepicker controller crashes
-	//need to set bg color in each VC
-	//[[UINavigationBar appearance] setBarTintColor:_navBarBgColor];
+	//NOTE: Can's set global appearance for nav bar because uiimagepicker controller crashes with a patterned image
+	
+	//set a basic background for all navigation bars(this is overridden in vc's)
+	[[UINavigationBar appearance] setBarTintColor:BasicNavBarColor];
 	
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
