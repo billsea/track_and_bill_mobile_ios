@@ -3,8 +3,8 @@
 Do some Unit tests
 
 //Features
-Add Translation to localized files
-	 - chinese and spanish done
+- Save session on app terminate
+- Add help to project and session collection views
 
 - Complete website help
 

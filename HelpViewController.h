@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SessionInfoViewController.h"
 
-@interface HelpViewController : UIViewController<UIWebViewDelegate>
+@interface HelpViewController : SessionInfoViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *helpWebView;
+@property(nonatomic) NSString* helpUrlString;
 @property(nonatomic) UIActivityIndicatorView* activityView;
 @end

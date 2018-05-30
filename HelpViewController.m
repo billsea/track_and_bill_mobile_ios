@@ -23,7 +23,7 @@
 	
 	_helpWebView.delegate = self;
 	_didLoad = false;
-	NSURLRequest* req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://loudsoftware.com/?page_id=506"]];
+	NSURLRequest* req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:_helpUrlString]];
 	[_helpWebView loadRequest:req];
 }
 

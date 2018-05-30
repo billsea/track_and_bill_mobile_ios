@@ -16,6 +16,7 @@
 #import "ProjectsTableViewController.h"
 #import "utility.h"
 #import "ExportSelectTableViewController.h"
+#import "HelpViewController.h"
 
 @interface ProjectCollectionViewController (){
 	NSMutableArray* _cellData;
@@ -35,7 +36,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     [super viewDidLoad];
 	
 	_project = (Project*)_projectObjectId;
-	_cellImages = @[@"new_session", @"edit_session",@"invoice", @"export"];
+	_cellImages = @[@"new_session", @"edit_session",@"invoice", @"export", @"help"];
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	_context = _app.persistentContainer.viewContext;
 	
@@ -48,8 +49,9 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	NSMutableDictionary* allSessionsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"edit_sessions", nil),@"title", nil];
 	NSMutableDictionary* invoiceDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"invoice", nil),@"title", nil];
 	NSMutableDictionary* exportDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"export", nil),@"title", nil];
+		NSMutableDictionary* helpDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"help", nil),@"title", nil];
 	
-	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, allSessionsDict, invoiceDict, exportDict, nil];
+	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, allSessionsDict, invoiceDict, exportDict, helpDict,nil];
 
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -121,7 +123,17 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		[self invoiceProject];
 	} else if([cellTitle isEqualToString: NSLocalizedString(@"export", nil)]){
 		[self exportProject];
+	} else if([cellTitle isEqualToString: NSLocalizedString(@"help", nil)]){
+		[self showHelp];
 	}
+}
+
+- (void)showHelp {
+	HelpViewController* helpVC = [[HelpViewController alloc]
+																initWithNibName:@"HelpViewController"
+																bundle:nil];
+	helpVC.helpUrlString = @"https://loudsoftware.com/?page_id=506#projectdetail";
+	[self.navigationController pushViewController:helpVC animated:YES];
 }
 
 - (void)CreateSessionForProject {

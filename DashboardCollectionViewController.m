@@ -63,6 +63,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	HelpViewController* helpVC = [[HelpViewController alloc]
 																					 initWithNibName:@"HelpViewController"
 																					 bundle:nil];
+	helpVC.helpUrlString = @"https://loudsoftware.com/?page_id=506#dashboard";
 	NSMutableDictionary* helpDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:helpVC, @"vc", NSLocalizedString(@"help", nil),@"title", nil];
 	
 	

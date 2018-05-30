@@ -16,6 +16,7 @@
 #import "ProjectsTableViewController.h"
 #import "utility.h"
 #import "SessionInfoViewController.h"
+#import "HelpViewController.h"
 
 @interface SessionDetailCollectionViewController () {
 	long _ticks;
@@ -48,7 +49,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		_selectedProject.start = [NSDate date];
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	_cellImages = @[@"empty", @"milage_track", @"notes", @"materials"];
+	_cellImages = @[@"empty", @"milage_track", @"notes", @"materials", @"help"];
 	_timerOn = NO;
 	
 	//TODO: Add these to cell data
@@ -69,7 +70,11 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	MaterialsViewController *materialsVC = [[MaterialsViewController alloc] initWithNibName:@"MaterialsViewController" bundle:nil];
 	NSMutableDictionary* materialsDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:materialsVC, @"vc",NSLocalizedString(@"materials", nil),@"title", nil];
 
-	_cellData = @[timerDict, milageDict, sessionNotesDict, materialsDict];
+	HelpViewController* helpVC = [[HelpViewController alloc] initWithNibName:@"HelpViewController" bundle:nil];
+	helpVC.helpUrlString = @"https://loudsoftware.com/?page_id=506#sessions";
+	NSMutableDictionary* helpDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:helpVC, @"vc", NSLocalizedString(@"help", nil),@"title", nil];
+	
+	_cellData = @[timerDict, milageDict, sessionNotesDict, materialsDict, helpDict];
 
 	// Register cell classes
 	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
