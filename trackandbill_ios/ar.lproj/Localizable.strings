@@ -9,170 +9,170 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
-"credits" = "Credits";
+"credits" = "الاعتمادات";
 
-"ok" = "OK";
+"ok" = "موافق";
 
-"yes" = "Yes";
+"yes" = "نعم";
 
-"no" = "No";
+"no" = "لا";
 
-"cancel" = "Cancel";
+"cancel" = "الغاء";
 
-"add_notes" = "Add Notes";
+"add_notes" = "اضافة ملاحظات";
 
-"styles" = "Styles";
+"styles" = "الاساليب";
 
-"address" = "Address";
+"address" = "العنوان";
 
-"city" = "City";
+"city" = "المدينة";
 
-"client_name" = "Client Name";
+"client_name" = "اسم العميل";
 
-"clients" = "Clients";
+"clients" = "العملاء";
 
-"contact_person" = "Contact Person";
+"contact_person" = "الشخص الذى يمكن الاتصال به";
 
-"country" = "Country";
+"country" = "البلد";
 
-"done" = "Done";
+"done" = "عمله";
 
-"email" = "Email";
+"email" = "البريد الالكترونى";
 
-"new" = "New";
+"new" = "جديد";
 
-"new_client" = "New Client";
+"new_client" = "عميل جديد";
 
-"new_project" = "New Project";
+"new_project" = "مشروع جديد";
 
-"dashboard" = "Dashboard";
+"dashboard" = "التابلوه";
 
-"edit_session" = "Edit Session";
+"edit_session" = "تحرير الدورة";
 
-"phone" = "Phone";
+"phone" = "الهاتف";
 
-"postal_code" = "Postal Code";
+"postal_code" = "الرمز البريدى";
 
-"profile" = "Profile";
+"profile" = "ملف تعريف";
 
-"project_name" = "Project Name";
+"project_name" = "اسم المشروع";
 
-"date" = "Date";
+"date" = "التاريخ";
 
-"hours" = "Hours";
+"hours" = "ساعات";
 
-"minutes" = "Minutes";
+"minutes" = "دقيقة";
 
-"seconds" = "Seconds";
+"seconds" = "ثانية";
 
-"start_date" = "Start Date";
+"start_date" = "تاريخ البدء";
 
-"complete_date" = "Completion Date";
+"complete_date" = "تاريخ الانتهاء";
 
-"notes" = "Notes";
+"notes" = "تلاحظ";
 
-"state" = "State";
+"state" = "الدولة";
 
-"name_company" = "Your Name or Company";
+"name_company" = "اسمك او اسم الشركة";
 
-"save_and_exit" = "Save & Exit";
+"save_and_exit" = "حفظ وخروج";
 
-"milage_tracking" = "Milage Tracking";
+"milage_tracking" = "وتتبع السفر";
 
-"track_milage" = "Start Tracking Milage";
+"track_milage" = "تبدا تتبع السفر";
 
-"session_notes" = "Session Notes";
+"session_notes" = "وتلاحظ الدورة";
 
-"materials" = "Materials";
+"materials" = "المواد";
 
-"materials_cost" = "Materials Cost";
+"materials_cost" = "تكاليف المواد";
 
-"milage" = "Milage";
+"milage" = "مسافة الرحلة";
 
-"milage_rate" = "Milage Rate";
+"milage_rate" = "سعر السفر";
 
-"invoice" = "Invoice";
+"invoice" = "الفاتورة";
 
-"invoice_date" = "Invoice Date";
+"invoice_date" = "تاريخ الفاتورة";
 
-"invoice_rate" = "Invoice Rate";
+"invoice_rate" = "معدل الفاتورة";
 
-"deposit" = "Deposit";
+"deposit" = "الدفع";
 
-"terms_of_payment" = "Terms";
+"terms_of_payment" = "شروط الدفع";
 
-"approved_by" = "Approved By";
+"approved_by" = "وافق";
 
-"check_num" = "Check #";
+"check_num" = "# افحص ";
 
-"new_session" = "New Session";
+"new_session" = "الدورة الجديدة";
 
-"edit_sessions" = "Edit Sessions";
+"edit_sessions" = "تحرير الدورات";
 
-"invoices" = "Invoices";
+"invoices" = "الفواتير";
 
-"export" = "Export";
+"export" = "تصدير";
 
-"profile_alert" = "You must complete your profile, or turn off \"Show Invoice Header\" in Style settings, before creating an invoice.";
+"profile_alert" = "عليك اكمال ملف التعريف الخاص بك, او ايقاف عرض اعدادات عنوان الفاتورة الطراز, قبل انشاء الفاتورة.";
 
-"profile_missing" = "Missing Profile";
+"profile_missing" = "فقد التوصيف";
 
-"invoice_number" = "Invoice Number";
+"invoice_number" = "رقم الفاتورة";
 
-"show_invoice_header" = "Show Invoice Header";
+"show_invoice_header" = "اعرض الفاتورة الراس";
 
-"invoice_style" = "Invoice Style";
+"invoice_style" = "طراز الفاتورة";
 
-"total_hours_mins_secs" = "Total Time";
+"total_hours_mins_secs" = "اجمالى الوقت";
 
-"start_stop_timer" = "Start - Stop Timer";
+"start_stop_timer" = "لبدء او ايقاف مؤقت";
 
-"timer_running" = "Timer is Running";
+"timer_running" = "وينشط موقت";
 
-"stop_timer" = "Please stop timer before continuing.";
+"stop_timer" = "يرجى ايقاف الموقت قبل المتابعة.";
 
-"milage_running" = "Milage tracking is running";
+"milage_running" = "تنشيط تتبع السفر";
 
-"stop_milage" = "Please stop milage tracking before continuing.";
+"stop_milage" = "من فضلك توقف عن السفر تتبع قبل المتابعة.";
 
-"use_metric" = "Use Metric";
+"use_metric" = "استخدم المقياس";
 
-"miles_col" = "Miles";
+"miles_col" = "مسافة الرحلة";
 
-"save_export" = "Save & Export";
+"save_export" = "احفظ التصدير";
 
-"km_col" = "Kilometers";
+"km_col" = "كم";
 
-"tenths" = "Tenths";
+"tenths" = "الاعشار";
 
-"csv_file" = "Comma Separated Values File (CSV)";
+"csv_file" = "القيم التى تفصل الفواصل فيما بينها الملف (CSV)";
 
-"email_csv" = "Email CSV File";
+"email_csv" = "البريد الالكترونى ملف CSV";
 
 "csv_export_attach" = "CSV_Sessions.csv";
 
-"csv_email_subject" = "Sessions CSV Export";
+"csv_email_subject" = "دورات تصدير CSV";
 
-"csv_email_body" = "Sessions CSV export file is attached.";
+"csv_email_body" = "دورات CSV ملف التصدير.";
 
-"style_profile_alert" = "You must complete your profile before adding style";
+"style_profile_alert" = "عليك اكمال ملف التعريف الخاص بك قبل اضافة الطراز";
 
 "logo" = "Invoice Image";
 
-"really_delete_title" = "Really Delete?";
+"really_delete_title" = "فعلا هل تريد الحذف?";
 
-"really_delete_message" = "Are you sure you would like to delete?";
+"really_delete_message" = "هل تريد بالتاكيد الحذف?";
 
-"help" = "Help";
+"help" = "المساعدة";
 
-"total_due" = "Total Due";
+"total_due" = "مجموع المبلغ المستحق";
 
-"sub_total" = "Sub Total";
+"sub_total" = "المجموع الفرعى";
 
-"milage_total" = "Total Milage";
+"milage_total" = "اجمالى المسافة المقطوعة";
 
-"total_hours" = "Total Hours";
+"total_hours" = "اجمالى ساعات العمل";
 
-"services" = "Services";
+"services" = "الخدمات";
 
-"save_export" = "Save & Print";
+"save_export" = "حفظ وطباعة";
