@@ -140,6 +140,7 @@
 	Invoice* inv = (Invoice*)[_data objectAtIndex:indexPath.row];
 	InvoiceTableViewController *invoiceVC = [[InvoiceTableViewController alloc] initWithNibName:@"InvoiceTableViewController" bundle:nil];
 	invoiceVC.selectedProject = inv.projects;
+	invoiceVC.isArchive = YES;
   [self.navigationController pushViewController:invoiceVC animated:YES];
 }
 

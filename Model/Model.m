@@ -20,7 +20,7 @@
 	return data;
 }
 
-+ (NSMutableArray*)loadInvoicesWithSelected:(Invoice*)selectedInvoice andProject:(Project*)selectedProject andEdit:(BOOL)isEdit{
++ (NSMutableArray*)loadInvoicesWithSelected:(Invoice*)selectedInvoice andProject:(Project*)selectedProject andEdit:(BOOL)isEdit andArchive:(BOOL)isArchive {
 	NSMutableArray* invoiceFormFields = [[NSMutableArray alloc] init];
 
 	Client *selClient = selectedProject.clients;
@@ -39,7 +39,7 @@
 	NSString *allNotes = [[NSString alloc] init];
 	NSString *allMaterials = [[NSString alloc] init];
 
-	if(!isEdit){
+	if(!isEdit || !isArchive){
 		for (Session *s in selectedProject.sessions) {
 				allNotes = [allNotes
 										stringByAppendingString:
@@ -99,7 +99,7 @@
 	//15
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"check_num", nil), @"FieldName", isEdit ? selectedInvoice.check : @"",@"FieldValue", nil]];
 	//16
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"notes", nil), @"FieldName", isEdit ? selectedInvoice.notes : allNotes , @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"notes", nil), @"FieldName", isArchive ? selectedInvoice.notes : allNotes , @"FieldValue", nil]];
 
 	return invoiceFormFields;
 }

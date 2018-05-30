@@ -12,5 +12,5 @@
 
 @interface Model : NSObject
 + (NSMutableArray* )dataForEntity:(NSString*)entityString;
-+ (NSMutableArray*)loadInvoicesWithSelected:(Invoice*)selectedInvoice andProject:(Project*)selectedProject andEdit:(BOOL)isEdit;
++ (NSMutableArray*)loadInvoicesWithSelected:(Invoice*)selectedInvoice andProject:(Project*)selectedProject andEdit:(BOOL)isEdit andArchive:(BOOL)isArchive;
 @end

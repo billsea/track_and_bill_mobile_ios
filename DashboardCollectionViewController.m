@@ -49,6 +49,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	NSMutableDictionary* stylesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:stylesVC, @"vc",NSLocalizedString(@"styles", nil),@"title", nil];
 	
 	InvoicesTableViewController* invoicesVC = [[InvoicesTableViewController alloc] initWithNibName:@"InvoicesTableViewController" bundle:nil];
+
 	
 	NSMutableDictionary* invoicesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:invoicesVC, @"vc", NSLocalizedString(@"invoices", nil),@"title", nil];
 	
