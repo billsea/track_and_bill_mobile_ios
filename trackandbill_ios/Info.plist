@@ -19,15 +19,11 @@
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>Arabic</string>
-		<string>Russian</string>
-		<string>ko</string>
 		<string>fr</string>
 		<string>zh_CN</string>
-		<string>ja</string>
 		<string>Spanish</string>
 		<string>it</string>
 		<string>en</string>
-		<string>de</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
