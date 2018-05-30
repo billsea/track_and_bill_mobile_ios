@@ -23,7 +23,7 @@
 
 "styles" = "Styles";
 
-"address" = "Répondre";
+"address" = "L'adresse";
 
 "city" = "Ville";
 
@@ -67,7 +67,7 @@
 
 "start_date" = "Date de début";
 
-"complete_date" = "La date de fin des";
+"complete_date" = "Date d'achèvement";
 
 "notes" = "Note";
 
@@ -77,9 +77,9 @@
 
 "save_and_exit" = "Sauvegarder";
 
-"milage_tracking" = "Suivi de voyage";
+"milage_tracking" = "Contrôler les déplacements";
 
-"track_milage" = "Reprendre le suivi de billet";
+"track_milage" = "Commencez à surveiller les";
 
 "session_notes" = "Les Notes de session";
 
@@ -159,7 +159,7 @@
 
 "logo" = "L'image de la facture";
 
-"really_delete_title" = "Supprimer vraiment ?";
+"really_delete_title" = "Supprimer ?";
 
 "really_delete_message" = "Êtes-vous sûr de vouloir supprimer ?";
 

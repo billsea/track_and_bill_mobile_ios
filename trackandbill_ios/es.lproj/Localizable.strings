@@ -77,9 +77,9 @@
 
 "save_and_exit" = "Guardar y Salir";
 
-"milage_tracking" = "Millaje Seguimiento";
+"milage_tracking" = "Seguimiento de viajes";
 
-"track_milage" = "Iniciar el seguimiento de millaje";
+"track_milage" = "Iniciar el seguimiento de viajes";
 
 "session_notes" = "Notas de sesiones";
 
@@ -87,9 +87,9 @@
 
 "materials_cost" = "El costo de los materiales";
 
-"milage" = "Millaje";
+"milage" = "Viajes";
 
-"milage_rate" = "Tarifa de Millaje";
+"milage_rate" = "Tarifa de desplazamiento";
 
 "invoice" = "Factura";
 
@@ -131,9 +131,9 @@
 
 "stop_timer" = "Detenga el temporizador antes de continuar.";
 
-"milage_running" = "Millaje seguimiento está corriendo";
+"milage_running" = "Seguimiento de viajes está activo";
 
-"stop_milage" = "Por favor deje de millaje en el seguimiento antes de continuar.";
+"stop_milage" = "Por favor, dejen de seguimiento de viaje antes de continuar.";
 
 "use_metric"  = "Utilice métricas";
 
@@ -169,7 +169,7 @@
 
 "sub_total" = "Subtotal";
 
-"milage_total" = "Total de millaje";
+"milage_total" = "Distancia total del recorrido";
 
 "total_hours" = "Total de horas";
 

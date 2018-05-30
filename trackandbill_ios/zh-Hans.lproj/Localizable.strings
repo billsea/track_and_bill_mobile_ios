@@ -11,7 +11,7 @@
 
 "credits" = "学分";
 
-"ok" = "确定";
+"ok" = "Ok";
 
 "yes" = "是的";
 
@@ -21,9 +21,9 @@
 
 "add_notes" = "添加注释";
 
-"styles" = "样式。";
+"styles" = "外觀";
 
-"address" = "地址。";
+"address" = "地址";
 
 "city" = "市";
 
@@ -43,11 +43,11 @@
 
 "new_client" = "新的客户机";
 
-"new_project" = "新的项目。";
+"new_project" = "新項目";
 
 "dashboard" = "仪表板";
 
-"edit_session" = "编辑会议";
+"edit_session" = "修改任務";
 
 "phone" = "电话";
 
@@ -55,7 +55,7 @@
 
 "profile" = "配置文件";
 
-"project_name" = "项目名称";
+"project_name" = "項目名稱";
 
 "date" = "日期";
 
@@ -81,7 +81,7 @@
 
 "track_milage" = "开始跟踪的旅行";
 
-"session_notes" = "会话注释";
+"session_notes" = "工作資訊";
 
 "materials" = "材料。";
 
@@ -89,13 +89,13 @@
 
 "milage" = "差旅费";
 
-"milage_rate" = "旅费";
+"milage_rate" = "旅行費用";
 
-"invoice" = "发票";
+"invoice" = "成本清單";
 
-"invoice_date" = "发票日期。";
+"invoice_date" = "費用表日期";
 
-"invoice_rate" = "发票的速率";
+"invoice_rate" = "薪級表";
 
 "deposit" = "存款";
 
@@ -105,29 +105,29 @@
 
 "check_num" = "检查#";
 
-"new_session" = "新的会话";
+"new_session" = "新增工作";
 
-"edit_sessions" = "编辑会议";
+"edit_sessions" = "修改任務";
 
-"invoices" = "发票。";
+"invoices" = "費用列表記錄";
 
-"export" = "导出";
+"export" = "匯出";
 
-"profile_alert" = "您必须完成您的配置文件，或者关闭 - 显示发票标题 - 在样式的设置，然后再创建一张发票。";
+"profile_alert" = "請先完成您的設定檔";
 
 "profile_missing" = "缺少的配置文件";
 
-"invoice_number" = "发票编号";
+"invoice_number" = "成本清單號碼";
 
 "show_invoice_header" = "显示发票标题";
 
-"invoice_style" = "发票样式";
+"invoice_style" = "費用清單的外觀";
 
 "total_hours_mins_secs" = "总时间。";
 
 "start_stop_timer" = "开始-停止计时器";
 
-"timer_running" = "计时器正在运行";
+"timer_running" = "計時器激活";
 
 "stop_timer" = "在继续之前，请先停止计时器。";
 
@@ -153,26 +153,26 @@
 
 "csv_email_subject" = "会话的 CSV 导出";
 
-"csv_email_body" = "会话的 CSV 导出文件附后。";
+"csv_email_body" = "電子郵件與 CSV 文件";
 
-"style_profile_alert" = "您必须完成您的配置文件中，然后再添加样式";
+"style_profile_alert" = "缺少的配置文件";
 
-"logo" = "发票图像";
+"logo" = "背景圖片";
 
 "really_delete_title" = "真的要删除吗";
 
 "really_delete_message" = "您确定要删除吗";
 
-"help" = "帮助";
+"help" = "協助";
 
-"total_due" = "总到期";
+"total_due" = "總金額";
 
-"sub_total" = "小计";
+"sub_total" = "小計";
 
-"milage_total" = "总行程";
+"milage_total" = "總行程費用";
 
-"total_hours" = "总小时数";
+"total_hours" = "工作";
 
-"services" = "服务。";
+"services" = "服服務";
 
 "save_export" = "保存和打印";
