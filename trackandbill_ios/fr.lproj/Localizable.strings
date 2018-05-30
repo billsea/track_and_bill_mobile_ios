@@ -9,170 +9,170 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
+"credits" = "Crédits";
+
 "ok" = "OK";
 
-"yes" = "Yes";
+"yes" = "Oui";
 
-"no" = "No";
+"no" = "Pas de";
 
-"cancel" = "Cancel";
+"cancel" = "Annuler";
 
-"add_notes" = "Add Notes";
+"add_notes" = "Ajouter des notes";
 
 "styles" = "Styles";
 
-"address" = "Address";
+"address" = "Répondre";
 
-"city" = "City";
+"city" = "Ville";
 
-"client_name" = "Client Name";
+"client_name" = "Nom du client";
 
-"clients" = "Clients";
+"clients" = "Les Clients";
 
-"contact_person" = "Contact Person";
+"contact_person" = "Personne à contacter";
 
-"country" = "Country";
+"country" = "Pays";
 
-"done" = "Done";
+"done" = "Fait";
 
 "email" = "Email";
 
-"new" = "New";
+"new" = "Nouveau";
 
-"new_client" = "New Client";
+"new_client" = "Nouveau Client";
 
-"new_project" = "New Project";
+"new_project" = "Nouveau projet";
 
-"dashboard" = "Dashboard";
+"dashboard" = "Planche de bord";
 
-"edit_session" = "Edit Session";
+"edit_session" = "Session d'édition";
 
-"phone" = "Phone";
+"phone" = "Téléphone";
 
-"postal_code" = "Postal Code";
+"postal_code" = "Code postal";
 
 "profile" = "Profile";
 
-"project_name" = "Project Name";
+"project_name" = "Nom du projet";
 
 "date" = "Date";
 
-"hours" = "Hours";
+"hours" = "Heures";
 
 "minutes" = "Minutes";
 
-"seconds" = "Seconds";
+"seconds" = "Secondes";
 
-"start_date" = "Start Date";
+"start_date" = "Date de début";
 
-"complete_date" = "Completion Date";
+"complete_date" = "La date de fin des";
 
-"notes" = "Notes";
+"notes" = "Note";
 
 "state" = "State";
 
-"name_company" = "Your Name or Company";
+"name_company" = "Votre Nom ou Société";
 
-"save_and_exit" = "Save & Exit";
+"save_and_exit" = "Sauvegarder";
 
-"milage_tracking" = "Milage Tracking";
+"milage_tracking" = "Suivi de voyage";
 
-"track_milage" = "Start Tracking Milage";
+"track_milage" = "Reprendre le suivi de billet";
 
-"session_notes" = "Session Notes";
+"session_notes" = "Les Notes de session";
 
-"materials" = "Materials";
+"materials" = "Premières";
 
-"materials_cost" = "Materials Cost";
+"materials_cost" = "Coût des matériaux";
 
-"milage" = "Milage";
+"milage" = "La distance de déplacement";
 
-"milage_rate" = "Milage Rate";
+"milage_rate" = "Taux de voyage";
 
-"invoice" = "Invoice";
+"invoice" = "Facture";
 
-"invoice_date" = "Invoice Date";
+"invoice_date" = "La date de facture";
 
-"invoice_rate" = "Invoice Rate";
+"invoice_rate" = "Taux de facture";
 
-"deposit" = "Deposit";
+"deposit" = "Versement initial";
 
-"terms_of_payment" = "Terms";
+"terms_of_payment" = "Conditions de paiement";
 
-"approved_by" = "Approved By";
+"approved_by" = "Approuvé par";
 
-"check_num" = "Check #";
+"check_num" = "Vérifier #";
 
-"new_session" = "New Session";
+"new_session" = "Nouvelle session";
 
-"edit_sessions" = "Edit Sessions";
+"edit_sessions" = "Modification des Sessions";
 
-"invoices" = "Invoices";
+"invoices" = "Factures";
 
-"export" = "Export";
+"export" = "Exporter";
 
-"profile_alert" = "You must complete your profile, or turn off \"Show Invoice Header\" in Style settings, before creating an invoice.";
+"profile_alert" = "Vous devez compléter votre profil, ou de désactiver le \" en-tête de facture \" dans les paramètres de style, avant de créer une facture.";
 
-"profile_missing" = "Missing Profile";
+"profile_missing" = "Profil manquant";
 
-"invoice_number" = "Invoice Number";
+"invoice_number" = "Numéro de facture";
 
-"show_invoice_header" = "Show Invoice Header";
+"show_invoice_header" = "Afficher un en-tête";
 
-"invoice_style" = "Invoice Style";
+"invoice_style" = "Style de facture";
 
-"total_hours_mins_secs" = "Total Time";
+"total_hours_mins_secs" = "Temps total";
 
-"start_stop_timer" = "Start - Stop Timer";
+"start_stop_timer" = "Démarrage - Arrêt de l'horloge";
 
-"timer_running" = "Timer is Running";
+"timer_running" = "Timer est actif";
 
-"stop_timer" = "Please stop timer before continuing.";
+"stop_timer" = "Veuillez arrêter minuteur avant de continuer.";
 
-"milage_running" = "Milage tracking is running";
+"milage_running" = "Suivi de voyage est actif";
 
-"stop_milage" = "Please stop milage tracking before continuing.";
+"stop_milage" = "Veuillez arrêter le suivi des voyages avant de continuer.";
 
-"use_metric" = "Use Metric";
+"use_metric" = "Utiliser les unités métriques";
 
 "miles_col" = "Miles";
 
-"save_export" = "Save & Export";
+"save_export" = "Enregistrer et exporter";
 
-"km_col" = "Kilometers";
+"km_col" = "Kilomètres";
 
-"tenths" = "Tenths";
+"tenths" = "Dixièmes";
 
-"csv_file" = "Comma Separated Values File (CSV)";
+"csv_file" = "Fichier de valeurs séparées par des virgules (CSV)";
 
-"email_csv" = "Email CSV File";
+"email_csv" = "Fichier CSV e-mail";
 
 "csv_export_attach" = "CSV_Sessions.csv";
 
-"csv_email_subject" = "Sessions CSV Export";
+"csv_email_subject" = "Exportation CSV Sessions";
 
-"csv_email_body" = "Sessions CSV export file is attached.";
+"csv_email_body" = "Fichier d'exportation CSV séances est joint.";
 
-"style_profile_alert" = "You must complete your profile before adding style";
+"style_profile_alert" = "Vous devez compléter votre profil avant d'ajouter style";
 
-"logo" = "Invoice Image";
+"logo" = "L'image de la facture";
 
-"really_delete_title" = "Really Delete?";
+"really_delete_title" = "Supprimer vraiment ?";
 
-"really_delete_message" = "Are you sure you would like to delete?";
+"really_delete_message" = "Êtes-vous sûr de vouloir supprimer ?";
 
-"help" = "Help";
+"help" = "Aider";
 
-"total_due" = "Total Due";
+"total_due" = "Montant total dû";
 
-"sub_total" = "Sub Total";
+"sub_total" = "Sous-total";
 
-"milage_total" = "Total Milage";
+"milage_total" = "Distance totale de course";
 
-"total_hours" = "Total Hours";
+"total_hours" = "Nombre total d'heures";
 
 "services" = "Services";
 
-"end_date" = "End Date";
-
-"save_export" = "Save & Print";
+"save_export" = "Enregistrer et Imprimer";

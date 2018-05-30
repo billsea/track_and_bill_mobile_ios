@@ -9,6 +9,8 @@
 /* format */
 "%d of %d" = "%1$d of %2$d";
 
+"credits" = "Credits";
+
 "ok" = "OK";
 
 "yes" = "Yes";
@@ -172,7 +174,5 @@
 "total_hours" = "Total Hours";
 
 "services" = "Services";
-
-"end_date" = "End Date";
 
 "save_export" = "Save & Print";

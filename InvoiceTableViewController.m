@@ -483,7 +483,7 @@ if(_myProfile.show_invoice_header){
 					 fontSize:21.0f];
 
 	NSString *endDate =
-			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"end_date", nil),
+			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"complete_date", nil),
 																 [df stringFromDate:_selectedProject.invoices.end]];
 	CGRect endRect =
 			[self addText:endDate
