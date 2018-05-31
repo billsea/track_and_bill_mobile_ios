@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/trackandbill_ios/AppDelegate.m \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/TrackandBill_PrefixHeader.pch \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/Firebase/CoreOnly/Sources/module.modulemap \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/trackandbill_ios/Global.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/trackandbill_ios/AppDelegate.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataClass.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataProperties.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/DashboardCollectionViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Helper/utility.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/Firebase/CoreOnly/Sources/Firebase.h

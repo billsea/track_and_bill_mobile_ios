@@ -15,6 +15,7 @@
 @property(nonatomic) id projectObjectId;
 @property(nonatomic) Project *selectedProject;
 @property(nonatomic) NSMutableArray *userData;
+@property(nonatomic) BOOL isArchive;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 - (void)dismissReaderViewController:(ReaderViewController *)viewController;

@@ -150,6 +150,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	 initWithNibName:@"SessionDetailCollectionViewController"
 	 bundle:nil];
 	
+	_app.currentSession = newSession;//save backup in app delegate for saving on app termination
 	sessionDetailCollectionViewController.selectedSession = newSession;
 	sessionDetailCollectionViewController.selectedProject = _project;
 	

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Rollbar/Rollbar.h>
+#import "utility.h"
+
 @import Firebase;
 
 @interface AppDelegate ()
@@ -80,9 +82,18 @@
   // appropriate. See also applicationDidEnterBackground:.
   // Saves changes in the application's managed object context before the
   // application terminates.
+	if(_currentSession)
+		[self saveCurrentSession];
 }
 
-
+- (void)saveCurrentSession {
+	NSTimeInterval secondsInBackground = [[NSDate date] timeIntervalSinceDate:_sessionStartTime];
+	NSArray* hms = [utility hoursMinutesAndSecondsFromTicks:secondsInBackground];
+	_currentSession.hours = [hms[0] intValue];
+	_currentSession.minutes = [hms[1] intValue];
+	_currentSession.seconds = [hms [2] intValue];
+	[self saveContext];
+}
 #pragma mark Style
 - (void)addStyle {
 	
@@ -123,14 +134,14 @@
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setFont:[UIFont fontWithName:MainFontName size:18.0]];
+	 setFont:[UIFont fontWithName:MainFontName size:20.0]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
 	 setTextColor:TextColorMain];
 	
 	NSArray* styleClassesTable = @[[UITableView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
-	 setFont:[UIFont fontWithName:MainFontName size:21.0]];
+	 setFont:[UIFont fontWithName:MainFontName size:26.0]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
 	 setTextColor:TextColorMain];
 

@@ -118,6 +118,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_selectedSession.minutes = [hms[1] intValue];
 	_selectedSession.seconds = [hms [2] intValue];
 	[_app saveContext];
+	_app.currentSession = nil;//destroy backup session
 }
 
 - (IBAction)updateTicks:(id)sender {

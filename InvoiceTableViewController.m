@@ -83,7 +83,7 @@
 - (void)loadForm {
 	//new invoice or edit
 	bool isEdit = _selectedProject.invoices;
-	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedProject.invoices andProject:_selectedProject andEdit:isEdit];
+	_invoiceFormFields = [Model loadInvoicesWithSelected:_selectedProject.invoices andProject:_selectedProject andEdit:isEdit andArchive:_isArchive];
 	[self.tableView reloadData];
 }
 
@@ -185,9 +185,9 @@
 	NSString *invCheck =[self valueForTextCellWithIndex:15];
 	[_selectedProject.invoices setCheck:invCheck];
 	
-	// notes
+	// notes - if this isn't an archive invoice, then use the notes from sessions
 	NSString *invNotes = [self valueForTextCellWithIndex:16];
-	if (invNotes && ![invNotes isEqualToString:@""]) {
+	if ((!_isArchive || invNotes) && ![invNotes isEqualToString:@""]) {
 		[_selectedProject.invoices setNotes:invNotes];
 	}
 
@@ -522,7 +522,7 @@ if(_myProfile.show_invoice_header){
 																	_pageSize.width - (kMarginPadding * 2), 4)
 						 withColor:[UIColor blackColor]];
 
-		NSString *serviceLabel = [NSString stringWithFormat:@"%@:", NSLocalizedString(@"services", nil)];
+	NSString *serviceLabel = [NSString stringWithFormat:@"%@:", NSLocalizedString(@"services", nil)];
 	CGRect serviceRect =
 			[self addText:serviceLabel
 					withFrame:CGRectMake(kMarginPadding,
