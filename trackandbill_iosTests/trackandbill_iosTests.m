@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface trackandbill_iosTests : XCTestCase
-
+@interface trackandbill_iosTests : XCTestCase {
+@private
+	UIApplication       *app;
+}
 @end
 
 @implementation trackandbill_iosTests
@@ -18,6 +20,8 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+	 app = [UIApplication sharedApplication];
+
 }
 
 - (void)tearDown {
