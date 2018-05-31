@@ -35,7 +35,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	_myProfile = (Profile*)[self MyProfile];
 	
 	_cellImages = @[@"invoice_image",@"invoice_style"];
 
@@ -55,6 +54,11 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	// Register cell classes
 	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	_myProfile = (Profile*)[self MyProfile];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
