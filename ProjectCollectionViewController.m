@@ -199,7 +199,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 - (void)displayAdBanner {
 	_adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
 	_adView.frame = CGRectMake(0, self.view.window.frame.size.height - _adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
-	_adView.backgroundColor = [UIColor blackColor];
+	_adView.backgroundColor = [UIColor clearColor];
 	_adView.rootViewController = self;
 	_adView.delegate = self;
 	_adView.adUnitID = GoogleAdMobBannerID;
