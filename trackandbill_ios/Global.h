@@ -13,4 +13,9 @@
 #define NavBarImage @"navbar_bg"
 #define MainFontName @"HelveticaNeue"
 #define BasicNavBarColor [UIColor colorWithRed:58.0/255 green:151.0/255 blue:10.0/255 alpha:1.0]
+
+#define InvoiceFontHeading 28.0f
+#define InvoiceFontLarge 21.0f
+#define InvoiceFontMedium 18.0f
+#define InvoiceFontSmall 14.0f
 #endif /* Global_h */
