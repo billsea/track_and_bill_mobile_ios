@@ -20,7 +20,7 @@
 @property(readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property(nonatomic)DashboardCollectionViewController* dashboardViewController;
 @property(nonatomic) NSDate *sessionStartTime;
-
+@property(nonatomic) Session *currentSession;
 - (void)saveContext;
 @end
 

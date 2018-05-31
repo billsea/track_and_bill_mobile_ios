@@ -68,10 +68,13 @@
 		[self save];
 }
 
+-(float)totalMilage {
+	return [[_pickerDataWhole objectAtIndex:[_milagePicker selectedRowInComponent:0]] floatValue] + ([[_pickerDataWhole objectAtIndex:[_milagePicker selectedRowInComponent:1]] floatValue]/10);
+}
+
 - (void)save {
 	// save miles and tenths picker selection
-	float totalMilage = [[_pickerDataWhole objectAtIndex:[_milagePicker selectedRowInComponent:0]] floatValue] + ([[_pickerDataWhole objectAtIndex:[_milagePicker selectedRowInComponent:1]] floatValue]/10);
-	[self.selectedSession setMilage:totalMilage];
+	[self.selectedSession setMilage:[self totalMilage]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,6 +122,11 @@
 	
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+	//save milage data on picker change...just in case of app termination
+	[self save];
+}
+
 -(void)updatePickerView{
 	//meters to miles
 	float totalDistance = 0;
@@ -143,6 +151,9 @@
 		[_milagePicker selectRow:distanceTrunc inComponent:0 animated:YES];
 		[_milagePicker selectRow:stringTenths.intValue inComponent:1 animated:YES];
 	}
+	
+	//save milage data on picker change...just in case of app termination
+	[self save];
 }
 
 #pragma mark Location methods
