@@ -42,6 +42,7 @@
 }
 
 @property UIBarButtonItem *previewButton;
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -73,6 +74,12 @@
              action:@selector(exportInvoice:)];
   [[self navigationItem] setRightBarButtonItem:self.previewButton];
 	[self loadForm];
+	
+	//interstitial ad
+	self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:GoogleAdMobInterstitialID];
+	GADRequest *request = [GADRequest request];
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	[self.interstitial loadRequest:request];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -833,7 +840,17 @@ if(_myProfile.show_invoice_header){
 }
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
-   [self dismissViewControllerAnimated:YES completion:nil];
+	[self dismissViewControllerAnimated:YES completion:nil];
+	[self showBigAd];
+}
+
+#pragma mark AdMob
+- (void)showBigAd {
+	if (self.interstitial.isReady) {
+		[self.interstitial presentFromRootViewController:self];
+	} else {
+		NSLog(@"Ad wasn't ready");
+	}
 }
 
 @end

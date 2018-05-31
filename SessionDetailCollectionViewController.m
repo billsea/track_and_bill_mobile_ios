@@ -18,7 +18,7 @@
 #import "SessionInfoViewController.h"
 #import "HelpViewController.h"
 
-@interface SessionDetailCollectionViewController () {
+@interface SessionDetailCollectionViewController () <GADBannerViewDelegate>{
 	long _ticks;
 	NSArray* _cellData;
 	AppDelegate* _app;
@@ -27,6 +27,7 @@
 	NSTimer* _sessionTimer;
 	MilageViewController* _milageVC;
 	NSNumberFormatter *formatter;
+	GADBannerView* _adView;
 }
 @end
 
@@ -97,6 +98,12 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	self.navigationItem.leftBarButtonItem = buttonItem;
 	
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	if(!_adView)
+		[self displayAdBanner];
 }
 
 - (IBAction)backButtonHit:(id)sender{
@@ -210,5 +217,29 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	// Dispose of any resources that can be recreated.
 }
 
+#pragma mark Ads
+- (void)displayAdBanner {
+	_adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+	_adView.frame = CGRectMake(0, self.view.window.frame.size.height - _adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+	_adView.backgroundColor = [UIColor blackColor];
+	_adView.rootViewController = self;
+	_adView.delegate = self;
+	_adView.adUnitID = GoogleAdMobBannerID;
+	
+	[self.view addSubview:_adView]; // Request an ad without any additional targeting information.
+	//adds test ads
+	[_adView loadRequest:self.request];
+}
+
+- (GADRequest *)request {
+	GADRequest *request = [GADRequest request];
+	//device and simulator test ids
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	return request;
+}
+- (void)showAdView {
+	//Interstitial ad view
+	//[self.navigationController pushViewController:adViewController animated:YES];
+}
 
 @end

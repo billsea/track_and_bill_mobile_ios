@@ -15,7 +15,7 @@
 	NSMutableArray* _cellData;
 	NSString* _csv;
 }
-
+@property(nonatomic, strong) GADInterstitial *interstitial;
 @end
 
 @implementation ExportSelectTableViewController
@@ -31,6 +31,12 @@
 	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"csv_file", nil),@"title", nil];
 	
 	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, nil];
+	
+	//interstitial ad
+	self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:GoogleAdMobInterstitialID];
+	GADRequest *request = [GADRequest request];
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	[self.interstitial loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,11 +118,13 @@
 				 didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
 	if (result)
 		NSLog(@"Result : %ld",(long)result);
-	
 	if (error)
 		NSLog(@"Error : %@",error);
 	
-	[controller	dismissViewControllerAnimated:YES completion:nil];
+	[controller	dismissViewControllerAnimated:YES completion:^{
+		if(result == MFMailComposeResultSent)
+			[self showBigAd];//show add after sending email
+	}];
 }
 
 #pragma mark - Table view delegate
@@ -127,5 +135,13 @@
 	}
 }
 
+#pragma mark AdMob
+- (void)showBigAd {
+	if (self.interstitial.isReady) {
+		[self.interstitial presentFromRootViewController:self];
+	} else {
+		NSLog(@"Ad wasn't ready");
+	}
+}
 
 @end

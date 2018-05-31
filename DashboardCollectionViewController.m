@@ -15,7 +15,6 @@
 #import "HelpViewController.h"
 #import "CreditsViewController.h"
 #import <FirebaseAnalytics/FIRAnalytics.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface DashboardCollectionViewController ()<GADBannerViewDelegate>{
 	NSMutableArray* _cellData;
@@ -162,7 +161,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_adView.backgroundColor = [UIColor blackColor];
 	_adView.rootViewController = self;
 	_adView.delegate = self;
-	_adView.adUnitID = GoogleAdMobID;
+	_adView.adUnitID = GoogleAdMobBannerID;
 	
 	[self.view addSubview:_adView]; // Request an ad without any additional targeting information.
 	//adds test ads

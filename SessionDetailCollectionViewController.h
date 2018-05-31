@@ -10,8 +10,7 @@
 #import "Session+CoreDataClass.h"
 #import "Project+CoreDataClass.h"
 
-@interface SessionDetailCollectionViewController
-: UICollectionViewController <UIActionSheetDelegate>
+@interface SessionDetailCollectionViewController : UICollectionViewController <UIActionSheetDelegate>
 @property(nonatomic, retain) Session *selectedSession;
 @property(nonatomic) Project* selectedProject;
 - (IBAction)timerToggle:(id)sender;
