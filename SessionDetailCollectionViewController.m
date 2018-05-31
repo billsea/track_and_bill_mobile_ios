@@ -52,6 +52,10 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	_cellImages = @[@"empty", @"milage_track", @"notes", @"materials", @"help"];
 	_timerOn = NO;
 	
+	//init as empty to avoid null
+	[_selectedSession setNotes:@""];
+	[_selectedSession setMaterials:@""];
+	
 	//TODO: Add these to cell data
 	//@"Save and Remove", @"Delete"
 	NSMutableDictionary* timerDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"start_stop_timer",nil),@"title", nil];
