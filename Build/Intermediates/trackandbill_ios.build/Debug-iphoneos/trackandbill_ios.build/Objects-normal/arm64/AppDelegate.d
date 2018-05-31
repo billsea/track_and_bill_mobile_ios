@@ -7,6 +7,7 @@ dependencies: \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataClass.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Build/Intermediates/trackandbill_ios.build/Debug-iphoneos/trackandbill_ios.build/DerivedSources/CoreDataGenerated/trackandbill_ios/Session+CoreDataProperties.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/DashboardCollectionViewController.h \
+  /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Helper/utility.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h \
   /Users/Bill/Documents/iOS_Projects/track_and_bill_mobile_ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h \

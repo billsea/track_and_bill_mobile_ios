@@ -6,15 +6,15 @@
 	<dict>
 		<key>AddClientTableViewController.nib</key>
 		<data>
-		gAzqUhLwT31YAxIv9FJjfTv0xkQ=
+		YNQCNsWA6pQtRWqCbT7VnL73Dv0=
 		</data>
 		<key>AddProjectTableViewController.nib</key>
 		<data>
-		oMp5dYPbrpTjQ9MAGVjAgRrJq/U=
+		qYRlaqVn60B2GBuelGJKFfpofZM=
 		</data>
 		<key>AllSessionsTableViewController.nib</key>
 		<data>
-		RI6LOene8MxXAaLRwgT4Zj41afU=
+		MGpbfdO4VoJwvv6prwR0AkTEPA0=
 		</data>
 		<key>AppIcon-260x60@2x.png</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		rFOFAJbP1ngDr5E6ZKgA40wyELM=
+		Ka5DsA4R5oNv9cbnCdYViJJ4gl4=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		unW0nhOEZ4nXbsNZv5O4SgW+FwI=
+		Ek9dCsnMXLmvA0s+ndm3NNqCuMk=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -38,55 +38,55 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-vXZ-lx-hvc.nib</key>
 		<data>
-		iIXia/t/iAQUds0XsoVfDgt37Lw=
+		yx/E1U3DFv2YNQGEUcq71r656is=
 		</data>
 		<key>Base.lproj/Main.storyboardc/vXZ-lx-hvc-view-kh9-bI-dsS.nib</key>
 		<data>
-		ndRhoibC7rFWkY+GKhZ3ybh/J9o=
+		eYqYtJR2VawWzgSF8iTytar1tpg=
 		</data>
 		<key>Base.lproj/MilageViewController.nib</key>
 		<data>
-		9rJqu+Ot1baSkyG5qzQVBx8Ukyw=
+		TWkJibqaVNidXV7fllCGSJ0IKYI=
 		</data>
 		<key>ClientsTableViewCell.nib</key>
 		<data>
-		qoGMYuYS9gxNHlBjNR0ChabHI1E=
+		pOrbgD2G0om46ftzzU29ErZhPVg=
 		</data>
 		<key>ClientsTableViewController.nib</key>
 		<data>
-		qBUzmBerGdFSdLedJRxJAUQcaMM=
+		0IQJoDu1wfc1yFl9GN3L9tFQbqg=
 		</data>
 		<key>CreditsViewController.nib</key>
 		<data>
-		LkD35EFSjolsulQ0vGTBE+AM4ls=
+		sNbPVJpx0GwzfjUDavvadq90KqI=
 		</data>
 		<key>DashboardCollectionViewCell.nib</key>
 		<data>
-		E4IFmQUVEXGWrK6+vPdWHBTQhUo=
+		DcnzM380GZzGhVpaQDWC1Cs8I4U=
 		</data>
 		<key>DashboardCollectionViewController.nib</key>
 		<data>
-		3AzDRqkVi4Sefbt7TDLrCaRTYcM=
+		0zgde2LFVkpi/bgChqy1MT/Zebg=
 		</data>
 		<key>DateInputTableViewCell.nib</key>
 		<data>
-		DC9Y7Ept+jhvdsN9cApsgnWqi2Q=
+		wf3FEktrE59gyVd59af9vFjAg1s=
 		</data>
 		<key>DateSelectViewController.nib</key>
 		<data>
-		W7kxsI57RUlKau3Y1J7Un4cCmfI=
+		pg0aUIyN8MEXDgovrf2Kk7JIry0=
 		</data>
 		<key>ExportSelectTableViewController.nib</key>
 		<data>
-		8wuDN9RqVxDK8eEoFitZLcgkuyQ=
+		4V4112nc1KDtKdLzGFMCaKAT+m8=
 		</data>
 		<key>FormButtonTableViewCell.nib</key>
 		<data>
-		IxCYIiEGmnnTV9fjahLqmMjjidM=
+		Z9opgS6us4xErjaEUaDoBPU5JHU=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
-		yiTf31HfGAasxrj8p8fshkUcREM=
+		indpNvjxQrYiDdvUJ5mPgemUX/s=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/Info.plist</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<data>
-		OFcvxRukAVIH0vqPIG+5RxmgT00=
+		Roa9JCE8g7eNpR/yPrfvBqat2b8=
 		</data>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -131,7 +131,7 @@
 		</data>
 		<key>HelpViewController.nib</key>
 		<data>
-		ZpFqW//+fb9pRofvDK+su0qg8sw=
+		P6FLTQfl5BxIW65DELgl+qYNPys=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -139,19 +139,19 @@
 		</data>
 		<key>InvoiceStyleTableViewController.nib</key>
 		<data>
-		dfH6kIbBuMdfmX+H0RYjCEae4vA=
+		onSoNB6SGhmLa4Jxa1O+qZSRX9w=
 		</data>
 		<key>InvoiceTableViewCell.nib</key>
 		<data>
-		ZpjklSEvLCc2SoyW0BvA8oAL8u0=
+		j5mbJQo7LB0fsYBWJncGBPsUgns=
 		</data>
 		<key>InvoiceTableViewController.nib</key>
 		<data>
-		6EnCcbaxe0vDpn5f/g2a62N0T1k=
+		SeTb+ZKzLnhvqcPmZfwtT+t0k4M=
 		</data>
 		<key>InvoicesTableViewController.nib</key>
 		<data>
-		M4OkT7PPdl/2F6Q1P66Yu4w64wM=
+		OawwQYALb9qjpHqVnf5aAmfwaOg=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -175,7 +175,7 @@
 		</data>
 		<key>MaterialsViewController.nib</key>
 		<data>
-		PYM8wBZaeJ1ZwrT9Se9s8CGUQdM=
+		p534Q7nMppFFqb+1GM1kw09A8+4=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -199,23 +199,23 @@
 		</data>
 		<key>PlugIns/trackandbill_iosTests.xctest/trackandbill_iosTests</key>
 		<data>
-		3zvNLZngG2fP41b2TIwK6XtVFAY=
+		2Wv77PchSsaeFhFHvg2MWDT9JsU=
 		</data>
 		<key>ProfileTableViewController.nib</key>
 		<data>
-		eB60RhhhYKEzgeuaW5SiXf32DGY=
+		GQadmcoN4TK9pC62e3gQ9UhAHzk=
 		</data>
 		<key>ProjectCollectionViewController.nib</key>
 		<data>
-		rw2j/OQWNmYEyYBD5D/cUn2uMxU=
+		Zv30iHinJte3dtiMnj7EBgjVnhs=
 		</data>
 		<key>ProjectsTableViewCell.nib</key>
 		<data>
-		y26xSEKbHAgeFBv85WgaOZL68R4=
+		8j4UrQbMsdNEFPN1vd3Fkxogp5A=
 		</data>
 		<key>ProjectsTableViewController.nib</key>
 		<data>
-		N2Pi8Ocuj1HtmKskMytVIdOAplg=
+		+9z/WtkynATU2J4TQF/8ilnIeBs=
 		</data>
 		<key>Reader-Button-H.png</key>
 		<data>
@@ -275,39 +275,39 @@
 		</data>
 		<key>SessionDetailCollectionViewController.nib</key>
 		<data>
-		d1eEy26XOgp9MKsaL6QwEoBo12E=
+		nu6YGn/gn4d842bOeTHLawbtIW0=
 		</data>
 		<key>SessionEditTableViewController.nib</key>
 		<data>
-		X46gqak8L9oSuEyujqrD1K2D958=
+		dMBqABUTynSEd3iu5dUFTUPVrLY=
 		</data>
 		<key>SessionNotesViewController.nib</key>
 		<data>
-		/7M+hOrZidZ6lsTQurPMgf/X1e8=
+		R4V41UZY/GYg90XdjDMiM6NoifM=
 		</data>
 		<key>SessionsTableViewCell.nib</key>
 		<data>
-		UoeB85dzugyD5q/R0A7gjJWM1Kw=
+		tyKNBukd8ziZDlvo9WecQVwHI5E=
 		</data>
 		<key>SettingsTableViewController.nib</key>
 		<data>
-		eIgkWm2B8sEDvk3rxz9d2KmQw5c=
+		q0+6AYeDbtX5oQC4A9rRDvLPPUc=
 		</data>
 		<key>StylesCollectionViewController.nib</key>
 		<data>
-		zpgCft9SfnhAAtbF+9YWGy6fSk4=
+		xEEopu4sharkvu9h4SjvZJ1t57E=
 		</data>
 		<key>SwitchTableViewCell.nib</key>
 		<data>
-		yuyZ1oY8fWStn6TTz8I4XnMJyOA=
+		WO5wYsfMYd64xQ4c7oclOOSY7CM=
 		</data>
 		<key>TextInputTableViewCell.nib</key>
 		<data>
-		23dYcjjoaQhVSkNJeSiLHqH/fdQ=
+		35CxRgx++kH0KbHq1yJOcj6Yl5c=
 		</data>
 		<key>Todo</key>
 		<data>
-		8xXxlBXbxdNuor2Tb4QvpkJDZUU=
+		T4Ohk8hI3wMqWaBPPxx8le6edHw=
 		</data>
 		<key>ar.lproj/LaunchScreen.strings</key>
 		<dict>
@@ -574,33 +574,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gAzqUhLwT31YAxIv9FJjfTv0xkQ=
+			YNQCNsWA6pQtRWqCbT7VnL73Dv0=
 			</data>
 			<key>hash2</key>
 			<data>
-			orfTEOxpZ0ZwELLbRrym9XPnZxXYxezlBSvqg4LyLm4=
+			BogY0Xl8GtjBtuWzgHfH1Lhn9hibIaGaQ1DGcj5QrHA=
 			</data>
 		</dict>
 		<key>AddProjectTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oMp5dYPbrpTjQ9MAGVjAgRrJq/U=
+			qYRlaqVn60B2GBuelGJKFfpofZM=
 			</data>
 			<key>hash2</key>
 			<data>
-			sonrzwVZUAtc7jATGg4zx1yH9Kme83cYMVh/PYwQAs4=
+			NW4ZLLyv06nuKA8bLXZAc8Nc+mJmpqTPwM39ve2vdio=
 			</data>
 		</dict>
 		<key>AllSessionsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RI6LOene8MxXAaLRwgT4Zj41afU=
+			MGpbfdO4VoJwvv6prwR0AkTEPA0=
 			</data>
 			<key>hash2</key>
 			<data>
-			6PH+YdOlmIeCD/3S739fBfsVYhFTADZWBqZVhWpTFYo=
+			n5mmJvJ00C21mSkXxzBLsbRPn8OF1QYl6CEf7O3eyHE=
 			</data>
 		</dict>
 		<key>AppIcon-260x60@2x.png</key>
@@ -629,22 +629,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rFOFAJbP1ngDr5E6ZKgA40wyELM=
+			Ka5DsA4R5oNv9cbnCdYViJJ4gl4=
 			</data>
 			<key>hash2</key>
 			<data>
-			+GbyLhyyoqIxx2CwTMxuFx//bCWQWvPp4+GU1/6G3Fk=
+			ReC+fAhp5PIB6SIKjSd1CNCuPT4mP7P92K3j9xp5NaY=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			unW0nhOEZ4nXbsNZv5O4SgW+FwI=
+			Ek9dCsnMXLmvA0s+ndm3NNqCuMk=
 			</data>
 			<key>hash2</key>
 			<data>
-			xQiv/ssuXjT26A+OtsMOIrh6Q0N/6Kz6wAWMGx8RLVI=
+			aaSvKsABHtGxlMILLRsbN4wvcEk/OPSyPyF6vRC3IIw=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -662,143 +662,143 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iIXia/t/iAQUds0XsoVfDgt37Lw=
+			yx/E1U3DFv2YNQGEUcq71r656is=
 			</data>
 			<key>hash2</key>
 			<data>
-			Th25ID2GYKG/JK6IBF67GWi1mT7qFsbzU3mkLOjrNzQ=
+			ykOlERXZ/WFrhJKsl43lPnssn8oDA4ozYfOJGGAsJI0=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/vXZ-lx-hvc-view-kh9-bI-dsS.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ndRhoibC7rFWkY+GKhZ3ybh/J9o=
+			eYqYtJR2VawWzgSF8iTytar1tpg=
 			</data>
 			<key>hash2</key>
 			<data>
-			krtR+fWuxE9dnINtWkFqC7HNKqzzGrJAixE09ElOE+s=
+			cACS2mKONuPL9EYj9YUyG8Nn9C1uEnLUviNKjpQwAgw=
 			</data>
 		</dict>
 		<key>Base.lproj/MilageViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9rJqu+Ot1baSkyG5qzQVBx8Ukyw=
+			TWkJibqaVNidXV7fllCGSJ0IKYI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ihjuivpjdK9yY8rwPAaxsCEc5amDWKEQhqEcZHReoa8=
+			gD2l2r2uha6fP8ne1Uzfn1QhdUVqiEaQrYMbjpoPBRg=
 			</data>
 		</dict>
 		<key>ClientsTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qoGMYuYS9gxNHlBjNR0ChabHI1E=
+			pOrbgD2G0om46ftzzU29ErZhPVg=
 			</data>
 			<key>hash2</key>
 			<data>
-			EwwCG9tS0GD/iwCZwJvXHOrPF57FPCxEm4iLW7gNvLQ=
+			Mj/huIiqFJ+54jfSZqjtHt+TDflJNzld1E3lwSqJPOA=
 			</data>
 		</dict>
 		<key>ClientsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qBUzmBerGdFSdLedJRxJAUQcaMM=
+			0IQJoDu1wfc1yFl9GN3L9tFQbqg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Feaz0ad1ZpUq0ZDGNon5b9hUjEoU8POiMRpvwASrtj8=
+			phcnoNel2H7J7YdHJLa4nfDK7BB7ak3df9gAsbqQXeU=
 			</data>
 		</dict>
 		<key>CreditsViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LkD35EFSjolsulQ0vGTBE+AM4ls=
+			sNbPVJpx0GwzfjUDavvadq90KqI=
 			</data>
 			<key>hash2</key>
 			<data>
-			OXStvZ+lse2SGumO66B6nDb05mARRD4Ng0WY8qJs+UI=
+			5K0+DNs03slZClhNuSUWnvCRSnj1A5KwdLIeipyi7Q4=
 			</data>
 		</dict>
 		<key>DashboardCollectionViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			E4IFmQUVEXGWrK6+vPdWHBTQhUo=
+			DcnzM380GZzGhVpaQDWC1Cs8I4U=
 			</data>
 			<key>hash2</key>
 			<data>
-			c3DlfcyaWa5JHBAoeXPoZrev9q9pUUMhx+uxgJsz0kQ=
+			2lJolrhCHHRIL3bJAKd5ok7rHe2l2PzxLdlhP2Rl1Ys=
 			</data>
 		</dict>
 		<key>DashboardCollectionViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3AzDRqkVi4Sefbt7TDLrCaRTYcM=
+			0zgde2LFVkpi/bgChqy1MT/Zebg=
 			</data>
 			<key>hash2</key>
 			<data>
-			uJA3nhVXIp43GwB4x+CPfE4zj+FCCJbC/oL1aagQO88=
+			7f8pyu2EO5tR1o8fDrAjvQqU8hc5rec1Q/p9ANUO9Ek=
 			</data>
 		</dict>
 		<key>DateInputTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DC9Y7Ept+jhvdsN9cApsgnWqi2Q=
+			wf3FEktrE59gyVd59af9vFjAg1s=
 			</data>
 			<key>hash2</key>
 			<data>
-			HBYHQLFMBLs4+8y5TV53NKw0UONpPlKtXYGvIX6HNV4=
+			P4l0qwUGkD0fLcpWC+ole8sVJHzvz2bpiV+VGNFOIJY=
 			</data>
 		</dict>
 		<key>DateSelectViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			W7kxsI57RUlKau3Y1J7Un4cCmfI=
+			pg0aUIyN8MEXDgovrf2Kk7JIry0=
 			</data>
 			<key>hash2</key>
 			<data>
-			kMiE/TFZ/+ZsT+Hmv8IMQJoT8JmXnPGU9+uc5zDb+MY=
+			uVAfBaM7a5nW8DsSz10XJg44ydqIrhYJiEgvvbdXzcw=
 			</data>
 		</dict>
 		<key>ExportSelectTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8wuDN9RqVxDK8eEoFitZLcgkuyQ=
+			4V4112nc1KDtKdLzGFMCaKAT+m8=
 			</data>
 			<key>hash2</key>
 			<data>
-			/BmMHehAd5Kx2BOxu0x0Nzb8WN/oHK1uQLqZYZMXLSg=
+			HcPzq9mrZoUKRp0B1e8gpa+ZyVUUyEzaaC47U0tHlvs=
 			</data>
 		</dict>
 		<key>FormButtonTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IxCYIiEGmnnTV9fjahLqmMjjidM=
+			Z9opgS6us4xErjaEUaDoBPU5JHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			q9DxDc1iLAZNu3X7wtypCWnCKCLnQZiMTANEUWMjA28=
+			EQgClOlZWYTRAdXlVvbMWtYJUDzpT5tChOX1bFJq36k=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yiTf31HfGAasxrj8p8fshkUcREM=
+			indpNvjxQrYiDdvUJ5mPgemUX/s=
 			</data>
 			<key>hash2</key>
 			<data>
-			wzuS4V423LUEU7m2G164XZL8smxR0qY/7Q9Int9w74A=
+			ApVuqsiiCCuTlgWRc5phtDlQngngHXYbMpQyqzoE/zk=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/Info.plist</key>
@@ -849,11 +849,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OFcvxRukAVIH0vqPIG+5RxmgT00=
+			Roa9JCE8g7eNpR/yPrfvBqat2b8=
 			</data>
 			<key>hash2</key>
 			<data>
-			JMkZp3PdxhXkRJaBidAgbb9KtAiau8rR8vtrtoqIxnA=
+			Ii8+aDLI5rkT3RwPPvCmkT5UZxbrSgZW26osn3232ok=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
@@ -906,55 +906,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZpFqW//+fb9pRofvDK+su0qg8sw=
+			P6FLTQfl5BxIW65DELgl+qYNPys=
 			</data>
 			<key>hash2</key>
 			<data>
-			XtCQ9kCMKVr4bGl8iQNmEHboJeJQpOxd/zx3IEjQLsI=
+			ZyesRL9kA/z2SKLEAF0bP/+y30zxOAe4m2ka7EUHRIs=
 			</data>
 		</dict>
 		<key>InvoiceStyleTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dfH6kIbBuMdfmX+H0RYjCEae4vA=
+			onSoNB6SGhmLa4Jxa1O+qZSRX9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			3rRPXOPXGTOfYxqT3Q5bplU3NwTRAun3y54b/3cDXTY=
+			RDWqJXuQ+uBcWR17pyX9dID9tBMCmM1n6vM07Ze69Fs=
 			</data>
 		</dict>
 		<key>InvoiceTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZpjklSEvLCc2SoyW0BvA8oAL8u0=
+			j5mbJQo7LB0fsYBWJncGBPsUgns=
 			</data>
 			<key>hash2</key>
 			<data>
-			D1SkNnIf2Ct05YXLmKTNraF6VUrVMorFmOb+mZoKSMY=
+			UUbF0kj6Pn5ah7l/leT9nN9q22cBebxV0zpLgibMQ/4=
 			</data>
 		</dict>
 		<key>InvoiceTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6EnCcbaxe0vDpn5f/g2a62N0T1k=
+			SeTb+ZKzLnhvqcPmZfwtT+t0k4M=
 			</data>
 			<key>hash2</key>
 			<data>
-			iNmP79LGorTYRChSHpaUzCGPBgodjXiw7Rp5X1UQ6z4=
+			qrEVy3CG13RgeIjyGdXBvg0/6HScnW+2zlWIIPdyPiQ=
 			</data>
 		</dict>
 		<key>InvoicesTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			M4OkT7PPdl/2F6Q1P66Yu4w64wM=
+			OawwQYALb9qjpHqVnf5aAmfwaOg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ESxI549UoZ6GqQY7II1KG9uNu5OhCW/eA2vsAYwgHM8=
+			Bd0iDSgYCpIh1hgQ0SULqZUnr3IsDMfrl8X9GLAMjlI=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1016,11 +1016,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PYM8wBZaeJ1ZwrT9Se9s8CGUQdM=
+			p534Q7nMppFFqb+1GM1kw09A8+4=
 			</data>
 			<key>hash2</key>
 			<data>
-			X+XVwfHMSu5lK/dkjsCvIcRFoWmhaJ9jDLml/X9Vcvw=
+			00oZtEsTNOMYWhqB5nByhGoamYdBFMdj4j2MsDxwaZU=
 			</data>
 		</dict>
 		<key>PlugIns/trackandbill_iosTests.xctest.dSYM/Contents/Info.plist</key>
@@ -1071,55 +1071,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3zvNLZngG2fP41b2TIwK6XtVFAY=
+			2Wv77PchSsaeFhFHvg2MWDT9JsU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Eqn+ojQh1BhE0LC0/CjHmnZipvsz8w6apJ/TEPAupCU=
+			dhoByySjUo71YxW3+msh+hwQ6ZR0HeDvS4/GuRFpu2Q=
 			</data>
 		</dict>
 		<key>ProfileTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eB60RhhhYKEzgeuaW5SiXf32DGY=
+			GQadmcoN4TK9pC62e3gQ9UhAHzk=
 			</data>
 			<key>hash2</key>
 			<data>
-			tzm8sXSacxBZmNMD/pWhrhHqr1Ju/65h/5nnOYf1cE4=
+			cjmwVmW4TkMW4orkPJQZ0pAecpHuIecX49sBuHaJfQo=
 			</data>
 		</dict>
 		<key>ProjectCollectionViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rw2j/OQWNmYEyYBD5D/cUn2uMxU=
+			Zv30iHinJte3dtiMnj7EBgjVnhs=
 			</data>
 			<key>hash2</key>
 			<data>
-			/OT9gg+kUDO2PmL2VakiPGjen1m1jUa40ZoAqEmO6d4=
+			qvGRHPwy9TTOO305yg/iHfuvpL4J7B9WqtJziF718mY=
 			</data>
 		</dict>
 		<key>ProjectsTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			y26xSEKbHAgeFBv85WgaOZL68R4=
+			8j4UrQbMsdNEFPN1vd3Fkxogp5A=
 			</data>
 			<key>hash2</key>
 			<data>
-			3DAuqcZWF8dRsqAT1Bunfu7yET0+oy3cT1cuFLzf0GY=
+			TuBZuCHyttIvkAgJSAN5Ts04cVjbxUetjFET3zZLKJ8=
 			</data>
 		</dict>
 		<key>ProjectsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			N2Pi8Ocuj1HtmKskMytVIdOAplg=
+			+9z/WtkynATU2J4TQF/8ilnIeBs=
 			</data>
 			<key>hash2</key>
 			<data>
-			GdDtDc4WsfE80zeNUBXaeGeqSAszLjMid7LnAC7tpQU=
+			yM9utYb0bq2/0Kl9wp4u+PEfuY+W2d/ufsxg7hz+3rw=
 			</data>
 		</dict>
 		<key>Reader-Button-H.png</key>
@@ -1280,99 +1280,99 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d1eEy26XOgp9MKsaL6QwEoBo12E=
+			nu6YGn/gn4d842bOeTHLawbtIW0=
 			</data>
 			<key>hash2</key>
 			<data>
-			OFpJ/ffHDPJVoLORxtlFgQys+X091sNtMqNqkJD5+Kk=
+			BIFOIOmXYNHM0K1P5NHzIZ2ACbNVr/iSUUNDmu0kzo8=
 			</data>
 		</dict>
 		<key>SessionEditTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X46gqak8L9oSuEyujqrD1K2D958=
+			dMBqABUTynSEd3iu5dUFTUPVrLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			0y2En4AwsAj3n4Fq2CH0owFezU5Bj0gsv3BcHKYgfAY=
+			VSnmQp09rXxI8SDH24heHHGV2V33eifCaot3uq76AFA=
 			</data>
 		</dict>
 		<key>SessionNotesViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/7M+hOrZidZ6lsTQurPMgf/X1e8=
+			R4V41UZY/GYg90XdjDMiM6NoifM=
 			</data>
 			<key>hash2</key>
 			<data>
-			pBYXVYpkRjGZgAMtUE81UZ4fgHaa9Y0e98cwfU8AFxk=
+			SURwn7jUM6aYqkHnf3to+JwjElsgP6tFece7izCUhd0=
 			</data>
 		</dict>
 		<key>SessionsTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UoeB85dzugyD5q/R0A7gjJWM1Kw=
+			tyKNBukd8ziZDlvo9WecQVwHI5E=
 			</data>
 			<key>hash2</key>
 			<data>
-			QEGv8b+DyeSkkRFQ6GTPMWk4ytzWxEA8a5EKVn6qlWo=
+			txY9omlZjJichm0/m6XIjLJetSaVAxsA106cChqVjko=
 			</data>
 		</dict>
 		<key>SettingsTableViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eIgkWm2B8sEDvk3rxz9d2KmQw5c=
+			q0+6AYeDbtX5oQC4A9rRDvLPPUc=
 			</data>
 			<key>hash2</key>
 			<data>
-			WSVjIFF+wzD2iKsFhoYgPr8dAEG5pI3xrpw4BbOV+Og=
+			8RcnxIgjvkDJzUISs2jbkkqlfrVU2ljCHiMQDEDFiOI=
 			</data>
 		</dict>
 		<key>StylesCollectionViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zpgCft9SfnhAAtbF+9YWGy6fSk4=
+			xEEopu4sharkvu9h4SjvZJ1t57E=
 			</data>
 			<key>hash2</key>
 			<data>
-			WiSTDq2I5OBQze+juPcsJZXZM/2t7WMeiuf/bLlHaBE=
+			2a1LQZp3mEmNFz2E45FPnRxrsQgfehluRmOTA9LDgZI=
 			</data>
 		</dict>
 		<key>SwitchTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yuyZ1oY8fWStn6TTz8I4XnMJyOA=
+			WO5wYsfMYd64xQ4c7oclOOSY7CM=
 			</data>
 			<key>hash2</key>
 			<data>
-			GJ8U19/EN1dlWJP2Rx372jUqHuyYO0U2LRcjtJavktI=
+			wUe7IEI4+PMChh6bdNv8xNkydpNi8ZKsRAco5gqQ2yA=
 			</data>
 		</dict>
 		<key>TextInputTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			23dYcjjoaQhVSkNJeSiLHqH/fdQ=
+			35CxRgx++kH0KbHq1yJOcj6Yl5c=
 			</data>
 			<key>hash2</key>
 			<data>
-			jlFQ/qzfcHvypO4x41fijy5xVwPrIMBQQGB3Oo80GiA=
+			v0lgK1zghn9E4zQLh3hVjodLjwEPfpgV/yRbCk8p9Fw=
 			</data>
 		</dict>
 		<key>Todo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8xXxlBXbxdNuor2Tb4QvpkJDZUU=
+			T4Ohk8hI3wMqWaBPPxx8le6edHw=
 			</data>
 			<key>hash2</key>
 			<data>
-			DKT4hnQwaiTW48iuSXtFTCcDm/8L4HFSD6ctONJ5IlU=
+			8kTnxuLznWqfI6GCdmfcVRbxKgl9evRgY/cvxOMls04=
 			</data>
 		</dict>
 		<key>ar.lproj/LaunchScreen.strings</key>

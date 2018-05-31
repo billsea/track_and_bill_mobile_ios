@@ -134,14 +134,14 @@
 	//other styles
 	NSArray* styleClassesCollection = @[[UICollectionView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
-	 setFont:[UIFont fontWithName:MainFontName size:18.0]];
+	 setFont:[UIFont fontWithName:MainFontName size:20.0]];
 	
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesCollection]
 	 setTextColor:TextColorMain];
 	
 	NSArray* styleClassesTable = @[[UITableView class]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
-	 setFont:[UIFont fontWithName:MainFontName size:21.0]];
+	 setFont:[UIFont fontWithName:MainFontName size:26.0]];
 	[[UILabel appearanceWhenContainedInInstancesOfClasses:styleClassesTable]
 	 setTextColor:TextColorMain];
 
