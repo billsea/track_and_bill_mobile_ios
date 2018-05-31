@@ -182,4 +182,10 @@
 	}
 }
 
+#pragma mark text field delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	return YES;
+}
+
 @end
