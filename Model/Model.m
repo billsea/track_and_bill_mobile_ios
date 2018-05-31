@@ -99,7 +99,7 @@
 	//15
 	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"check_num", nil), @"FieldName", isEdit ? selectedInvoice.check : @"",@"FieldValue", nil]];
 	//16
-	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"notes", nil), @"FieldName", isArchive ? selectedInvoice.notes : allNotes , @"FieldValue", nil]];
+	[invoiceFormFields addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"services", nil), @"FieldName", isArchive ? selectedInvoice.notes : allNotes , @"FieldValue", nil]];
 
 	return invoiceFormFields;
 }
