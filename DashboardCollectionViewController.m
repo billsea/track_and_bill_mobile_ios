@@ -15,10 +15,12 @@
 #import "HelpViewController.h"
 #import "CreditsViewController.h"
 #import <FirebaseAnalytics/FIRAnalytics.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface DashboardCollectionViewController (){
+@interface DashboardCollectionViewController ()<GADBannerViewDelegate>{
 	NSMutableArray* _cellData;
 	NSArray* _cellImages;
+	GADBannerView* _adView;
 }
 
 @end
@@ -81,14 +83,17 @@ static NSString * const reuseIdentifier = @"DashboardCell";
     [self.collectionView registerClass:[DashboardCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	
 		[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-	
-    // Do any additional setup after loading the view.
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	if(!_adView)
+		[self displayAdBanner];
 }
 
 /*
@@ -148,6 +153,31 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 																	 kFIRParameterItemName:[_cellImages objectAtIndex:indexPath.row],
 																	 kFIRParameterContentType:@"text"
 																	 }];
+}
+
+#pragma mark Ads
+- (void)displayAdBanner {
+	_adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+	_adView.frame = CGRectMake(0, self.view.window.frame.size.height - _adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+	_adView.backgroundColor = [UIColor blackColor];
+	_adView.rootViewController = self;
+	_adView.delegate = self;
+	_adView.adUnitID = GoogleAdMobID;
+	
+	[self.view addSubview:_adView]; // Request an ad without any additional targeting information.
+	//adds test ads
+	[_adView loadRequest:self.request];
+}
+
+- (GADRequest *)request {
+	GADRequest *request = [GADRequest request];
+	//device and simulator test ids
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	return request;
+}
+- (void)showAdView {
+	//Interstitial ad view
+	//[self.navigationController pushViewController:adViewController animated:YES];
 }
 
 @end
