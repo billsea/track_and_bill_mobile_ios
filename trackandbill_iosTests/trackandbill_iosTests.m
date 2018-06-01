@@ -46,22 +46,6 @@
 	clientVC = [[ClientsTableViewController alloc] init];
 	profileVC = [[ProfileTableViewController alloc] init];
 	
-	//core data tests setup
-	NSPersistentContainer *pc = [[NSPersistentContainer alloc] initWithName:@"trackandbill_ios"];
-	
-	[pc loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
-		if (error != nil) {
-			NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-			abort();
-		}
-	}];
-	
-//	XCTAssertTrue([psc addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:NULL] ? YES : NO, @"Should be able to add in-memory store");
-	
-	managedObjectContext = pc.viewContext;
-	
-	managedObjectContext.persistentStoreCoordinator = pc.persistentStoreCoordinator;
-	
 }
 
 - (void)tearDown {
@@ -75,22 +59,78 @@
 	  //[clientVC fetchData];
 }
 
+//Load a ton of data into database
 - (void)testDataLoad {
-	for(int i = 0; i < 1000; i++) {
-		[self testDataStuff];
-	}
-}
-
-- (void) testDataStuff {
-	NSManagedObject *managedObj = [NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:managedObjectContext];
 	
-	[managedObj setValue:@"testName" forKey:@"name"];
-	//[managedObj setValue:[NSNumber numberWithInt:90000] forKey:@"remoteid"];
+	//NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles: nil];
+	
+	//core data tests setup
+	NSPersistentContainer *pc = [[NSPersistentContainer alloc] initWithName:@"trackandbill_ios"];
+	
+	[pc loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+		if (error != nil) {
+			NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+			abort();
+		}
+	}];
+	
+	managedObjectContext = pc.viewContext;
+	managedObjectContext.persistentStoreCoordinator = pc.persistentStoreCoordinator;
+	
+	
+	//add lots of records
+	
+	int clientCount = 10;
+	int projectCount = 10;
+	int sessionCount = 50;
+	
+	for(int i = 0; i < clientCount; i++) {
+		//add clients
+		NSManagedObject *managedObjClient = [NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:managedObjectContext];
+		
+		NSString* clientName =[NSString stringWithFormat:@"Client %@", [NSNumber numberWithInt:i]];
+		[managedObjClient setValue:clientName forKey:@"name"];
+	
+		XCTAssertEqual([managedObjClient valueForKey:@"name"], clientName);
+		
+		//add projects
+		for(int i = 0; i < projectCount; i++) {
+			NSManagedObject *managedObjProject = [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:managedObjectContext];
+			
+			NSString* projectName = [NSString stringWithFormat:@"Project %@", [NSNumber numberWithInt:i]];
+			
+			[managedObjProject setValue:projectName forKey:@"name"];
+			NSMutableSet *changeProjects = [managedObjClient mutableSetValueForKey:@"projects"];
+			[changeProjects addObject:managedObjProject];
+			
+			XCTAssertEqual([managedObjProject valueForKey:@"name"], projectName);
+			
+			//add Sessions
+			for(int i = 0; i < sessionCount; i++) {
+				NSManagedObject *managedObjSessions = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:managedObjectContext];
+				
+				[managedObjSessions setValue:[NSDate date] forKey:@"start"];
+				NSMutableSet *changeSessions = [managedObjProject mutableSetValueForKey:@"sessions"];
+				[changeSessions addObject:managedObjSessions];
+			}
+			
+			//add invoice
+			NSManagedObject *managedObjInvoice = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:managedObjectContext];
+
+			[managedObjInvoice setValue:[NSNumber numberWithInt:i] forKey:@"number"];
+//			NSMutableSet *changeInvoices = [managedObjProject mutableSetValueForKey:@"invoices"];
+//			[changeInvoices addObject:managedObjInvoice];
+		
+		}
+		
+	}
+	
 	
 	NSError *error = nil;
 	if (![managedObjectContext save:&error]) {
 		XCTFail(@"failed with error: %@, %@", error, [error userInfo]);
 	}
+	
 }
 
 - (void)testTableValueReturn {
