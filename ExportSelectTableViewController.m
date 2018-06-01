@@ -8,6 +8,7 @@
 
 #import "ExportSelectTableViewController.h"
 #import "Session+CoreDataClass.h"
+#import "Client+CoreDataClass.h"
 
 #define kTableRowHeight 80
 
@@ -79,13 +80,14 @@
 
 - (void)createAndSendCSVfile {
 	NSString *separator = @", ";
+	Client *selClient = _selectedProject.clients;
 	
 	//Header
-	_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@\n",  NSLocalizedString(@"project_name", nil), separator, NSLocalizedString(@"date", nil), separator, NSLocalizedString(@"hours", nil), separator, NSLocalizedString(@"minutes", nil), separator, NSLocalizedString(@"seconds", nil),separator,NSLocalizedString(@"milage", nil),separator,NSLocalizedString(@"materials", nil),separator,NSLocalizedString(@"notes", nil)];
+	_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@\n", NSLocalizedString(@"client_name", nil),separator, NSLocalizedString(@"project_name", nil), separator, NSLocalizedString(@"date", nil), separator, NSLocalizedString(@"hours", nil), separator, NSLocalizedString(@"minutes", nil), separator, NSLocalizedString(@"seconds", nil),separator,NSLocalizedString(@"milage", nil),separator,NSLocalizedString(@"materials", nil),separator,NSLocalizedString(@"notes", nil)];
 	
 	//Rows
 	for (Session *s in _selectedProject.sessions) {
-		_csv = [NSString stringWithFormat:@"%@%@%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, _selectedProject.name, separator, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
+		_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, selClient.name, separator,_selectedProject.name, separator, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
 	}
 	
 	[self emailCSV];
