@@ -145,13 +145,13 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	[[self navigationController] pushViewController:[[_cellData objectAtIndex:indexPath.row] objectForKey:@"vc"] animated:YES];
 	
-	//test log event - log image name for selection
-	[FIRAnalytics logEventWithName:kFIREventSelectContent
-											parameters:@{
-																	 kFIRParameterItemID:[NSString stringWithFormat:@"dashboard_select-%@", [_cellImages objectAtIndex:indexPath.row]],
-																	 kFIRParameterItemName:[_cellImages objectAtIndex:indexPath.row],
-																	 kFIRParameterContentType:@"text"
-																	 }];
+//	//test log event - log image name for selection
+//	[FIRAnalytics logEventWithName:kFIREventSelectContent
+//											parameters:@{
+//																	 kFIRParameterItemID:[NSString stringWithFormat:@"dashboard_select-%@", [_cellImages objectAtIndex:indexPath.row]],
+//																	 kFIRParameterItemName:[_cellImages objectAtIndex:indexPath.row],
+//																	 kFIRParameterContentType:@"text"
+//																	 }];
 }
 
 #pragma mark Ads
