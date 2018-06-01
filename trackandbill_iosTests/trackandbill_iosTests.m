@@ -27,7 +27,6 @@
 @interface trackandbill_iosTests : XCTestCase {
 @private
 	UIApplication       *app;
-
 	DashboardCollectionViewController* dashboardVC;
 	ClientsTableViewController* clientVC;
 	ProfileTableViewController* profileVC;
@@ -41,11 +40,14 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-	 app = [UIApplication sharedApplication];
+	self.continueAfterFailure = NO;
+
+	app = [UIApplication sharedApplication];
+	
 	dashboardVC = [[DashboardCollectionViewController alloc] init];
 	clientVC = [[ClientsTableViewController alloc] init];
 	profileVC = [[ProfileTableViewController alloc] init];
-	
+
 }
 
 - (void)tearDown {
@@ -80,8 +82,8 @@
 	
 	//add lots of records
 	
-	int clientCount = 10;
-	int projectCount = 10;
+	int clientCount = 50;
+	int projectCount = 100;
 	int sessionCount = 50;
 	
 	for(int i = 0; i < clientCount; i++) {
@@ -94,10 +96,10 @@
 		XCTAssertEqual([managedObjClient valueForKey:@"name"], clientName);
 		
 		//add projects
-		for(int i = 0; i < projectCount; i++) {
+		for(int p = 0; p < projectCount; p++) {
 			NSManagedObject *managedObjProject = [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:managedObjectContext];
 			
-			NSString* projectName = [NSString stringWithFormat:@"Project %@", [NSNumber numberWithInt:i]];
+			NSString* projectName = [NSString stringWithFormat:@"Project %@", [NSNumber numberWithInt:p]];
 			
 			[managedObjProject setValue:projectName forKey:@"name"];
 			NSMutableSet *changeProjects = [managedObjClient mutableSetValueForKey:@"projects"];
@@ -106,7 +108,7 @@
 			XCTAssertEqual([managedObjProject valueForKey:@"name"], projectName);
 			
 			//add Sessions
-			for(int i = 0; i < sessionCount; i++) {
+			for(int s = 0; s < sessionCount; s++) {
 				NSManagedObject *managedObjSessions = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:managedObjectContext];
 				
 				[managedObjSessions setValue:[NSDate date] forKey:@"start"];
@@ -117,7 +119,7 @@
 			//add invoice
 			NSManagedObject *managedObjInvoice = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:managedObjectContext];
 
-			[managedObjInvoice setValue:[NSNumber numberWithInt:i] forKey:@"number"];
+			[managedObjInvoice setValue:[NSNumber numberWithInt:p] forKey:@"number"];
 //			NSMutableSet *changeInvoices = [managedObjProject mutableSetValueForKey:@"invoices"];
 //			[changeInvoices addObject:managedObjInvoice];
 		
