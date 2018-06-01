@@ -835,7 +835,7 @@ if(_myProfile.show_invoice_header){
 #pragma mark methods
 - (NSManagedObject *)MyProfile {
 	// Fetch data from persistent data store;
-	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@"number"];
+	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@""];
 	return data.count > 0 ? [data objectAtIndex:0] : nil;
 }
 
