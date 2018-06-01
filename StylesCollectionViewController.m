@@ -68,7 +68,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 - (NSManagedObject *)MyProfile {
 	// Fetch data from persistent data store;
-	NSMutableArray* data = [Model dataForEntity:@"Profile"];
+	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@""];
 	return data.count > 0 ? [data objectAtIndex:0] : nil;
 }
 

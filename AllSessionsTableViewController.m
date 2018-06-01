@@ -22,11 +22,8 @@
   [super viewDidLoad];
 
   [[self navigationItem] setTitle:_selectedProject.name];
-	_data = _selectedProject.sessions.allObjects;
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	
 	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
-	
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -35,7 +32,8 @@
 }
 
 - (void)loadData{
-	_data = _selectedProject.sessions.allObjects;
+	NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@"start" ascending:NO];
+	_data = [[_selectedProject.sessions allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:dateSort]];
 	[self.tableView reloadData];
 }
 
