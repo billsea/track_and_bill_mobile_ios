@@ -17,9 +17,11 @@
 	NSManagedObjectContext* context = app.persistentContainer.viewContext;
 	NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityString];
 	
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	[fetchRequest setSortDescriptors:sortDescriptors];
+	if(![key isEqualToString:@""]) {
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+		[fetchRequest setSortDescriptors:sortDescriptors];
+	}
 	
 	NSMutableArray* data = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
 	return data;
