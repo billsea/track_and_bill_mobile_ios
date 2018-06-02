@@ -33,8 +33,6 @@
 		A98F3CA220A219AD007A32F2 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98F3CA120A219AD007A32F2 /* Photos.framework */; };
 		A9976D8B1AF7EFEE00A4CC9D /* AllSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */; };
 		A9976D8C1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */; };
-		A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */; };
-		A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */; };
 		A99EABCC20ABC95800D7AC44 /* InvoiceStyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EABCA20ABC95800D7AC44 /* InvoiceStyleTableViewController.m */; };
 		A99EABCD20ABC95800D7AC44 /* InvoiceStyleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99EABCB20ABC95800D7AC44 /* InvoiceStyleTableViewController.xib */; };
 		A99EABD120ABCC8800D7AC44 /* SwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EABCF20ABCC8800D7AC44 /* SwitchTableViewCell.m */; };
@@ -61,8 +59,6 @@
 		A9DC4C8B1AEAFB8E00A00892 /* ClientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */; };
 		A9DC4C8C1AEAFB8E00A00892 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */; };
 		A9DC4C8D1AEAFB8E00A00892 /* ClientsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */; };
-		A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */; };
-		A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */; };
 		A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */; };
 		A9DC4C921AEAFB8E00A00892 /* InvoicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */; };
 		A9DC4C931AEAFB8E00A00892 /* InvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */; };
@@ -117,8 +113,6 @@
 		A9DC4CD71AEAFDA100A00892 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */; };
 		A9DF54901B0E57A4009A9922 /* tBill_appIcon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */; };
 		A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */; };
-		A9DF54951B0E6A1D009A9922 /* DateInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */; };
-		A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */; };
 		A9E7E3211AF9875A00689141 /* SessionEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */; };
 		A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */; };
 		A9F56FAA20A4AD07006626D7 /* MilageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F56FAC20A4AD07006626D7 /* MilageViewController.xib */; };
@@ -226,9 +220,6 @@
 		A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllSessionsTableViewController.h; sourceTree = "<group>"; };
 		A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllSessionsTableViewController.m; sourceTree = "<group>"; };
 		A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllSessionsTableViewController.xib; sourceTree = "<group>"; };
-		A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
-		A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 		A99EABC920ABC95800D7AC44 /* InvoiceStyleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoiceStyleTableViewController.h; sourceTree = "<group>"; };
 		A99EABCA20ABC95800D7AC44 /* InvoiceStyleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoiceStyleTableViewController.m; sourceTree = "<group>"; };
 		A99EABCB20ABC95800D7AC44 /* InvoiceStyleTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceStyleTableViewController.xib; sourceTree = "<group>"; };
@@ -268,9 +259,6 @@
 		A9DC4C161AEAFB8E00A00892 /* ClientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsTableViewController.h; sourceTree = "<group>"; };
 		A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsTableViewController.m; sourceTree = "<group>"; };
 		A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientsTableViewController.xib; sourceTree = "<group>"; };
-		A9DC4C191AEAFB8E00A00892 /* FormButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormButtonTableViewCell.h; sourceTree = "<group>"; };
-		A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormButtonTableViewCell.m; sourceTree = "<group>"; };
-		A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormButtonTableViewCell.xib; sourceTree = "<group>"; };
 		A9DC4C1E1AEAFB8E00A00892 /* InvoicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesTableViewController.h; sourceTree = "<group>"; };
 		A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesTableViewController.m; sourceTree = "<group>"; };
 		A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesTableViewController.xib; sourceTree = "<group>"; };
@@ -354,9 +342,6 @@
 		A9DC4CD61AEAFDA100A00892 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A9DF548E1B0E57A4009A9922 /* tBill_appIcon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_120.png; sourceTree = "<group>"; };
 		A9DF548F1B0E57A4009A9922 /* tBill_appIcon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tBill_appIcon_180.png; sourceTree = "<group>"; };
-		A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateInputTableViewCell.h; sourceTree = "<group>"; };
-		A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateInputTableViewCell.m; sourceTree = "<group>"; };
-		A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateInputTableViewCell.xib; sourceTree = "<group>"; };
 		A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionEditTableViewController.h; sourceTree = "<group>"; };
 		A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionEditTableViewController.m; sourceTree = "<group>"; };
 		A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionEditTableViewController.xib; sourceTree = "<group>"; };
@@ -549,9 +534,6 @@
 				A9DC4C131AEAFB8E00A00892 /* ClientsTableViewCell.h */,
 				A9DC4C141AEAFB8E00A00892 /* ClientsTableViewCell.m */,
 				A9DC4C151AEAFB8E00A00892 /* ClientsTableViewCell.xib */,
-				A9DC4C191AEAFB8E00A00892 /* FormButtonTableViewCell.h */,
-				A9DC4C1A1AEAFB8E00A00892 /* FormButtonTableViewCell.m */,
-				A9DC4C1B1AEAFB8E00A00892 /* FormButtonTableViewCell.xib */,
 				A9DC4C341AEAFB8E00A00892 /* ProjectsTableViewCell.h */,
 				A9DC4C351AEAFB8E00A00892 /* ProjectsTableViewCell.m */,
 				A9DC4C361AEAFB8E00A00892 /* ProjectsTableViewCell.xib */,
@@ -561,9 +543,6 @@
 				A9DC4C771AEAFB8E00A00892 /* TextInputTableViewCell.h */,
 				A9DC4C781AEAFB8E00A00892 /* TextInputTableViewCell.m */,
 				A9DC4C791AEAFB8E00A00892 /* TextInputTableViewCell.xib */,
-				A9DF54921B0E6A1D009A9922 /* DateInputTableViewCell.h */,
-				A9DF54931B0E6A1D009A9922 /* DateInputTableViewCell.m */,
-				A9DF54941B0E6A1D009A9922 /* DateInputTableViewCell.xib */,
 				A9CB2A132065D9C300B9EA5A /* DashboardCollectionViewCell.h */,
 				A9CB2A142065D9C300B9EA5A /* DashboardCollectionViewCell.m */,
 				A9CB2A152065D9C300B9EA5A /* DashboardCollectionViewCell.xib */,
@@ -679,9 +658,6 @@
 				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
 				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
 				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
-				A9976D911AF7F59200A4CC9D /* SettingsTableViewController.h */,
-				A9976D921AF7F59200A4CC9D /* SettingsTableViewController.m */,
-				A9976D931AF7F59200A4CC9D /* SettingsTableViewController.xib */,
 				A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */,
 				A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */,
 				A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */,
@@ -859,7 +835,6 @@
 				A9DF54911B0E57A4009A9922 /* tBill_appIcon_180.png in Resources */,
 				A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */,
 				A9DC4CB01AEAFB8E00A00892 /* Reader-Thumbs@2x.png in Resources */,
-				A9976D951AF7F59200A4CC9D /* SettingsTableViewController.xib in Resources */,
 				A9B535A62098C7C400EA543F /* StylesCollectionViewController.xib in Resources */,
 				A90415D320BB6D20004D4508 /* CreditsViewController.xib in Resources */,
 				A9E7E3221AF9875A00689141 /* SessionEditTableViewController.xib in Resources */,
@@ -874,7 +849,6 @@
 				A9CB2A0C2065C90E00B9EA5A /* DashboardCollectionViewController.xib in Resources */,
 				A97544DC209CCCA40048387A /* Localizable.strings in Resources */,
 				A91F6F0E1B0AC25A00F78749 /* images.xcassets in Resources */,
-				A9DC4C8F1AEAFB8E00A00892 /* FormButtonTableViewCell.xib in Resources */,
 				A9DC4CA81AEAFB8E00A00892 /* Reader-Email@2x.png in Resources */,
 				A9DC4CAD1AEAFB8E00A00892 /* Reader-Print.png in Resources */,
 				A9DC4C831AEAFB8E00A00892 /* AddProjectTableViewController.xib in Resources */,
@@ -886,7 +860,6 @@
 				A9DC4CC41AEAFB8E00A00892 /* SessionNotesViewController.xib in Resources */,
 				A9DC4CC61AEAFB8E00A00892 /* SessionsTableViewCell.xib in Resources */,
 				A9DC4CAA1AEAFB8E00A00892 /* Reader-Mark-N@2x.png in Resources */,
-				A9DF54961B0E6A1D009A9922 /* DateInputTableViewCell.xib in Resources */,
 				A959F418209E2B8600B63DDC /* ExportSelectTableViewController.xib in Resources */,
 				A9DC4CA91AEAFB8E00A00892 /* Reader-Mark-N.png in Resources */,
 				A9DC4CA51AEAFB8E00A00892 /* Reader-Button-N.png in Resources */,
@@ -945,7 +918,6 @@
 				A9DC4CB81AEAFB8E00A00892 /* ReaderThumbCache.m in Sources */,
 				A9CB2A162065D9C300B9EA5A /* DashboardCollectionViewCell.m in Sources */,
 				A9DC4CCD1AEAFB8E00A00892 /* ThumbsMainToolbar.m in Sources */,
-				A9976D941AF7F59200A4CC9D /* SettingsTableViewController.m in Sources */,
 				A9DC4C8A1AEAFB8E00A00892 /* ClientsTableViewCell.m in Sources */,
 				A9B535A52098C7C400EA543F /* StylesCollectionViewController.m in Sources */,
 				A9DC4CBE1AEAFB8E00A00892 /* ReaderThumbView.m in Sources */,
@@ -984,7 +956,6 @@
 				A90415D220BB6D20004D4508 /* CreditsViewController.m in Sources */,
 				A97299D420B4996F001975D7 /* HelpViewController.m in Sources */,
 				A959F417209E2B8600B63DDC /* ExportSelectTableViewController.m in Sources */,
-				A9DC4C8E1AEAFB8E00A00892 /* FormButtonTableViewCell.m in Sources */,
 				A99EABCC20ABC95800D7AC44 /* InvoiceStyleTableViewController.m in Sources */,
 				A9DC4C801AEAFB8E00A00892 /* AddClientTableViewController.m in Sources */,
 				A9CE75C92069D27D00CBD406 /* SessionDetailCollectionViewController.m in Sources */,
@@ -992,7 +963,6 @@
 				A9DC4C881AEAFB8E00A00892 /* CGPDFDocument.m in Sources */,
 				A9DC4C821AEAFB8E00A00892 /* AddProjectTableViewController.m in Sources */,
 				A9DC4C911AEAFB8E00A00892 /* InvoicesTableViewController.m in Sources */,
-				A9DF54951B0E6A1D009A9922 /* DateInputTableViewCell.m in Sources */,
 				A9167E2E1AEAC10D0071B992 /* main.m in Sources */,
 				A9DC4C9F1AEAFB8E00A00892 /* ProjectsTableViewCell.m in Sources */,
 				A9DC4CB31AEAFB8E00A00892 /* ReaderContentTile.m in Sources */,

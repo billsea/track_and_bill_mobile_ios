@@ -56,7 +56,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	
 	
 	ProfileTableViewController* profileVC = [[ProfileTableViewController alloc]
-																					 initWithNibName:@"SettingsTableViewController"
+																					 initWithNibName:@"ProfileTableViewController"
 																					 bundle:nil];
 	NSMutableDictionary* profileDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:profileVC, @"vc", NSLocalizedString(@"profile", nil),@"title", nil];
 	
