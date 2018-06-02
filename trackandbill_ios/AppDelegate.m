@@ -20,10 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Override point for customization after application launch.
+	
+	// check ios version
+	NSString *version = [[UIDevice currentDevice] systemVersion];
+	NSLog(@"ios version: %@", version);
 	
 	//Add Rollbar for crash reports
-	[Rollbar initWithAccessToken:@"7263d6d351a949939314e5bf8373f4c1"];
+	[Rollbar initWithAccessToken:RollbarAccessToken];
 
 	//Firebase = for Google Analytics tracking
 	[FIRApp configure];
@@ -31,10 +34,6 @@
 	//Language property - just for usage example - THIS IS Collected automatically
 	[FIRAnalytics setUserPropertyString:[[NSLocale preferredLanguages] firstObject] forName:@"user_language"];
 	
-  // check ios version
-  NSString *version = [[UIDevice currentDevice] systemVersion];
-  NSLog(@"ios version: %@", version);
-
 	[self addStyle];
 
   // add tabbed main view

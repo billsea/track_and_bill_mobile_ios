@@ -58,7 +58,7 @@
 
 - (void)fetchData {
 	// Fetch data from persistent data store;
-	_data = [Model dataForEntity:@"Client"];
+	_data = [Model dataForEntity:@"Client" andSortKey:@"name"];
 	[[self tableView] reloadData];
 }
 

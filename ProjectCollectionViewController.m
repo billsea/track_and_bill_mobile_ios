@@ -18,13 +18,14 @@
 #import "ExportSelectTableViewController.h"
 #import "HelpViewController.h"
 
-@interface ProjectCollectionViewController (){
+@interface ProjectCollectionViewController () <GADBannerViewDelegate>{
 	NSMutableArray* _cellData;
 	NSManagedObjectContext* _context;
 	InvoiceTableViewController *_invoiceViewController;
 	Project* _project;
 	NSArray* _cellImages;
 	AppDelegate* _app;
+	GADBannerView* _adView;
 }
 @end
 
@@ -58,6 +59,11 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	if(!_adView)
+		[self displayAdBanner];
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	switch (buttonIndex) {
@@ -188,6 +194,32 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 																			 animated:YES];
 	
 }
+
+#pragma mark Ads
+- (void)displayAdBanner {
+	_adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+	_adView.frame = CGRectMake(0, self.view.window.frame.size.height - _adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+	_adView.backgroundColor = [UIColor clearColor];
+	_adView.rootViewController = self;
+	_adView.delegate = self;
+	_adView.adUnitID = GoogleAdMobBannerID;
+	
+	[self.view addSubview:_adView]; // Request an ad without any additional targeting information.
+	//adds test ads
+	[_adView loadRequest:self.request];
+}
+
+- (GADRequest *)request {
+	GADRequest *request = [GADRequest request];
+	//device and simulator test ids
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	return request;
+}
+- (void)showAdView {
+	//Interstitial ad view
+	//[self.navigationController pushViewController:adViewController animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];

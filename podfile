@@ -3,4 +3,5 @@ platform :ios, '9.0'
 target 'trackandbill_ios' do
   pod "Rollbar", "~> 0.2"
   pod 'Firebase/Core'
+  pod 'Google-Mobile-Ads-SDK'
 end

@@ -11,6 +11,6 @@
 #import "Project+CoreDataClass.h"
 
 @interface Model : NSObject
-+ (NSMutableArray* )dataForEntity:(NSString*)entityString;
++ (NSMutableArray* )dataForEntity:(NSString*)entityString andSortKey:(NSString*)key;
 + (NSMutableArray*)loadInvoicesWithSelected:(Invoice*)selectedInvoice andProject:(Project*)selectedProject andEdit:(BOOL)isEdit andArchive:(BOOL)isArchive;
 @end

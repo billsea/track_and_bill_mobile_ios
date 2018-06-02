@@ -53,6 +53,16 @@
                ReferencedContainer = "container:trackandbill_ios.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9070EE820C1FA2600A9F0C0"
+               BuildableName = "trackandbill_iosUITests.xctest"
+               BlueprintName = "trackandbill_iosUITests"
+               ReferencedContainer = "container:trackandbill_ios.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

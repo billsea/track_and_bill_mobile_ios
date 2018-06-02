@@ -10,6 +10,7 @@
 		885A4686FE8ED3C99B810BDD /* libPods-trackandbill_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC4A2FE81D148041718D25D /* libPods-trackandbill_ios.a */; };
 		A90415D220BB6D20004D4508 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90415D020BB6D20004D4508 /* CreditsViewController.m */; };
 		A90415D320BB6D20004D4508 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90415D120BB6D20004D4508 /* CreditsViewController.xib */; };
+		A9070EEC20C1FA2600A9F0C0 /* trackandbill_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9070EEB20C1FA2600A9F0C0 /* trackandbill_iosUITests.m */; };
 		A9167E2E1AEAC10D0071B992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9167E2D1AEAC10D0071B992 /* main.m */; };
 		A9167E341AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9167E321AEAC10E0071B992 /* trackandbill_ios.xcdatamodeld */; };
 		A9167E3A1AEAC10E0071B992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9167E381AEAC10E0071B992 /* Main.storyboard */; };
@@ -127,6 +128,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A9070EEE20C1FA2600A9F0C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9167E201AEAC10D0071B992 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9167E271AEAC10D0071B992;
+			remoteInfo = trackandbill_ios;
+		};
 		A9167E451AEAC10E0071B992 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9167E201AEAC10D0071B992 /* Project object */;
@@ -154,6 +162,9 @@
 		A90415CF20BB6D20004D4508 /* CreditsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A90415D020BB6D20004D4508 /* CreditsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		A90415D120BB6D20004D4508 /* CreditsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditsViewController.xib; sourceTree = "<group>"; };
+		A9070EE920C1FA2600A9F0C0 /* trackandbill_iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trackandbill_iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9070EEB20C1FA2600A9F0C0 /* trackandbill_iosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = trackandbill_iosUITests.m; sourceTree = "<group>"; };
+		A9070EED20C1FA2600A9F0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E281AEAC10D0071B992 /* trackandbill_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trackandbill_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9167E2C1AEAC10D0071B992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9167E2D1AEAC10D0071B992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -357,6 +368,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A9070EE620C1FA2600A9F0C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9167E251AEAC10D0071B992 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +407,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A9070EEA20C1FA2600A9F0C0 /* trackandbill_iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9070EEB20C1FA2600A9F0C0 /* trackandbill_iosUITests.m */,
+				A9070EED20C1FA2600A9F0C0 /* Info.plist */,
+			);
+			path = trackandbill_iosUITests;
+			sourceTree = "<group>";
+		};
 		A9167E1F1AEAC10D0071B992 = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +429,7 @@
 				A9DC4CD01AEAFC2600A00892 /* Classes */,
 				A9167E2A1AEAC10D0071B992 /* trackandbill_ios */,
 				A9167E471AEAC10E0071B992 /* trackandbill_iosTests */,
+				A9070EEA20C1FA2600A9F0C0 /* trackandbill_iosUITests */,
 				A9167E291AEAC10D0071B992 /* Products */,
 				A959F41E209E37C100B63DDC /* Frameworks */,
 				3EF4AD4B852E59EF26783267 /* Pods */,
@@ -413,6 +441,7 @@
 			children = (
 				A9167E281AEAC10D0071B992 /* trackandbill_ios.app */,
 				A9167E441AEAC10E0071B992 /* trackandbill_iosTests.xctest */,
+				A9070EE920C1FA2600A9F0C0 /* trackandbill_iosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -689,6 +718,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A9070EE820C1FA2600A9F0C0 /* trackandbill_iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9070EF220C1FA2600A9F0C0 /* Build configuration list for PBXNativeTarget "trackandbill_iosUITests" */;
+			buildPhases = (
+				A9070EE520C1FA2600A9F0C0 /* Sources */,
+				A9070EE620C1FA2600A9F0C0 /* Frameworks */,
+				A9070EE720C1FA2600A9F0C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9070EEF20C1FA2600A9F0C0 /* PBXTargetDependency */,
+			);
+			name = trackandbill_iosUITests;
+			productName = trackandbill_iosUITests;
+			productReference = A9070EE920C1FA2600A9F0C0 /* trackandbill_iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A9167E271AEAC10D0071B992 /* trackandbill_ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9167E4E1AEAC10E0071B992 /* Build configuration list for PBXNativeTarget "trackandbill_ios" */;
@@ -735,6 +782,12 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = loudsoftware;
 				TargetAttributes = {
+					A9070EE820C1FA2600A9F0C0 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = ZZGJ2UYWJY;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9167E271AEAC10D0071B992;
+					};
 					A9167E271AEAC10D0071B992 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = ZZGJ2UYWJY;
@@ -773,11 +826,19 @@
 			targets = (
 				A9167E271AEAC10D0071B992 /* trackandbill_ios */,
 				A9167E431AEAC10E0071B992 /* trackandbill_iosTests */,
+				A9070EE820C1FA2600A9F0C0 /* trackandbill_iosUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A9070EE720C1FA2600A9F0C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9167E261AEAC10D0071B992 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -869,6 +930,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A9070EE520C1FA2600A9F0C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9070EEC20C1FA2600A9F0C0 /* trackandbill_iosUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9167E241AEAC10D0071B992 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -944,6 +1013,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A9070EEF20C1FA2600A9F0C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9167E271AEAC10D0071B992 /* trackandbill_ios */;
+			targetProxy = A9070EEE20C1FA2600A9F0C0 /* PBXContainerItemProxy */;
+		};
 		A9167E461AEAC10E0071B992 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9167E271AEAC10D0071B992 /* trackandbill_ios */;
@@ -1012,6 +1086,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A9070EF020C1FA2600A9F0C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZZGJ2UYWJY;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = trackandbill_iosUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.trackandbill-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = trackandbill_ios;
+			};
+			name = Debug;
+		};
+		A9070EF120C1FA2600A9F0C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZGJ2UYWJY;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = trackandbill_iosUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.trackandbill-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = trackandbill_ios;
+			};
+			name = Release;
+		};
 		A9167E4C1AEAC10E0071B992 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1211,6 +1329,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A9070EF220C1FA2600A9F0C0 /* Build configuration list for PBXNativeTarget "trackandbill_iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9070EF020C1FA2600A9F0C0 /* Debug */,
+				A9070EF120C1FA2600A9F0C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9167E231AEAC10D0071B992 /* Build configuration list for PBXProject "trackandbill_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

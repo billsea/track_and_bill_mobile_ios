@@ -55,7 +55,8 @@
 }
 
 - (void)fetchData {
-	_clientProjects = [_client.projects allObjects];
+	NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@"start" ascending:NO];
+	_clientProjects = [[_client.projects allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:dateSort]];
 	[self.tableView reloadData];
 }
 - (void)didReceiveMemoryWarning {

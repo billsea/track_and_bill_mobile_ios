@@ -12,10 +12,17 @@
 
 @implementation Model
 
-+ (NSMutableArray* )dataForEntity:(NSString*)entityString {
++ (NSMutableArray* )dataForEntity:(NSString*)entityString andSortKey:(NSString*)key {
 	AppDelegate* app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 	NSManagedObjectContext* context = app.persistentContainer.viewContext;
 	NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityString];
+	
+	if(![key isEqualToString:@""]) {
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+		[fetchRequest setSortDescriptors:sortDescriptors];
+	}
+	
 	NSMutableArray* data = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
 	return data;
 }
@@ -134,7 +141,7 @@
 	long invNumber;
 	long tempNumber;
 
-	NSMutableArray* invoices =  [self dataForEntity:@"Invoice"];
+	NSMutableArray* invoices =  [self dataForEntity:@"Invoice" andSortKey:@"number"];
 
 	if (invoices.count == 0) {
 		return 1;

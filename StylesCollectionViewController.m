@@ -35,7 +35,6 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[self.navigationController.navigationBar setBarTintColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:NavBarImage]]];
 	
 	_app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	_myProfile = (Profile*)[self MyProfile];
 	
 	_cellImages = @[@"invoice_image",@"invoice_style"];
 
@@ -57,6 +56,11 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 	[self.collectionView registerNib:[UINib nibWithNibName:@"DashboardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	_myProfile = (Profile*)[self MyProfile];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	[_app saveContext];
@@ -64,7 +68,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 
 - (NSManagedObject *)MyProfile {
 	// Fetch data from persistent data store;
-	NSMutableArray* data = [Model dataForEntity:@"Profile"];
+	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@""];
 	return data.count > 0 ? [data objectAtIndex:0] : nil;
 }
 

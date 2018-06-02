@@ -20,6 +20,7 @@
 #define kPadding 2
 #define kHeaderPadding 5
 #define kMarginPadding 85
+#define kInvoiceNumberWidth 200
 #define kTableRowHeight 80
 #define kPdfWidth 850
 #define kPdfHeight 1100
@@ -41,6 +42,7 @@
 }
 
 @property UIBarButtonItem *previewButton;
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -72,6 +74,12 @@
              action:@selector(exportInvoice:)];
   [[self navigationItem] setRightBarButtonItem:self.previewButton];
 	[self loadForm];
+	
+	//interstitial ad
+	self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:GoogleAdMobInterstitialID];
+	GADRequest *request = [GADRequest request];
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	[self.interstitial loadRequest:request];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -382,32 +390,33 @@ if(_myProfile.show_invoice_header){
 	beginRect = CGRectMake(kMarginPadding, kTopMargin, _pageSize.width / 2, 4);
 	
 	CGRect nameRect = [self addText:_myProfile.name withFrame:beginRect
-					 fontSize:32.0f];
-	CGRect invoiceRect = [self addText:[NSString stringWithFormat:@"%@ #%lld", NSLocalizedString(@"invoice", nil), _selectedProject.invoices.number]
-					withFrame:CGRectMake(_pageSize.width / 2 + 140, kPadding + 10, _pageSize.width / 3, 4)
-					fontSize:24.0f];
+					 fontSize:InvoiceFontHeading andAlignment: NSTextAlignmentLeft];
 	CGRect addressRect = [self addText:_myProfile.address
 					withFrame:CGRectMake(kMarginPadding, nameRect.origin.y + nameRect.size.height +
 																	 kPadding,
-															 _pageSize.width - kHeaderPadding * 2, 4) fontSize:24.0f];
+															 _pageSize.width - kHeaderPadding * 2, 4) fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
   CGRect cityRect = [self addText:[NSString stringWithFormat:@"%@, %@ %@",
 																					 _myProfile.city,
 																					 _myProfile.state,
 																					 _myProfile.postalcode]
 			withFrame:CGRectMake(kMarginPadding, addressRect.origin.y + addressRect.size.height + kPadding,
-													 _pageSize.width - kPadding, 4) fontSize:24.0f];
-	phoneRect = [self addText:_myProfile.phone withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width / 3, 4) fontSize:24.0f];
+													 _pageSize.width - kPadding, 4) fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
+	phoneRect = [self addText:_myProfile.phone withFrame:CGRectMake(kMarginPadding, cityRect.origin.y + cityRect.size.height + kPadding, _pageSize.width / 3, 4) fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 } else {
 	phoneRect = CGRectMake(kMarginPadding, kEmptyHeaderHeight, _pageSize.width / 2, 4);
 }
 
+	CGRect invoiceRect = [self addText:[NSString stringWithFormat:@"%@ #%lld", NSLocalizedString(@"invoice", nil), _selectedProject.invoices.number]
+														 withFrame:CGRectMake(_pageSize.width - kMarginPadding - kInvoiceNumberWidth, kTopMargin + kPadding, kInvoiceNumberWidth, 4)
+															fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentRight];
+		
 ///////////////////////////client///////////////////
 
 	CGRect lineRect = [self
 			addLineWithFrame:CGRectMake(kMarginPadding,
 																	phoneRect.origin.y + phoneRect.size.height +
-																			kPadding,
-																	_pageSize.width - (kMarginPadding * 2), 4)
+																			kPadding + 3,
+																	_pageSize.width - (kMarginPadding * 2), 1)
 						 withColor:[UIColor blackColor]];
 
 	// project/client info
@@ -417,9 +426,9 @@ if(_myProfile.show_invoice_header){
 			[self addText:clientName
 					withFrame:CGRectMake(kMarginPadding,
 															 lineRect.origin.y + lineRect.size.height +
-																	 kPadding,
+																	 kPadding + 5,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *clientAddress =
 			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"address", nil), selClient.address];
@@ -429,7 +438,7 @@ if(_myProfile.show_invoice_header){
 															 clientRect.origin.y + clientRect.size.height +
 																	 kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *clientCity =
 			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"city", nil), [selClient city]];
@@ -439,7 +448,7 @@ if(_myProfile.show_invoice_header){
 															 clientAddressRect.origin.y +
 																	 clientAddressRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *clientState =
 			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"state", nil), selClient.state];
@@ -449,7 +458,7 @@ if(_myProfile.show_invoice_header){
 															 clientCityRect.origin.y +
 																	 clientCityRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *clientZip =
 			[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"postal_code", nil), selClient.postalcode];
@@ -459,7 +468,7 @@ if(_myProfile.show_invoice_header){
 															 clientStateRect.origin.y +
 																	 clientStateRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	// client column 2
 	NSString *projectName =
@@ -469,7 +478,7 @@ if(_myProfile.show_invoice_header){
 					withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
 															 clientRect.origin.y,
 															 _pageSize.width - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *startDate =
 			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"start_date", nil),
@@ -480,7 +489,7 @@ if(_myProfile.show_invoice_header){
 															 projectRect.origin.y +
 																	 projectRect.size.height + kPadding,
 															 _pageSize.width - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *endDate =
 			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"complete_date", nil),
@@ -491,7 +500,7 @@ if(_myProfile.show_invoice_header){
 															 startRect.origin.y + startRect.size.height +
 																	 kPadding,
 															 _pageSize.width - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *terms =
 			[NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"terms_of_payment", nil), _selectedProject.invoices.terms];
@@ -500,7 +509,7 @@ if(_myProfile.show_invoice_header){
 			withFrame:CGRectMake(_pageSize.width / 2 + kPadding,
 													 endRect.origin.y + endRect.size.height + kPadding,
 													 _pageSize.width - kPadding * 2, 4)
-			 fontSize:21.0f];
+			 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *approval = [NSString
 			stringWithFormat:@"%@: %@", NSLocalizedString(@"approved_by", nil), _selectedProject.invoices.approvedby];
@@ -510,7 +519,7 @@ if(_myProfile.show_invoice_header){
 															 termsRect.origin.y + termsRect.size.height +
 																	 kPadding,
 															 _pageSize.width - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	///////////////////////////services///////////////////
 
@@ -519,7 +528,7 @@ if(_myProfile.show_invoice_header){
 																	approvalRect.origin.y +
 																			approvalRect.size.height + kPadding +
 																			15,
-																	_pageSize.width - (kMarginPadding * 2), 4)
+																	_pageSize.width - (kMarginPadding * 2), 1)
 						 withColor:[UIColor blackColor]];
 
 	NSString *serviceLabel = [NSString stringWithFormat:@"%@:", NSLocalizedString(@"services", nil)];
@@ -529,7 +538,7 @@ if(_myProfile.show_invoice_header){
 															 servicesLineRect.origin.y +
 																	 servicesLineRect.size.height + kPadding,
 															 _pageSize.width - kPadding * 2, 4)
-					 fontSize:26.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *services =
 			[NSString stringWithFormat:@"%@", _selectedProject.invoices.notes];
@@ -539,7 +548,7 @@ if(_myProfile.show_invoice_header){
 															 serviceRect.origin.y +
 																	 serviceRect.size.height + kPadding,
 															 _pageSize.width - (kMarginPadding * 2), 130)
-					 fontSize:18.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	////////////Totals///////////////
 
@@ -548,24 +557,24 @@ if(_myProfile.show_invoice_header){
 																	servicesRect.origin.y +
 																			servicesRect.size.height + kPadding +
 																			15,
-																	_pageSize.width - (kMarginPadding * 2), 4)
+																	_pageSize.width - (kMarginPadding * 2), 2)
 						 withColor:[UIColor blackColor]];
 
 	CGRect doubleLineRect = [self
 			addLineWithFrame:CGRectMake(kMarginPadding,
 																	totalsLineRect.origin.y +
 																			totalsLineRect.size.height + kPadding,
-																	_pageSize.width - (kMarginPadding * 2), 4)
+																	_pageSize.width - (kMarginPadding * 2), 1)
 						 withColor:[UIColor blackColor]];
 
-		NSString *materialsLabel = [NSString stringWithFormat:@"%@:",NSLocalizedString(@"materials", nil)];
+	NSString *materialsLabel = [NSString stringWithFormat:@"%@:",NSLocalizedString(@"materials", nil)];
 	CGRect materialsLabelRect =
 			[self addText:materialsLabel
 					withFrame:CGRectMake(kMarginPadding,
 															 doubleLineRect.origin.y +
 																	 doubleLineRect.size.height + kPadding + 10,
 															 _pageSize.width - kPadding * 2, 4)
-					 fontSize:26.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *materialsList =
 	[NSString stringWithFormat:@"%@",_selectedProject.invoices.materials];
@@ -575,7 +584,7 @@ if(_myProfile.show_invoice_header){
 													 materialsLabelRect.origin.y +
 															 materialsLabelRect.size.height + kPadding,
 													 _pageSize.width / 2 - (kMarginPadding * 2), 100)
-			 fontSize:18.0f];
+			 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	// break line
 	CGRect breakRect =
@@ -584,7 +593,7 @@ if(_myProfile.show_invoice_header){
 															 materialsListRect.origin.y +
 																	 materialsListRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 		NSString *milage = [NSString stringWithFormat:@"%@: %@ %@",NSLocalizedString(@"milage", nil), [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.mileage]],NSLocalizedString(@"total_miles", nil)];
 	CGRect milageRect =
@@ -593,7 +602,7 @@ if(_myProfile.show_invoice_header){
 															 breakRect.origin.y + breakRect.size.height +
 																	 kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *milageRate =
 		[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"milage_rate", nil), [self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.milage_rate]]];
@@ -603,7 +612,7 @@ if(_myProfile.show_invoice_header){
 															 milageRect.origin.y + milageRect.size.height +
 																	 kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	// break line
 	breakRect =
@@ -612,7 +621,7 @@ if(_myProfile.show_invoice_header){
 															 milageRateRect.origin.y +
 																	 milageRateRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *checkNumber = [NSString
 			stringWithFormat:@"%@: %@", NSLocalizedString(@"check_num", nil),_selectedProject.invoices.check];
@@ -622,7 +631,7 @@ if(_myProfile.show_invoice_header){
 															 breakRect.origin.y + breakRect.size.height +
 																	 kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:18.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	// Totals column 2
 
@@ -634,7 +643,7 @@ if(_myProfile.show_invoice_header){
 															 totalsLineRect.origin.y +
 																	 totalsLineRect.size.height + kPadding + 10,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *tRate = [NSString stringWithFormat: @"%@: %@", NSLocalizedString(@"invoice_rate", nil),
 					[self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.rate]]];
@@ -644,7 +653,7 @@ if(_myProfile.show_invoice_header){
 															 hoursRect.origin.y + hoursRect.size.height +
 																	 kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *tSubtotalHours = [NSString
 			stringWithFormat:@"%@: %@", NSLocalizedString(@"total_hours", nil),[self formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.total_due]]];
@@ -654,7 +663,7 @@ if(_myProfile.show_invoice_header){
 															 rateRect.origin.y + rateRect.size.height +
 																	 kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSString *materialsTotal = [NSString stringWithFormat: @"%@: %@", NSLocalizedString(@"materials", nil),[self
 							formatNumber:[NSNumber numberWithFloat:_selectedProject.invoices.materials_cost]]];
@@ -664,7 +673,7 @@ if(_myProfile.show_invoice_header){
 															 subtotalHoursRect.origin.y +
 																	 subtotalHoursRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	float transpoCost = (_selectedProject.invoices.mileage *
 											 _selectedProject.invoices.milage_rate);
@@ -676,7 +685,7 @@ if(_myProfile.show_invoice_header){
 															 materialsRect.origin.y +
 																	 materialsRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 		
 		
@@ -688,7 +697,7 @@ if(_myProfile.show_invoice_header){
 														 milageTotalRect.origin.y + milageTotalRect.size.height +
 														 kPadding,
 														 _pageSize.width / 2 - kPadding * 2, 4)
-				 fontSize:21.0f];
+				 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 		
 		
 	NSString *deposit = [NSString
@@ -702,7 +711,7 @@ if(_myProfile.show_invoice_header){
 															 subtotalRect.origin.y +
 																	 subtotalRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:21.0f];
+					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
 	NSNumber *grandTotal =
 			[NSNumber numberWithFloat:(_selectedProject.invoices.total_due +
@@ -715,7 +724,7 @@ if(_myProfile.show_invoice_header){
 															 depositRect.origin.y +
 																	 depositRect.size.height + kPadding,
 															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:28.0f];
+					 fontSize:InvoiceFontLarge andAlignment: NSTextAlignmentLeft];
 
 	[self finishPDF];
   } else {
@@ -754,7 +763,7 @@ if(_myProfile.show_invoice_header){
   [self OpenPDF];
 }
 
-- (CGRect)addText:(NSString *)text withFrame:(CGRect)frame fontSize:(float)fontSize {
+- (CGRect)addText:(NSString *)text withFrame:(CGRect)frame fontSize:(float)fontSize andAlignment:(NSTextAlignment)alignment {
   UIFont *font = [UIFont fontWithName:MainFontName size:fontSize];
   CGRect stringSize =
       [text boundingRectWithSize:CGSizeMake(frame.size.width, frame.size.height)
@@ -782,7 +791,7 @@ if(_myProfile.show_invoice_header){
   paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
 	
   // Set text alignment
-  paragraphStyle.alignment = NSTextAlignmentLeft;
+	paragraphStyle.alignment = alignment;
 
   NSDictionary *attributes = @{
     NSFontAttributeName : font,
@@ -826,12 +835,22 @@ if(_myProfile.show_invoice_header){
 #pragma mark methods
 - (NSManagedObject *)MyProfile {
 	// Fetch data from persistent data store;
-	NSMutableArray* data = [Model dataForEntity:@"Profile"];
+	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@""];
 	return data.count > 0 ? [data objectAtIndex:0] : nil;
 }
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
-   [self dismissViewControllerAnimated:YES completion:nil];
+	[self dismissViewControllerAnimated:YES completion:nil];
+	[self showBigAd];
+}
+
+#pragma mark AdMob
+- (void)showBigAd {
+	if (self.interstitial.isReady) {
+		[self.interstitial presentFromRootViewController:self];
+	} else {
+		NSLog(@"Ad wasn't ready");
+	}
 }
 
 @end

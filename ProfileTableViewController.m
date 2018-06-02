@@ -44,7 +44,7 @@
 
 - (void)fetchData {
 	// Fetch data from persistent data store;;
-	NSMutableArray* data = [Model dataForEntity:@"Profile"];
+	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@""];
 	NSManagedObject *dataObject = data.count > 0 ? [data objectAtIndex:0] : nil;
 	
 	_formFields = @[
@@ -92,7 +92,7 @@
 
 - (void)save {
 	// update or create new managed object
-	NSMutableArray* data = [Model dataForEntity:@"Profile"];
+	NSMutableArray* data = [Model dataForEntity:@"Profile" andSortKey:@""];
 	
 	NSManagedObject* userProfile;
 	if(data.count > 0) {

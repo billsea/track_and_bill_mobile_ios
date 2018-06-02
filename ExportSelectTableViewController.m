@@ -8,6 +8,7 @@
 
 #import "ExportSelectTableViewController.h"
 #import "Session+CoreDataClass.h"
+#import "Client+CoreDataClass.h"
 
 #define kTableRowHeight 80
 
@@ -15,7 +16,7 @@
 	NSMutableArray* _cellData;
 	NSString* _csv;
 }
-
+@property(nonatomic, strong) GADInterstitial *interstitial;
 @end
 
 @implementation ExportSelectTableViewController
@@ -31,6 +32,12 @@
 	NSMutableDictionary* newSessionDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"csv_file", nil),@"title", nil];
 	
 	_cellData = [[NSMutableArray alloc] initWithObjects:newSessionDict, nil];
+	
+	//interstitial ad
+	self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:GoogleAdMobInterstitialID];
+	GADRequest *request = [GADRequest request];
+	request.testDevices = @[TestDeviceID, kGADSimulatorID];
+	[self.interstitial loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,13 +80,14 @@
 
 - (void)createAndSendCSVfile {
 	NSString *separator = @", ";
+	Client *selClient = _selectedProject.clients;
 	
 	//Header
-	_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@\n",  NSLocalizedString(@"project_name", nil), separator, NSLocalizedString(@"date", nil), separator, NSLocalizedString(@"hours", nil), separator, NSLocalizedString(@"minutes", nil), separator, NSLocalizedString(@"seconds", nil),separator,NSLocalizedString(@"milage", nil),separator,NSLocalizedString(@"materials", nil),separator,NSLocalizedString(@"notes", nil)];
+	_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@\n", NSLocalizedString(@"client_name", nil),separator, NSLocalizedString(@"project_name", nil), separator, NSLocalizedString(@"date", nil), separator, NSLocalizedString(@"hours", nil), separator, NSLocalizedString(@"minutes", nil), separator, NSLocalizedString(@"seconds", nil),separator,NSLocalizedString(@"milage", nil),separator,NSLocalizedString(@"materials", nil),separator,NSLocalizedString(@"notes", nil)];
 	
 	//Rows
 	for (Session *s in _selectedProject.sessions) {
-		_csv = [NSString stringWithFormat:@"%@%@%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, _selectedProject.name, separator, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
+		_csv = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%hd%@%hd%@%hd%@%f%@%@%@%@\n", _csv, selClient.name, separator,_selectedProject.name, separator, s.start, separator, s.hours, separator, s.minutes, separator, s.seconds,separator,[s milage],separator,s.materials,separator,s.notes];
 	}
 	
 	[self emailCSV];
@@ -112,11 +120,13 @@
 				 didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
 	if (result)
 		NSLog(@"Result : %ld",(long)result);
-	
 	if (error)
 		NSLog(@"Error : %@",error);
 	
-	[controller	dismissViewControllerAnimated:YES completion:nil];
+	[controller	dismissViewControllerAnimated:YES completion:^{
+		if(result == MFMailComposeResultSent)
+			[self showBigAd];//show add after sending email
+	}];
 }
 
 #pragma mark - Table view delegate
@@ -127,5 +137,13 @@
 	}
 }
 
+#pragma mark AdMob
+- (void)showBigAd {
+	if (self.interstitial.isReady) {
+		[self.interstitial presentFromRootViewController:self];
+	} else {
+		NSLog(@"Ad wasn't ready");
+	}
+}
 
 @end
