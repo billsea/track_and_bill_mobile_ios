@@ -34,13 +34,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>I need a location</string>
+	<string>Location is required for travel and milage tracking</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>I need a location</string>
+	<string>Location is required for travel and milage tracking</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access to photo library is required for invoice logo image selection</string>
 	<key>UIBackgroundModes</key>
