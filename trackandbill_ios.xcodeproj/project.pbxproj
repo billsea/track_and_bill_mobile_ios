@@ -410,7 +410,13 @@
 				A9FDC2351B0FD9F900112426 /* Foundation.framework */,
 				A9DC4CD31AEAFCCF00A00892 /* PDFReader */,
 				A94AE5B0206B1EC800B079B2 /* Model */,
-				A9DC4CD41AEAFD3900A00892 /* UIElements */,
+				A9CB2A0D2065C95000B9EA5A /* Cells */,
+				A956BF70211A57960008F4FA /* Client */,
+				A956BF6E211A576E0008F4FA /* Project */,
+				A956BF71211A57A70008F4FA /* Invoice */,
+				A956BF6D211A57550008F4FA /* Session */,
+				A956BF72211A57FB0008F4FA /* Dashboard */,
+				A956BF73211A58230008F4FA /* UtiltyControllers */,
 				A9DC4CD01AEAFC2600A00892 /* Classes */,
 				A9167E2A1AEAC10D0071B992 /* trackandbill_ios */,
 				A9167E471AEAC10E0071B992 /* trackandbill_iosTests */,
@@ -492,6 +498,233 @@
 				A94AE5AE206B19A100B079B2 /* Model.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A956BF6D211A57550008F4FA /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				A956BF7F211A59120008F4FA /* Controller */,
+				A956BF7E211A590A0008F4FA /* View */,
+				A956BF7D211A59050008F4FA /* Model */,
+			);
+			name = Session;
+			sourceTree = "<group>";
+		};
+		A956BF6E211A576E0008F4FA /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				A956BF79211A58BE0008F4FA /* Controller */,
+				A956BF78211A58B90008F4FA /* View */,
+				A956BF77211A58B30008F4FA /* Model */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		A956BF70211A57960008F4FA /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				A956BF76211A58880008F4FA /* Controller */,
+				A956BF75211A58810008F4FA /* View */,
+				A956BF74211A58770008F4FA /* Model */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		A956BF71211A57A70008F4FA /* Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				A956BF7C211A58E80008F4FA /* Controller */,
+				A956BF7B211A58E30008F4FA /* View */,
+				A956BF7A211A58DD0008F4FA /* Model */,
+			);
+			name = Invoice;
+			sourceTree = "<group>";
+		};
+		A956BF72211A57FB0008F4FA /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A956BF82211A593B0008F4FA /* Controller */,
+				A956BF81211A59360008F4FA /* View */,
+				A956BF80211A59300008F4FA /* Model */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		A956BF73211A58230008F4FA /* UtiltyControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A96080592097EA7900A589A0 /* DateSelectViewController.h */,
+				A960805A2097EA7900A589A0 /* DateSelectViewController.m */,
+				A960805B2097EA7900A589A0 /* DateSelectViewController.xib */,
+				A959F414209E2B8600B63DDC /* ExportSelectTableViewController.h */,
+				A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */,
+				A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */,
+			);
+			name = UtiltyControllers;
+			sourceTree = "<group>";
+		};
+		A956BF74211A58770008F4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A956BF75211A58810008F4FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */,
+				A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A956BF76211A58880008F4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */,
+				A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */,
+				A9DC4C161AEAFB8E00A00892 /* ClientsTableViewController.h */,
+				A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A956BF77211A58B30008F4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A956BF78211A58B90008F4FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */,
+				A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */,
+				A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A956BF79211A58BE0008F4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C081AEAFB8E00A00892 /* AddProjectTableViewController.h */,
+				A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */,
+				A9DC4C371AEAFB8E00A00892 /* ProjectsTableViewController.h */,
+				A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */,
+				A9729BB12068715900651DAB /* ProjectCollectionViewController.h */,
+				A9729BB22068715900651DAB /* ProjectCollectionViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A956BF7A211A58DD0008F4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A956BF7B211A58E30008F4FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A99EABCB20ABC95800D7AC44 /* InvoiceStyleTableViewController.xib */,
+				A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */,
+				A9DC4C231AEAFB8E00A00892 /* InvoiceTableViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A956BF7C211A58E80008F4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A99EABC920ABC95800D7AC44 /* InvoiceStyleTableViewController.h */,
+				A99EABCA20ABC95800D7AC44 /* InvoiceStyleTableViewController.m */,
+				A9DC4C1E1AEAFB8E00A00892 /* InvoicesTableViewController.h */,
+				A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */,
+				A9DC4C211AEAFB8E00A00892 /* InvoiceTableViewController.h */,
+				A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A956BF7D211A59050008F4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A956BF7E211A590A0008F4FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C261AEAFB8E00A00892 /* MaterialsViewController.xib */,
+				A9F56FAC20A4AD07006626D7 /* MilageViewController.xib */,
+				A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */,
+				A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */,
+				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
+				A9CE75C82069D27D00CBD406 /* SessionDetailCollectionViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A956BF7F211A59120008F4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C241AEAFB8E00A00892 /* MaterialsViewController.h */,
+				A9DC4C251AEAFB8E00A00892 /* MaterialsViewController.m */,
+				A9DC4C271AEAFB8E00A00892 /* MilageViewController.h */,
+				A9DC4C281AEAFB8E00A00892 /* MilageViewController.m */,
+				A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */,
+				A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */,
+				A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */,
+				A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */,
+				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
+				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
+				A9CE75C62069D27D00CBD406 /* SessionDetailCollectionViewController.h */,
+				A9CE75C72069D27D00CBD406 /* SessionDetailCollectionViewController.m */,
+				A93829FE2093E3580086B2ED /* SessionInfoViewController.h */,
+				A93829FF2093E3580086B2ED /* SessionInfoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A956BF80211A59300008F4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A956BF81211A59360008F4FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C2E1AEAFB8E00A00892 /* ProfileTableViewController.xib */,
+				A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */,
+				A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */,
+				A97299D320B4996F001975D7 /* HelpViewController.xib */,
+				A90415D120BB6D20004D4508 /* CreditsViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A956BF82211A593B0008F4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC4C2C1AEAFB8E00A00892 /* ProfileTableViewController.h */,
+				A9DC4C2D1AEAFB8E00A00892 /* ProfileTableViewController.m */,
+				A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */,
+				A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */,
+				A9B535A22098C7C400EA543F /* StylesCollectionViewController.h */,
+				A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */,
+				A97299D120B4996F001975D7 /* HelpViewController.h */,
+				A97299D220B4996F001975D7 /* HelpViewController.m */,
+				A90415CF20BB6D20004D4508 /* CreditsViewController.h */,
+				A90415D020BB6D20004D4508 /* CreditsViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		A959F41E209E37C100B63DDC /* Frameworks */ = {
@@ -616,79 +849,6 @@
 				A9DC4C101AEAFB8E00A00892 /* CGPDFDocument.m */,
 			);
 			name = PDFReader;
-			sourceTree = "<group>";
-		};
-		A9DC4CD41AEAFD3900A00892 /* UIElements */ = {
-			isa = PBXGroup;
-			children = (
-				A9CB2A0D2065C95000B9EA5A /* Cells */,
-				A9DC4C051AEAFB8E00A00892 /* AddClientTableViewController.h */,
-				A9DC4C061AEAFB8E00A00892 /* AddClientTableViewController.m */,
-				A9DC4C071AEAFB8E00A00892 /* AddClientTableViewController.xib */,
-				A9DC4C081AEAFB8E00A00892 /* AddProjectTableViewController.h */,
-				A9DC4C091AEAFB8E00A00892 /* AddProjectTableViewController.m */,
-				A9DC4C0A1AEAFB8E00A00892 /* AddProjectTableViewController.xib */,
-				A9DC4C161AEAFB8E00A00892 /* ClientsTableViewController.h */,
-				A9DC4C171AEAFB8E00A00892 /* ClientsTableViewController.m */,
-				A9DC4C181AEAFB8E00A00892 /* ClientsTableViewController.xib */,
-				A9DC4C1E1AEAFB8E00A00892 /* InvoicesTableViewController.h */,
-				A9DC4C1F1AEAFB8E00A00892 /* InvoicesTableViewController.m */,
-				A9DC4C201AEAFB8E00A00892 /* InvoicesTableViewController.xib */,
-				A9DC4C211AEAFB8E00A00892 /* InvoiceTableViewController.h */,
-				A9DC4C221AEAFB8E00A00892 /* InvoiceTableViewController.m */,
-				A9DC4C231AEAFB8E00A00892 /* InvoiceTableViewController.xib */,
-				A9DC4C241AEAFB8E00A00892 /* MaterialsViewController.h */,
-				A9DC4C251AEAFB8E00A00892 /* MaterialsViewController.m */,
-				A9DC4C261AEAFB8E00A00892 /* MaterialsViewController.xib */,
-				A9DC4C271AEAFB8E00A00892 /* MilageViewController.h */,
-				A9DC4C281AEAFB8E00A00892 /* MilageViewController.m */,
-				A9F56FAC20A4AD07006626D7 /* MilageViewController.xib */,
-				A9DC4C2C1AEAFB8E00A00892 /* ProfileTableViewController.h */,
-				A9DC4C2D1AEAFB8E00A00892 /* ProfileTableViewController.m */,
-				A9DC4C2E1AEAFB8E00A00892 /* ProfileTableViewController.xib */,
-				A9DC4C371AEAFB8E00A00892 /* ProjectsTableViewController.h */,
-				A9DC4C381AEAFB8E00A00892 /* ProjectsTableViewController.m */,
-				A9DC4C391AEAFB8E00A00892 /* ProjectsTableViewController.xib */,
-				A9976D881AF7EFEE00A4CC9D /* AllSessionsTableViewController.h */,
-				A9976D891AF7EFEE00A4CC9D /* AllSessionsTableViewController.m */,
-				A9976D8A1AF7EFEE00A4CC9D /* AllSessionsTableViewController.xib */,
-				A9E7E31E1AF9875A00689141 /* SessionEditTableViewController.h */,
-				A9E7E31F1AF9875A00689141 /* SessionEditTableViewController.m */,
-				A9E7E3201AF9875A00689141 /* SessionEditTableViewController.xib */,
-				A9DC4C6B1AEAFB8E00A00892 /* SessionNotesViewController.h */,
-				A9DC4C6C1AEAFB8E00A00892 /* SessionNotesViewController.m */,
-				A9DC4C6D1AEAFB8E00A00892 /* SessionNotesViewController.xib */,
-				A9CB2A082065C90E00B9EA5A /* DashboardCollectionViewController.h */,
-				A9CB2A092065C90E00B9EA5A /* DashboardCollectionViewController.m */,
-				A9CB2A0A2065C90E00B9EA5A /* DashboardCollectionViewController.xib */,
-				A9729BB12068715900651DAB /* ProjectCollectionViewController.h */,
-				A9729BB22068715900651DAB /* ProjectCollectionViewController.m */,
-				A9729BB32068715900651DAB /* ProjectCollectionViewController.xib */,
-				A9CE75C62069D27D00CBD406 /* SessionDetailCollectionViewController.h */,
-				A9CE75C72069D27D00CBD406 /* SessionDetailCollectionViewController.m */,
-				A9CE75C82069D27D00CBD406 /* SessionDetailCollectionViewController.xib */,
-				A93829FE2093E3580086B2ED /* SessionInfoViewController.h */,
-				A93829FF2093E3580086B2ED /* SessionInfoViewController.m */,
-				A96080592097EA7900A589A0 /* DateSelectViewController.h */,
-				A960805A2097EA7900A589A0 /* DateSelectViewController.m */,
-				A960805B2097EA7900A589A0 /* DateSelectViewController.xib */,
-				A9B535A22098C7C400EA543F /* StylesCollectionViewController.h */,
-				A9B535A32098C7C400EA543F /* StylesCollectionViewController.m */,
-				A9B535A42098C7C400EA543F /* StylesCollectionViewController.xib */,
-				A99EABC920ABC95800D7AC44 /* InvoiceStyleTableViewController.h */,
-				A99EABCA20ABC95800D7AC44 /* InvoiceStyleTableViewController.m */,
-				A99EABCB20ABC95800D7AC44 /* InvoiceStyleTableViewController.xib */,
-				A959F414209E2B8600B63DDC /* ExportSelectTableViewController.h */,
-				A959F415209E2B8600B63DDC /* ExportSelectTableViewController.m */,
-				A959F416209E2B8600B63DDC /* ExportSelectTableViewController.xib */,
-				A97299D120B4996F001975D7 /* HelpViewController.h */,
-				A97299D220B4996F001975D7 /* HelpViewController.m */,
-				A97299D320B4996F001975D7 /* HelpViewController.xib */,
-				A90415CF20BB6D20004D4508 /* CreditsViewController.h */,
-				A90415D020BB6D20004D4508 /* CreditsViewController.m */,
-				A90415D120BB6D20004D4508 /* CreditsViewController.xib */,
-			);
-			name = UIElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
