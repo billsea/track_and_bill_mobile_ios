@@ -623,16 +623,6 @@ if(_myProfile.show_invoice_header){
 															 _pageSize.width / 2 - kPadding * 2, 4)
 					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
 
-	NSString *checkNumber = [NSString
-			stringWithFormat:@"%@: %@", NSLocalizedString(@"check_num", nil),_selectedProject.invoices.check];
-	CGRect checkNumberRect =
-			[self addText:checkNumber
-					withFrame:CGRectMake(kMarginPadding,
-															 breakRect.origin.y + breakRect.size.height +
-																	 kPadding,
-															 _pageSize.width / 2 - kPadding * 2, 4)
-					 fontSize:InvoiceFontMedium andAlignment: NSTextAlignmentLeft];
-
 	// Totals column 2
 
 	NSString *tHours =
