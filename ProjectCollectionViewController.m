@@ -65,7 +65,7 @@ static NSString * const reuseIdentifier = @"DashboardCell";
 		[self displayAdBanner];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertController *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	switch (buttonIndex) {
 		case 1:
 			// invoice already set
